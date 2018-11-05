@@ -33,9 +33,68 @@ insert into school values('O1Q000','Cecyt 16 "Hidalgo"', 'MEDIO SUPERIOR', 1);
 insert into school values('O1R000','Cecyt 17 "León, Guanajuato"', 'MEDIO SUPERIOR', 1);
 insert into school values('O1J000','Cet 1 "Walter Cross Buchanan"', 'MEDIO SUPERIOR', 1);
 
+insert into guest values('HEMP610409', 1, 'Patricia', 'Hernández', 'Monsalvo', null, null, null, null, 'student','O1A000');
+insert into guest values('GARV801005', 2, 'Viridiana Karina', 'García', 'Romero', null, null, null, null, 'student','O1A000');
+insert into guest values('GUSV811105', 3, 'María Vianey', 'Gudiño', 'Sánchez', null, null, null, null, 'student','O1A000');
 
+insert into guest values('SADV700522', 4, 'Víctor Manuel', 'Salas', 'Domínguez', null, null, null, null, 'student','O1B000');
+insert into guest values('SAMJ740319', 5, 'Josefina', 'Sánchez', 'Monroy', null, null, null, null, 'student','O1B000');
+insert into guest values('EAGC770416', 6, 'Carolina', 'Estrada', 'García', null, null, null, null, 'student','O1B000');
 
+insert into guest values('CABM811007', 7, 'Mariana Elizabeth', 'Chávez', 'Benítez', null, null, null, null, 'student','O1C000');
+insert into guest values('JIMA610709', 8, 'Alejandra', 'Jiménez', 'Méndez', null, null, null, null, 'student','O1C000');
+insert into guest values('ROCL700110', 9, 'José Luis Tonatihu', 'Rojas', 'Castro', null, null, null, null, 'student','O1C000');
 
+insert into guest values('MASC731120', 10, 'Carolina', 'Mares', 'Sandoval', null, null, null, null, 'student','O1D000');
+insert into guest values('BOMJ600427', 11, 'Jesús Roberto', 'Bolivar', 'Meza', null, null, null, null, 'student','O1D000');
+insert into guest values('LOFT610501', 12, 'María Teresa', 'López', 'Flores', null, null, null, null, 'student','O1D000');
 
+insert into guest values('CACJ620311', 13, 'María Josefina', 'Campos', 'Cano', null, null, null, null, 'student','O1M000');
+insert into guest values('SIGG840712', 14, 'Gustavo Rodolfo', 'Shields', 'García', null, null, null, null, 'student','O1M000');
+insert into guest values('GUHE740114', 15, 'Erika', 'Gutiérrez', 'Hernández', null, null, null, null, 'student','O1M000');
 
+insert into guest values('GARJ640319', 16, 'Juan José', 'García', 'Rivera', null, null, null, null, 'student','O1K000');
+insert into guest values('SACC820315', 17, 'Catalina', 'Sánchez', 'Castillo', null, null, null, null, 'student','O1K000');
+insert into guest values('RUBM600910', 18, 'María Margarita', 'Ruíz', 'Badillo', null, null, null, null, 'student','O1K000');
 
+insert into guest values('PESL790811', 19, 'María de Lourdes', 'Peregrino', 'Sánchez', null, null, null, null, 'student','O1E000');
+insert into guest values('CICM700907', 20, 'María Mireya', 'Cristino', 'Castillo', null, null, null, null, 'student','O1E000');
+insert into guest values('NEEL730512', 21, 'Laura Alicia', 'Neyra', 'Estrada', null, null, null, null, 'student','O1E000');
+
+insert into guest values('OELE810505', 22, 'Edgar Josué', 'Ojeda', 'Layseca', null, null, null, null, 'student','O1F000');
+insert into guest values('BUAI920831', 23, 'Ismael', 'Bruno', 'Arellano', null, null, null, null, 'student','O1F000');
+insert into guest values('NAMJ870131', 24, 'Joaquín Alejandro', 'Nares', 'Miller', null, null, null, null, 'student','O1F000');
+
+insert into guest values('SUCA511123', 25, 'Armando', 'Suárez', 'Caudillo', null, null, null, null, 'student','O1G000');
+insert into guest values('MOMA530924', 26, 'Alfonso', 'Morales', 'Martínez', null, null, null, null, 'student','O1G000');
+insert into guest values('MORA640123', 27, 'Arturo', 'Moreno', 'Reyes', null, null, null, null, 'student','O1G000');
+
+insert into guest values('PAGC570307', 28, 'Clotilde', 'Prado', 'García', null, null, null, null, 'student','O1H000');
+insert into guest values('TOPE551216', 29, 'María Eugenia', 'Tome', 'Pérez', null, null, null, null, 'student','O1H000');
+
+insert into guest values('MAIU850513', 30, 'Uriel', 'Martínez', 'Islas', null, null, null, null, 'student','O1I000');
+insert into guest values('SAME770202', 31, 'María Esther', 'Sánchez', 'Marín', null, null, null, null, 'student','O1I000');
+insert into guest values('BEMG581122', 32, 'Gerardo', 'Bernal', 'Méndez', null, null, null, null, 'student','O1I000');
+
+insert into guest values('AISL760127', 33, 'Lizeth', 'Avilés', 'Sánchez', null, null, null, null, 'student','O1N000');
+insert into guest values('ROLP651211', 34, 'Pedro', 'Rodríguez', 'Luevano', null, null, null, null, 'student','O1N000');
+insert into guest values('GUDE820907', 35, 'Edgar René', 'Guzmán', 'Delgado', null, null, null, null, 'student','O1N000');
+
+insert into guest values('CAAG560830', 36, 'Guadencio', 'Camacho', 'Alvarado', null, null, null, null, 'student','O1O000');
+insert into guest values('OUFA850727', 37, 'Andrea Patricia', 'Olguín', 'Ferreira', null, null, null, null, 'student','O1O000');
+insert into guest values('RALT520821', 38, 'María Teresa', 'Ramírez', 'Landeros', null, null, null, null, 'student','O1O000');
+
+insert into guest values('AAMA580502', 39, 'José Antonio', 'Andrade', 'Morales', null, null, null, null, 'student','O1P000');
+insert into guest values('REIH830819', 40, 'Héctor Yair', 'Reyes', 'Izquierdo', null, null, null, null, 'student','O1P000');
+insert into guest values('AAAC670607', 41, 'Celia', 'Ayala', 'Arellano', null, null, null, null, 'student','O1P000');
+
+insert into guest values('AAMJ550319', 42, 'José Juan', 'Aljama', 'Moral', null, null, null, null, 'student','O1L000');
+insert into guest values('CAFJ811202', 43, 'Janet', 'Cadena', 'Flores', null, null, null, null, 'student','O1L000');
+insert into guest values('RORE650831', 44, 'Evangelina', 'Rojas', 'Rodríguez', null, null, null, null, 'student','O1L000');
+
+insert into guest values('SILL681102', 45, 'Luis Enrique', 'Sigler', 'Licona', null, null, null, null, 'student','O1R000');
+insert into guest values('BEHM730706', 46, 'Ma. Guadalupe del Carmen', 'Belmonte', 'Hernández', null, null, null, null, 'student','O1R000');
+
+insert into guest values('CUPS631212', 47, 'Sonia Elizabeth', 'Cruz', 'Pérez', null, null, null, null, 'student','O1J000');
+insert into guest values('ROAJ530902', 48, 'Juan', 'Romero', 'Amaya', null, null, null, null, 'student','O1J000');
+insert into guest values('RORR590111', 49, 'Rocío', 'Rodas', 'Ruíz', null, null, null, null, 'student','O1J000');
