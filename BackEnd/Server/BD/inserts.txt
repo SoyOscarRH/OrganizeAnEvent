@@ -14,87 +14,254 @@ PARA NUESTRA COMUNIDAD ES DE GRAN SATISFACCIÓN RECONOCER PÚBLICAMENTE LA LABOR
  
 CON LA ANUENCIA DE NUESTRAS AUTORIDADES, EN ESTE MOMENTO DAREMOS INICIO A LA ENTREGA DE DICHOS DIPLOMAS, PARA LO CUAL INVITAMOS A NUESTRO PRESIDIUM A PONERSE DE PIE PARA PROCEDER A LA ENTREGA CORRESPONDIENTE.', 221, 1);
 
-insert into school values('O1A000', 'Cecyt 1 "Gonzálo Vázquez Vela"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1B000', 'Cecyt 2 "Miguel Bernard"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1C000','Cecyt 3 "Estanislao Ramírez Ruíz"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1D000','Cecyt 4 "Lázaro Cárdenas"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1M000','Cecyt 5 "Benito Juárez"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1K000','Cecyt 6 "Miguel Othón de Mendizabal"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1E000','Cecyt 7 "Cuauhtémoc"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1F000','Cecyt 8 "Narciso Bassols"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1G000','Cecyt 9 "Juan de Dios Bátiz"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1H000','Cecyt 10 "Carlos Vallejo Márquez"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1I000','Cecyt 11 "Wilfrido Massieu"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1N000','Cecyt 12 "José María Morelos"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1O000','Cecyt 13 "Ricardo Flores Magón"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1P000','Cecyt 14 "Luis Enrique Erro"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1L000','Cecyt 15 "Diódoro Antúnez Echegaray"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1Q000','Cecyt 16 "Hidalgo"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1R000','Cecyt 17 "León, Guanajuato"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1J000','Cet 1 "Walter Cross Buchanan"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1A000','Centro de Estudios Científicos y Tecnológicos 1 "Gonzálo Vázquez Vela"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1B000','Centro de Estudios Científicos y Tecnológicos 2 "Miguel Bernard"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1C000','Centro de Estudios Científicos y Tecnológicos 3 "Estanislao Ramírez Ruíz"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1D000','Centro de Estudios Científicos y Tecnológicos 4 "Lázaro Cárdenas"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1M000','Centro de Estudios Científicos y Tecnológicos 5 "Benito Juárez"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1K000','Centro de Estudios Científicos y Tecnológicos 6 "Miguel Othón de Mendizabal"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1E000','Centro de Estudios Científicos y Tecnológicos 7 "Cuauhtémoc"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1F000','Centro de Estudios Científicos y Tecnológicos 8 "Narciso Bassols"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1G000','Centro de Estudios Científicos y Tecnológicos 9 "Juan de Dios Bátiz"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1H000','Centro de Estudios Científicos y Tecnológicos 10 "Carlos Vallejo Márquez"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1I000','Centro de Estudios Científicos y Tecnológicos 11 "Wilfrido Massieu"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1N000','Centro de Estudios Científicos y Tecnológicos 12 "José María Morelos"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1O000','Centro de Estudios Científicos y Tecnológicos 13 "Ricardo Flores Magón"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1P000','Centro de Estudios Científicos y Tecnológicos 14 "Luis Enrique Erro"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1L000','Centro de Estudios Científicos y Tecnológicos 15 "Diódoro Antúnez Echegaray"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1Q000','Centro de Estudios Científicos y Tecnológicos 16 "Hidalgo"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1R000','Centro de Estudios Científicos y Tecnológicos 17 "León, Guanajuato"', 'MEDIO SUPERIOR', 1);
+insert into school values('O1J000','Centro de Estudios Tecnológicos 1 "Walter Cross Buchanan"', 'MEDIO SUPERIOR', 1);
 
-insert into guest values('HEMP610409', 1, 'Patricia', 'Hernández', 'Monsalvo', null, null, null, null, 'student','O1A000');
-insert into guest values('GARV801005', 2, 'Viridiana Karina', 'García', 'Romero', null, null, null, null, 'student','O1A000');
-insert into guest values('GUSV811105', 3, 'María Vianey', 'Gudiño', 'Sánchez', null, null, null, null, 'student','O1A000');
+insert into school values('O2D000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Zacatenco', 'SUPERIOR', 1);
+insert into school values('O2B000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Culhuacán', 'SUPERIOR', 1);
+insert into school values('O2A000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Azcapotzalco', 'SUPERIOR', 1);
+insert into school values('O2C000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Ticomán', 'SUPERIOR', 1);
+insert into school values('O2G000','Escuela Superior de Ingeniería y Arquitectura Unidad Zacatenco', 'SUPERIOR', 1);
+insert into school values('O2E000','Escuela Superior de Ingeniería y Arquitectura Unidad Tecamachalco', 'SUPERIOR', 1);
+insert into school values('O2F000','Escuela Superior de Ingeniería y Arquitectura Unidad Ticomán', 'SUPERIOR', 1);
+insert into school values('O2H000','Escuela Superior de Ingeniería Textil', 'SUPERIOR', 1);
+insert into school values('O2I000','Escuela Superior de Ingeniería Química e Industrias Extractivas', 'SUPERIOR', 1);
+insert into school values('O2J000','Escuela Superior de Física y Matemáticas', 'SUPERIOR', 1);
+insert into school values('O2K000','Escuela Superior de Computación', 'SUPERIOR', 1);
+insert into school values('O2M000','Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas', 'SUPERIOR', 1);
+insert into school values('O2L000','Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas', 'SUPERIOR', 1);
+insert into school values('O2N000','Unidad Profesional Interdisciplinaria de Biotecnología', 'SUPERIOR', 1);
+insert into school values('O2Y000','Unidad Profesional Interdisciplinaria de Ingeniería Campus Guanajuato', 'SUPERIOR', 1);
+insert into school values('O2Z000','Unidad Profesional Interdisciplinaria de Ingeniería Campus Zacatecas', 'SUPERIOR', 1);
+insert into school values('O2P000','Escuela Nacional de Ciencias Biológicas', 'SUPERIOR', 1);
+insert into school values('O2Q000','Escuela Superior de Medicina', 'SUPERIOR', 1);
+insert into school values('O2O000','Escuela Nacional de Medicina y Homeopatía', 'SUPERIOR', 1);
+insert into school values('O2R000','Escuela Superior de Enfermería y Obstetricia', 'SUPERIOR', 1);
+insert into school values('O2T000','Centro Interdisciplinario de Ciencias de la Salud Unidad Santo Tomás', 'SUPERIOR', 1);
+insert into school values('O2S000','Centro Interdisciplinario de Ciencias de la Salud Unidad Milpa Alta', 'SUPERIOR', 1);
+insert into school values('O2U000','Escuela Superior de Comercio y Administración Unidad Santo Tomás', 'SUPERIOR', 1);
+insert into school values('O2V000','Escuela Superior de Comercio y Administración Unidad Tepepan', 'SUPERIOR', 1);
+insert into school values('O2W000','Escuela Superior de Economía', 'SUPERIOR', 1);
+insert into school values('O2X000','Escuela Superior de Turismo', 'SUPERIOR', 1);
 
-insert into guest values('SADV700522', 4, 'Víctor Manuel', 'Salas', 'Domínguez', null, null, null, null, 'student','O1B000');
-insert into guest values('SAMJ740319', 5, 'Josefina', 'Sánchez', 'Monroy', null, null, null, null, 'student','O1B000');
-insert into guest values('EAGC770416', 6, 'Carolina', 'Estrada', 'García', null, null, null, null, 'student','O1B000');
+insert into school values('P0A000','Centro Interdisciplinario de Ciencias Marinas', 'POSGRADO', 1);
+insert into school values('P0C000','Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional Unidad Durango', 'POSGRADO', 1);
+insert into school values('P0F000','Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional Unidad Oaxaca', 'POSGRADO', 1);
+insert into school values('P0L000','Centro de Investigación en Computación', 'POSGRADO', 1);
+insert into school values('P0N000','Centro de Investigaciones Económicas, Administrativas y Sociales', 'POSGRADO', 1);
+insert into school values('P0H000','Centro de Biotecnología Genómica', 'POSGRADO', 1);
+insert into school values('P0I000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Legaria', 'POSGRADO', 1);
+insert into school values('P0K000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Querétaro', 'POSGRADO', 1);
+insert into school values('P0J000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Altamira', 'POSGRADO', 1);
+insert into school values('P0M000','Centro de Investigación y Desarrollo de Tecnología Digital', 'POSGRADO', 1);
+insert into school values('P0Q000','Centro de Investigación e Innovación Tecnológica', 'POSGRADO', 1);
+insert into school values('P0P000','Centro de Innovación y Desarrollo Tecnológico en Computo', 'POSGRADO', 1);
+insert into school values('P0T000','Centro de Nanociencias y Micro y Nanotecnologías', 'POSGRADO', 1);
 
-insert into guest values('CABM811007', 7, 'Mariana Elizabeth', 'Chávez', 'Benítez', null, null, null, null, 'student','O1C000');
-insert into guest values('JIMA610709', 8, 'Alejandra', 'Jiménez', 'Méndez', null, null, null, null, 'student','O1C000');
-insert into guest values('ROCL700110', 9, 'José Luis Tonatihu', 'Rojas', 'Castro', null, null, null, null, 'student','O1C000');
+insert into school values('L10000','Dirección de Cómputo y Comunicaciones', 'ADMINISTRACIÓN', 1);
 
-insert into guest values('MASC731120', 10, 'Carolina', 'Mares', 'Sandoval', null, null, null, null, 'student','O1D000');
-insert into guest values('BOMJ600427', 11, 'Jesús Roberto', 'Bolivar', 'Meza', null, null, null, null, 'student','O1D000');
-insert into guest values('LOFT610501', 12, 'María Teresa', 'López', 'Flores', null, null, null, null, 'student','O1D000');
+insert into school values('R5D000','Centro de Educación Contínua Unidad Culiacán', 'CENTRO', 1);
+insert into school values('R5M000','Centro de Educación Contínua Unidad Durango', 'CENTRO', 1);
+insert into school values('R5E000','Centro de Educación Contínua Unidad Los Mochis', 'CENTRO', 1);
+insert into school values('R5K000','Centro de Educación Contínua Unidad Tijuana', 'CENTRO', 1);
 
-insert into guest values('CACJ620311', 13, 'María Josefina', 'Campos', 'Cano', null, null, null, null, 'student','O1M000');
-insert into guest values('SIGG840712', 14, 'Gustavo Rodolfo', 'Shields', 'García', null, null, null, null, 'student','O1M000');
-insert into guest values('GUHE740114', 15, 'Erika', 'Gutiérrez', 'Hernández', null, null, null, null, 'student','O1M000');
+insert into guest values('HEMP610409', 1, 'Patricia', 'Hernández', 'Monsalvo', null, null, null, null,'O1A000');
+insert into guest values('GARV801005', 2, 'Viridiana Karina', 'García', 'Romero', null, null, null, null,'O1A000');
+insert into guest values('GUSV811105', 3, 'María Vianey', 'Gudiño', 'Sánchez', null, null, null, null,'O1A000');
 
-insert into guest values('GARJ640319', 16, 'Juan José', 'García', 'Rivera', null, null, null, null, 'student','O1K000');
-insert into guest values('SACC820315', 17, 'Catalina', 'Sánchez', 'Castillo', null, null, null, null, 'student','O1K000');
-insert into guest values('RUBM600910', 18, 'María Margarita', 'Ruíz', 'Badillo', null, null, null, null, 'student','O1K000');
+insert into guest values('SADV700522', 4, 'Víctor Manuel', 'Salas', 'Domínguez', null, null, null, null,'O1B000');
+insert into guest values('SAMJ740319', 5, 'Josefina', 'Sánchez', 'Monroy', null, null, null, null,'O1B000');
+insert into guest values('EAGC770416', 6, 'Carolina', 'Estrada', 'García', null, null, null, null,'O1B000');
 
-insert into guest values('PESL790811', 19, 'María de Lourdes', 'Peregrino', 'Sánchez', null, null, null, null, 'student','O1E000');
-insert into guest values('CICM700907', 20, 'María Mireya', 'Cristino', 'Castillo', null, null, null, null, 'student','O1E000');
-insert into guest values('NEEL730512', 21, 'Laura Alicia', 'Neyra', 'Estrada', null, null, null, null, 'student','O1E000');
+insert into guest values('CABM811007', 7, 'Mariana Elizabeth', 'Chávez', 'Benítez', null, null, null, null,'O1C000');
+insert into guest values('JIMA610709', 8, 'Alejandra', 'Jiménez', 'Méndez', null, null, null, null,'O1C000');
+insert into guest values('ROCL700110', 9, 'José Luis Tonatihu', 'Rojas', 'Castro', null, null, null, null,'O1C000');
 
-insert into guest values('OELE810505', 22, 'Edgar Josué', 'Ojeda', 'Layseca', null, null, null, null, 'student','O1F000');
-insert into guest values('BUAI920831', 23, 'Ismael', 'Bruno', 'Arellano', null, null, null, null, 'student','O1F000');
-insert into guest values('NAMJ870131', 24, 'Joaquín Alejandro', 'Nares', 'Miller', null, null, null, null, 'student','O1F000');
+insert into guest values('MASC731120', 10, 'Carolina', 'Mares', 'Sandoval', null, null, null, null,'O1D000');
+insert into guest values('BOMJ600427', 11, 'Jesús Roberto', 'Bolivar', 'Meza', null, null, null, null,'O1D000');
+insert into guest values('LOFT610501', 12, 'María Teresa', 'López', 'Flores', null, null, null, null,'O1D000');
 
-insert into guest values('SUCA511123', 25, 'Armando', 'Suárez', 'Caudillo', null, null, null, null, 'student','O1G000');
-insert into guest values('MOMA530924', 26, 'Alfonso', 'Morales', 'Martínez', null, null, null, null, 'student','O1G000');
-insert into guest values('MORA640123', 27, 'Arturo', 'Moreno', 'Reyes', null, null, null, null, 'student','O1G000');
+insert into guest values('CACJ620311', 13, 'María Josefina', 'Campos', 'Cano', null, null, null, null,'O1M000');
+insert into guest values('SIGG840712', 14, 'Gustavo Rodolfo', 'Shields', 'García', null, null, null, null,'O1M000');
+insert into guest values('GUHE740114', 15, 'Erika', 'Gutiérrez', 'Hernández', null, null, null, null,'O1M000');
 
-insert into guest values('PAGC570307', 28, 'Clotilde', 'Prado', 'García', null, null, null, null, 'student','O1H000');
-insert into guest values('TOPE551216', 29, 'María Eugenia', 'Tome', 'Pérez', null, null, null, null, 'student','O1H000');
+insert into guest values('GARJ640319', 16, 'Juan José', 'García', 'Rivera', null, null, null, null,'O1K000');
+insert into guest values('SACC820315', 17, 'Catalina', 'Sánchez', 'Castillo', null, null, null, null,'O1K000');
+insert into guest values('RUBM600910', 18, 'María Margarita', 'Ruíz', 'Badillo', null, null, null, null,'O1K000');
 
-insert into guest values('MAIU850513', 30, 'Uriel', 'Martínez', 'Islas', null, null, null, null, 'student','O1I000');
-insert into guest values('SAME770202', 31, 'María Esther', 'Sánchez', 'Marín', null, null, null, null, 'student','O1I000');
-insert into guest values('BEMG581122', 32, 'Gerardo', 'Bernal', 'Méndez', null, null, null, null, 'student','O1I000');
+insert into guest values('PESL790811', 19, 'María de Lourdes', 'Peregrino', 'Sánchez', null, null, null, null,'O1E000');
+insert into guest values('CICM700907', 20, 'María Mireya', 'Cristino', 'Castillo', null, null, null, null,'O1E000');
+insert into guest values('NEEL730512', 21, 'Laura Alicia', 'Neyra', 'Estrada', null, null, null, null,'O1E000');
 
-insert into guest values('AISL760127', 33, 'Lizeth', 'Avilés', 'Sánchez', null, null, null, null, 'student','O1N000');
-insert into guest values('ROLP651211', 34, 'Pedro', 'Rodríguez', 'Luevano', null, null, null, null, 'student','O1N000');
-insert into guest values('GUDE820907', 35, 'Edgar René', 'Guzmán', 'Delgado', null, null, null, null, 'student','O1N000');
+insert into guest values('OELE810505', 22, 'Edgar Josué', 'Ojeda', 'Layseca', null, null, null, null,'O1F000');
+insert into guest values('BUAI920831', 23, 'Ismael', 'Bruno', 'Arellano', null, null, null, null,'O1F000');
+insert into guest values('NAMJ870131', 24, 'Joaquín Alejandro', 'Nares', 'Miller', null, null, null, null,'O1F000');
 
-insert into guest values('CAAG560830', 36, 'Guadencio', 'Camacho', 'Alvarado', null, null, null, null, 'student','O1O000');
-insert into guest values('OUFA850727', 37, 'Andrea Patricia', 'Olguín', 'Ferreira', null, null, null, null, 'student','O1O000');
-insert into guest values('RALT520821', 38, 'María Teresa', 'Ramírez', 'Landeros', null, null, null, null, 'student','O1O000');
+insert into guest values('SUCA511123', 25, 'Armando', 'Suárez', 'Caudillo', null, null, null, null,'O1G000');
+insert into guest values('MOMA530924', 26, 'Alfonso', 'Morales', 'Martínez', null, null, null, null,'O1G000');
+insert into guest values('MORA640123', 27, 'Arturo', 'Moreno', 'Reyes', null, null, null, null,'O1G000');
 
-insert into guest values('AAMA580502', 39, 'José Antonio', 'Andrade', 'Morales', null, null, null, null, 'student','O1P000');
-insert into guest values('REIH830819', 40, 'Héctor Yair', 'Reyes', 'Izquierdo', null, null, null, null, 'student','O1P000');
-insert into guest values('AAAC670607', 41, 'Celia', 'Ayala', 'Arellano', null, null, null, null, 'student','O1P000');
+insert into guest values('PAGC570307', 28, 'Clotilde', 'Prado', 'García', null, null, null, null,'O1H000');
+insert into guest values('TOPE551216', 29, 'María Eugenia', 'Tome', 'Pérez', null, null, null, null,'O1H000');
 
-insert into guest values('AAMJ550319', 42, 'José Juan', 'Aljama', 'Moral', null, null, null, null, 'student','O1L000');
-insert into guest values('CAFJ811202', 43, 'Janet', 'Cadena', 'Flores', null, null, null, null, 'student','O1L000');
-insert into guest values('RORE650831', 44, 'Evangelina', 'Rojas', 'Rodríguez', null, null, null, null, 'student','O1L000');
+insert into guest values('MAIU850513', 30, 'Uriel', 'Martínez', 'Islas', null, null, null, null,'O1I000');
+insert into guest values('SAME770202', 31, 'María Esther', 'Sánchez', 'Marín', null, null, null, null,'O1I000');
+insert into guest values('BEMG581122', 32, 'Gerardo', 'Bernal', 'Méndez', null, null, null, null,'O1I000');
 
-insert into guest values('SILL681102', 45, 'Luis Enrique', 'Sigler', 'Licona', null, null, null, null, 'student','O1R000');
-insert into guest values('BEHM730706', 46, 'Ma. Guadalupe del Carmen', 'Belmonte', 'Hernández', null, null, null, null, 'student','O1R000');
+insert into guest values('AISL760127', 33, 'Lizeth', 'Avilés', 'Sánchez', null, null, null, null,'O1N000');
+insert into guest values('ROLP651211', 34, 'Pedro', 'Rodríguez', 'Luevano', null, null, null, null,'O1N000');
+insert into guest values('GUDE820907', 35, 'Edgar René', 'Guzmán', 'Delgado', null, null, null, null,'O1N000');
 
-insert into guest values('CUPS631212', 47, 'Sonia Elizabeth', 'Cruz', 'Pérez', null, null, null, null, 'student','O1J000');
-insert into guest values('ROAJ530902', 48, 'Juan', 'Romero', 'Amaya', null, null, null, null, 'student','O1J000');
-insert into guest values('RORR590111', 49, 'Rocío', 'Rodas', 'Ruíz', null, null, null, null, 'student','O1J000');
+insert into guest values('CAAG560830', 36, 'Guadencio', 'Camacho', 'Alvarado', null, null, null, null,'O1O000');
+insert into guest values('OUFA850727', 37, 'Andrea Patricia', 'Olguín', 'Ferreira', null, null, null, null,'O1O000');
+insert into guest values('RALT520821', 38, 'María Teresa', 'Ramírez', 'Landeros', null, null, null, null,'O1O000');
+
+insert into guest values('AAMA580502', 39, 'José Antonio', 'Andrade', 'Morales', null, null, null, null,'O1P000');
+insert into guest values('REIH830819', 40, 'Héctor Yair', 'Reyes', 'Izquierdo', null, null, null, null,'O1P000');
+insert into guest values('AAAC670607', 41, 'Celia', 'Ayala', 'Arellano', null, null, null, null,'O1P000');
+
+insert into guest values('AAMJ550319', 42, 'José Juan', 'Aljama', 'Moral', null, null, null, null,'O1L000');
+insert into guest values('CAFJ811202', 43, 'Janet', 'Cadena', 'Flores', null, null, null, null,'O1L000');
+insert into guest values('RORE650831', 44, 'Evangelina', 'Rojas', 'Rodríguez', null, null, null, null,'O1L000');
+
+insert into guest values('SILL681102', 45, 'Luis Enrique', 'Sigler', 'Licona', null, null, null, null,'O1R000');
+insert into guest values('BEHM730706', 46, 'Ma. Guadalupe del Carmen', 'Belmonte', 'Hernández', null, null, null, null,'O1R000');
+
+insert into guest values('CUPS631212', 47, 'Sonia Elizabeth', 'Cruz', 'Pérez', null, null, null, null,'O1J000');
+insert into guest values('ROAJ530902', 48, 'Juan', 'Romero', 'Amaya', null, null, null, null,'O1J000');
+insert into guest values('RORR590111', 49, 'Rocío', 'Rodas', 'Ruíz', null, null, null, null,'O1J000');
+
+insert into guest (number, firstName, middleName, lastName, rfc, seat, email, assistance, representative, school) values 
+(50,	'Ma. Victoria', 'Rafael', 'Valdivia', 'RAVM650728', null, null, null, null, 'O2D000'),
+(51, 'Ana Laura', 'Villalpando', 'Nava',	'VINA780922', null, null, null, null, 'O2D000'),
+
+(52, 'Víctor Alejandro', 'Banderas', 'Mérida', 'BAMV840328', null, null, null, null, 'O2B000'),
+(53, 'Magdalena', 'Reyes', 'García',	'REGM590502', null, null, null, null, 'O2B000'),
+
+(54, 'Ivonne', 'Romo', 'Hernández',	'ROHI710319', null, null, null, null, 'O2A000'),
+
+(55, 'Patricia', 'Cervantes', 'Pérez', 'CEPP650317', null, null, null, null, 'O2C000'),
+(56, 'Ana María', 'Almanza', 'Zendejas',	'AAZA700603', null, null, null, null, 'O2C000'),
+(57, 'Claudia', 'Ramírez', 'Brassetti',	'RABC690320', null, null, null, null, 'O2C000'),
+
+(58, 'Adolfo', 'Gómez', 'Flores', 'GOFA671026', null, null, null, null, 'O2G000'),
+(59, 'Rosario Angélica', 'Zavala', 'Candelaria',	'ZACR760228', null, null, null, null, 'O2G000'),
+(60, 'Edith Yuliana', 'Amador', 'López',	'AALE860922', null, null, null, null, 'O2G000'),
+
+(61, 'Adaluz', 'López', 'Ángeles', 'LOAA770303', null, null, null, null, 'O2E000'),
+(62, 'Victor', 'Sandoval', 'Lobato',	'SALV610526', null, null, null, null, 'O2E000'),
+(63, 'Cornelio', 'Romero', 'Cruz', 'ROCC730916', null, null, null, null, 'O2E000'),
+
+(64, 'Jorge Alberto', 'Gutiérrez', 'Ramírez', 'GURJ720122', null, null, null, null, 'O2F000'),
+(65, 'Ana Aurora', 'Montoya', 'Ramírez',	'MORA740726', null, null, null, null, 'O2F000'),
+(66, 'Alfredo', 'Torres', 'García', 'TOGA770224', null, null, null, null, 'O2F000'),
+
+(67, 'Carlos', 'Aguilar', 'López', 'AULC650915', null, null, null, null, 'O2H000'),
+(68, 'Isidro', 'Castillo', 'Bautista', 'CABI750704', null, null, null, null, 'O2H000'),
+(69, 'Juana Leydy Yadira', 'Duarte', 'Mena', 'DUMJ520111', null, null, null, null, 'O2H000'),
+
+(70, 'Nayeli', 'Caballero', 'Cerpa',	'CACN810816', null, null, null, null, 'O2I000'),
+(71, 'Joselito Abilio', 'de Jesús', 'Herrera', 'JEHJ620923', null, null, null, null, 'O2I000'),
+
+(72, 'Luis Francisco', 'Rodríguez', 'Hernández',	'ROHL720825', null, null, null, null, 'O2J000'),
+(73, 'María Patricia', 'Godínez', 'Pavón', 'GOPP651210', null, null, null, null, 'O2J000'),
+(74, 'José Isaías', 'Enríquez', 'Vicente', 'EIVI600524', null, null, null, null, 'O2J000'),
+
+(75, 'Alma Delia', 'Morán', 'Ruíz', 'MORA621123', null, null, null, null, 'O2K000'),
+(76, 'Itzel Marisol', 'Hernández', 'Luis', 'HELI891227', null, null, null, null, 'O2K000'),
+(77, 'Dalia', 'Martínez', 'Próspero', 'MAPD850325', null, null, null, null, 'O2K000'),
+
+(78, 'Ana Laura', 'Hernández', 'Medina',	'HEMA760104', null, null, null, null, 'O2M000'),
+
+(79, 'Héctor', 'Peña', 'Domínguez', 'PEDH721121', null, null, null, null, 'O2L000'),
+(80, 'José Claudio', 'Chávez', 'Jiménez', 'CAJC500324', null, null, null, null, 'O2L000'),
+(81, 'Pablo Ricardo', 'Martínez', 'Téllez', 'MATP810925', null, null, null, null, 'O2L000'),
+
+(82, 'Francisco Javier', 'Torres', 'Argüelles', 'TOAF601224', null, null, null, null, 'O2N000'),
+(83, 'Francisco Alejandro', 'Ríos', 'Coria',	'RICF720523', null, null, null, null, 'O2N000'),
+(84, 'Isabel Angélica', 'Gayosso', 'de la Cruz',	'GACI730704', null, null, null, null, 'O2N000'),
+(85 ,'Claudia del Carmen', 'Mendoza', 'Delgado',	'MEDC870705', null, null, null, null, 'O2Y000'),
+(86	,'Jesús', 'Franco', 'Gómez',	'FAGJ781015', null, null, null, null, 'O2Y000'),
+(87	,'María Monserrat', 'Neria', 'Reyes',	'NERM870525', null, null, null, null, 'O2Z000'),
+(88	,'Francisco', 'Juanes', 'Loera',	'JULF841004', null, null, null, null, 'O2Z000'),
+(89	,'Adolfo', 'Cabrera', 'López',	'CALA700920', null, null, null, null, 'O2P000'),
+(90	,'Gloria', 'Tovar', 'Rojo',	'TORG630413', null, null, null, null, 'O2P000'),
+(91	,'Corina', 'López', 'Rangel',	'LORC630708', null, null, null, null, 'O2P000'),
+(92	,'Eduardo', 'Torres', 'Buenrostro',	'TOBE620920', null, null, null, null, 'O2Q000'),
+(93	,'Cesar Miguel', 'Mejía', 'Barradas',	'MEBC660713', null, null, null, null, 'O2Q000'),
+(94	,'María Beatriz', 'Sánchez', 'Estrada',	'SAEB601008', null, null, null, null, 'O2Q000'),
+(95	,'Felipe', 'González', 'Pérez',	'GOPF630603', null, null, null, null, 'O2O000'),
+(96	,'Edgar', 'Hurtado', 'Ávila',	'HUAE800531', null, null, null, null, 'O2O000'),
+(97	,'Luz María', 'Sánchez', 'Martínez',	'SAML711230', null, null, null, null, 'O2O000'),
+(98	,'Daniel', 'Álvarez', 'Fuentes',	'AAFD851118', null, null, null, null, 'O2R000'),
+(99	,'Marcelino', 'Guzmán', 'Gallardo',	'GUGM570426', null, null, null, null, 'O2R000'),
+(100,'Epifanio Donato', 'Barbabosa', 'Beltrán',	'BABE570407', null, null, null, null, 'O2R000'),
+(101,'Ramón', 'Herrera', 'Segovia',	'HESR530831', null, null, null, null, 'O2T000'),
+(102,'Ana Montserrat', 'Romero', 'Paredes',	'ROPA880429', null, null, null, null, 'O2T000'),
+(103,'Hilda', 'Banda', 'Hernández',	'BAHH520810', null, null, null, null, 'O2T000'),
+(104,'Gustavo', 'Galicia', 'Xolalpa',	'GAXG691204', null, null, null, null, 'O2S000'),
+(105,'Annel', 'Galicia', 'San Miguel',	'GASA810421', null, null, null, null, 'O2S000'),
+(106,'Karina Vianey', 'Vergara', 'Camacho',	'VECK781228', null, null, null, null, 'O2S000'),
+(107,'María del Rosario', 'Nájera', 'Ramírez',	'NARR700417', null, null, null, null, 'O2U000'),
+(108,'Mario Iván', 'González', 'Abad',	'GOAM910530', null, null, null, null, 'O2U000'),
+(109,'Francisco Javier', 'Sánchez', 'Romero',	'SARF761129', null, null, null, null, 'O2U000'),
+(110,'Norma Alicia', 'Caltenco', 'Arceo',	'CAAN800412', null, null, null, null, 'O2V000'),
+(111,'Yolanda', 'Gutiérrez', 'Cárdenas',	'GUCY710615', null, null, null, null, 'O2V000'),
+(112,'José Juan', 'Cruz', 'Durán', 'CUDJ700330', null, null, null, null, 'O2V000'),
+(113,'María Francisca', 'Flores', 'Bárcenas', 'FOBF680603', null, null, null, null, 'O2W000'),
+(114,'María Alma', 'Benitez', 'Juárez',	'BEJA641207', null, null, null, null, 'O2W000'),
+(115,'Martha', 'Hernández', 'Iturriaga', 'HEIM680226', null, null, null, null, 'O2W000'),
+(116,'Norma Angélica', 'Pérez', 'Moctezuma', 'PEMN701116', null, null, null, null, 'O2X000'),
+(117,'Jaime Ernesto', 'García', 'Jiménez',	'GAJJ611026', null, null, null, null, 'O2X000'),
+(118,'Javier', 'Galván', 'Chávez',	'GACJ590822', null, null, null, null, 'O2X000'),
+(119,'César Servando', 'Casas', 'Núñez',	'CANC800416', null, null, null, null, 'P0A000'),
+(120,'Nereyda', 'Guadalupe', 'Ibarra',	'IANE820517', null, null, null, null, 'P0A000'),
+(121,'Ubaldo', 'Hernández', 'Gutiérrez',	'HEGU731014', null, null, null, null, 'P0A000'),
+(122,'María de Lourdes', 'García', 'López',	'GALL661221', null, null, null, null, 'P0C000'),
+(123,'Flor Isela', 'Retana', 'Rentería', 'RERF841114', null, null, null, null, 'P0C000'),
+(124,'Jorge', 'Noriega', 'Villa', 'NOVJ720424', null, null, null, null, 'P0C000'),
+(125,'Álvaro', 'Martínez', 'Reyes',	'MARA810111', null, null, null, null, 'P0F000'),
+(126,'Raquel', 'Ramón', 'Sosa', 'RASR710510', null, null, null, null, 'P0F000'),
+(127,'Roberto Antonio', 'Guzmán', 'León', 'GULR860123', null, null, null, null, 'P0F000'),
+(128,'Jorge Ivan', 'Carrillo', 'Tellez', 'CATJ800217', null, null, null, null, 'P0L000'),
+(129,'Elda', 'Baranda', 'Esquivel',	'BAEE770115', null, null, null, null, 'P0L000'),
+(130,'Irene', 'Plata', 'Monroy', 'PAMI691010', null, null, null, null, 'P0N000'),
+(131,'Luis', 'Rizo', 'Ruíz', 'RIRL780924', null, null, null, null, 'P0N000'),
+(132,'Pablo', 'Cabrera', 'Alvarado', 'CAAP690310', null, null, null, null, 'P0H000'),
+(133,'Esthela', 'Moreno', 'Chapa',	'MOCE800511', null, null, null, null, 'P0H000'),
+(134,'María del Carmen', 'Quiroz', 'Herrera', 'QUHC650913', null, null, null, null, 'P0H000'),
+(135,'Artemio', 'González', 'Zamudio',	'GOZA600901', null, null, null, null, 'P0I000'),
+(136,'Arturo', 'Méndez', 'Romero',	'MERA550906', null, null, null, null, 'P0I000'),
+(137,'Gabino', 'Martínez', 'Pérez',	'MAPG741025', null, null, null, null, 'P0I000'),
+(138,'María de Lourdes', 'Galicia', 'Galicia',	'GAGL620822', null, null, null, null, 'P0K000'),
+(139,'María de Lourdes', 'Correa', 'Saldaña',	'COSL680114', null, null, null, null, 'P0K000'),
+(140,'Elías', 'Gutiérrez', 'Páramo',	'GUPE640521', null, null, null, null, 'P0K000'),
+(141,'Aida', 'Cruz', 'Vega', 'CUVA600612', null, null, null, null, 'P0J000'),
+(142,'José', 'López', 'Ríos', 'LORJ690319', null, null, null, null, 'P0M000'),
+(143,'María Martha', 'García', 'Coronado',	'GACM710712', null, null, null, null, 'P0M000'),
+(144,'Verónica', 'Medina', 'Corral', 'MECV841214', null, null, null, null, 'P0M000'),
+(145,'Dulce María', 'Juárez', 'Banda',	'JUBD720623', null, null, null, null, 'P0Q000'),
+(146,'José Federico', 'Sánchez', 'Sosa', 'SASF660302', null, null, null, null, 'P0Q000'),
+(147,'Teresita', 'Cardona', 'Juárez', 'CAJT580925', null, null, null, null, 'P0Q000'),
+(148,'Juan Manuel', 'Guzmán', 'Salas',	'GUSJ751114', null, null, null, null, 'P0P000'),
+(149,'Joel', 'Toledo', 'Molano', 'TOMJ650420', null, null, null, null, 'P0P000'),
+(150,'Edith Berenitze', 'Calvillo', 'Ramirez',	'CARE870706', null, null, null, null, 'P0T000'),
+(151,'Jazmín', 'Guerra', 'Alcántara', 'GUAJ850112', null, null, null, null, 'L10000'),
+(152,'Luis Paul', 'Gutiérrez', 'Hernández',	'GUHL810712', null, null, null, null, 'L10000'),
+(153,'María Magdalena', 'Martínez', 'Carrillo',	'MACM640411', null, null, null, null, 'L10000');
