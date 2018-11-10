@@ -1,37 +1,55 @@
+/*EXPORT FROM MySQL:
 cd C:\Program Files\MySQL\MySQL Server 5.7\bin
-mysqldump -u root -p oae > C:\wamp64\www\OrganizeAnEvent\BackEnd\Server\BD\oae.sql
+mysqldump -u root -p oae > C:\wamp64\www\OrganizeAnEvent\BackEnd\DataBase\CompleteData.sql*/
 
+USE oae;
+
+/* ===========================================================================
+ * =================             INITIAL DATA          =======================
+ * ===========================================================================
+ */
+
+/* ======================================================
+* =================    EVENTS     =======================
+* =======================================================
+*/
 insert into event values(1, 'DISTINCIONES AL MÉRITO POLITÉCNICO 2018', null, null, 'LAS DISTINCIONES AL MÉRITO POLITÉCNICO SON EL RECONOCIMIENTO QUE HACE LA COMUNIDAD POLITÉCNICA A UNA CONDUCTA, TRAYECTORIA, SERVICIO O ACCIÓN EJEMPLAR, SOBRESALIENTE, QUE HAYA TENIDO POR OBJETO EXHALTAR EL PRESTIGIO DEL INSTITUTO POLITÉCNICO NACIONAL, PARA APOYAR LA REALIZACIÓN DE SUS FINALIDADES: IMPULSAR EL DESARROLLO DE LA EDUCACIÓN TÉCNICA EN EL PAÍS O BENEFICIAR A LA HUMANIDAD.
 
 EN ESTA OCASIÓN EL CONSEJO GENERAL CONSULTIVO HA DECIDIDO OTORGAR 
 ');
 
+/* ======================================================
+* =================    INSTITUTES    ====================
+* =======================================================
+*/
 insert into institute values(1, 'INSTITUTO POLITÉCNICO NACIONAL', 1);
 insert into institute values(2, 'UNIVERSIDAD AUTÓNOMA DE MÉXICO', null);
 
 
-
+/* ======================================================
+* =================    PRIZES     =======================
+* =======================================================
+*/
 insert into prize values (1, 'DIPLOMA A LA "EFICIENCIA Y EFICACIA"', 1, 'EL DIPLOMA A LA “EFICIENCIA Y EFICACIA” SE OTORGA AL PERSONAL DE APOYO Y ASISTENCIA A LA EDUCACIÓN QUE, POR RECONOCIDOS Y MERITORIOS SERVICIOS AL INSTITUTO, SE HA DISTINGUIDO EN EL DESEMPEÑO DE SUS LABORES.
  
 PARA NUESTRA COMUNIDAD ES DE GRAN SATISFACCIÓN RECONOCER PÚBLICAMENTE LA LABOR CONSTANTE Y CONSCIENTE QUE LOS COMPAÑEROS DESEMPEÑAN EN SU VIDA LABORAL.
  
 CON LA ANUENCIA DE NUESTRAS AUTORIDADES, EN ESTE MOMENTO DAREMOS INICIO A LA ENTREGA DE DICHOS DIPLOMAS, PARA LO CUAL INVITAMOS A NUESTRO PRESIDIUM A PONERSE DE PIE PARA PROCEDER A LA ENTREGA CORRESPONDIENTE.', 221, 1);
-
 insert into prize values(2, 'DIPLOMA DE MAESTRO EMÉRITO', 1, 'Que se otorga a los profesores e investigadores que habiéndose retirado o jubilado, se hubieran distinguido por su relevante labor docente o de investigación en el Instituto y que hayan prestado sus servicios en éste cuando menos durante veinticinco años.
 
 CON LA ANUENCIA DE NUESTRAS AUTORIDADES EN ESTE MOMENTO RECIBE TAL DISTINCIÓN...
 ', 1, 1);
-
 insert into prize values(3, 'DIPLOMA DE MAESTRO DECANO', 1, 'Para elegir al candidato de esta distinción, se deberá considerar además de la antigüedad del maestro, su trayectoria y aportaciones realizadas al Instituto, se otorgará al profesor que haya sido electo decano por el Consejo Técnico Consultivo Escolar. Reciben esta distinción:', 4, 1);
-
 insert into prize values(4, 'DIPLOMA A LA INVESTIGACIÓN', 1, 'Este diploma se otorga a aquellos profesores que se hayan destacado en el campo de la investigación científica y tecnológica, o bien por la realización de una obra científica que por su contenido haya obtenido arbitraje nacional o internacional.
 Reciben esta distinción:', 1, 1);
-
 insert into prize values(5, 'DIPLOMA A LA CULTURA', 1, 'El diploma a la cultura es para aquellos miembros de la comunidad politécnica, que hayan apoyado o destaquen en eventos culturales de relevancia nacional o internacional, recibe esta distinción:
 Reciben esta distinción:', 2, 1);
-
 insert into prize values(6, 'DIPLOMA AL DEPORTE', 1, 'Se otorga a aquellos integrantes de la comunidad politécnica que hayan sobresalido en eventos deportivos nacionales o internacionales auspiciados por el Instituto Politécnico Nacional, o en representación del mismo o del País, recibe este galardón:', 1, 1);
 
+/* ======================================================
+* =================    SCHOOLS && AREAS     =============
+* =======================================================
+*/
 insert into school values('O1A000','Centro de Estudios Científicos y Tecnológicos 1 "Gonzálo Vázquez Vela"', 'MEDIO SUPERIOR', 1);
 insert into school values('O1B000','Centro de Estudios Científicos y Tecnológicos 2 "Miguel Bernard"', 'MEDIO SUPERIOR', 1);
 insert into school values('O1C000','Centro de Estudios Científicos y Tecnológicos 3 "Estanislao Ramírez Ruíz"', 'MEDIO SUPERIOR', 1);
@@ -50,7 +68,6 @@ insert into school values('O1L000','Centro de Estudios Científicos y Tecnológi
 insert into school values('O1Q000','Centro de Estudios Científicos y Tecnológicos 16 "Hidalgo"', 'MEDIO SUPERIOR', 1);
 insert into school values('O1R000','Centro de Estudios Científicos y Tecnológicos 17 "León, Guanajuato"', 'MEDIO SUPERIOR', 1);
 insert into school values('O1J000','Centro de Estudios Tecnológicos 1 "Walter Cross Buchanan"', 'MEDIO SUPERIOR', 1);
-
 insert into school values('O2D000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Zacatenco', 'SUPERIOR', 1);
 insert into school values('O2B000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Culhuacán', 'SUPERIOR', 1);
 insert into school values('O2A000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Azcapotzalco', 'SUPERIOR', 1);
@@ -77,7 +94,6 @@ insert into school values('O2U000','Escuela Superior de Comercio y Administraci�
 insert into school values('O2V000','Escuela Superior de Comercio y Administración Unidad Tepepan', 'SUPERIOR', 1);
 insert into school values('O2W000','Escuela Superior de Economía', 'SUPERIOR', 1);
 insert into school values('O2X000','Escuela Superior de Turismo', 'SUPERIOR', 1);
-
 insert into school values('P0A000','Centro Interdisciplinario de Ciencias Marinas', 'POSGRADO', 1);
 insert into school values('P0C000','Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional Unidad Durango', 'POSGRADO', 1);
 insert into school values('P0F000','Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional Unidad Oaxaca', 'POSGRADO', 1);
@@ -91,14 +107,11 @@ insert into school values('P0M000','Centro de Investigación y Desarrollo de Tec
 insert into school values('P0Q000','Centro de Investigación e Innovación Tecnológica', 'POSGRADO', 1);
 insert into school values('P0P000','Centro de Innovación y Desarrollo Tecnológico en Computo', 'POSGRADO', 1);
 insert into school values('P0T000','Centro de Nanociencias y Micro y Nanotecnologías', 'POSGRADO', 1);
-
 insert into school values('L10000','Dirección de Cómputo y Comunicaciones', 'ADMINISTRACIÓN', 1);
-
 insert into school values('R5D000','Centro de Educación Contínua Unidad Culiacán', 'CENTRO', 1);
 insert into school values('R5M000','Centro de Educación Contínua Unidad Durango', 'CENTRO', 1);
 insert into school values('R5E000','Centro de Educación Contínua Unidad Los Mochis', 'CENTRO', 1);
 insert into school values('R5K000','Centro de Educación Contínua Unidad Tijuana', 'CENTRO', 1);
-
 insert into school values('JA1000','Secretaría Particular de la Dirección General', 'AREA', 1);
 insert into school values('JD0000','Coordinación de Asesores', 'AREA', 1);
 insert into school values('J60000','Coordinación de Comunicación Social', 'AREA', 1);
@@ -129,119 +142,92 @@ insert into school values('T63040','Centro de Desarrollo Infantil "Clementina Ba
 insert into school values('T63010','Centro de Desarrollo Infantil "Laura Pérez de Bátiz"', 'CENTRO', 1);
 insert into school values('T63050','Centro de Desarrollo Infantil "Margarita Salazar de Erro"', 'CENTRO', 1);
 
-
+/* ======================================================
+* =================    GUESTS     =======================
+* =======================================================
+*/
 insert into guest values('HEMP610409', 1, 'Patricia', 'Hernández', 'Monsalvo', null, null, null, null,'O1A000');
 insert into guest values('GARV801005', 2, 'Viridiana Karina', 'García', 'Romero', null, null, null, null,'O1A000');
 insert into guest values('GUSV811105', 3, 'María Vianey', 'Gudiño', 'Sánchez', null, null, null, null,'O1A000');
-
 insert into guest values('SADV700522', 4, 'Víctor Manuel', 'Salas', 'Domínguez', null, null, null, null,'O1B000');
 insert into guest values('SAMJ740319', 5, 'Josefina', 'Sánchez', 'Monroy', null, null, null, null,'O1B000');
 insert into guest values('EAGC770416', 6, 'Carolina', 'Estrada', 'García', null, null, null, null,'O1B000');
-
 insert into guest values('CABM811007', 7, 'Mariana Elizabeth', 'Chávez', 'Benítez', null, null, null, null,'O1C000');
 insert into guest values('JIMA610709', 8, 'Alejandra', 'Jiménez', 'Méndez', null, null, null, null,'O1C000');
 insert into guest values('ROCL700110', 9, 'José Luis Tonatihu', 'Rojas', 'Castro', null, null, null, null,'O1C000');
-
 insert into guest values('MASC731120', 10, 'Carolina', 'Mares', 'Sandoval', null, null, null, null,'O1D000');
 insert into guest values('BOMJ600427', 11, 'Jesús Roberto', 'Bolivar', 'Meza', null, null, null, null,'O1D000');
 insert into guest values('LOFT610501', 12, 'María Teresa', 'López', 'Flores', null, null, null, null,'O1D000');
-
 insert into guest values('CACJ620311', 13, 'María Josefina', 'Campos', 'Cano', null, null, null, null,'O1M000');
 insert into guest values('SIGG840712', 14, 'Gustavo Rodolfo', 'Shields', 'García', null, null, null, null,'O1M000');
 insert into guest values('GUHE740114', 15, 'Erika', 'Gutiérrez', 'Hernández', null, null, null, null,'O1M000');
-
 insert into guest values('GARJ640319', 16, 'Juan José', 'García', 'Rivera', null, null, null, null,'O1K000');
 insert into guest values('SACC820315', 17, 'Catalina', 'Sánchez', 'Castillo', null, null, null, null,'O1K000');
 insert into guest values('RUBM600910', 18, 'María Margarita', 'Ruíz', 'Badillo', null, null, null, null,'O1K000');
-
 insert into guest values('PESL790811', 19, 'María de Lourdes', 'Peregrino', 'Sánchez', null, null, null, null,'O1E000');
 insert into guest values('CICM700907', 20, 'María Mireya', 'Cristino', 'Castillo', null, null, null, null,'O1E000');
 insert into guest values('NEEL730512', 21, 'Laura Alicia', 'Neyra', 'Estrada', null, null, null, null,'O1E000');
-
 insert into guest values('OELE810505', 22, 'Edgar Josué', 'Ojeda', 'Layseca', null, null, null, null,'O1F000');
 insert into guest values('BUAI920831', 23, 'Ismael', 'Bruno', 'Arellano', null, null, null, null,'O1F000');
 insert into guest values('NAMJ870131', 24, 'Joaquín Alejandro', 'Nares', 'Miller', null, null, null, null,'O1F000');
-
 insert into guest values('SUCA511123', 25, 'Armando', 'Suárez', 'Caudillo', null, null, null, null,'O1G000');
 insert into guest values('MOMA530924', 26, 'Alfonso', 'Morales', 'Martínez', null, null, null, null,'O1G000');
 insert into guest values('MORA640123', 27, 'Arturo', 'Moreno', 'Reyes', null, null, null, null,'O1G000');
-
 insert into guest values('PAGC570307', 28, 'Clotilde', 'Prado', 'García', null, null, null, null,'O1H000');
 insert into guest values('TOPE551216', 29, 'María Eugenia', 'Tome', 'Pérez', null, null, null, null,'O1H000');
-
 insert into guest values('MAIU850513', 30, 'Uriel', 'Martínez', 'Islas', null, null, null, null,'O1I000');
 insert into guest values('SAME770202', 31, 'María Esther', 'Sánchez', 'Marín', null, null, null, null,'O1I000');
 insert into guest values('BEMG581122', 32, 'Gerardo', 'Bernal', 'Méndez', null, null, null, null,'O1I000');
-
 insert into guest values('AISL760127', 33, 'Lizeth', 'Avilés', 'Sánchez', null, null, null, null,'O1N000');
 insert into guest values('ROLP651211', 34, 'Pedro', 'Rodríguez', 'Luevano', null, null, null, null,'O1N000');
 insert into guest values('GUDE820907', 35, 'Edgar René', 'Guzmán', 'Delgado', null, null, null, null,'O1N000');
-
 insert into guest values('CAAG560830', 36, 'Guadencio', 'Camacho', 'Alvarado', null, null, null, null,'O1O000');
 insert into guest values('OUFA850727', 37, 'Andrea Patricia', 'Olguín', 'Ferreira', null, null, null, null,'O1O000');
 insert into guest values('RALT520821', 38, 'María Teresa', 'Ramírez', 'Landeros', null, null, null, null,'O1O000');
-
 insert into guest values('AAMA580502', 39, 'José Antonio', 'Andrade', 'Morales', null, null, null, null,'O1P000');
 insert into guest values('REIH830819', 40, 'Héctor Yair', 'Reyes', 'Izquierdo', null, null, null, null,'O1P000');
 insert into guest values('AAAC670607', 41, 'Celia', 'Ayala', 'Arellano', null, null, null, null,'O1P000');
-
 insert into guest values('AAMJ550319', 42, 'José Juan', 'Aljama', 'Moral', null, null, null, null,'O1L000');
 insert into guest values('CAFJ811202', 43, 'Janet', 'Cadena', 'Flores', null, null, null, null,'O1L000');
 insert into guest values('RORE650831', 44, 'Evangelina', 'Rojas', 'Rodríguez', null, null, null, null,'O1L000');
-
 insert into guest values('SILL681102', 45, 'Luis Enrique', 'Sigler', 'Licona', null, null, null, null,'O1R000');
 insert into guest values('BEHM730706', 46, 'Ma. Guadalupe del Carmen', 'Belmonte', 'Hernández', null, null, null, null,'O1R000');
-
 insert into guest values('CUPS631212', 47, 'Sonia Elizabeth', 'Cruz', 'Pérez', null, null, null, null,'O1J000');
 insert into guest values('ROAJ530902', 48, 'Juan', 'Romero', 'Amaya', null, null, null, null,'O1J000');
 insert into guest values('RORR590111', 49, 'Rocío', 'Rodas', 'Ruíz', null, null, null, null,'O1J000');
-
 insert into guest (number, firstName, middleName, lastName, rfc, seat, email, assistance, representative, school) values 
 (50,	'Ma. Victoria', 'Rafael', 'Valdivia', 'RAVM650728', null, null, null, null, 'O2D000'),
 (51, 'Ana Laura', 'Villalpando', 'Nava',	'VINA780922', null, null, null, null, 'O2D000'),
-
 (52, 'Víctor Alejandro', 'Banderas', 'Mérida', 'BAMV840328', null, null, null, null, 'O2B000'),
 (53, 'Magdalena', 'Reyes', 'García',	'REGM590502', null, null, null, null, 'O2B000'),
-
 (54, 'Ivonne', 'Romo', 'Hernández',	'ROHI710319', null, null, null, null, 'O2A000'),
-
 (55, 'Patricia', 'Cervantes', 'Pérez', 'CEPP650317', null, null, null, null, 'O2C000'),
 (56, 'Ana María', 'Almanza', 'Zendejas',	'AAZA700603', null, null, null, null, 'O2C000'),
 (57, 'Claudia', 'Ramírez', 'Brassetti',	'RABC690320', null, null, null, null, 'O2C000'),
-
 (58, 'Adolfo', 'Gómez', 'Flores', 'GOFA671026', null, null, null, null, 'O2G000'),
 (59, 'Rosario Angélica', 'Zavala', 'Candelaria',	'ZACR760228', null, null, null, null, 'O2G000'),
 (60, 'Edith Yuliana', 'Amador', 'López',	'AALE860922', null, null, null, null, 'O2G000'),
-
 (61, 'Adaluz', 'López', 'Ángeles', 'LOAA770303', null, null, null, null, 'O2E000'),
 (62, 'Victor', 'Sandoval', 'Lobato',	'SALV610526', null, null, null, null, 'O2E000'),
 (63, 'Cornelio', 'Romero', 'Cruz', 'ROCC730916', null, null, null, null, 'O2E000'),
-
 (64, 'Jorge Alberto', 'Gutiérrez', 'Ramírez', 'GURJ720122', null, null, null, null, 'O2F000'),
 (65, 'Ana Aurora', 'Montoya', 'Ramírez',	'MORA740726', null, null, null, null, 'O2F000'),
 (66, 'Alfredo', 'Torres', 'García', 'TOGA770224', null, null, null, null, 'O2F000'),
-
 (67, 'Carlos', 'Aguilar', 'López', 'AULC650915', null, null, null, null, 'O2H000'),
 (68, 'Isidro', 'Castillo', 'Bautista', 'CABI750704', null, null, null, null, 'O2H000'),
 (69, 'Juana Leydy Yadira', 'Duarte', 'Mena', 'DUMJ520111', null, null, null, null, 'O2H000'),
-
 (70, 'Nayeli', 'Caballero', 'Cerpa',	'CACN810816', null, null, null, null, 'O2I000'),
 (71, 'Joselito Abilio', 'de Jesús', 'Herrera', 'JEHJ620923', null, null, null, null, 'O2I000'),
-
 (72, 'Luis Francisco', 'Rodríguez', 'Hernández',	'ROHL720825', null, null, null, null, 'O2J000'),
 (73, 'María Patricia', 'Godínez', 'Pavón', 'GOPP651210', null, null, null, null, 'O2J000'),
 (74, 'José Isaías', 'Enríquez', 'Vicente', 'EIVI600524', null, null, null, null, 'O2J000'),
-
 (75, 'Alma Delia', 'Morán', 'Ruíz', 'MORA621123', null, null, null, null, 'O2K000'),
 (76, 'Itzel Marisol', 'Hernández', 'Luis', 'HELI891227', null, null, null, null, 'O2K000'),
 (77, 'Dalia', 'Martínez', 'Próspero', 'MAPD850325', null, null, null, null, 'O2K000'),
-
 (78, 'Ana Laura', 'Hernández', 'Medina',	'HEMA760104', null, null, null, null, 'O2M000'),
-
 (79, 'Héctor', 'Peña', 'Domínguez', 'PEDH721121', null, null, null, null, 'O2L000'),
 (80, 'José Claudio', 'Chávez', 'Jiménez', 'CAJC500324', null, null, null, null, 'O2L000'),
 (81, 'Pablo Ricardo', 'Martínez', 'Téllez', 'MATP810925', null, null, null, null, 'O2L000'),
-
 (82, 'Francisco Javier', 'Torres', 'Argüelles', 'TOAF601224', null, null, null, null, 'O2N000'),
 (83, 'Francisco Alejandro', 'Ríos', 'Coria',	'RICF720523', null, null, null, null, 'O2N000'),
 (84, 'Isabel Angélica', 'Gayosso', 'de la Cruz',	'GACI730704', null, null, null, null, 'O2N000'),
@@ -314,7 +300,6 @@ insert into guest (number, firstName, middleName, lastName, rfc, seat, email, as
 (151,'Jazmín', 'Guerra', 'Alcántara', 'GUAJ850112', null, null, null, null, 'L10000'),
 (152,'Luis Paul', 'Gutiérrez', 'Hernández',	'GUHL810712', null, null, null, null, 'L10000'),
 (153,'María Magdalena', 'Martínez', 'Carrillo',	'MACM640411', null, null, null, null, 'L10000');
-
 insert into guest (number, firstName, middleName, lastName, rfc, seat, email, assistance, representative, school) values 
 (154,'Sofía', 'Macías', ' ', 'MASO581005', null, null, null, null, 'R5D000'),
 (155,'Georgina Irasema', 'Estrada', 'Rivera',	'EARG821010', null, null, null, null, 'R5D000'),
@@ -325,7 +310,6 @@ insert into guest (number, firstName, middleName, lastName, rfc, seat, email, as
 (160,'Arianna Arozibel', 'Pineda', 'Carrasco',	'PICA790917', null, null, null, null, 'R5E000'),
 (161,'Esperanza', 'Aviña', 'García',	'AIGE760708', null, null, null, null, 'R5K000'),
 (162,'Karol Angélica', 'Marín', 'Nova',	'MANK750818', null, null, null, null, 'R5K000');
-
 insert into guest (number, firstName, middleName, lastName, rfc, seat, email, assistance, representative, school) values 
 (163,	'María Guadalupe', 'Parga', 'López',	'PALG831114', null, null, null, null, 'JA1000'),
 (164,	'Diana Laura', 'Ramírez', 'Álvarez',	'RAAD681019', null, null, null, null, 'JD0000'),
@@ -386,7 +370,6 @@ insert into guest (number, firstName, middleName, lastName, rfc, seat, email, as
 (219,	'Narda Araceli', 'Quintana', 'Diosdado',	'QUDN750305', null, null, null, null, 'T63050'),
 (220,	'Olga Alicia', 'Sánchez', 'López',	'SALO680206', null, null, null, null, 'T63050'),
 (221,	'Catalina', 'Ramos', 'Ramos',	'RARC621127', null, null, null, null, 'T63050');
-
 insert into guest (number, firstName, middleName, lastName, rfc, seat, email, assistance, representative, school) values 
 (222,	'José Guadalupe', 'Torres y', 'Ortega',	'TOOG450118',null, null, null, null, 'O2A000'),
 (223,	'Rafael', 'Castañeda', 'Díaz',	'CADR791106',null, null, null, null, 'O2Z000'),
@@ -398,41 +381,25 @@ insert into guest (number, firstName, middleName, lastName, rfc, seat, email, as
 (229,	'Ricardo', 'Medel', 'Esquivel',	'MEER810505',null, null, null, null, 'P0I000'),
 (230,	'Dante Mir', 'Schmitter', 'Sánchez',	'SISD970602',null, null, null, null, 'O2P000');
 
+/* ======================================================
+* =================    GUEST'S PRIZE     ================
+* =======================================================
+*/
 insert into guest_prize values('TOOG450118', 2);
-
 insert into guest_prize values('CADR791106', 3);
 insert into guest_prize values('BASR381220', 3);
 insert into guest_prize values('GOHL460918', 3);
 insert into guest_prize values('JAVD540613', 3);
-
 insert into guest_prize values('PETS750209', 4);
-
 insert into guest_prize values('RABP720605', 5);
 insert into guest_prize values('MEER810505', 5);
-
 insert into guest_prize values('SISD970602', 6);
-
 insert into guest_prize values
-('AAAC670607', 1),
-('AAFD851118', 1),
-('AAIA810312', 1),
-('AALE860922', 1),
-('AAMA580502', 1),
-('AAMJ550319', 1),
-('AARE791201', 1),
-('AAZA700603', 1),
-('AIGE760708', 1),
-('AISL760127', 1),
-('AULC650915', 1),
-('AUTV660101', 1),
-('BAAC641022', 1),
-('BABE570407', 1),
-('BAEE770115', 1),
-('BAGA541105', 1),
-('BAHH520810', 1),
-('BAMV840328', 1),
-('BEHM730706', 1),
-('BEJA641207', 1),
+('AAAC670607', 1),('AAFD851118', 1),('AAIA810312', 1),('AALE860922', 1),
+('AAMA580502', 1),('AAMJ550319', 1),('AARE791201', 1),('AAZA700603', 1),
+('AIGE760708', 1),('AISL760127', 1),('AULC650915', 1),('AUTV660101', 1),
+('BAAC641022', 1),('BABE570407', 1),('BAEE770115', 1),('BAGA541105', 1),
+('BAHH520810', 1),('BAMV840328', 1),('BEHM730706', 1),('BEJA641207', 1),
 ('BEMG581122', 1),
 ('BOMJ600427', 1),
 ('BUAI920831', 1),
@@ -634,4 +601,6 @@ insert into guest_prize values
 ('VINA780922', 1),
 ('XILS910302', 1),
 ('ZACR760228', 1);
+
+UPDATE guest SET guest.assistance = 0;
 
