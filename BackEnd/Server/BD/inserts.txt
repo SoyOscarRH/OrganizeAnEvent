@@ -1,7 +1,10 @@
 cd C:\Program Files\MySQL\MySQL Server 5.7\bin
-mysqldump -u root -p oae > c:/oae.sql
+mysqldump -u root -p oae > C:\wamp64\www\OrganizeAnEvent\BackEnd\Server\BD\oae.sql
 
-insert into event values(1, 'DISTINCIONES AL MÉRITO POLITÉCNICO 2018', null, null);
+insert into event values(1, 'DISTINCIONES AL MÉRITO POLITÉCNICO 2018', null, null, 'LAS DISTINCIONES AL MÉRITO POLITÉCNICO SON EL RECONOCIMIENTO QUE HACE LA COMUNIDAD POLITÉCNICA A UNA CONDUCTA, TRAYECTORIA, SERVICIO O ACCIÓN EJEMPLAR, SOBRESALIENTE, QUE HAYA TENIDO POR OBJETO EXHALTAR EL PRESTIGIO DEL INSTITUTO POLITÉCNICO NACIONAL, PARA APOYAR LA REALIZACIÓN DE SUS FINALIDADES: IMPULSAR EL DESARROLLO DE LA EDUCACIÓN TÉCNICA EN EL PAÍS O BENEFICIAR A LA HUMANIDAD.
+
+EN ESTA OCASIÓN EL CONSEJO GENERAL CONSULTIVO HA DECIDIDO OTORGAR 
+');
 
 insert into institute values(1, 'INSTITUTO POLITÉCNICO NACIONAL', 1);
 insert into institute values(2, 'UNIVERSIDAD AUTÓNOMA DE MÉXICO', null);
@@ -13,6 +16,21 @@ insert into prize values (1, 'DIPLOMA A LA "EFICIENCIA Y EFICACIA"', 1, 'EL DIPL
 PARA NUESTRA COMUNIDAD ES DE GRAN SATISFACCIÓN RECONOCER PÚBLICAMENTE LA LABOR CONSTANTE Y CONSCIENTE QUE LOS COMPAÑEROS DESEMPEÑAN EN SU VIDA LABORAL.
  
 CON LA ANUENCIA DE NUESTRAS AUTORIDADES, EN ESTE MOMENTO DAREMOS INICIO A LA ENTREGA DE DICHOS DIPLOMAS, PARA LO CUAL INVITAMOS A NUESTRO PRESIDIUM A PONERSE DE PIE PARA PROCEDER A LA ENTREGA CORRESPONDIENTE.', 221, 1);
+
+insert into prize values(2, 'DIPLOMA DE MAESTRO EMÉRITO', 1, 'Que se otorga a los profesores e investigadores que habiéndose retirado o jubilado, se hubieran distinguido por su relevante labor docente o de investigación en el Instituto y que hayan prestado sus servicios en éste cuando menos durante veinticinco años.
+
+CON LA ANUENCIA DE NUESTRAS AUTORIDADES EN ESTE MOMENTO RECIBE TAL DISTINCIÓN...
+', 1, 1);
+
+insert into prize values(3, 'DIPLOMA DE MAESTRO DECANO', 1, 'Para elegir al candidato de esta distinción, se deberá considerar además de la antigüedad del maestro, su trayectoria y aportaciones realizadas al Instituto, se otorgará al profesor que haya sido electo decano por el Consejo Técnico Consultivo Escolar. Reciben esta distinción:', 4, 1);
+
+insert into prize values(4, 'DIPLOMA A LA INVESTIGACIÓN', 1, 'Este diploma se otorga a aquellos profesores que se hayan destacado en el campo de la investigación científica y tecnológica, o bien por la realización de una obra científica que por su contenido haya obtenido arbitraje nacional o internacional.
+Reciben esta distinción:', 1, 1);
+
+insert into prize values(5, 'DIPLOMA A LA CULTURA', 1, 'El diploma a la cultura es para aquellos miembros de la comunidad politécnica, que hayan apoyado o destaquen en eventos culturales de relevancia nacional o internacional, recibe esta distinción:
+Reciben esta distinción:', 2, 1);
+
+insert into prize values(6, 'DIPLOMA AL DEPORTE', 1, 'Se otorga a aquellos integrantes de la comunidad politécnica que hayan sobresalido en eventos deportivos nacionales o internacionales auspiciados por el Instituto Politécnico Nacional, o en representación del mismo o del País, recibe este galardón:', 1, 1);
 
 insert into school values('O1A000','Centro de Estudios Científicos y Tecnológicos 1 "Gonzálo Vázquez Vela"', 'MEDIO SUPERIOR', 1);
 insert into school values('O1B000','Centro de Estudios Científicos y Tecnológicos 2 "Miguel Bernard"', 'MEDIO SUPERIOR', 1);
@@ -80,6 +98,37 @@ insert into school values('R5D000','Centro de Educación Contínua Unidad Culiac
 insert into school values('R5M000','Centro de Educación Contínua Unidad Durango', 'CENTRO', 1);
 insert into school values('R5E000','Centro de Educación Contínua Unidad Los Mochis', 'CENTRO', 1);
 insert into school values('R5K000','Centro de Educación Contínua Unidad Tijuana', 'CENTRO', 1);
+
+insert into school values('JA1000','Secretaría Particular de la Dirección General', 'AREA', 1);
+insert into school values('JD0000','Coordinación de Asesores', 'AREA', 1);
+insert into school values('J60000','Coordinación de Comunicación Social', 'AREA', 1);
+insert into school values('JE0000','Defensoría de los Derechos Politécnicos', 'AREA', 1);
+insert into school values('XXXXXX','Coordinación Politécnica para la Sustentabilidad', 'AREA', 1);
+insert into school values('N00000','Secretaría General', 'AREA', 1);
+insert into school values('O00000','Secretaría Académica', 'AREA', 1);
+insert into school values('O10000','Dirección de Educación Media Superior', 'AREA', 1);
+insert into school values('R40000','Dirección de Publicaciones', 'AREA', 1);
+insert into school values('Q00000','Secretaría de Servicios Educativos', 'AREA', 1);
+insert into school values('Q30000','Dirección de Bibliotecas', 'AREA', 1);
+insert into school values('Q10000','Dirección de Administración Escolar', 'AREA', 1);
+insert into school values('Q50000','Dirección de Desarrollo y Fomento Deportivo', 'AREA', 1);
+insert into school values('Q40000','Dirección de Difusión y Fomento a la Cultura', 'AREA', 1);
+insert into school values('S30000','Dirección de Evaluación', 'AREA', 1);
+insert into school values('T40000','Dirección de Gestión del Capital Humano', 'AREA', 1);
+insert into school values('T50000','Dirección de Recursos Financieros', 'AREA', 1);
+insert into school values('T60000','Dirección de Recursos Materiales y Servicios', 'AREA', 1);
+insert into school values('K00000','Oficina del Abogado General', 'AREA', 1);
+insert into school values('K20000','Dirección de Normatividad, Consulta y Dictaminación ', 'AREA', 1);
+insert into school values('K10000','Dirección de Asuntos Jurídicos', 'AREA', 1);
+insert into school values('L00000','Coordinación General de Servicios Informáticos', 'AREA', 1);
+insert into school values('O0A000','Coordinación General de Formación e Innovación Educativa', 'AREA', 1);
+insert into school values('R0F000','Unidad Politécnica para el Desarrollo y la Competitividad Empresarial', 'AREA', 1);
+insert into school values('T63000','Coordinación de Centros de Desarrollo Infantil', 'AREA', 1);
+insert into school values('T63020','Centro de Desarrollo Infantil "Amalia Solórzano de Cárdenas"', 'CENTRO', 1);
+insert into school values('T63040','Centro de Desarrollo Infantil "Clementina Batalla de Bassols"', 'CENTRO', 1);
+insert into school values('T63010','Centro de Desarrollo Infantil "Laura Pérez de Bátiz"', 'CENTRO', 1);
+insert into school values('T63050','Centro de Desarrollo Infantil "Margarita Salazar de Erro"', 'CENTRO', 1);
+
 
 insert into guest values('HEMP610409', 1, 'Patricia', 'Hernández', 'Monsalvo', null, null, null, null,'O1A000');
 insert into guest values('GARV801005', 2, 'Viridiana Karina', 'García', 'Romero', null, null, null, null,'O1A000');
@@ -265,3 +314,324 @@ insert into guest (number, firstName, middleName, lastName, rfc, seat, email, as
 (151,'Jazmín', 'Guerra', 'Alcántara', 'GUAJ850112', null, null, null, null, 'L10000'),
 (152,'Luis Paul', 'Gutiérrez', 'Hernández',	'GUHL810712', null, null, null, null, 'L10000'),
 (153,'María Magdalena', 'Martínez', 'Carrillo',	'MACM640411', null, null, null, null, 'L10000');
+
+insert into guest (number, firstName, middleName, lastName, rfc, seat, email, assistance, representative, school) values 
+(154,'Sofía', 'Macías', ' ', 'MASO581005', null, null, null, null, 'R5D000'),
+(155,'Georgina Irasema', 'Estrada', 'Rivera',	'EARG821010', null, null, null, null, 'R5D000'),
+(156,'María del Rosario', 'Rivera', 'Samaniego',	'RISR610808', null, null, null, null, 'R5D000'),
+(157,'Viridiana', 'del Toro', 'López',	'TOLV710602', null, null, null, null, 'R5M000'),
+(158,'Ramón Octavio', 'Ruíz', 'Carlón',	'RUCR841028', null, null, null, null, 'R5E000'),
+(159,'José Andrés', 'Álvarez', 'Ibarra',	'AAIA810312', null, null, null, null, 'R5E000'),
+(160,'Arianna Arozibel', 'Pineda', 'Carrasco',	'PICA790917', null, null, null, null, 'R5E000'),
+(161,'Esperanza', 'Aviña', 'García',	'AIGE760708', null, null, null, null, 'R5K000'),
+(162,'Karol Angélica', 'Marín', 'Nova',	'MANK750818', null, null, null, null, 'R5K000');
+
+insert into guest (number, firstName, middleName, lastName, rfc, seat, email, assistance, representative, school) values 
+(163,	'María Guadalupe', 'Parga', 'López',	'PALG831114', null, null, null, null, 'JA1000'),
+(164,	'Diana Laura', 'Ramírez', 'Álvarez',	'RAAD681019', null, null, null, null, 'JD0000'),
+(165,	'José Ramón', 'Rodríguez', 'Ojeda',	'ROOR690527', null, null, null, null, 'JD0000'),
+(166,	'Ángela', 'Félix', 'Reyes',	'FERA561101', null, null, null, null, 'J60000'),
+(167,	'Patricia', 'Hernández', 'Balderas',	'HEBP580102', null, null, null, null, 'J60000'),
+(168,	'Ma. Guadalupe', 'Trejo', 'Martínez',	'TEMG631204', null, null, null, null, 'JE0000'),
+(169,	'Erick', 'Gordillo', 'Escobar', 	'GOEE930613', null, null, null, null, 'JE0000'),
+(170,	'Sergio Yair', 'Xicotencatl', 'Llera',	'XILS910302', null, null, null, null, 'JE0000'),
+(171,	'María Cristina', 'Colín', 'Villanueva',	'COVC500403', null, null, null, null, 'XXXXXX'),
+(172,	'Alberto Jorge', 'González', 'Díaz',	'GODA750831', null, null, null, null, 'XXXXXX'),
+(173,	'Fanny', 'Sauza', 'Hernández',	'SAHF780227', null, null, null, null, 'XXXXXX'),
+(174,	'Ma. Julia', 'Morales', 'Álvarez',	'MOAJ631206', null, null, null, null, 'N00000'),
+(175,	'Ma. Isabel', 'Juárez', 'Lara',	'JULM671105', null, null, null, null, 'N00000'),
+(176,	'Juan Jesús', 'Sánchez', 'Marín',	'SAMJ870323', null, null, null, null, 'O00000'),
+(177,	'Elizabeth', 'Solis', 'Ocampo',	'SOOE761215', null, null, null, null, 'O00000'),
+(178,	'Araceli', 'Vázquez', 'Betancourt',	'VABA721101', null, null, null, null, 'O10000'),
+(179,	'María Elena', 'Álvarez', 'Rodríguez',	'AARE791201', null, null, null, null, 'O10000'),
+(180,	'César', 'Basurto', 'Acevedo',	'BAAC641022', null, null, null, null, 'R40000'),
+(181,	'Norma Angélica', 'Godínez', 'Vallejo',	'GOVN621207', null, null, null, null, 'Q00000'),
+(182,	'Alejandro', 'Rojas', 'Guzmán',	'ROGA801023', null, null, null, null, 'Q30000'),
+(183,	'Víctor Alberto', 'Martínez', 'Bautista',	'MABV750223', null, null, null, null, 'Q30000'),
+(184,	'Pablo', 'Monjarás', 'López',	'MOLP601009', null, null, null, null, 'Q10000'),
+(185,	'Alfredo', 'Ramirez', 'Arechar',	'RAAA740815', null, null, null, null, 'Q10000'),
+(186,	'Antonio', 'Castillo', 'Rivas',	'CARA550419', null, null, null, null, 'Q50000'),
+(187,	'Pablo', 'Poo', 'Mendieta',	'POMP800723', null, null, null, null, 'Q40000'),
+(188,	'Gloria Araceli', 'Cedillo', 'González',	'CEGG770409', null, null, null, null, 'Q40000'),
+(189,	'María Eugenia', 'Contreras', 'Gallardo',	'COGX700718', null, null, null, null, 'Q40000'),
+(190,	'Luis', 'Ceballos', 'Barragán',	'CEBL641209', null, null, null, null, 'S30000'),
+(191,	'Víctor Manuel', 'Islas', 'Olivos',	'IAOV730304', null, null, null, null, 'S30000'),
+(192,	'Víctor Manuel', 'Delgado', 'Arellano',	'DEAV540628', null, null, null, null, 'S30000'),
+(193,	'Enedelia', 'Ibarra', 'Pineda',	'IAPE721117', null, null, null, null, 'T40000'),
+(194,	'SiIvia Rosa', 'Lopeandia', 'Urbina',	'LOUS630530', null, null, null, null, 'T40000'),
+(195,	'Javier', 'Tadeo', 'Márquez', 	'TAMJ711204', null, null, null, null, 'T40000'),
+(196,	'Carolina', 'Oropeza', 'Ramírez',	'OORC880806', null, null, null, null, 'T50000'),
+(197,	'Armando', 'Reséndiz', 'Hernández',	'REHA740406', null, null, null, null, 'T50000'),
+(198,	'Silvino', 'Guerrero', 'Peña',	'GUPS640707', null, null, null, null, 'T50000'),
+(199,	'José Isaac', 'García', 'Carmona',	'GACI590603', null, null, null, null, 'T60000'),
+(200,	'María Teresa', 'García', 'Vázquez',	'GAVT670924', null, null, null, null, 'T60000'),
+(201,	'Fabiola', 'García', 'Durán',	'GADF790414', null, null, null, null, 'T60000'),
+(202,	'Rubén', 'Fonseca', 'Gutiérrez',	'FOGR691218', null, null, null, null, 'K00000'),
+(203,	'Víctor Manuel', 'Aguilar', 'Tlapale',	'AUTV660101', null, null, null, null, 'K20000'),
+(204,	'Ana María', 'Baeza', 'Gómez',	'BAGA541105', null, null, null, null, 'K10000'),
+(205,	'Rosario', 'Márquez', 'Ramírez',	'MARR730921', null, null, null, null, 'L00000'),
+(206,	'Alfredo Erasto', 'Ortiz', 'Rodríguez',	'OIRA730527', null, null, null, null, 'O0A000'),
+(207,	'Dalia', 'Rosas', 'Olivos', 'ROOD790509', null, null, null, null, 'O0A000'),
+(208,	'Alejandra Danae', 'Martínez', 'López',	'MALA861025', null, null, null, null, 'O0A000'),
+(209,	'Héctor Gilberto Gabriel', 'Valencia', 'Trujillo',	'VATH760227', null, null, null, null, 'R0F000'),
+(210,	'Vianey', 'Guerra', 'Alcantara',	'GUAV770529', null, null, null, null, 'R0F000'),
+(211,	'Ernesto Saúl', 'Galván', 'González',	'GAGE930619', null, null, null, null, 'T63000'),
+(212,	'Francisco', 'Pulido', 'Morales',	'PUMF820301', null, null, null, null, 'T63000'),
+(213,	'Martha', 'Escalante', 'Morales',	'EAMM710909', null, null, null, null, 'T63020'),
+(214,	'María del Pilar', 'Roa', 'Hernández',	'ROHP740712', null, null, null, null, 'T63020'),
+(215,	'Esmirna Concepción', 'López', 'Gallegos',	'LOGE810825', null, null, null, null, 'T63040'),
+(216,	'Lizeth Araceli', 'Toledo', 'Escalante',	'TOEL840404', null, null, null, null, 'T63040'),
+(217,	'Miriam Selene', 'Somera', 'Martinez',	'SOMM790430', null, null, null, null, 'T63040'),
+(218,	'Alicia', 'Hernández', 'Ramírez',	'HERA631206', null, null, null, null, 'T63010'),
+(219,	'Narda Araceli', 'Quintana', 'Diosdado',	'QUDN750305', null, null, null, null, 'T63050'),
+(220,	'Olga Alicia', 'Sánchez', 'López',	'SALO680206', null, null, null, null, 'T63050'),
+(221,	'Catalina', 'Ramos', 'Ramos',	'RARC621127', null, null, null, null, 'T63050');
+
+insert into guest (number, firstName, middleName, lastName, rfc, seat, email, assistance, representative, school) values 
+(222,	'José Guadalupe', 'Torres y', 'Ortega',	'TOOG450118',null, null, null, null, 'O2A000'),
+(223,	'Rafael', 'Castañeda', 'Díaz',	'CADR791106',null, null, null, null, 'O2Z000'),
+(224,	'José Roberto de Jesús', 'Bastarrachea', 'Sabido',	'BASR381220',null, null, null, null, 'O2Q000'),
+(225,	'Luis Arturo', 'González', 'Hernández',	'GOHL460918',null, null, null, null, 'P0M000'),
+(226,	'David', 'Jaramillo', 'Vigueras',	'JAVD540613',null, null, null, null, 'P0Q000'),
+(227,	'Sonia Mayra', 'Pérez', 'Tapia',	'PETS750209',null, null, null, null, 'O2P000'),
+(228,	'Papik Alfredo', 'Ramírez', 'Bernal',	'RABP720605',null, null, null, null, 'R5D000'),
+(229,	'Ricardo', 'Medel', 'Esquivel',	'MEER810505',null, null, null, null, 'P0I000'),
+(230,	'Dante Mir', 'Schmitter', 'Sánchez',	'SISD970602',null, null, null, null, 'O2P000');
+
+insert into guest_prize values('TOOG450118', 2);
+
+insert into guest_prize values('CADR791106', 3);
+insert into guest_prize values('BASR381220', 3);
+insert into guest_prize values('GOHL460918', 3);
+insert into guest_prize values('JAVD540613', 3);
+
+insert into guest_prize values('PETS750209', 4);
+
+insert into guest_prize values('RABP720605', 5);
+insert into guest_prize values('MEER810505', 5);
+
+insert into guest_prize values('SISD970602', 6);
+
+insert into guest_prize values
+('AAAC670607', 1),
+('AAFD851118', 1),
+('AAIA810312', 1),
+('AALE860922', 1),
+('AAMA580502', 1),
+('AAMJ550319', 1),
+('AARE791201', 1),
+('AAZA700603', 1),
+('AIGE760708', 1),
+('AISL760127', 1),
+('AULC650915', 1),
+('AUTV660101', 1),
+('BAAC641022', 1),
+('BABE570407', 1),
+('BAEE770115', 1),
+('BAGA541105', 1),
+('BAHH520810', 1),
+('BAMV840328', 1),
+('BEHM730706', 1),
+('BEJA641207', 1),
+('BEMG581122', 1),
+('BOMJ600427', 1),
+('BUAI920831', 1),
+('CAAG560830', 1),
+('CAAN800412', 1),
+('CAAP690310', 1),
+('CABI750704', 1),
+('CABM811007', 1),
+('CACJ620311', 1),
+('CACN810816', 1),
+('CAFJ811202', 1),
+('CAJC500324', 1),
+('CAJT580925', 1),
+('CALA700920', 1),
+('CANC800416', 1),
+('CARA550419', 1),
+('CARE870706', 1),
+('CATJ800217', 1),
+('CEBL641209', 1),
+('CEGG770409', 1),
+('CEPP650317', 1),
+('CICM700907', 1),
+('COGX700718', 1),
+('COSL680114', 1),
+('COVC500403', 1),
+('CUDJ700330', 1),
+('CUPS631212', 1),
+('CUVA600612', 1),
+('DEAV540628', 1),
+('DUMJ520111', 1),
+('EAGC770416', 1),
+('EAMM710909', 1),
+('EARG821010', 1),
+('EIVI600524', 1),
+('FAGJ781015', 1),
+('FERA561101', 1),
+('FOBF680603', 1),
+('FOGR691218', 1),
+('GACI590603', 1),
+('GACI730704', 1),
+('GACJ590822', 1),
+('GACM710712', 1),
+('GADF790414', 1),
+('GAGE930619', 1),
+('GAGL620822', 1),
+('GAJJ611026', 1),
+('GALL661221', 1),
+('GARJ640319', 1),
+('GARV801005', 1),
+('GASA810421', 1),
+('GAVT670924', 1),
+('GAXG691204', 1),
+('GOAM910530', 1),
+('GODA750831', 1),
+('GOEE930613', 1),
+('GOFA671026', 1),
+('GOPF630603', 1),
+('GOPP651210', 1),
+('GOVN621207', 1),
+('GOZA600901', 1),
+('GUAJ850112', 1),
+('GUAV770529', 1),
+('GUCY710615', 1),
+('GUDE820907', 1),
+('GUGM570426', 1),
+('GUHE740114', 1),
+('GUHL810712', 1),
+('GULR860123', 1),
+('GUPE640521', 1),
+('GUPS640707', 1),
+('GURJ720122', 1),
+('GUSJ751114', 1),
+('GUSV811105', 1),
+('HEBP580102', 1),
+('HEGU731014', 1),
+('HEIM680226', 1),
+('HELI891227', 1),
+('HEMA760104', 1),
+('HEMP610409', 1),
+('HERA631206', 1),
+('HESR530831', 1),
+('HUAE800531', 1),
+('IANE820517', 1),
+('IAOV730304', 1),
+('IAPE721117', 1),
+('JEHJ620923', 1),
+('JIMA610709', 1),
+('JUBD720623', 1),
+('JULF841004', 1),
+('JULM671105', 1),
+('LOAA770303', 1),
+('LOFT610501', 1),
+('LOGE810825', 1),
+('LORC630708', 1),
+('LORJ690319', 1),
+('LOUS630530', 1),
+('MABV750223', 1),
+('MACM640411', 1),
+('MAIU850513', 1),
+('MALA861025', 1),
+('MANK750818', 1),
+('MAPD850325', 1),
+('MAPG741025', 1),
+('MARA810111', 1),
+('MARR730921', 1),
+('MASC731120', 1),
+('MASO581005', 1),
+('MATP810925', 1),
+('MEBC660713', 1),
+('MECV841214', 1),
+('MEDC870705', 1),
+('MERA550906', 1),
+('MOAJ631206', 1),
+('MOCE800511', 1),
+('MOLP601009', 1),
+('MOMA530924', 1),
+('MORA621123', 1),
+('MORA640123', 1),
+('MORA740726', 1),
+('NAMJ870131', 1),
+('NARR700417', 1),
+('NEEL730512', 1),
+('NERM870525', 1),
+('NOVJ720424', 1),
+('OELE810505', 1),
+('OIRA730527', 1),
+('OORC880806', 1),
+('OUFA850727', 1),
+('PAGC570307', 1),
+('PALG831114', 1),
+('PAMI691010', 1),
+('PEDH721121', 1),
+('PEMN701116', 1),
+('PESL790811', 1),
+('PICA790917', 1),
+('POMP800723', 1),
+('PUMF820301', 1),
+('QUDN750305', 1),
+('QUHC650913', 1),
+('RAAA740815', 1),
+('RAAD681019', 1),
+('RABC690320', 1),
+('RALT520821', 1),
+('RARC621127', 1),
+('RASR710510', 1),
+('RAVM650728', 1),
+('REGM590502', 1),
+('REHA740406', 1),
+('REIH830819', 1),
+('RERF841114', 1),
+('RICF720523', 1),
+('RIRL780924', 1),
+('RISR610808', 1),
+('ROAJ530902', 1),
+('ROCC730916', 1),
+('ROCL700110', 1),
+('ROGA801023', 1),
+('ROHI710319', 1),
+('ROHL720825', 1),
+('ROHP740712', 1),
+('ROLP651211', 1),
+('ROOD790509', 1),
+('ROOR690527', 1),
+('ROPA880429', 1),
+('RORE650831', 1),
+('RORR590111', 1),
+('RUBM600910', 1),
+('RUCR841028', 1),
+('SACC820315', 1),
+('SADV700522', 1),
+('SAEB601008', 1),
+('SAHF780227', 1),
+('SALO680206', 1),
+('SALV610526', 1),
+('SAME770202', 1),
+('SAMJ740319', 1),
+('SAMJ870323', 1),
+('SAML711230', 1),
+('SARF761129', 1),
+('SASF660302', 1),
+('SIGG840712', 1),
+('SILL681102', 1),
+('SOMM790430', 1),
+('SOOE761215', 1),
+('SUCA511123', 1),
+('TAMJ711204', 1),
+('TEMG631204', 1),
+('TOAF601224', 1),
+('TOBE620920', 1),
+('TOEL840404', 1),
+('TOGA770224', 1),
+('TOLV710602', 1),
+('TOMJ650420', 1),
+('TOPE551216', 1),
+('TORG630413', 1),
+('VABA721101', 1),
+('VATH760227', 1),
+('VECK781228', 1),
+('VINA780922', 1),
+('XILS910302', 1),
+('ZACR760228', 1);
+
