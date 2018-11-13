@@ -1,0 +1,116 @@
+************************* DATA DICTIONARY *************************
+****************************** DB: OAE ****************************
+
++---------+---------------+
+|  TABLE: COMMENT         | 
++---------+---------------+
++---------+---------------+
+| Field   | Type          | 
++---------+---------------+
+| ID      | int(11)       | Identificator of each comment related to a guest PK
+| Comment | varchar(1000) | Comment content
+| RFC     | varchar(10)   | Guest RFC FK
++---------+---------------+
+
++---------+---------------+
+|  TABLE: EVENT           | 
++---------+---------------+
++---------+---------------+
+| Field   | Type          |
++---------+---------------+
+| EventID | int(11)       | Identificador of each event PK
+| Name    | varchar(100)  | Name of the event
+| Place   | varchar(600)  |	Place where the event takes place
+| Lat     | double        | Latitude of the localization
+| Long    | double        | Longitude of the localization
+| Time    | datetime      | Time when the event begins
+| Des     | varchar(1000) | Description of the event in general
++---------+---------------+
+
++----------------+--------------+
+|  TABLE: GUEST                 | 
++----------------+--------------+
++----------------+--------------+
+| Field          | Type         |
++----------------+--------------+
+| RFC            | varchar(10)  | RFC of each guest PK
+| Number         | int(11)      | Number of arriving at the event
+| FirstName      | varchar(45)  | Guest's first and second names
+| MiddleName     | varchar(45)  | Guest's middle name
+| LastName       | varchar(45)  | Guest's last name
+| Seat           | int(11)      | Number of seat of each guest
+| Email          | varchar(45)  | Email of each guest
+| Assistance     | tinyint(4)   | Assistance of each guest. 1 equals yes, 0 equals no
+| Representative | varchar(100) | Some other person who arrive at the event representing the guest
+| InstituteID    | varchar(6)   | School, area, or zone where the guest is from FK
++----------------+--------------+
+
++----------------+--------------+
+|  TABLE: GUEST_PRIZE           | 
++----------------+--------------+
++----------------+--------------+
+| Field          | Type         |
++----------------+--------------+
+| RFC            | varchar(10)  | RFC of each guest PK/FK
+| PrizeID        | int(11)      | Identificator of each prize PK/FK
++----------------+--------------+
+
++----------------+--------------+
+|  TABLE: INSTITUTE             | 
++----------------+--------------+
++----------------+--------------+
+| Field          | Type         |
++----------------+--------------+
+| InstituteID    | varchar(6)   | Identificator of each institute (school, area, etc) PK
+| Name           | varchar(100) | Name of the institute (ESCOM, CECyT 8, Admin. Area, etc.)
+| Level          | varchar(20)  | Educational level (MS, S, PG)
+| InstitutionID  | int(11)      | Institution where the institute is from FK
++----------------+--------------+
+
++---------------+-------------+
+|  TABLE: INSTITUTION         | 
++---------------+-------------+
++---------------+-------------+
+| Field         | Type        |
++---------------+-------------+
+| InstitutionID | int(11)     | Identificator of each institution of a city, country, etc. PK
+| Name          | varchar(50) | Name of the institution (IPN, UNAM, UAM, etc.)
+| EventID       | int(11)     | Event that the institution will hold FK
++---------------+-------------+
+
++---------+---------------+
+|  TABLE: NEWS            | 
++---------+---------------+
++---------+---------------+
+| Field   | Type          |
++---------+---------------+
+| ID      | int(11)       | Identificator of each piece of news of each event PK
+| News    | varchar(1000) | Piece of news
+| EventID | int(11)       | Event where the news are from FK
++---------+---------------+
+
++---------+---------------+
+|  TABLE: PRIZE           | 
++---------+---------------+
++---------+---------------+
+| Field   | Type          |
++---------+---------------+
+| PrizeID | int(11)       | Identificator of each prize PK
+| Name    | varchar(100)  | Name of the prize
+| Block   | int(11)       | Block assigned to each prize
+| Speech  | varchar(1000) | Speech that the chief of ceremony reads in the event at the beginning of each prize
+| Amount  | int(11)       | Number of guests that will receive a prize
+| EventID | int(11)       | Event where the prize is hold FK
++---------+---------------+
+
++---------------+--------------+
+|  TABLE: USER                 | 
++---------------+--------------+
++---------------+--------------+
+| Field         | Type         |
++---------------+--------------+
+| Username      | int(11)      | Username or ID of each user on the system PK
+| Password      | varchar(256) | The access passsword of each user
+| Type          | varchar(60)  | The type of the user (superuser, etc.)
+| InstitutionID | int(11)      | Institution where the user is from FK
++---------------+--------------+

@@ -10,137 +10,137 @@ USE oae;
  */
 
 /* ======================================================
-* =================    EVENTS     =======================
+* =================    EVENT     ========================
 * =======================================================
 */
-insert into event values(1, 'DISTINCIONES AL MÉRITO POLITÉCNICO 2018', null, null, 'LAS DISTINCIONES AL MÉRITO POLITÉCNICO SON EL RECONOCIMIENTO QUE HACE LA COMUNIDAD POLITÉCNICA A UNA CONDUCTA, TRAYECTORIA, SERVICIO O ACCIÓN EJEMPLAR, SOBRESALIENTE, QUE HAYA TENIDO POR OBJETO EXHALTAR EL PRESTIGIO DEL INSTITUTO POLITÉCNICO NACIONAL, PARA APOYAR LA REALIZACIÓN DE SUS FINALIDADES: IMPULSAR EL DESARROLLO DE LA EDUCACIÓN TÉCNICA EN EL PAÍS O BENEFICIAR A LA HUMANIDAD.
+insert into Event (Name, Des) 
+values('DISTINCIONES AL MÉRITO POLITÉCNICO 2018', 'LAS DISTINCIONES AL MÉRITO POLITÉCNICO SON EL RECONOCIMIENTO QUE HACE LA COMUNIDAD POLITÉCNICA A UNA CONDUCTA, TRAYECTORIA, SERVICIO O ACCIÓN EJEMPLAR, SOBRESALIENTE, QUE HAYA TENIDO POR OBJETO EXHALTAR EL PRESTIGIO DEL INSTITUTO POLITÉCNICO NACIONAL, PARA APOYAR LA REALIZACIÓN DE SUS FINALIDADES: IMPULSAR EL DESARROLLO DE LA EDUCACIÓN TÉCNICA EN EL PAÍS O BENEFICIAR A LA HUMANIDAD.
 
-EN ESTA OCASIÓN EL CONSEJO GENERAL CONSULTIVO HA DECIDIDO OTORGAR 
-');
+EN ESTA OCASIÓN EL CONSEJO GENERAL CONSULTIVO HA DECIDIDO OTORGAR');
 
 /* ======================================================
-* =================    INSTITUTES    ====================
+* =================    INSTITUTION    ===================
 * =======================================================
 */
-insert into institute values(1, 'INSTITUTO POLITÉCNICO NACIONAL', 1);
-insert into institute values(2, 'UNIVERSIDAD AUTÓNOMA DE MÉXICO', null);
+insert into Institution (Name, EventID) values('INSTITUTO POLITÉCNICO NACIONAL', 1);
+insert into Institution (Name, EventID) values('UNIVERSIDAD AUTÓNOMA DE MÉXICO', null);
 
 
 /* ======================================================
-* =================    PRIZES     =======================
+* =================    PRIZE     ========================
 * =======================================================
 */
-insert into prize values (1, 'DIPLOMA A LA "EFICIENCIA Y EFICACIA"', 1, 'EL DIPLOMA A LA “EFICIENCIA Y EFICACIA” SE OTORGA AL PERSONAL DE APOYO Y ASISTENCIA A LA EDUCACIÓN QUE, POR RECONOCIDOS Y MERITORIOS SERVICIOS AL INSTITUTO, SE HA DISTINGUIDO EN EL DESEMPEÑO DE SUS LABORES.
+insert into Prize (Name, Block, Speech, Amount, EventID) values ('DIPLOMA A LA "EFICIENCIA Y EFICACIA"', 1, 'EL DIPLOMA A LA “EFICIENCIA Y EFICACIA” SE OTORGA AL PERSONAL DE APOYO Y ASISTENCIA A LA EDUCACIÓN QUE, POR RECONOCIDOS Y MERITORIOS SERVICIOS AL INSTITUTO, SE HA DISTINGUIDO EN EL DESEMPEÑO DE SUS LABORES.
  
 PARA NUESTRA COMUNIDAD ES DE GRAN SATISFACCIÓN RECONOCER PÚBLICAMENTE LA LABOR CONSTANTE Y CONSCIENTE QUE LOS COMPAÑEROS DESEMPEÑAN EN SU VIDA LABORAL.
  
 CON LA ANUENCIA DE NUESTRAS AUTORIDADES, EN ESTE MOMENTO DAREMOS INICIO A LA ENTREGA DE DICHOS DIPLOMAS, PARA LO CUAL INVITAMOS A NUESTRO PRESIDIUM A PONERSE DE PIE PARA PROCEDER A LA ENTREGA CORRESPONDIENTE.', 221, 1);
-insert into prize values(2, 'DIPLOMA DE MAESTRO EMÉRITO', 1, 'Que se otorga a los profesores e investigadores que habiéndose retirado o jubilado, se hubieran distinguido por su relevante labor docente o de investigación en el Instituto y que hayan prestado sus servicios en éste cuando menos durante veinticinco años.
+insert into Prize (Name, Block, Speech, Amount, EventID) values('DIPLOMA DE MAESTRO EMÉRITO', 1, 'Que se otorga a los profesores e investigadores que habiéndose retirado o jubilado, se hubieran distinguido por su relevante labor docente o de investigación en el Instituto y que hayan prestado sus servicios en éste cuando menos durante veinticinco años.
 
 CON LA ANUENCIA DE NUESTRAS AUTORIDADES EN ESTE MOMENTO RECIBE TAL DISTINCIÓN...
 ', 1, 1);
-insert into prize values(3, 'DIPLOMA DE MAESTRO DECANO', 1, 'Para elegir al candidato de esta distinción, se deberá considerar además de la antigüedad del maestro, su trayectoria y aportaciones realizadas al Instituto, se otorgará al profesor que haya sido electo decano por el Consejo Técnico Consultivo Escolar. Reciben esta distinción:', 4, 1);
-insert into prize values(4, 'DIPLOMA A LA INVESTIGACIÓN', 1, 'Este diploma se otorga a aquellos profesores que se hayan destacado en el campo de la investigación científica y tecnológica, o bien por la realización de una obra científica que por su contenido haya obtenido arbitraje nacional o internacional.
+insert into Prize (Name, Block, Speech, Amount, EventID) values('DIPLOMA DE MAESTRO DECANO', 1, 'Para elegir al candidato de esta distinción, se deberá considerar además de la antigüedad del maestro, su trayectoria y aportaciones realizadas al Instituto, se otorgará al profesor que haya sido electo decano por el Consejo Técnico Consultivo Escolar. Reciben esta distinción:', 4, 1);
+insert into Prize (Name, Block, Speech, Amount, EventID) values('DIPLOMA A LA INVESTIGACIÓN', 1, 'Este diploma se otorga a aquellos profesores que se hayan destacado en el campo de la investigación científica y tecnológica, o bien por la realización de una obra científica que por su contenido haya obtenido arbitraje nacional o internacional.
 Reciben esta distinción:', 1, 1);
-insert into prize values(5, 'DIPLOMA A LA CULTURA', 1, 'El diploma a la cultura es para aquellos miembros de la comunidad politécnica, que hayan apoyado o destaquen en eventos culturales de relevancia nacional o internacional, recibe esta distinción:
+insert into Prize (Name, Block, Speech, Amount, EventID) values('DIPLOMA A LA CULTURA', 1, 'El diploma a la cultura es para aquellos miembros de la comunidad politécnica, que hayan apoyado o destaquen en eventos culturales de relevancia nacional o internacional, recibe esta distinción:
 Reciben esta distinción:', 2, 1);
-insert into prize values(6, 'DIPLOMA AL DEPORTE', 1, 'Se otorga a aquellos integrantes de la comunidad politécnica que hayan sobresalido en eventos deportivos nacionales o internacionales auspiciados por el Instituto Politécnico Nacional, o en representación del mismo o del País, recibe este galardón:', 1, 1);
+insert into Prize (Name, Block, Speech, Amount, EventID) values('DIPLOMA AL DEPORTE', 1, 'Se otorga a aquellos integrantes de la comunidad politécnica que hayan sobresalido en eventos deportivos nacionales o internacionales auspiciados por el Instituto Politécnico Nacional, o en representación del mismo o del País, recibe este galardón:', 1, 1);
 
 /* ======================================================
-* =================    SCHOOLS && AREAS     =============
+* =================    INSTITUTE, SCHOOL && AREA     ====
 * =======================================================
 */
-insert into school values('O1A000','Centro de Estudios Científicos y Tecnológicos 1 "Gonzálo Vázquez Vela"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1B000','Centro de Estudios Científicos y Tecnológicos 2 "Miguel Bernard"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1C000','Centro de Estudios Científicos y Tecnológicos 3 "Estanislao Ramírez Ruíz"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1D000','Centro de Estudios Científicos y Tecnológicos 4 "Lázaro Cárdenas"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1M000','Centro de Estudios Científicos y Tecnológicos 5 "Benito Juárez"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1K000','Centro de Estudios Científicos y Tecnológicos 6 "Miguel Othón de Mendizabal"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1E000','Centro de Estudios Científicos y Tecnológicos 7 "Cuauhtémoc"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1F000','Centro de Estudios Científicos y Tecnológicos 8 "Narciso Bassols"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1G000','Centro de Estudios Científicos y Tecnológicos 9 "Juan de Dios Bátiz"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1H000','Centro de Estudios Científicos y Tecnológicos 10 "Carlos Vallejo Márquez"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1I000','Centro de Estudios Científicos y Tecnológicos 11 "Wilfrido Massieu"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1N000','Centro de Estudios Científicos y Tecnológicos 12 "José María Morelos"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1O000','Centro de Estudios Científicos y Tecnológicos 13 "Ricardo Flores Magón"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1P000','Centro de Estudios Científicos y Tecnológicos 14 "Luis Enrique Erro"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1L000','Centro de Estudios Científicos y Tecnológicos 15 "Diódoro Antúnez Echegaray"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1Q000','Centro de Estudios Científicos y Tecnológicos 16 "Hidalgo"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1R000','Centro de Estudios Científicos y Tecnológicos 17 "León, Guanajuato"', 'MEDIO SUPERIOR', 1);
-insert into school values('O1J000','Centro de Estudios Tecnológicos 1 "Walter Cross Buchanan"', 'MEDIO SUPERIOR', 1);
-insert into school values('O2D000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Zacatenco', 'SUPERIOR', 1);
-insert into school values('O2B000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Culhuacán', 'SUPERIOR', 1);
-insert into school values('O2A000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Azcapotzalco', 'SUPERIOR', 1);
-insert into school values('O2C000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Ticomán', 'SUPERIOR', 1);
-insert into school values('O2G000','Escuela Superior de Ingeniería y Arquitectura Unidad Zacatenco', 'SUPERIOR', 1);
-insert into school values('O2E000','Escuela Superior de Ingeniería y Arquitectura Unidad Tecamachalco', 'SUPERIOR', 1);
-insert into school values('O2F000','Escuela Superior de Ingeniería y Arquitectura Unidad Ticomán', 'SUPERIOR', 1);
-insert into school values('O2H000','Escuela Superior de Ingeniería Textil', 'SUPERIOR', 1);
-insert into school values('O2I000','Escuela Superior de Ingeniería Química e Industrias Extractivas', 'SUPERIOR', 1);
-insert into school values('O2J000','Escuela Superior de Física y Matemáticas', 'SUPERIOR', 1);
-insert into school values('O2K000','Escuela Superior de Computación', 'SUPERIOR', 1);
-insert into school values('O2M000','Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas', 'SUPERIOR', 1);
-insert into school values('O2L000','Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas', 'SUPERIOR', 1);
-insert into school values('O2N000','Unidad Profesional Interdisciplinaria de Biotecnología', 'SUPERIOR', 1);
-insert into school values('O2Y000','Unidad Profesional Interdisciplinaria de Ingeniería Campus Guanajuato', 'SUPERIOR', 1);
-insert into school values('O2Z000','Unidad Profesional Interdisciplinaria de Ingeniería Campus Zacatecas', 'SUPERIOR', 1);
-insert into school values('O2P000','Escuela Nacional de Ciencias Biológicas', 'SUPERIOR', 1);
-insert into school values('O2Q000','Escuela Superior de Medicina', 'SUPERIOR', 1);
-insert into school values('O2O000','Escuela Nacional de Medicina y Homeopatía', 'SUPERIOR', 1);
-insert into school values('O2R000','Escuela Superior de Enfermería y Obstetricia', 'SUPERIOR', 1);
-insert into school values('O2T000','Centro Interdisciplinario de Ciencias de la Salud Unidad Santo Tomás', 'SUPERIOR', 1);
-insert into school values('O2S000','Centro Interdisciplinario de Ciencias de la Salud Unidad Milpa Alta', 'SUPERIOR', 1);
-insert into school values('O2U000','Escuela Superior de Comercio y Administración Unidad Santo Tomás', 'SUPERIOR', 1);
-insert into school values('O2V000','Escuela Superior de Comercio y Administración Unidad Tepepan', 'SUPERIOR', 1);
-insert into school values('O2W000','Escuela Superior de Economía', 'SUPERIOR', 1);
-insert into school values('O2X000','Escuela Superior de Turismo', 'SUPERIOR', 1);
-insert into school values('P0A000','Centro Interdisciplinario de Ciencias Marinas', 'POSGRADO', 1);
-insert into school values('P0C000','Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional Unidad Durango', 'POSGRADO', 1);
-insert into school values('P0F000','Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional Unidad Oaxaca', 'POSGRADO', 1);
-insert into school values('P0L000','Centro de Investigación en Computación', 'POSGRADO', 1);
-insert into school values('P0N000','Centro de Investigaciones Económicas, Administrativas y Sociales', 'POSGRADO', 1);
-insert into school values('P0H000','Centro de Biotecnología Genómica', 'POSGRADO', 1);
-insert into school values('P0I000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Legaria', 'POSGRADO', 1);
-insert into school values('P0K000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Querétaro', 'POSGRADO', 1);
-insert into school values('P0J000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Altamira', 'POSGRADO', 1);
-insert into school values('P0M000','Centro de Investigación y Desarrollo de Tecnología Digital', 'POSGRADO', 1);
-insert into school values('P0Q000','Centro de Investigación e Innovación Tecnológica', 'POSGRADO', 1);
-insert into school values('P0P000','Centro de Innovación y Desarrollo Tecnológico en Computo', 'POSGRADO', 1);
-insert into school values('P0T000','Centro de Nanociencias y Micro y Nanotecnologías', 'POSGRADO', 1);
-insert into school values('L10000','Dirección de Cómputo y Comunicaciones', 'ADMINISTRACIÓN', 1);
-insert into school values('R5D000','Centro de Educación Contínua Unidad Culiacán', 'CENTRO', 1);
-insert into school values('R5M000','Centro de Educación Contínua Unidad Durango', 'CENTRO', 1);
-insert into school values('R5E000','Centro de Educación Contínua Unidad Los Mochis', 'CENTRO', 1);
-insert into school values('R5K000','Centro de Educación Contínua Unidad Tijuana', 'CENTRO', 1);
-insert into school values('JA1000','Secretaría Particular de la Dirección General', 'AREA', 1);
-insert into school values('JD0000','Coordinación de Asesores', 'AREA', 1);
-insert into school values('J60000','Coordinación de Comunicación Social', 'AREA', 1);
-insert into school values('JE0000','Defensoría de los Derechos Politécnicos', 'AREA', 1);
-insert into school values('XXXXXX','Coordinación Politécnica para la Sustentabilidad', 'AREA', 1);
-insert into school values('N00000','Secretaría General', 'AREA', 1);
-insert into school values('O00000','Secretaría Académica', 'AREA', 1);
-insert into school values('O10000','Dirección de Educación Media Superior', 'AREA', 1);
-insert into school values('R40000','Dirección de Publicaciones', 'AREA', 1);
-insert into school values('Q00000','Secretaría de Servicios Educativos', 'AREA', 1);
-insert into school values('Q30000','Dirección de Bibliotecas', 'AREA', 1);
-insert into school values('Q10000','Dirección de Administración Escolar', 'AREA', 1);
-insert into school values('Q50000','Dirección de Desarrollo y Fomento Deportivo', 'AREA', 1);
-insert into school values('Q40000','Dirección de Difusión y Fomento a la Cultura', 'AREA', 1);
-insert into school values('S30000','Dirección de Evaluación', 'AREA', 1);
-insert into school values('T40000','Dirección de Gestión del Capital Humano', 'AREA', 1);
-insert into school values('T50000','Dirección de Recursos Financieros', 'AREA', 1);
-insert into school values('T60000','Dirección de Recursos Materiales y Servicios', 'AREA', 1);
-insert into school values('K00000','Oficina del Abogado General', 'AREA', 1);
-insert into school values('K20000','Dirección de Normatividad, Consulta y Dictaminación ', 'AREA', 1);
-insert into school values('K10000','Dirección de Asuntos Jurídicos', 'AREA', 1);
-insert into school values('L00000','Coordinación General de Servicios Informáticos', 'AREA', 1);
-insert into school values('O0A000','Coordinación General de Formación e Innovación Educativa', 'AREA', 1);
-insert into school values('R0F000','Unidad Politécnica para el Desarrollo y la Competitividad Empresarial', 'AREA', 1);
-insert into school values('T63000','Coordinación de Centros de Desarrollo Infantil', 'AREA', 1);
-insert into school values('T63020','Centro de Desarrollo Infantil "Amalia Solórzano de Cárdenas"', 'CENTRO', 1);
-insert into school values('T63040','Centro de Desarrollo Infantil "Clementina Batalla de Bassols"', 'CENTRO', 1);
-insert into school values('T63010','Centro de Desarrollo Infantil "Laura Pérez de Bátiz"', 'CENTRO', 1);
-insert into school values('T63050','Centro de Desarrollo Infantil "Margarita Salazar de Erro"', 'CENTRO', 1);
+insert into institute values('O1A000','Centro de Estudios Científicos y Tecnológicos 1 "Gonzálo Vázquez Vela"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O1B000','Centro de Estudios Científicos y Tecnológicos 2 "Miguel Bernard"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O1C000','Centro de Estudios Científicos y Tecnológicos 3 "Estanislao Ramírez Ruíz"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O1D000','Centro de Estudios Científicos y Tecnológicos 4 "Lázaro Cárdenas"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O1M000','Centro de Estudios Científicos y Tecnológicos 5 "Benito Juárez"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O1K000','Centro de Estudios Científicos y Tecnológicos 6 "Miguel Othón de Mendizabal"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O1E000','Centro de Estudios Científicos y Tecnológicos 7 "Cuauhtémoc"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O1F000','Centro de Estudios Científicos y Tecnológicos 8 "Narciso Bassols"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O1G000','Centro de Estudios Científicos y Tecnológicos 9 "Juan de Dios Bátiz"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O1H000','Centro de Estudios Científicos y Tecnológicos 10 "Carlos Vallejo Márquez"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O1I000','Centro de Estudios Científicos y Tecnológicos 11 "Wilfrido Massieu"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O1N000','Centro de Estudios Científicos y Tecnológicos 12 "José María Morelos"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O1O000','Centro de Estudios Científicos y Tecnológicos 13 "Ricardo Flores Magón"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O1P000','Centro de Estudios Científicos y Tecnológicos 14 "Luis Enrique Erro"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O1L000','Centro de Estudios Científicos y Tecnológicos 15 "Diódoro Antúnez Echegaray"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O1Q000','Centro de Estudios Científicos y Tecnológicos 16 "Hidalgo"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O1R000','Centro de Estudios Científicos y Tecnológicos 17 "León, Guanajuato"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O1J000','Centro de Estudios Tecnológicos 1 "Walter Cross Buchanan"', 'MEDIO SUPERIOR', 1);
+insert into institute values('O2D000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Zacatenco', 'SUPERIOR', 1);
+insert into institute values('O2B000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Culhuacán', 'SUPERIOR', 1);
+insert into institute values('O2A000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Azcapotzalco', 'SUPERIOR', 1);
+insert into institute values('O2C000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Ticomán', 'SUPERIOR', 1);
+insert into institute values('O2G000','Escuela Superior de Ingeniería y Arquitectura Unidad Zacatenco', 'SUPERIOR', 1);
+insert into institute values('O2E000','Escuela Superior de Ingeniería y Arquitectura Unidad Tecamachalco', 'SUPERIOR', 1);
+insert into institute values('O2F000','Escuela Superior de Ingeniería y Arquitectura Unidad Ticomán', 'SUPERIOR', 1);
+insert into institute values('O2H000','Escuela Superior de Ingeniería Textil', 'SUPERIOR', 1);
+insert into institute values('O2I000','Escuela Superior de Ingeniería Química e Industrias Extractivas', 'SUPERIOR', 1);
+insert into institute values('O2J000','Escuela Superior de Física y Matemáticas', 'SUPERIOR', 1);
+insert into institute values('O2K000','Escuela Superior de Computación', 'SUPERIOR', 1);
+insert into institute values('O2M000','Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas', 'SUPERIOR', 1);
+insert into institute values('O2L000','Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas', 'SUPERIOR', 1);
+insert into institute values('O2N000','Unidad Profesional Interdisciplinaria de Biotecnología', 'SUPERIOR', 1);
+insert into institute values('O2Y000','Unidad Profesional Interdisciplinaria de Ingeniería Campus Guanajuato', 'SUPERIOR', 1);
+insert into institute values('O2Z000','Unidad Profesional Interdisciplinaria de Ingeniería Campus Zacatecas', 'SUPERIOR', 1);
+insert into institute values('O2P000','Escuela Nacional de Ciencias Biológicas', 'SUPERIOR', 1);
+insert into institute values('O2Q000','Escuela Superior de Medicina', 'SUPERIOR', 1);
+insert into institute values('O2O000','Escuela Nacional de Medicina y Homeopatía', 'SUPERIOR', 1);
+insert into institute values('O2R000','Escuela Superior de Enfermería y Obstetricia', 'SUPERIOR', 1);
+insert into institute values('O2T000','Centro Interdisciplinario de Ciencias de la Salud Unidad Santo Tomás', 'SUPERIOR', 1);
+insert into institute values('O2S000','Centro Interdisciplinario de Ciencias de la Salud Unidad Milpa Alta', 'SUPERIOR', 1);
+insert into institute values('O2U000','Escuela Superior de Comercio y Administración Unidad Santo Tomás', 'SUPERIOR', 1);
+insert into institute values('O2V000','Escuela Superior de Comercio y Administración Unidad Tepepan', 'SUPERIOR', 1);
+insert into institute values('O2W000','Escuela Superior de Economía', 'SUPERIOR', 1);
+insert into institute values('O2X000','Escuela Superior de Turismo', 'SUPERIOR', 1);
+insert into institute values('P0A000','Centro Interdisciplinario de Ciencias Marinas', 'POSGRADO', 1);
+insert into institute values('P0C000','Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional Unidad Durango', 'POSGRADO', 1);
+insert into institute values('P0F000','Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional Unidad Oaxaca', 'POSGRADO', 1);
+insert into institute values('P0L000','Centro de Investigación en Computación', 'POSGRADO', 1);
+insert into institute values('P0N000','Centro de Investigaciones Económicas, Administrativas y Sociales', 'POSGRADO', 1);
+insert into institute values('P0H000','Centro de Biotecnología Genómica', 'POSGRADO', 1);
+insert into institute values('P0I000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Legaria', 'POSGRADO', 1);
+insert into institute values('P0K000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Querétaro', 'POSGRADO', 1);
+insert into institute values('P0J000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Altamira', 'POSGRADO', 1);
+insert into institute values('P0M000','Centro de Investigación y Desarrollo de Tecnología Digital', 'POSGRADO', 1);
+insert into institute values('P0Q000','Centro de Investigación e Innovación Tecnológica', 'POSGRADO', 1);
+insert into institute values('P0P000','Centro de Innovación y Desarrollo Tecnológico en Computo', 'POSGRADO', 1);
+insert into institute values('P0T000','Centro de Nanociencias y Micro y Nanotecnologías', 'POSGRADO', 1);
+insert into institute values('L10000','Dirección de Cómputo y Comunicaciones', 'ADMINISTRACIÓN', 1);
+insert into institute values('R5D000','Centro de Educación Contínua Unidad Culiacán', 'CENTRO', 1);
+insert into institute values('R5M000','Centro de Educación Contínua Unidad Durango', 'CENTRO', 1);
+insert into institute values('R5E000','Centro de Educación Contínua Unidad Los Mochis', 'CENTRO', 1);
+insert into institute values('R5K000','Centro de Educación Contínua Unidad Tijuana', 'CENTRO', 1);
+insert into institute values('JA1000','Secretaría Particular de la Dirección General', 'AREA', 1);
+insert into institute values('JD0000','Coordinación de Asesores', 'AREA', 1);
+insert into institute values('J60000','Coordinación de Comunicación Social', 'AREA', 1);
+insert into institute values('JE0000','Defensoría de los Derechos Politécnicos', 'AREA', 1);
+insert into institute values('XXXXXX','Coordinación Politécnica para la Sustentabilidad', 'AREA', 1);
+insert into institute values('N00000','Secretaría General', 'AREA', 1);
+insert into institute values('O00000','Secretaría Académica', 'AREA', 1);
+insert into institute values('O10000','Dirección de Educación Media Superior', 'AREA', 1);
+insert into institute values('R40000','Dirección de Publicaciones', 'AREA', 1);
+insert into institute values('Q00000','Secretaría de Servicios Educativos', 'AREA', 1);
+insert into institute values('Q30000','Dirección de Bibliotecas', 'AREA', 1);
+insert into institute values('Q10000','Dirección de Administración Escolar', 'AREA', 1);
+insert into institute values('Q50000','Dirección de Desarrollo y Fomento Deportivo', 'AREA', 1);
+insert into institute values('Q40000','Dirección de Difusión y Fomento a la Cultura', 'AREA', 1);
+insert into institute values('S30000','Dirección de Evaluación', 'AREA', 1);
+insert into institute values('T40000','Dirección de Gestión del Capital Humano', 'AREA', 1);
+insert into institute values('T50000','Dirección de Recursos Financieros', 'AREA', 1);
+insert into institute values('T60000','Dirección de Recursos Materiales y Servicios', 'AREA', 1);
+insert into institute values('K00000','Oficina del Abogado General', 'AREA', 1);
+insert into institute values('K20000','Dirección de Normatividad, Consulta y Dictaminación ', 'AREA', 1);
+insert into institute values('K10000','Dirección de Asuntos Jurídicos', 'AREA', 1);
+insert into institute values('L00000','Coordinación General de Servicios Informáticos', 'AREA', 1);
+insert into institute values('O0A000','Coordinación General de Formación e Innovación Educativa', 'AREA', 1);
+insert into institute values('R0F000','Unidad Politécnica para el Desarrollo y la Competitividad Empresarial', 'AREA', 1);
+insert into institute values('T63000','Coordinación de Centros de Desarrollo Infantil', 'AREA', 1);
+insert into institute values('T63020','Centro de Desarrollo Infantil "Amalia Solórzano de Cárdenas"', 'CENTRO', 1);
+insert into institute values('T63040','Centro de Desarrollo Infantil "Clementina Batalla de Bassols"', 'CENTRO', 1);
+insert into institute values('T63010','Centro de Desarrollo Infantil "Laura Pérez de Bátiz"', 'CENTRO', 1);
+insert into institute values('T63050','Centro de Desarrollo Infantil "Margarita Salazar de Erro"', 'CENTRO', 1);
 
 /* ======================================================
 * =================    GUESTS     =======================
@@ -195,7 +195,7 @@ insert into guest values('BEHM730706', 46, 'Ma. Guadalupe del Carmen', 'Belmonte
 insert into guest values('CUPS631212', 47, 'Sonia Elizabeth', 'Cruz', 'Pérez', null, null, null, null,'O1J000');
 insert into guest values('ROAJ530902', 48, 'Juan', 'Romero', 'Amaya', null, null, null, null,'O1J000');
 insert into guest values('RORR590111', 49, 'Rocío', 'Rodas', 'Ruíz', null, null, null, null,'O1J000');
-insert into guest (number, firstName, middleName, lastName, rfc, seat, email, assistance, representative, school) values 
+insert into guest (number, firstName, middleName, lastName, rfc, seat, email, assistance, representative, instituteID) values 
 (50,	'Ma. Victoria', 'Rafael', 'Valdivia', 'RAVM650728', null, null, null, null, 'O2D000'),
 (51, 'Ana Laura', 'Villalpando', 'Nava',	'VINA780922', null, null, null, null, 'O2D000'),
 (52, 'Víctor Alejandro', 'Banderas', 'Mérida', 'BAMV840328', null, null, null, null, 'O2B000'),
@@ -300,7 +300,7 @@ insert into guest (number, firstName, middleName, lastName, rfc, seat, email, as
 (151,'Jazmín', 'Guerra', 'Alcántara', 'GUAJ850112', null, null, null, null, 'L10000'),
 (152,'Luis Paul', 'Gutiérrez', 'Hernández',	'GUHL810712', null, null, null, null, 'L10000'),
 (153,'María Magdalena', 'Martínez', 'Carrillo',	'MACM640411', null, null, null, null, 'L10000');
-insert into guest (number, firstName, middleName, lastName, rfc, seat, email, assistance, representative, school) values 
+insert into guest (number, firstName, middleName, lastName, rfc, seat, email, assistance, representative, instituteID) values 
 (154,'Sofía', 'Macías', ' ', 'MASO581005', null, null, null, null, 'R5D000'),
 (155,'Georgina Irasema', 'Estrada', 'Rivera',	'EARG821010', null, null, null, null, 'R5D000'),
 (156,'María del Rosario', 'Rivera', 'Samaniego',	'RISR610808', null, null, null, null, 'R5D000'),
@@ -310,7 +310,7 @@ insert into guest (number, firstName, middleName, lastName, rfc, seat, email, as
 (160,'Arianna Arozibel', 'Pineda', 'Carrasco',	'PICA790917', null, null, null, null, 'R5E000'),
 (161,'Esperanza', 'Aviña', 'García',	'AIGE760708', null, null, null, null, 'R5K000'),
 (162,'Karol Angélica', 'Marín', 'Nova',	'MANK750818', null, null, null, null, 'R5K000');
-insert into guest (number, firstName, middleName, lastName, rfc, seat, email, assistance, representative, school) values 
+insert into guest (number, firstName, middleName, lastName, rfc, seat, email, assistance, representative, instituteID) values 
 (163,	'María Guadalupe', 'Parga', 'López',	'PALG831114', null, null, null, null, 'JA1000'),
 (164,	'Diana Laura', 'Ramírez', 'Álvarez',	'RAAD681019', null, null, null, null, 'JD0000'),
 (165,	'José Ramón', 'Rodríguez', 'Ojeda',	'ROOR690527', null, null, null, null, 'JD0000'),
@@ -370,7 +370,7 @@ insert into guest (number, firstName, middleName, lastName, rfc, seat, email, as
 (219,	'Narda Araceli', 'Quintana', 'Diosdado',	'QUDN750305', null, null, null, null, 'T63050'),
 (220,	'Olga Alicia', 'Sánchez', 'López',	'SALO680206', null, null, null, null, 'T63050'),
 (221,	'Catalina', 'Ramos', 'Ramos',	'RARC621127', null, null, null, null, 'T63050');
-insert into guest (number, firstName, middleName, lastName, rfc, seat, email, assistance, representative, school) values 
+insert into guest (number, firstName, middleName, lastName, rfc, seat, email, assistance, representative, instituteID) values 
 (222,	'José Guadalupe', 'Torres y', 'Ortega',	'TOOG450118',null, null, null, null, 'O2A000'),
 (223,	'Rafael', 'Castañeda', 'Díaz',	'CADR791106',null, null, null, null, 'O2Z000'),
 (224,	'José Roberto de Jesús', 'Bastarrachea', 'Sabido',	'BASR381220',null, null, null, null, 'O2Q000'),

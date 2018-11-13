@@ -23,11 +23,12 @@ DROP TABLE IF EXISTS `comment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comment` (
-  `comment` varchar(1000) NOT NULL,
-  `rfc` varchar(10) NOT NULL,
-  PRIMARY KEY (`comment`,`rfc`),
-  KEY `comment_guest_idx` (`rfc`),
-  CONSTRAINT `comment_guest` FOREIGN KEY (`rfc`) REFERENCES `guest` (`rfc`) ON DELETE CASCADE ON UPDATE CASCADE
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Comment` varchar(1000) DEFAULT NULL,
+  `RFC` varchar(10) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `comment_guest_idx` (`RFC`),
+  CONSTRAINT `comment_guest` FOREIGN KEY (`RFC`) REFERENCES `guest` (`RFC`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -48,13 +49,15 @@ DROP TABLE IF EXISTS `event`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `event` (
-  `id_event` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `place` varchar(600) DEFAULT NULL,
-  `time` varchar(20) DEFAULT NULL,
-  `des` varchar(1000) DEFAULT NULL,
-  PRIMARY KEY (`id_event`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `EventID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(100) NOT NULL,
+  `Place` varchar(600) DEFAULT NULL,
+  `Lat` double DEFAULT NULL,
+  `Long` double DEFAULT NULL,
+  `Time` datetime DEFAULT NULL,
+  `Des` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`EventID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +66,7 @@ CREATE TABLE `event` (
 
 LOCK TABLES `event` WRITE;
 /*!40000 ALTER TABLE `event` DISABLE KEYS */;
-INSERT INTO `event` VALUES (1,'DISTINCIONES AL MÉRITO POLITÉCNICO 2018',NULL,NULL,'LAS DISTINCIONES AL MÉRITO POLITÉCNICO SON EL RECONOCIMIENTO QUE HACE LA COMUNIDAD POLITÉCNICA A UNA CONDUCTA, TRAYECTORIA, SERVICIO O ACCIÓN EJEMPLAR, SOBRESALIENTE, QUE HAYA TENIDO POR OBJETO EXHALTAR EL PRESTIGIO DEL INSTITUTO POLITÉCNICO NACIONAL, PARA APOYAR LA REALIZACIÓN DE SUS FINALIDADES: IMPULSAR EL DESARROLLO DE LA EDUCACIÓN TÉCNICA EN EL PAÍS O BENEFICIAR A LA HUMANIDAD.\n\nEN ESTA OCASIÓN EL CONSEJO GENERAL CONSULTIVO HA DECIDIDO OTORGAR \n');
+INSERT INTO `event` VALUES (1,'DISTINCIONES AL MÉRITO POLITÉCNICO 2018',NULL,NULL,NULL,NULL,'LAS DISTINCIONES AL MÉRITO POLITÉCNICO SON EL RECONOCIMIENTO QUE HACE LA COMUNIDAD POLITÉCNICA A UNA CONDUCTA, TRAYECTORIA, SERVICIO O ACCIÓN EJEMPLAR, SOBRESALIENTE, QUE HAYA TENIDO POR OBJETO EXHALTAR EL PRESTIGIO DEL INSTITUTO POLITÉCNICO NACIONAL, PARA APOYAR LA REALIZACIÓN DE SUS FINALIDADES: IMPULSAR EL DESARROLLO DE LA EDUCACIÓN TÉCNICA EN EL PAÍS O BENEFICIAR A LA HUMANIDAD.\n\nEN ESTA OCASIÓN EL CONSEJO GENERAL CONSULTIVO HA DECIDIDO OTORGAR');
 /*!40000 ALTER TABLE `event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -75,19 +78,19 @@ DROP TABLE IF EXISTS `guest`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `guest` (
-  `rfc` varchar(10) NOT NULL,
-  `number` int(11) NOT NULL,
-  `firstName` varchar(45) NOT NULL,
-  `middleName` varchar(45) NOT NULL,
-  `lastName` varchar(45) NOT NULL,
-  `seat` int(11) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  `assistance` tinyint(4) DEFAULT NULL,
-  `representative` varchar(100) DEFAULT NULL,
-  `school` varchar(6) NOT NULL,
-  PRIMARY KEY (`rfc`),
-  KEY `guest_school_idx` (`school`),
-  CONSTRAINT `guest_school` FOREIGN KEY (`school`) REFERENCES `school` (`id_school`) ON DELETE CASCADE ON UPDATE CASCADE
+  `RFC` varchar(10) NOT NULL,
+  `Number` int(11) NOT NULL,
+  `FirstName` varchar(45) NOT NULL,
+  `MiddleName` varchar(45) NOT NULL,
+  `LastName` varchar(45) NOT NULL,
+  `Seat` int(11) DEFAULT NULL,
+  `Email` varchar(45) DEFAULT NULL,
+  `Assistance` tinyint(4) DEFAULT NULL,
+  `Representative` varchar(100) DEFAULT NULL,
+  `InstituteID` varchar(6) NOT NULL,
+  PRIMARY KEY (`RFC`),
+  KEY `guest_school_idx` (`InstituteID`),
+  CONSTRAINT `guest_school` FOREIGN KEY (`InstituteID`) REFERENCES `institute` (`InstituteID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -109,12 +112,12 @@ DROP TABLE IF EXISTS `guest_prize`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `guest_prize` (
-  `rfc` varchar(10) NOT NULL,
-  `id_prize` int(11) NOT NULL,
-  PRIMARY KEY (`rfc`,`id_prize`),
-  KEY `gp_prize_idx` (`id_prize`),
-  CONSTRAINT `gp_guest` FOREIGN KEY (`rfc`) REFERENCES `guest` (`rfc`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `gp_prize` FOREIGN KEY (`id_prize`) REFERENCES `prize` (`id_prize`) ON DELETE CASCADE ON UPDATE CASCADE
+  `RFC` varchar(10) NOT NULL,
+  `PrizeID` int(11) NOT NULL,
+  PRIMARY KEY (`RFC`,`PrizeID`),
+  KEY `gp_prize_idx` (`PrizeID`),
+  CONSTRAINT `gp_guest` FOREIGN KEY (`RFC`) REFERENCES `guest` (`RFC`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `gp_prize` FOREIGN KEY (`PrizeID`) REFERENCES `prize` (`PrizeID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -136,12 +139,13 @@ DROP TABLE IF EXISTS `institute`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `institute` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `id_event` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `institute_event_idx` (`id_event`),
-  CONSTRAINT `institute_event` FOREIGN KEY (`id_event`) REFERENCES `event` (`id_event`) ON DELETE CASCADE ON UPDATE CASCADE
+  `InstituteID` varchar(6) NOT NULL,
+  `Name` varchar(100) NOT NULL,
+  `Level` varchar(20) NOT NULL,
+  `InstitutionID` int(11) NOT NULL,
+  PRIMARY KEY (`InstituteID`),
+  KEY `institute_school_idx` (`InstitutionID`),
+  CONSTRAINT `institute_school` FOREIGN KEY (`InstitutionID`) REFERENCES `institution` (`InstitutionID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -151,8 +155,35 @@ CREATE TABLE `institute` (
 
 LOCK TABLES `institute` WRITE;
 /*!40000 ALTER TABLE `institute` DISABLE KEYS */;
-INSERT INTO `institute` VALUES (1,'INSTITUTO POLITÉCNICO NACIONAL',1),(2,'UNIVERSIDAD AUTÓNOMA DE MÉXICO',NULL);
+INSERT INTO `institute` VALUES ('J60000','Coordinación de Comunicación Social','AREA',1),('JA1000','Secretaría Particular de la Dirección General','AREA',1),('JD0000','Coordinación de Asesores','AREA',1),('JE0000','Defensoría de los Derechos Politécnicos','AREA',1),('K00000','Oficina del Abogado General','AREA',1),('K10000','Dirección de Asuntos Jurídicos','AREA',1),('K20000','Dirección de Normatividad, Consulta y Dictaminación ','AREA',1),('L00000','Coordinación General de Servicios Informáticos','AREA',1),('L10000','Dirección de Cómputo y Comunicaciones','ADMINISTRACIÓN',1),('N00000','Secretaría General','AREA',1),('O00000','Secretaría Académica','AREA',1),('O0A000','Coordinación General de Formación e Innovación Educativa','AREA',1),('O10000','Dirección de Educación Media Superior','AREA',1),('O1A000','Centro de Estudios Científicos y Tecnológicos 1 \"Gonzálo Vázquez Vela\"','MEDIO SUPERIOR',1),('O1B000','Centro de Estudios Científicos y Tecnológicos 2 \"Miguel Bernard\"','MEDIO SUPERIOR',1),('O1C000','Centro de Estudios Científicos y Tecnológicos 3 \"Estanislao Ramírez Ruíz\"','MEDIO SUPERIOR',1),('O1D000','Centro de Estudios Científicos y Tecnológicos 4 \"Lázaro Cárdenas\"','MEDIO SUPERIOR',1),('O1E000','Centro de Estudios Científicos y Tecnológicos 7 \"Cuauhtémoc\"','MEDIO SUPERIOR',1),('O1F000','Centro de Estudios Científicos y Tecnológicos 8 \"Narciso Bassols\"','MEDIO SUPERIOR',1),('O1G000','Centro de Estudios Científicos y Tecnológicos 9 \"Juan de Dios Bátiz\"','MEDIO SUPERIOR',1),('O1H000','Centro de Estudios Científicos y Tecnológicos 10 \"Carlos Vallejo Márquez\"','MEDIO SUPERIOR',1),('O1I000','Centro de Estudios Científicos y Tecnológicos 11 \"Wilfrido Massieu\"','MEDIO SUPERIOR',1),('O1J000','Centro de Estudios Tecnológicos 1 \"Walter Cross Buchanan\"','MEDIO SUPERIOR',1),('O1K000','Centro de Estudios Científicos y Tecnológicos 6 \"Miguel Othón de Mendizabal\"','MEDIO SUPERIOR',1),('O1L000','Centro de Estudios Científicos y Tecnológicos 15 \"Diódoro Antúnez Echegaray\"','MEDIO SUPERIOR',1),('O1M000','Centro de Estudios Científicos y Tecnológicos 5 \"Benito Juárez\"','MEDIO SUPERIOR',1),('O1N000','Centro de Estudios Científicos y Tecnológicos 12 \"José María Morelos\"','MEDIO SUPERIOR',1),('O1O000','Centro de Estudios Científicos y Tecnológicos 13 \"Ricardo Flores Magón\"','MEDIO SUPERIOR',1),('O1P000','Centro de Estudios Científicos y Tecnológicos 14 \"Luis Enrique Erro\"','MEDIO SUPERIOR',1),('O1Q000','Centro de Estudios Científicos y Tecnológicos 16 \"Hidalgo\"','MEDIO SUPERIOR',1),('O1R000','Centro de Estudios Científicos y Tecnológicos 17 \"León, Guanajuato\"','MEDIO SUPERIOR',1),('O2A000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Azcapotzalco','SUPERIOR',1),('O2B000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Culhuacán','SUPERIOR',1),('O2C000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Ticomán','SUPERIOR',1),('O2D000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Zacatenco','SUPERIOR',1),('O2E000','Escuela Superior de Ingeniería y Arquitectura Unidad Tecamachalco','SUPERIOR',1),('O2F000','Escuela Superior de Ingeniería y Arquitectura Unidad Ticomán','SUPERIOR',1),('O2G000','Escuela Superior de Ingeniería y Arquitectura Unidad Zacatenco','SUPERIOR',1),('O2H000','Escuela Superior de Ingeniería Textil','SUPERIOR',1),('O2I000','Escuela Superior de Ingeniería Química e Industrias Extractivas','SUPERIOR',1),('O2J000','Escuela Superior de Física y Matemáticas','SUPERIOR',1),('O2K000','Escuela Superior de Computación','SUPERIOR',1),('O2L000','Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas','SUPERIOR',1),('O2M000','Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas','SUPERIOR',1),('O2N000','Unidad Profesional Interdisciplinaria de Biotecnología','SUPERIOR',1),('O2O000','Escuela Nacional de Medicina y Homeopatía','SUPERIOR',1),('O2P000','Escuela Nacional de Ciencias Biológicas','SUPERIOR',1),('O2Q000','Escuela Superior de Medicina','SUPERIOR',1),('O2R000','Escuela Superior de Enfermería y Obstetricia','SUPERIOR',1),('O2S000','Centro Interdisciplinario de Ciencias de la Salud Unidad Milpa Alta','SUPERIOR',1),('O2T000','Centro Interdisciplinario de Ciencias de la Salud Unidad Santo Tomás','SUPERIOR',1),('O2U000','Escuela Superior de Comercio y Administración Unidad Santo Tomás','SUPERIOR',1),('O2V000','Escuela Superior de Comercio y Administración Unidad Tepepan','SUPERIOR',1),('O2W000','Escuela Superior de Economía','SUPERIOR',1),('O2X000','Escuela Superior de Turismo','SUPERIOR',1),('O2Y000','Unidad Profesional Interdisciplinaria de Ingeniería Campus Guanajuato','SUPERIOR',1),('O2Z000','Unidad Profesional Interdisciplinaria de Ingeniería Campus Zacatecas','SUPERIOR',1),('P0A000','Centro Interdisciplinario de Ciencias Marinas','POSGRADO',1),('P0C000','Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional Unidad Durango','POSGRADO',1),('P0F000','Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional Unidad Oaxaca','POSGRADO',1),('P0H000','Centro de Biotecnología Genómica','POSGRADO',1),('P0I000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Legaria','POSGRADO',1),('P0J000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Altamira','POSGRADO',1),('P0K000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Querétaro','POSGRADO',1),('P0L000','Centro de Investigación en Computación','POSGRADO',1),('P0M000','Centro de Investigación y Desarrollo de Tecnología Digital','POSGRADO',1),('P0N000','Centro de Investigaciones Económicas, Administrativas y Sociales','POSGRADO',1),('P0P000','Centro de Innovación y Desarrollo Tecnológico en Computo','POSGRADO',1),('P0Q000','Centro de Investigación e Innovación Tecnológica','POSGRADO',1),('P0T000','Centro de Nanociencias y Micro y Nanotecnologías','POSGRADO',1),('Q00000','Secretaría de Servicios Educativos','AREA',1),('Q10000','Dirección de Administración Escolar','AREA',1),('Q30000','Dirección de Bibliotecas','AREA',1),('Q40000','Dirección de Difusión y Fomento a la Cultura','AREA',1),('Q50000','Dirección de Desarrollo y Fomento Deportivo','AREA',1),('R0F000','Unidad Politécnica para el Desarrollo y la Competitividad Empresarial','AREA',1),('R40000','Dirección de Publicaciones','AREA',1),('R5D000','Centro de Educación Contínua Unidad Culiacán','CENTRO',1),('R5E000','Centro de Educación Contínua Unidad Los Mochis','CENTRO',1),('R5K000','Centro de Educación Contínua Unidad Tijuana','CENTRO',1),('R5M000','Centro de Educación Contínua Unidad Durango','CENTRO',1),('S30000','Dirección de Evaluación','AREA',1),('T40000','Dirección de Gestión del Capital Humano','AREA',1),('T50000','Dirección de Recursos Financieros','AREA',1),('T60000','Dirección de Recursos Materiales y Servicios','AREA',1),('T63000','Coordinación de Centros de Desarrollo Infantil','AREA',1),('T63010','Centro de Desarrollo Infantil \"Laura Pérez de Bátiz\"','CENTRO',1),('T63020','Centro de Desarrollo Infantil \"Amalia Solórzano de Cárdenas\"','CENTRO',1),('T63040','Centro de Desarrollo Infantil \"Clementina Batalla de Bassols\"','CENTRO',1),('T63050','Centro de Desarrollo Infantil \"Margarita Salazar de Erro\"','CENTRO',1),('XXXXXX','Coordinación Politécnica para la Sustentabilidad','AREA',1);
 /*!40000 ALTER TABLE `institute` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `institution`
+--
+
+DROP TABLE IF EXISTS `institution`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `institution` (
+  `InstitutionID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(50) NOT NULL,
+  `EventID` int(11) DEFAULT NULL,
+  PRIMARY KEY (`InstitutionID`),
+  KEY `institute_event_idx` (`EventID`),
+  CONSTRAINT `institute_event` FOREIGN KEY (`EventID`) REFERENCES `event` (`EventID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `institution`
+--
+
+LOCK TABLES `institution` WRITE;
+/*!40000 ALTER TABLE `institution` DISABLE KEYS */;
+INSERT INTO `institution` VALUES (1,'INSTITUTO POLITÉCNICO NACIONAL',1),(2,'UNIVERSIDAD AUTÓNOMA DE MÉXICO',NULL);
+/*!40000 ALTER TABLE `institution` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -163,11 +194,12 @@ DROP TABLE IF EXISTS `news`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `news` (
-  `news` varchar(1000) NOT NULL,
-  `id_event` int(11) NOT NULL,
-  PRIMARY KEY (`news`,`id_event`),
-  KEY `news_event_idx` (`id_event`),
-  CONSTRAINT `news_event` FOREIGN KEY (`id_event`) REFERENCES `event` (`id_event`) ON DELETE CASCADE ON UPDATE CASCADE
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `News` varchar(1000) DEFAULT NULL,
+  `EventID` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `news_event_idx` (`EventID`),
+  CONSTRAINT `news_event` FOREIGN KEY (`EventID`) REFERENCES `event` (`EventID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -188,16 +220,16 @@ DROP TABLE IF EXISTS `prize`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `prize` (
-  `id_prize` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `block` int(11) NOT NULL,
-  `speech` varchar(1000) NOT NULL,
-  `amount` int(11) NOT NULL,
-  `id_event` int(11) NOT NULL,
-  PRIMARY KEY (`id_prize`),
-  KEY `event_prize_idx` (`id_event`),
-  CONSTRAINT `event_prize` FOREIGN KEY (`id_event`) REFERENCES `event` (`id_event`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `PrizeID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(100) NOT NULL,
+  `Block` int(11) NOT NULL,
+  `Speech` varchar(1000) NOT NULL,
+  `Amount` int(11) NOT NULL,
+  `EventID` int(11) NOT NULL,
+  PRIMARY KEY (`PrizeID`),
+  KEY `event_prize_idx` (`EventID`),
+  CONSTRAINT `event_prize` FOREIGN KEY (`EventID`) REFERENCES `event` (`EventID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,34 +243,6 @@ INSERT INTO `prize` VALUES (1,'DIPLOMA A LA \"EFICIENCIA Y EFICACIA\"',1,'EL DIP
 UNLOCK TABLES;
 
 --
--- Table structure for table `school`
---
-
-DROP TABLE IF EXISTS `school`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `school` (
-  `id_school` varchar(6) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `level` varchar(20) NOT NULL,
-  `id_institute` int(11) NOT NULL,
-  PRIMARY KEY (`id_school`),
-  KEY `institute_school_idx` (`id_institute`),
-  CONSTRAINT `institute_school` FOREIGN KEY (`id_institute`) REFERENCES `institute` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `school`
---
-
-LOCK TABLES `school` WRITE;
-/*!40000 ALTER TABLE `school` DISABLE KEYS */;
-INSERT INTO `school` VALUES ('J60000','Coordinación de Comunicación Social','AREA',1),('JA1000','Secretaría Particular de la Dirección General','AREA',1),('JD0000','Coordinación de Asesores','AREA',1),('JE0000','Defensoría de los Derechos Politécnicos','AREA',1),('K00000','Oficina del Abogado General','AREA',1),('K10000','Dirección de Asuntos Jurídicos','AREA',1),('K20000','Dirección de Normatividad, Consulta y Dictaminación ','AREA',1),('L00000','Coordinación General de Servicios Informáticos','AREA',1),('L10000','Dirección de Cómputo y Comunicaciones','ADMINISTRACIÓN',1),('N00000','Secretaría General','AREA',1),('O00000','Secretaría Académica','AREA',1),('O0A000','Coordinación General de Formación e Innovación Educativa','AREA',1),('O10000','Dirección de Educación Media Superior','AREA',1),('O1A000','Centro de Estudios Científicos y Tecnológicos 1 \"Gonzálo Vázquez Vela\"','MEDIO SUPERIOR',1),('O1B000','Centro de Estudios Científicos y Tecnológicos 2 \"Miguel Bernard\"','MEDIO SUPERIOR',1),('O1C000','Centro de Estudios Científicos y Tecnológicos 3 \"Estanislao Ramírez Ruíz\"','MEDIO SUPERIOR',1),('O1D000','Centro de Estudios Científicos y Tecnológicos 4 \"Lázaro Cárdenas\"','MEDIO SUPERIOR',1),('O1E000','Centro de Estudios Científicos y Tecnológicos 7 \"Cuauhtémoc\"','MEDIO SUPERIOR',1),('O1F000','Centro de Estudios Científicos y Tecnológicos 8 \"Narciso Bassols\"','MEDIO SUPERIOR',1),('O1G000','Centro de Estudios Científicos y Tecnológicos 9 \"Juan de Dios Bátiz\"','MEDIO SUPERIOR',1),('O1H000','Centro de Estudios Científicos y Tecnológicos 10 \"Carlos Vallejo Márquez\"','MEDIO SUPERIOR',1),('O1I000','Centro de Estudios Científicos y Tecnológicos 11 \"Wilfrido Massieu\"','MEDIO SUPERIOR',1),('O1J000','Centro de Estudios Tecnológicos 1 \"Walter Cross Buchanan\"','MEDIO SUPERIOR',1),('O1K000','Centro de Estudios Científicos y Tecnológicos 6 \"Miguel Othón de Mendizabal\"','MEDIO SUPERIOR',1),('O1L000','Centro de Estudios Científicos y Tecnológicos 15 \"Diódoro Antúnez Echegaray\"','MEDIO SUPERIOR',1),('O1M000','Centro de Estudios Científicos y Tecnológicos 5 \"Benito Juárez\"','MEDIO SUPERIOR',1),('O1N000','Centro de Estudios Científicos y Tecnológicos 12 \"José María Morelos\"','MEDIO SUPERIOR',1),('O1O000','Centro de Estudios Científicos y Tecnológicos 13 \"Ricardo Flores Magón\"','MEDIO SUPERIOR',1),('O1P000','Centro de Estudios Científicos y Tecnológicos 14 \"Luis Enrique Erro\"','MEDIO SUPERIOR',1),('O1Q000','Centro de Estudios Científicos y Tecnológicos 16 \"Hidalgo\"','MEDIO SUPERIOR',1),('O1R000','Centro de Estudios Científicos y Tecnológicos 17 \"León, Guanajuato\"','MEDIO SUPERIOR',1),('O2A000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Azcapotzalco','SUPERIOR',1),('O2B000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Culhuacán','SUPERIOR',1),('O2C000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Ticomán','SUPERIOR',1),('O2D000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Zacatenco','SUPERIOR',1),('O2E000','Escuela Superior de Ingeniería y Arquitectura Unidad Tecamachalco','SUPERIOR',1),('O2F000','Escuela Superior de Ingeniería y Arquitectura Unidad Ticomán','SUPERIOR',1),('O2G000','Escuela Superior de Ingeniería y Arquitectura Unidad Zacatenco','SUPERIOR',1),('O2H000','Escuela Superior de Ingeniería Textil','SUPERIOR',1),('O2I000','Escuela Superior de Ingeniería Química e Industrias Extractivas','SUPERIOR',1),('O2J000','Escuela Superior de Física y Matemáticas','SUPERIOR',1),('O2K000','Escuela Superior de Computación','SUPERIOR',1),('O2L000','Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas','SUPERIOR',1),('O2M000','Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas','SUPERIOR',1),('O2N000','Unidad Profesional Interdisciplinaria de Biotecnología','SUPERIOR',1),('O2O000','Escuela Nacional de Medicina y Homeopatía','SUPERIOR',1),('O2P000','Escuela Nacional de Ciencias Biológicas','SUPERIOR',1),('O2Q000','Escuela Superior de Medicina','SUPERIOR',1),('O2R000','Escuela Superior de Enfermería y Obstetricia','SUPERIOR',1),('O2S000','Centro Interdisciplinario de Ciencias de la Salud Unidad Milpa Alta','SUPERIOR',1),('O2T000','Centro Interdisciplinario de Ciencias de la Salud Unidad Santo Tomás','SUPERIOR',1),('O2U000','Escuela Superior de Comercio y Administración Unidad Santo Tomás','SUPERIOR',1),('O2V000','Escuela Superior de Comercio y Administración Unidad Tepepan','SUPERIOR',1),('O2W000','Escuela Superior de Economía','SUPERIOR',1),('O2X000','Escuela Superior de Turismo','SUPERIOR',1),('O2Y000','Unidad Profesional Interdisciplinaria de Ingeniería Campus Guanajuato','SUPERIOR',1),('O2Z000','Unidad Profesional Interdisciplinaria de Ingeniería Campus Zacatecas','SUPERIOR',1),('P0A000','Centro Interdisciplinario de Ciencias Marinas','POSGRADO',1),('P0C000','Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional Unidad Durango','POSGRADO',1),('P0F000','Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional Unidad Oaxaca','POSGRADO',1),('P0H000','Centro de Biotecnología Genómica','POSGRADO',1),('P0I000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Legaria','POSGRADO',1),('P0J000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Altamira','POSGRADO',1),('P0K000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Querétaro','POSGRADO',1),('P0L000','Centro de Investigación en Computación','POSGRADO',1),('P0M000','Centro de Investigación y Desarrollo de Tecnología Digital','POSGRADO',1),('P0N000','Centro de Investigaciones Económicas, Administrativas y Sociales','POSGRADO',1),('P0P000','Centro de Innovación y Desarrollo Tecnológico en Computo','POSGRADO',1),('P0Q000','Centro de Investigación e Innovación Tecnológica','POSGRADO',1),('P0T000','Centro de Nanociencias y Micro y Nanotecnologías','POSGRADO',1),('Q00000','Secretaría de Servicios Educativos','AREA',1),('Q10000','Dirección de Administración Escolar','AREA',1),('Q30000','Dirección de Bibliotecas','AREA',1),('Q40000','Dirección de Difusión y Fomento a la Cultura','AREA',1),('Q50000','Dirección de Desarrollo y Fomento Deportivo','AREA',1),('R0F000','Unidad Politécnica para el Desarrollo y la Competitividad Empresarial','AREA',1),('R40000','Dirección de Publicaciones','AREA',1),('R5D000','Centro de Educación Contínua Unidad Culiacán','CENTRO',1),('R5E000','Centro de Educación Contínua Unidad Los Mochis','CENTRO',1),('R5K000','Centro de Educación Contínua Unidad Tijuana','CENTRO',1),('R5M000','Centro de Educación Contínua Unidad Durango','CENTRO',1),('S30000','Dirección de Evaluación','AREA',1),('T40000','Dirección de Gestión del Capital Humano','AREA',1),('T50000','Dirección de Recursos Financieros','AREA',1),('T60000','Dirección de Recursos Materiales y Servicios','AREA',1),('T63000','Coordinación de Centros de Desarrollo Infantil','AREA',1),('T63010','Centro de Desarrollo Infantil \"Laura Pérez de Bátiz\"','CENTRO',1),('T63020','Centro de Desarrollo Infantil \"Amalia Solórzano de Cárdenas\"','CENTRO',1),('T63040','Centro de Desarrollo Infantil \"Clementina Batalla de Bassols\"','CENTRO',1),('T63050','Centro de Desarrollo Infantil \"Margarita Salazar de Erro\"','CENTRO',1),('XXXXXX','Coordinación Politécnica para la Sustentabilidad','AREA',1);
-/*!40000 ALTER TABLE `school` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `user`
 --
 
@@ -246,13 +250,13 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `username` int(11) NOT NULL,
-  `password` varchar(256) NOT NULL,
-  `job` varchar(60) NOT NULL,
-  `id_institute` int(11) NOT NULL,
-  PRIMARY KEY (`username`),
-  KEY `user_institute_idx` (`id_institute`),
-  CONSTRAINT `user_institute` FOREIGN KEY (`id_institute`) REFERENCES `institute` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  `Username` int(11) NOT NULL,
+  `Password` varchar(256) NOT NULL,
+  `Type` varchar(60) NOT NULL,
+  `InstitutionID` int(11) NOT NULL,
+  PRIMARY KEY (`Username`),
+  KEY `user_institute_idx` (`InstitutionID`),
+  CONSTRAINT `user_institute` FOREIGN KEY (`InstitutionID`) REFERENCES `institution` (`InstitutionID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -274,4 +278,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-10 17:15:30
+-- Dump completed on 2018-11-12 20:22:11
