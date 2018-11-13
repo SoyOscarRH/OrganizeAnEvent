@@ -40,6 +40,7 @@
   "dependencies": {
     "materialize-css": "^1.0.0",
     "react": "^16.6.0",
-    "react-dom": "^16.6.0"
+    "react-dom": "^16.6.0",
+    "rmwc": "^3.0.9"
   }
 }

@@ -5,17 +5,15 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-import * as Styles from "./Styles.css"
-import M from "materialize-css"
+import { ThemeProvider } from '@rmwc/theme'
+import Header from "../Header"
 
 interface AppState {
     trash: string,
     someMoreTrash: number,
 }
 
-interface AppProps {
-
-}
+interface AppProps { }
 
 class App extends React.Component<AppProps, AppState> {
 
@@ -24,8 +22,6 @@ class App extends React.Component<AppProps, AppState> {
     }
 
     componentDidMount () {
-        const someNodes = document.querySelectorAll('.parallax')
-        M.Parallax.init(someNodes, {})
     }
 
     render() {
@@ -34,13 +30,8 @@ class App extends React.Component<AppProps, AppState> {
             <main>
                 <br />
 
-                <div className={Styles.SomeStyle}>
-                    Hi World 
-                </div>
+                <Header />
 
-                <div className="parallax-container">
-                    <div className="parallax"><img src="Assets/SomeStuff.jpg" /></div>
-                </div>
 
                 <br />
                 <br />
@@ -56,4 +47,34 @@ class App extends React.Component<AppProps, AppState> {
 }
 
 
-ReactDOM.render(<App />, document.getElementById("ReactApp"))
+ReactDOM.render(
+    <ThemeProvider options={{
+        primary: '#303030',
+        secondary: '#661fff',
+        error: '#b00020',
+        background: '#fff',
+        surface: '#fff',
+        onPrimary: 'rgba(255, 255, 255, 1)',
+        onSecondary: 'rgba(255, 255, 255, 1)',
+        onSurface: 'rgba(0, 0, 0, 0.87)',
+        onError: '',
+        textPrimaryOnBackground: 'rgba(0, 0, 0, 0.87)',
+        textSecondaryOnBackground: 'rgba(0, 0, 0, 0.54)',
+        textHintOnBackground: 'rgba(0, 0, 0, 0.38)',
+        textDisabledOnBackground: 'rgba(0, 0, 0, 0.38)',
+        textIconOnBackground: 'rgba(0, 0, 0, 0.38)',
+        textPrimaryOnLight: 'rgba(0, 0, 0, 0.87)',
+        textSecondaryOnLight: 'rgba(0, 0, 0, 0.54)',
+        textHintOnLight: 'rgba(0, 0, 0, 0.38)',
+        textDisabledOnLight: 'rgba(0, 0, 0, 0.38)',
+        textIconOnLight: 'rgba(0, 0, 0, 0.38)',
+        textPrimaryOnDark: 'white',
+        textSecondaryOnDark: 'rgba(255, 255, 255, 0.7)',
+        textHintOnDark: 'rgba(255, 255, 255, 0.5)',
+        textDisabledOnDark: 'rgba(255, 255, 255, 0.5)',
+        textIconOnDark: 'rgba(255, 255, 255, 0.5)'
+      }}>
+        <App />
+    </ThemeProvider >
+    ,document.getElementById("ReactApp")
+)
