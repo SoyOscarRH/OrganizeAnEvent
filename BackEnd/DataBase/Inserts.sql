@@ -838,3 +838,10 @@ insert into guestevent (number, rfc, eventid) values
 
 UPDATE guestevent SET guestevent.assistance = 0, guestevent.confirmation = 0;
 
+/* ======================================================
+* =================    USERS     ========================
+* =======================================================
+*/
+insert into User values(2014081268, 'root', 1, 1);
+insert into User values(1234567890, 'root', 2, 1);
+

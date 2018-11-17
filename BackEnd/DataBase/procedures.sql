@@ -1,6 +1,23 @@
 USE oae;
 
 /* ======================================================
+ * =======================      LOG IN      =============
+ * ======================================================
+ */
+
+DROP PROCEDURE IF EXISTS CheckLogIn;
+
+DELIMITER //
+CREATE PROCEDURE CheckLogIn(IN ThisUsername INT, IN PasswordHash VARCHAR(256))
+BEGIN
+    SELECT * FROM User
+        WHERE 
+            User.Username = ThisUsername AND User.Password = (PasswordHash)
+END //
+
+DELIMITER ;
+
+/* ======================================================
  * ==========      GET GUEST FULL DATA      =============
  * ======================================================
  */
