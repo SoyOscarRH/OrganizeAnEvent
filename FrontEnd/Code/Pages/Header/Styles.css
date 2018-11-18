@@ -1,0 +1,21 @@
+.AppHeader {
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+/* For tablets: */
+@media only screen and (min-width: 600px) {
+    .AppHeader {
+        text-align: left;
+        margin-left: 4rem;
+    }
+}
+
+/* For desktop: */
+@media only screen and (min-width: 768px) {
+    .AppHeader {
+        font-size: 1.8rem;
+        text-align: left;
+        margin-left: 4rem;
+    }
+}

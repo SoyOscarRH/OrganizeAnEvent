@@ -2,38 +2,42 @@ import React from "react"
 import {Link} from "react-router-dom"
 import M from "materialize-css"
 
+import * as Style from "./Styles.css"
 
-// =====================================================================
-// ============     HEADER COMPONENT       =============================
-// =====================================================================
-export default class AppHeader extends React.Component {
+interface HeaderState {
+    title: string,
+}
+export default class Header extends React.Component<HeaderState> {
 
     constructor(props) {
         super(props)
+    }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const Elements = document.querySelectorAll('.sidenav')
-            M.Sidenav.init(Elements, {draggable: true, edge: "left"})
-        })
+    componentDidMount() {
+        const elements = document.querySelectorAll('.sidenav')
+        M.Sidenav.init(elements, {draggable: true, edge: "left"})
     }
 
     render () {
         return (
             <React.Fragment>
                 <div className="navbar-fixed">
-                    <nav className="indigo darken-2">
-                        <div className="nav-wrapper container">
-
-                            <div className="brand-logo white-text center" style={{fontSize: '1.5rem'}}>
-                                Organize an Event
+                    <nav>
+                        <div className="nav-wrapper">
+                                <div className="brand-logo white-text">
+                                    <div className={Style.AppHeader}>
+                                        <span className="hide-on-small-only">
+                                            Organize an Event: &nbsp;
+                                        </span>
+                                        {this.props.title}
+                                    </div>
                             </div>
 
                             <Link to='/' className="brand-logo right">
                                 <i className="material-icons white-text">home</i>
                             </Link>
 
-
-                            <a id="ToogleSideBar" data-target="SideMenu" className="sidenav-trigger show-on-large">
+                            <a data-target="SideMenu" className="sidenav-trigger show-on-large">
                                 <i className="material-icons white-text">menu</i>
                             </a>
 
@@ -42,17 +46,12 @@ export default class AppHeader extends React.Component {
                 </div>
 
                 <ul id="SideMenu" className="sidenav">
-
                     <li>
-                        <div className="user-view">
+                        <div className="user-view" style={{backgroundColor: "#660033"}}>
                             <div className="container">
                                 <h5 className="white-text" style={{fontWeight: 300}}>
-                                    Menú de <b> Páginas</b>
+                                    Menú
                                 </h5>
-
-                                <div className="background">
-                                  <img src="/Distribution/Graphics/BackgroundBlue.jpg" />
-                                </div>
 
                                 <a><img className="circle" src="/Distribution/Graphics/T.png" /></a>
                                 <a><span className="white-text name">A</span></a>

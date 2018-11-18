@@ -4,106 +4,89 @@
 
 import React from "react"
 import ReactDOM from "react-dom"
-import {HashRouter, Route} from "react-router-dom";
-import { createBrowserHistory } from "history";
+import {HashRouter, Route, Switch} from "react-router-dom";
+import { createHashHistory } from "history";
 
 import Header from "../Header"
+import HomeFeed from "../HomeFeed"
+
+const AppWrapper: React.StatelessComponent = () => {
+    
+    return (
+        <main>
+            <HashRouter>
+                <App />
+            </HashRouter>
+        </main>
+    )
+}
+
 
 interface AppState {
-    trash: string,
-    someMoreTrash: number,
+    unlisten: () => void,
+    history: History,
+    currentTitle: string
 }
 
-interface AppProps { }
-
-class App extends React.Component<AppProps, AppState> {
-
-    constructor(props) {
-        super (props)
-    }
-
-    componentDidMount () {
-    }
-
-    render() {
-
-        return (
-            <main>
-                <HashRouter>
-
-                    <AppWrapper>
-
-                        <Header />
-
-                        <Route 
-                            exact path="/" 
-                            render={() => <h1>root</h1>} 
-                        />
-
-                        <Route 
-                            exact path="/hi" 
-                            render={() => <h1>hi baby</h1>} 
-                        />
-                    </AppWrapper>
-
-                </HashRouter>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-
-            </main>
-        )
-    }
-    
-}
-
-
-
-
-
-class AppWrapper extends React.Component<any, any> {
-
-    unlisten: any
+class App extends React.Component<any, AppState> {
 
     constructor(props) {
         super(props)
+
+        const history = createHashHistory({basename: "/"})
+        
+        //@ts-ignore
+        const unlisten = history.listen((location: Location) => {
+            console.log(location)
+            this.setState({currentTitle: this.getCurrentName(location.pathname)})
+        })
+
+        this.state = {
+            //@ts-ignore
+            history,
+            unlisten,
+            currentTitle: this.getCurrentName(history.location.pathname)
+        }
     }
 
-    componentDidMount() {
-
-        const history = createBrowserHistory();
-
-        // Get the current location.
-
-        // Listen for changes to the current location.
-        this.unlisten = history.listen((location) => {
-            // location is an object like window.location
-            console.log(location);
-        });
-
-        // Use push, replace, and go to navigate around.
-        //history.push("/home", { some: "state" });
-
-        // To stop listening, call the function returned from listen().
-        //unlisten();
-
-
+    getCurrentName(pathname: string) {
+        if (pathname == "/") return "Feed"
+        else return "Page"
     }
 
     componentWillUnmount() {
+        this.state.unlisten()
     }
     
     render() {
-       return (
-           <div>{this.props.children}</div>
-        );
+        return (
+            <React.Fragment>
+            <Header title={this.state.currentTitle} />
+
+            <Switch>
+                <Route 
+                    exact path="/" render={() => <HomeFeed />} 
+                />
+                <Route 
+                    exact path="/hi" 
+                    render={() => <h1>hi baby</h1>} 
+                />
+            </Switch>
+
+            
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+            </React.Fragment>
+        )
     }
-  }
+}
 
-
-ReactDOM.render(<App />, document.getElementById("ReactApp"))
+ReactDOM.render(<AppWrapper />, document.getElementById("ReactApp"))

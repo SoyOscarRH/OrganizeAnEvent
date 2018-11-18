@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --progress -p --config webpack.config.js",
     "watch": "webpack --progress -d --config webpack.config.js --watch",
-    "stats": "webpack --profile     --config webpack.config.js --json > Stats.json"
+    "stats": "webpack --profile     --config webpack.config.js --json > Stats.json",
+    "sass": "sass Code/General/Sass/materialize.scss Distribution/materialize.min.css --style compressed"
   },
   "repository": {
     "type": "git",
