@@ -842,6 +842,7 @@ UPDATE guestevent SET guestevent.assistance = 0, guestevent.confirmation = 0;
 * =================    USERS     ========================
 * =======================================================
 */
-insert into User values(2014081268, 'root', 1, 1);
-insert into User values(1234567890, 'root', 2, 1);
+/*Password = 'root'*/
+insert into User values(2014081268, '$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y', 1, 1);
+insert into User values(1234567890, '$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y', 2, 1);
 

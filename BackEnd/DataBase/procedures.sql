@@ -8,11 +8,11 @@ USE oae;
 DROP PROCEDURE IF EXISTS CheckLogIn;
 
 DELIMITER //
-CREATE PROCEDURE CheckLogIn(IN ThisUsername INT, IN PasswordHash VARCHAR(256))
+CREATE PROCEDURE CheckLogIn(IN ThisUsername INT)
 BEGIN
     SELECT * FROM User
         WHERE 
-            User.Username = ThisUsername AND User.Password = (PasswordHash)
+            User.Username = ThisUsername;
 END //
 
 DELIMITER ;
@@ -29,7 +29,7 @@ CREATE PROCEDURE GetGuestFullData(IN ThisRFC VARCHAR(10))
 BEGIN
     SELECT * FROM Guest 
         WHERE 
-            Guest.RFC = (ThisRFC)
+            Guest.RFC = (ThisRFC);
 END //
 
 DELIMITER ;
@@ -46,7 +46,7 @@ CREATE PROCEDURE GetGuestFullName(IN ThisRFC VARCHAR(10))
 BEGIN
     SELECT CONCAT(Name, ' ', FirstSurname, ' ', SecondSurname) as FullName FROM Guest 
         WHERE 
-            Guest.RFC = (ThisRFC)
+            Guest.RFC = (ThisRFC);
 END //
 
 DELIMITER ;
@@ -66,7 +66,7 @@ BEGIN
         SET
             GuestEvent.Assistance = 1, GuestEvent.Seat = NewSeat, GuestEvent.Representative = (AnotherGuy)
         WHERE
-            GuestEvent.RFC = (ThisRFC) AND GuestEvent.EventID = ThisEventID
+            GuestEvent.RFC = (ThisRFC) AND GuestEvent.EventID = ThisEventID;
 END //
 
 DELIMITER ;
@@ -83,7 +83,7 @@ CREATE PROCEDURE AddComments(IN ThisRFC VARCHAR(10), IN NewComment VARCHAR(1000)
 BEGIN
     INSERT INTO Comment (Text, RFC)
         VALUES 
-            (NewComment, ThisRFC)
+            (NewComment, ThisRFC);
 END //
 
 DELIMITER ;
@@ -103,7 +103,7 @@ BEGIN
         WHERE 
             gp.PrizeID = p.PrizeID    AND 
             p.EventID = e.EventID     AND
-            gp.RFC = (ThisRFC)
+            gp.RFC = (ThisRFC);
 END //
 
 DELIMITER ;
