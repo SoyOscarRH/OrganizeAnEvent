@@ -143,3 +143,71 @@ BEGIN
 END //
 
 DELIMITER ;
+
+/* ======================================================
+ * ===============      GET ALL PLACES     ==============
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS GetAllPlaces;
+
+DELIMITER //
+CREATE PROCEDURE GetAllPlaces()
+BEGIN
+    SELECT PlaceID, Name as Place FROM Place;
+END //
+
+DELIMITER ;
+
+/* ======================================================
+ * ===============      ADD GUEST     ===================
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS AddGuest;
+
+DELIMITER //
+CREATE PROCEDURE AddGuest(IN ThisRFC VARCHAR(10), IN ThisName VARCHAR(45), IN ThisFirsSurname VARCHAR(45),
+IN ThisSecondSurname VARCHAR(45), IN ThisEmail VARCHAR(45), IN ThisPlaceID INT)
+BEGIN
+    INSERT INTO Guest VALUES (ThisRFC, ThisName, ThisFirsSurname, ThisSecondSurname, ThisEmail, ThisPlaceID);
+END //
+
+DELIMITER ;
+
+/* ======================================================
+ * ===============      REMOVE GUEST     ===================
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS RemoveGuest;
+
+DELIMITER //
+CREATE PROCEDURE RemoveGuest(IN ThisRFC VARCHAR(10))
+BEGIN
+    DELETE FROM Guest WHERE RFC = (ThisRFC);
+END //
+
+DELIMITER ;
+
+/* ======================================================
+ * ===============      EDIT GUEST     ===================
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS EditGuest;
+
+DELIMITER //
+CREATE PROCEDURE EditGuest(IN ThisRFC VARCHAR(10), IN ThisName VARCHAR(45), IN ThisFirsSurname VARCHAR(45),
+IN ThisSecondSurname VARCHAR(45), IN ThisEmail VARCHAR(45), IN ThisPlaceID INT)
+BEGIN
+    UPDATE Guest SET Name = (ThisName), FirstSurname = (ThisFirsSurname), SecondSurname = (ThisSecondSurname), 
+    Email = (ThisEmail), PlaceID = (ThisPlaceID))
+    WHERE RFC = (ThisRFC);
+END //
+
+DELIMITER ;
+
+
+
+
