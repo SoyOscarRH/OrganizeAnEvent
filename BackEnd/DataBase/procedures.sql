@@ -114,3 +114,32 @@ END //
 
 DELIMITER ;
 
+/* ======================================================
+ * ==============      GET ALL EVENTS     ===============
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS GetAllEvents;
+
+DELIMITER //
+CREATE PROCEDURE GetAllEvents()
+BEGIN
+    SELECT EventID, Name as Event FROM Event;
+END //
+
+DELIMITER ;
+
+/* ======================================================
+ * =========      GET ALL INSTITUTIONS     ==============
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS GetAllInstitutions;
+
+DELIMITER //
+CREATE PROCEDURE GetAllInstitutions()
+BEGIN
+    SELECT InstitutionID, Name as Institution FROM Institution;
+END //
+
+DELIMITER ;
