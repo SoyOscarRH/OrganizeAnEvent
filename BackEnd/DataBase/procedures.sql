@@ -25,11 +25,17 @@ DELIMITER ;
  DROP PROCEDURE IF EXISTS GetGuestFullData;
 
 DELIMITER //
-CREATE PROCEDURE GetGuestFullData(IN ThisRFC VARCHAR(10))
+CREATE PROCEDURE GetGuestFullData(IN ThisRFC VARCHAR(10), IN ThisInstitutionID INT, IN ThisEventID INT)
 BEGIN
-    SELECT * FROM Guest 
+    SELECT g.RFC, g.Name, g.FirstSurname, g.SecondSurname, 
+    g.email, p.Name AS Place FROM Guest g, Place p, Institution i, GuestEvent ge
         WHERE 
-            Guest.RFC = (ThisRFC);
+            ge.RFC = g.RFC AND
+            g.PlaceID = p.PlaceID AND
+            p.InstitutionID = i.InstitutionID AND
+            (g.RFC = (ThisRFC) OR ThisRFC IS NULL) AND
+            (i.InstitutionID = (ThisInstitutionID) OR ThisInstitutionID IS NULL) AND
+            (ge.EventID = (ThisEventID) OR ThisEventID IS NULL);
 END //
 
 DELIMITER ;
