@@ -7,6 +7,7 @@ import ReactDOM from "react-dom"
 import {HashRouter, Route, Switch} from "react-router-dom";
 import { createHashHistory } from "history";
 
+
 import Header from "../Header"
 import HomeFeed from "../HomeFeed"
 
@@ -72,8 +73,6 @@ class App extends React.Component<any, AppState> {
                     render={() => <h1>hi baby</h1>} 
                 />
             </Switch>
-
-            
 
             <br />
             <br />

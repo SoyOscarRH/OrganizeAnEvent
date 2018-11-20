@@ -53,7 +53,6 @@ export default class Header extends React.Component<HeaderState> {
                                     Menú
                                 </h5>
 
-                                <a><img className="circle" src="/Distribution/Graphics/T.png" /></a>
                                 <a><span className="white-text name">A</span></a>
                                 <a><span className="white-text email">B</span></a>
                             </div>
