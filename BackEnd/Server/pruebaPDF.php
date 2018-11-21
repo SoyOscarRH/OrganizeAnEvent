@@ -16,4 +16,5 @@
 	$pdf->SetFont('Arial','B',12);
 	$pdf->Cell(70,10,'',0);
 	$pdf->Cell(60,10,'Secretaria de Educacion Publica - SEP',0,0,'C');
+	$pdf->Output();
 ?>
