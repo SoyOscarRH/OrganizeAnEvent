@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --progress -p --config webpack.config.js",
     "watch": "webpack --progress -d --config webpack.config.js --watch",
-    "stats": "webpack --profile     --config webpack.config.js --json > Stats.json"
+    "stats": "webpack --profile     --config webpack.config.js --json > Stats.json",
+    "sass": "sass Code/General/Sass/materialize.scss Distribution/materialize.min.css --style compressed"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "@types/materialize-css": "^1.0.5",
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
+    "@types/react-router-dom": "^4.3.1",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.0",
     "style-loader": "^0.23.1",
@@ -41,6 +43,7 @@
     "materialize-css": "^1.0.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "rmwc": "^3.0.9"
+    "react-hotkeys": "^1.1.4",
+    "react-router-dom": "^4.3.1"
   }
 }

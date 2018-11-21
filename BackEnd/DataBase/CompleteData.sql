@@ -281,7 +281,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `Username` int(11) NOT NULL,
   `Password` varchar(256) NOT NULL,
-  `Type` varchar(60) NOT NULL,
+  `Type` enum('Admin','Standard') NOT NULL,
   `InstitutionID` int(11) NOT NULL,
   PRIMARY KEY (`Username`),
   KEY `user_institution_idx` (`InstitutionID`),
@@ -295,6 +295,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1234567890,'$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y','Standard',1),(2014081268,'$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y','Admin',1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -307,4 +308,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-13 19:15:43
+-- Dump completed on 2018-11-18  0:16:15

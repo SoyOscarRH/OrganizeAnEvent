@@ -1,6 +1,23 @@
 USE oae;
 
 /* ======================================================
+ * =======================      LOG IN      =============
+ * ======================================================
+ */
+
+DROP PROCEDURE IF EXISTS CheckLogIn;
+
+DELIMITER //
+CREATE PROCEDURE CheckLogIn(IN ThisUsername INT)
+BEGIN
+    SELECT * FROM User
+        WHERE 
+            User.Username = ThisUsername;
+END //
+
+DELIMITER ;
+
+/* ======================================================
  * ==========      GET GUEST FULL DATA      =============
  * ======================================================
  */
@@ -8,11 +25,17 @@ USE oae;
  DROP PROCEDURE IF EXISTS GetGuestFullData;
 
 DELIMITER //
-CREATE PROCEDURE GetGuestFullData(IN ThisRFC VARCHAR(10))
+CREATE PROCEDURE GetGuestFullData(IN ThisRFC VARCHAR(10), IN ThisInstitutionID INT, IN ThisEventID INT)
 BEGIN
-    SELECT * FROM Guest 
+    SELECT g.RFC, g.Name, g.FirstSurname, g.SecondSurname, 
+    g.email, p.Name AS Place FROM Guest g, Place p, Institution i, GuestEvent ge
         WHERE 
-            Guest.RFC = (ThisRFC)
+            ge.RFC = g.RFC AND
+            g.PlaceID = p.PlaceID AND
+            p.InstitutionID = i.InstitutionID AND
+            (g.RFC = (ThisRFC) OR ThisRFC IS NULL) AND
+            (i.InstitutionID = (ThisInstitutionID) OR ThisInstitutionID IS NULL) AND
+            (ge.EventID = (ThisEventID) OR ThisEventID IS NULL);
 END //
 
 DELIMITER ;
@@ -29,7 +52,7 @@ CREATE PROCEDURE GetGuestFullName(IN ThisRFC VARCHAR(10))
 BEGIN
     SELECT CONCAT(Name, ' ', FirstSurname, ' ', SecondSurname) as FullName FROM Guest 
         WHERE 
-            Guest.RFC = (ThisRFC)
+            Guest.RFC = (ThisRFC);
 END //
 
 DELIMITER ;
@@ -49,7 +72,7 @@ BEGIN
         SET
             GuestEvent.Assistance = 1, GuestEvent.Seat = NewSeat, GuestEvent.Representative = (AnotherGuy)
         WHERE
-            GuestEvent.RFC = (ThisRFC) AND GuestEvent.EventID = ThisEventID
+            GuestEvent.RFC = (ThisRFC) AND GuestEvent.EventID = ThisEventID;
 END //
 
 DELIMITER ;
@@ -66,7 +89,7 @@ CREATE PROCEDURE AddComments(IN ThisRFC VARCHAR(10), IN NewComment VARCHAR(1000)
 BEGIN
     INSERT INTO Comment (Text, RFC)
         VALUES 
-            (NewComment, ThisRFC)
+            (NewComment, ThisRFC);
 END //
 
 DELIMITER ;
@@ -86,8 +109,105 @@ BEGIN
         WHERE 
             gp.PrizeID = p.PrizeID    AND 
             p.EventID = e.EventID     AND
-            gp.RFC = (ThisRFC)
+            gp.RFC = (ThisRFC);
 END //
 
 DELIMITER ;
+
+/* ======================================================
+ * ==============      GET ALL EVENTS     ===============
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS GetAllEvents;
+
+DELIMITER //
+CREATE PROCEDURE GetAllEvents()
+BEGIN
+    SELECT EventID, Name as Event FROM Event;
+END //
+
+DELIMITER ;
+
+/* ======================================================
+ * =========      GET ALL INSTITUTIONS     ==============
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS GetAllInstitutions;
+
+DELIMITER //
+CREATE PROCEDURE GetAllInstitutions()
+BEGIN
+    SELECT InstitutionID, Name as Institution FROM Institution;
+END //
+
+DELIMITER ;
+
+/* ======================================================
+ * ===============      GET ALL PLACES     ==============
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS GetAllPlaces;
+
+DELIMITER //
+CREATE PROCEDURE GetAllPlaces()
+BEGIN
+    SELECT PlaceID, Name as Place FROM Place;
+END //
+
+DELIMITER ;
+
+/* ======================================================
+ * ===============      ADD GUEST     ===================
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS AddGuest;
+
+DELIMITER //
+CREATE PROCEDURE AddGuest(IN ThisRFC VARCHAR(10), IN ThisName VARCHAR(45), IN ThisFirsSurname VARCHAR(45),
+IN ThisSecondSurname VARCHAR(45), IN ThisEmail VARCHAR(45), IN ThisPlaceID INT)
+BEGIN
+    INSERT INTO Guest VALUES (ThisRFC, ThisName, ThisFirsSurname, ThisSecondSurname, ThisEmail, ThisPlaceID);
+END //
+
+DELIMITER ;
+
+/* ======================================================
+ * ===============      REMOVE GUEST     ===================
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS RemoveGuest;
+
+DELIMITER //
+CREATE PROCEDURE RemoveGuest(IN ThisRFC VARCHAR(10))
+BEGIN
+    DELETE FROM Guest WHERE RFC = (ThisRFC);
+END //
+
+DELIMITER ;
+
+/* ======================================================
+ * ===============      EDIT GUEST     ===================
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS EditGuest;
+
+DELIMITER //
+CREATE PROCEDURE EditGuest(IN ThisRFC VARCHAR(10), IN ThisName VARCHAR(45), IN ThisFirsSurname VARCHAR(45),
+IN ThisSecondSurname VARCHAR(45), IN ThisEmail VARCHAR(45), IN ThisPlaceID INT)
+BEGIN
+    UPDATE Guest SET Name = (ThisName), FirstSurname = (ThisFirsSurname), SecondSurname = (ThisSecondSurname), 
+    Email = (ThisEmail), PlaceID = (ThisPlaceID))
+    WHERE RFC = (ThisRFC);
+END //
+
+DELIMITER ;
+
+
+
 
