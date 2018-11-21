@@ -1,8 +1,8 @@
 <?php
 	setlocale (LC_TIME,"spanish");
-	/*$idAlumno=$_GET['idAlumno'];
-	$idGrupo=$_GET['idGrupo'];
-	$idOri=$_SESSION['username'];
+	/*
+	$rfc = $_GET['rfc'];
+	$evento = $_GET['evento'];
 	*/
 	require 'Fpdf/fpdf.php';
 	$pdf=new FPDF();
