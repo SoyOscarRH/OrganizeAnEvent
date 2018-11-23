@@ -9,19 +9,7 @@ import { createHashHistory } from "history";
 
 
 import Header from "../Header"
-import HomeFeed from "../HomeFeed"
-
-const AppWrapper: React.StatelessComponent = () => {
-    
-    return (
-        <main>
-            <HashRouter>
-                <App />
-            </HashRouter>
-        </main>
-    )
-}
-
+import Login from "../Login"
 
 interface AppState {
     unlisten: () => void,
@@ -51,41 +39,54 @@ class App extends React.Component<any, AppState> {
     }
 
     getCurrentName(pathname: string) {
-        if (pathname == "/") return "Feed"
-        else return "Page"
+        if (pathname == "/") return "Login"
+        else return "Page unknown"
     }
 
     componentWillUnmount() {
         this.state.unlisten()
     }
+
     
     render() {
+
+        const data = ["1212", "dsasas", "asa2323"]
+
         return (
-            <React.Fragment>
-            <Header title={this.state.currentTitle} />
+            <main>
+                <Header title={this.state.currentTitle} />
 
-            <Switch>
-                <Route 
-                    exact path="/" render={() => <HomeFeed />} 
-                />
-                <Route 
-                    exact path="/hi" 
-                    render={() => <h1>hi baby</h1>} 
-                />
-            </Switch>
+                <Switch>
+                    <Route 
+                        exact path="/" render={() => <Login />} 
+                    />
 
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+                    <Route 
+                        exact path="/hi" 
+                        render={() => <span />} 
+                    />
+                </Switch>
 
-            </React.Fragment>
+                <table>
+                    <tr>
+                        {
+                            data.map(element => <td>{element}</td>)
+                        }
+                    </tr>
+                </table>
+                
+
+
+              
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+
+            </main>
         )
     }
 }
 
-ReactDOM.render(<AppWrapper />, document.getElementById("ReactApp"))
+ReactDOM.render(<HashRouter><App /></HashRouter>, document.getElementById("ReactApp"))
