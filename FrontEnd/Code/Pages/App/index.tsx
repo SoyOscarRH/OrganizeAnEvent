@@ -9,7 +9,7 @@ import { createHashHistory } from "history";
 
 
 import Header from "../Header"
-import Login from "../Login"
+import Dashboard from "../Dashboard"
 
 interface AppState {
     unlisten: () => void,
@@ -39,8 +39,8 @@ class App extends React.Component<any, AppState> {
     }
 
     getCurrentName(pathname: string) {
-        if (pathname == "/") return "Login"
-        else return "Page unknown"
+        if (pathname == "/") return "Panel"
+        else return "?"
     }
 
     componentWillUnmount() {
@@ -50,15 +50,16 @@ class App extends React.Component<any, AppState> {
     
     render() {
 
-        const data = ["1212", "dsasas", "asa2323"]
 
         return (
             <main>
                 <Header title={this.state.currentTitle} />
 
+                <br />
+
                 <Switch>
                     <Route 
-                        exact path="/" render={() => <Login />} 
+                        exact path="/" render={() => <Dashboard />} 
                     />
 
                     <Route 
@@ -67,17 +68,6 @@ class App extends React.Component<any, AppState> {
                     />
                 </Switch>
 
-                <table>
-                    <tr>
-                        {
-                            data.map(element => <td>{element}</td>)
-                        }
-                    </tr>
-                </table>
-                
-
-
-              
                 <br />
                 <br />
                 <br />

@@ -1,6 +1,5 @@
 <?php declare(strict_types=1);
 
-    include_once("../GeneralFunctions.php");
     include_once("../DataBaseFunctions.php");
     
     if (!isset($_SESSION)) session_start();    
