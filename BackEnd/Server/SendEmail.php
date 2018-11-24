@@ -1,6 +1,7 @@
 <?php
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
+    
     //Load files
     require './PHPMailer/src/Exception.php';
     require './PHPMailer/src/PHPMailer.php';

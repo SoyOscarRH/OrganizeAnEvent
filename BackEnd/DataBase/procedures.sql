@@ -8,7 +8,7 @@ USE oae;
 DROP PROCEDURE IF EXISTS GetUserPassword;
 
 DELIMITER //
-CREATE PROCEDURE GetUserPassword(IN ThisUsername INT)
+CREATE PROCEDURE GetUserPassword (IN ThisUsername INT)
 BEGIN
     SELECT Password FROM User
         WHERE
@@ -25,7 +25,7 @@ DELIMITER ;
  DROP PROCEDURE IF EXISTS GetGuestFullData;
 
 DELIMITER //
-CREATE PROCEDURE GetGuestFullData(IN ThisRFC VARCHAR(10), IN ThisInstitutionID INT, IN ThisEventID INT)
+CREATE PROCEDURE GetGuestFullData (IN ThisRFC VARCHAR(10), IN ThisInstitutionID INT, IN ThisEventID INT)
 BEGIN
     SELECT g.RFC, g.Name, g.FirstSurname, g.SecondSurname, 
     g.email, p.Name AS Place FROM Guest g, Place p, Institution i, GuestEvent ge
@@ -176,7 +176,7 @@ END //
 DELIMITER ;
 
 /* ======================================================
- * ===============      REMOVE GUEST     ===================
+ * ===============      REMOVE GUEST     ================
  * ======================================================
  */
 
@@ -202,7 +202,7 @@ CREATE PROCEDURE EditGuest(IN ThisRFC VARCHAR(10), IN ThisName VARCHAR(45), IN T
 IN ThisSecondSurname VARCHAR(45), IN ThisEmail VARCHAR(45), IN ThisPlaceID INT)
 BEGIN
     UPDATE Guest SET Name = (ThisName), FirstSurname = (ThisFirsSurname), SecondSurname = (ThisSecondSurname), 
-    Email = (ThisEmail), PlaceID = (ThisPlaceID))
+    Email = (ThisEmail), PlaceID = (ThisPlaceID)
     WHERE RFC = (ThisRFC);
 END //
 

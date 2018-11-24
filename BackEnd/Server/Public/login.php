@@ -13,11 +13,7 @@
         <!-- Icon of the App -->
         <link rel="icon" href="Assets/Favicon.png">
 
-        <!-- Compiled and minified CSS for Materialize CSS -->
-        <link href="Distribution/materialize.min.css">
-
         <title>Organize An Event</title>
-
 
         <!-- Google Material Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
@@ -27,7 +23,12 @@
     </head>
 
     <body>
-
+        
+        <?php
+            echo("<style>");
+            include("../../../FrontEnd/Distribution/materialize.min.css") ;
+            echo("</style>");
+        ?>
         
         <div class="navbar-fixed">
             <nav class="indigo darken-2">

@@ -13,8 +13,8 @@ USE oae;
 * =================    EVENT     ========================
 * =======================================================
 */
-insert into Event (Name, Description) 
-values('DISTINCIONES AL MÉRITO POLITÉCNICO 2018', 'LAS DISTINCIONES AL MÉRITO POLITÉCNICO SON EL RECONOCIMIENTO QUE HACE LA COMUNIDAD POLITÉCNICA A UNA CONDUCTA, TRAYECTORIA, SERVICIO O ACCIÓN EJEMPLAR, SOBRESALIENTE, QUE HAYA TENIDO POR OBJETO EXHALTAR EL PRESTIGIO DEL INSTITUTO POLITÉCNICO NACIONAL, PARA APOYAR LA REALIZACIÓN DE SUS FINALIDADES: IMPULSAR EL DESARROLLO DE LA EDUCACIÓN TÉCNICA EN EL PAÍS O BENEFICIAR A LA HUMANIDAD.
+INSERT INTO Event (Name, Description) 
+VALUES ('DISTINCIONES AL MÉRITO POLITÉCNICO 2018', 'LAS DISTINCIONES AL MÉRITO POLITÉCNICO SON EL RECONOCIMIENTO QUE HACE LA COMUNIDAD POLITÉCNICA A UNA CONDUCTA, TRAYECTORIA, SERVICIO O ACCIÓN EJEMPLAR, SOBRESALIENTE, QUE HAYA TENIDO POR OBJETO EXHALTAR EL PRESTIGIO DEL INSTITUTO POLITÉCNICO NACIONAL, PARA APOYAR LA REALIZACIÓN DE SUS FINALIDADES: IMPULSAR EL DESARROLLO DE LA EDUCACIÓN TÉCNICA EN EL PAÍS O BENEFICIAR A LA HUMANIDAD.
 
 EN ESTA OCASIÓN EL CONSEJO GENERAL CONSULTIVO HA DECIDIDO OTORGAR');
 
@@ -22,181 +22,181 @@ EN ESTA OCASIÓN EL CONSEJO GENERAL CONSULTIVO HA DECIDIDO OTORGAR');
 * =================    INSTITUTION    ===================
 * =======================================================
 */
-insert into Institution (Name, EventID) values('INSTITUTO POLITÉCNICO NACIONAL', 1);
-insert into Institution (Name, EventID) values('UNIVERSIDAD AUTÓNOMA DE MÉXICO', null);
+INSERT INTO Institution (Name, EventID) VALUES ('INSTITUTO POLITÉCNICO NACIONAL', 1);
+INSERT INTO Institution (Name, EventID) VALUES ('UNIVERSIDAD AUTÓNOMA DE MÉXICO', null);
 
 
 /* ======================================================
 * =================    PRIZE     ========================
 * =======================================================
 */
-insert into Prize (Name, Block, Speech, Amount, EventID) values ('DIPLOMA A LA "EFICIENCIA Y EFICACIA"', 1, 'EL DIPLOMA A LA “EFICIENCIA Y EFICACIA” SE OTORGA AL PERSONAL DE APOYO Y ASISTENCIA A LA EDUCACIÓN QUE, POR RECONOCIDOS Y MERITORIOS SERVICIOS AL INSTITUTO, SE HA DISTINGUIDO EN EL DESEMPEÑO DE SUS LABORES.
+INSERT INTO Prize (Name, Block, Speech, Amount, EventID) VALUES ('DIPLOMA A LA "EFICIENCIA Y EFICACIA"', 1, 'EL DIPLOMA A LA “EFICIENCIA Y EFICACIA” SE OTORGA AL PERSONAL DE APOYO Y ASISTENCIA A LA EDUCACIÓN QUE, POR RECONOCIDOS Y MERITORIOS SERVICIOS AL INSTITUTO, SE HA DISTINGUIDO EN EL DESEMPEÑO DE SUS LABORES.
  
 PARA NUESTRA COMUNIDAD ES DE GRAN SATISFACCIÓN RECONOCER PÚBLICAMENTE LA LABOR CONSTANTE Y CONSCIENTE QUE LOS COMPAÑEROS DESEMPEÑAN EN SU VIDA LABORAL.
  
 CON LA ANUENCIA DE NUESTRAS AUTORIDADES, EN ESTE MOMENTO DAREMOS INICIO A LA ENTREGA DE DICHOS DIPLOMAS, PARA LO CUAL INVITAMOS A NUESTRO PRESIDIUM A PONERSE DE PIE PARA PROCEDER A LA ENTREGA CORRESPONDIENTE.', 221, 1);
-insert into Prize (Name, Block, Speech, Amount, EventID) values('DIPLOMA DE MAESTRO EMÉRITO', 1, 'Que se otorga a los profesores e investigadores que habiéndose retirado o jubilado, se hubieran distinguido por su relevante labor docente o de investigación en el Instituto y que hayan prestado sus servicios en éste cuando menos durante veinticinco años.
+INSERT INTO Prize (Name, Block, Speech, Amount, EventID) VALUES ('DIPLOMA DE MAESTRO EMÉRITO', 1, 'Que se otorga a los profesores e investigadores que habiéndose retirado o jubilado, se hubieran distinguido por su relevante labor docente o de investigación en el Instituto y que hayan prestado sus servicios en éste cuando menos durante veinticinco años.
 
 CON LA ANUENCIA DE NUESTRAS AUTORIDADES EN ESTE MOMENTO RECIBE TAL DISTINCIÓN...
 ', 1, 1);
-insert into Prize (Name, Block, Speech, Amount, EventID) values('DIPLOMA DE MAESTRO DECANO', 1, 'Para elegir al candidato de esta distinción, se deberá considerar además de la antigüedad del maestro, su trayectoria y aportaciones realizadas al Instituto, se otorgará al profesor que haya sido electo decano por el Consejo Técnico Consultivo Escolar. Reciben esta distinción:', 4, 1);
-insert into Prize (Name, Block, Speech, Amount, EventID) values('DIPLOMA A LA INVESTIGACIÓN', 1, 'Este diploma se otorga a aquellos profesores que se hayan destacado en el campo de la investigación científica y tecnológica, o bien por la realización de una obra científica que por su contenido haya obtenido arbitraje nacional o internacional.
+INSERT INTO Prize (Name, Block, Speech, Amount, EventID) VALUES ('DIPLOMA DE MAESTRO DECANO', 1, 'Para elegir al candidato de esta distinción, se deberá considerar además de la antigüedad del maestro, su trayectoria y aportaciones realizadas al Instituto, se otorgará al profesor que haya sido electo decano por el Consejo Técnico Consultivo Escolar. Reciben esta distinción:', 4, 1);
+INSERT INTO Prize (Name, Block, Speech, Amount, EventID) VALUES ('DIPLOMA A LA INVESTIGACIÓN', 1, 'Este diploma se otorga a aquellos profesores que se hayan destacado en el campo de la investigación científica y tecnológica, o bien por la realización de una obra científica que por su contenido haya obtenido arbitraje nacional o internacional.
 Reciben esta distinción:', 1, 1);
-insert into Prize (Name, Block, Speech, Amount, EventID) values('DIPLOMA A LA CULTURA', 1, 'El diploma a la cultura es para aquellos miembros de la comunidad politécnica, que hayan apoyado o destaquen en eventos culturales de relevancia nacional o internacional, recibe esta distinción:
+INSERT INTO Prize (Name, Block, Speech, Amount, EventID) VALUES ('DIPLOMA A LA CULTURA', 1, 'El diploma a la cultura es para aquellos miembros de la comunidad politécnica, que hayan apoyado o destaquen en eventos culturales de relevancia nacional o internacional, recibe esta distinción:
 Reciben esta distinción:', 2, 1);
-insert into Prize (Name, Block, Speech, Amount, EventID) values('DIPLOMA AL DEPORTE', 1, 'Se otorga a aquellos integrantes de la comunidad politécnica que hayan sobresalido en eventos deportivos nacionales o internacionales auspiciados por el Instituto Politécnico Nacional, o en representación del mismo o del País, recibe este galardón:', 1, 1);
+INSERT INTO Prize (Name, Block, Speech, Amount, EventID) VALUES ('DIPLOMA AL DEPORTE', 1, 'Se otorga a aquellos integrantes de la comunidad politécnica que hayan sobresalido en eventos deportivos nacionales o internacionales auspiciados por el Instituto Politécnico Nacional, o en representación del mismo o del País, recibe este galardón:', 1, 1);
 
 /* ======================================================
 * =================    PlACES, SCHOOL && AREA     =======
 * =======================================================
 */
-insert into Place values('O1A000','Centro de Estudios Científicos y Tecnológicos 1 "Gonzálo Vázquez Vela"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O1B000','Centro de Estudios Científicos y Tecnológicos 2 "Miguel Bernard"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O1C000','Centro de Estudios Científicos y Tecnológicos 3 "Estanislao Ramírez Ruíz"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O1D000','Centro de Estudios Científicos y Tecnológicos 4 "Lázaro Cárdenas"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O1M000','Centro de Estudios Científicos y Tecnológicos 5 "Benito Juárez"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O1K000','Centro de Estudios Científicos y Tecnológicos 6 "Miguel Othón de Mendizabal"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O1E000','Centro de Estudios Científicos y Tecnológicos 7 "Cuauhtémoc"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O1F000','Centro de Estudios Científicos y Tecnológicos 8 "Narciso Bassols"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O1G000','Centro de Estudios Científicos y Tecnológicos 9 "Juan de Dios Bátiz"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O1H000','Centro de Estudios Científicos y Tecnológicos 10 "Carlos Vallejo Márquez"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O1I000','Centro de Estudios Científicos y Tecnológicos 11 "Wilfrido Massieu"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O1N000','Centro de Estudios Científicos y Tecnológicos 12 "José María Morelos"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O1O000','Centro de Estudios Científicos y Tecnológicos 13 "Ricardo Flores Magón"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O1P000','Centro de Estudios Científicos y Tecnológicos 14 "Luis Enrique Erro"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O1L000','Centro de Estudios Científicos y Tecnológicos 15 "Diódoro Antúnez Echegaray"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O1Q000','Centro de Estudios Científicos y Tecnológicos 16 "Hidalgo"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O1R000','Centro de Estudios Científicos y Tecnológicos 17 "León, Guanajuato"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O1J000','Centro de Estudios Tecnológicos 1 "Walter Cross Buchanan"', 'MEDIO SUPERIOR', 1);
-insert into Place values('O2D000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Zacatenco', 'SUPERIOR', 1);
-insert into Place values('O2B000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Culhuacán', 'SUPERIOR', 1);
-insert into Place values('O2A000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Azcapotzalco', 'SUPERIOR', 1);
-insert into Place values('O2C000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Ticomán', 'SUPERIOR', 1);
-insert into Place values('O2G000','Escuela Superior de Ingeniería y Arquitectura Unidad Zacatenco', 'SUPERIOR', 1);
-insert into Place values('O2E000','Escuela Superior de Ingeniería y Arquitectura Unidad Tecamachalco', 'SUPERIOR', 1);
-insert into Place values('O2F000','Escuela Superior de Ingeniería y Arquitectura Unidad Ticomán', 'SUPERIOR', 1);
-insert into Place values('O2H000','Escuela Superior de Ingeniería Textil', 'SUPERIOR', 1);
-insert into Place values('O2I000','Escuela Superior de Ingeniería Química e Industrias Extractivas', 'SUPERIOR', 1);
-insert into Place values('O2J000','Escuela Superior de Física y Matemáticas', 'SUPERIOR', 1);
-insert into Place values('O2K000','Escuela Superior de Computación', 'SUPERIOR', 1);
-insert into Place values('O2M000','Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas', 'SUPERIOR', 1);
-insert into Place values('O2L000','Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas', 'SUPERIOR', 1);
-insert into Place values('O2N000','Unidad Profesional Interdisciplinaria de Biotecnología', 'SUPERIOR', 1);
-insert into Place values('O2Y000','Unidad Profesional Interdisciplinaria de Ingeniería Campus Guanajuato', 'SUPERIOR', 1);
-insert into Place values('O2Z000','Unidad Profesional Interdisciplinaria de Ingeniería Campus Zacatecas', 'SUPERIOR', 1);
-insert into Place values('O2P000','Escuela Nacional de Ciencias Biológicas', 'SUPERIOR', 1);
-insert into Place values('O2Q000','Escuela Superior de Medicina', 'SUPERIOR', 1);
-insert into Place values('O2O000','Escuela Nacional de Medicina y Homeopatía', 'SUPERIOR', 1);
-insert into Place values('O2R000','Escuela Superior de Enfermería y Obstetricia', 'SUPERIOR', 1);
-insert into Place values('O2T000','Centro Interdisciplinario de Ciencias de la Salud Unidad Santo Tomás', 'SUPERIOR', 1);
-insert into Place values('O2S000','Centro Interdisciplinario de Ciencias de la Salud Unidad Milpa Alta', 'SUPERIOR', 1);
-insert into Place values('O2U000','Escuela Superior de Comercio y Administración Unidad Santo Tomás', 'SUPERIOR', 1);
-insert into Place values('O2V000','Escuela Superior de Comercio y Administración Unidad Tepepan', 'SUPERIOR', 1);
-insert into Place values('O2W000','Escuela Superior de Economía', 'SUPERIOR', 1);
-insert into Place values('O2X000','Escuela Superior de Turismo', 'SUPERIOR', 1);
-insert into Place values('P0A000','Centro Interdisciplinario de Ciencias Marinas', 'POSGRADO', 1);
-insert into Place values('P0C000','Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional Unidad Durango', 'POSGRADO', 1);
-insert into Place values('P0F000','Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional Unidad Oaxaca', 'POSGRADO', 1);
-insert into Place values('P0L000','Centro de Investigación en Computación', 'POSGRADO', 1);
-insert into Place values('P0N000','Centro de Investigaciones Económicas, Administrativas y Sociales', 'POSGRADO', 1);
-insert into Place values('P0H000','Centro de Biotecnología Genómica', 'POSGRADO', 1);
-insert into Place values('P0I000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Legaria', 'POSGRADO', 1);
-insert into Place values('P0K000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Querétaro', 'POSGRADO', 1);
-insert into Place values('P0J000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Altamira', 'POSGRADO', 1);
-insert into Place values('P0M000','Centro de Investigación y Desarrollo de Tecnología Digital', 'POSGRADO', 1);
-insert into Place values('P0Q000','Centro de Investigación e Innovación Tecnológica', 'POSGRADO', 1);
-insert into Place values('P0P000','Centro de Innovación y Desarrollo Tecnológico en Computo', 'POSGRADO', 1);
-insert into Place values('P0T000','Centro de Nanociencias y Micro y Nanotecnologías', 'POSGRADO', 1);
-insert into Place values('L10000','Dirección de Cómputo y Comunicaciones', 'ADMINISTRACIÓN', 1);
-insert into Place values('R5D000','Centro de Educación Contínua Unidad Culiacán', 'CENTRO', 1);
-insert into Place values('R5M000','Centro de Educación Contínua Unidad Durango', 'CENTRO', 1);
-insert into Place values('R5E000','Centro de Educación Contínua Unidad Los Mochis', 'CENTRO', 1);
-insert into Place values('R5K000','Centro de Educación Contínua Unidad Tijuana', 'CENTRO', 1);
-insert into Place values('JA1000','Secretaría Particular de la Dirección General', 'AREA', 1);
-insert into Place values('JD0000','Coordinación de Asesores', 'AREA', 1);
-insert into Place values('J60000','Coordinación de Comunicación Social', 'AREA', 1);
-insert into Place values('JE0000','Defensoría de los Derechos Politécnicos', 'AREA', 1);
-insert into Place values('XXXXXX','Coordinación Politécnica para la Sustentabilidad', 'AREA', 1);
-insert into Place values('N00000','Secretaría General', 'AREA', 1);
-insert into Place values('O00000','Secretaría Académica', 'AREA', 1);
-insert into Place values('O10000','Dirección de Educación Media Superior', 'AREA', 1);
-insert into Place values('R40000','Dirección de Publicaciones', 'AREA', 1);
-insert into Place values('Q00000','Secretaría de Servicios Educativos', 'AREA', 1);
-insert into Place values('Q30000','Dirección de Bibliotecas', 'AREA', 1);
-insert into Place values('Q10000','Dirección de Administración Escolar', 'AREA', 1);
-insert into Place values('Q50000','Dirección de Desarrollo y Fomento Deportivo', 'AREA', 1);
-insert into Place values('Q40000','Dirección de Difusión y Fomento a la Cultura', 'AREA', 1);
-insert into Place values('S30000','Dirección de Evaluación', 'AREA', 1);
-insert into Place values('T40000','Dirección de Gestión del Capital Humano', 'AREA', 1);
-insert into Place values('T50000','Dirección de Recursos Financieros', 'AREA', 1);
-insert into Place values('T60000','Dirección de Recursos Materiales y Servicios', 'AREA', 1);
-insert into Place values('K00000','Oficina del Abogado General', 'AREA', 1);
-insert into Place values('K20000','Dirección de Normatividad, Consulta y Dictaminación ', 'AREA', 1);
-insert into Place values('K10000','Dirección de Asuntos Jurídicos', 'AREA', 1);
-insert into Place values('L00000','Coordinación General de Servicios Informáticos', 'AREA', 1);
-insert into Place values('O0A000','Coordinación General de Formación e Innovación Educativa', 'AREA', 1);
-insert into Place values('R0F000','Unidad Politécnica para el Desarrollo y la Competitividad Empresarial', 'AREA', 1);
-insert into Place values('T63000','Coordinación de Centros de Desarrollo Infantil', 'AREA', 1);
-insert into Place values('T63020','Centro de Desarrollo Infantil "Amalia Solórzano de Cárdenas"', 'CENTRO', 1);
-insert into Place values('T63040','Centro de Desarrollo Infantil "Clementina Batalla de Bassols"', 'CENTRO', 1);
-insert into Place values('T63010','Centro de Desarrollo Infantil "Laura Pérez de Bátiz"', 'CENTRO', 1);
-insert into Place values('T63050','Centro de Desarrollo Infantil "Margarita Salazar de Erro"', 'CENTRO', 1);
+INSERT INTO Place VALUES ('O1A000','Centro de Estudios Científicos y Tecnológicos 1 "Gonzálo Vázquez Vela"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O1B000','Centro de Estudios Científicos y Tecnológicos 2 "Miguel Bernard"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O1C000','Centro de Estudios Científicos y Tecnológicos 3 "Estanislao Ramírez Ruíz"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O1D000','Centro de Estudios Científicos y Tecnológicos 4 "Lázaro Cárdenas"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O1M000','Centro de Estudios Científicos y Tecnológicos 5 "Benito Juárez"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O1K000','Centro de Estudios Científicos y Tecnológicos 6 "Miguel Othón de Mendizabal"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O1E000','Centro de Estudios Científicos y Tecnológicos 7 "Cuauhtémoc"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O1F000','Centro de Estudios Científicos y Tecnológicos 8 "Narciso Bassols"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O1G000','Centro de Estudios Científicos y Tecnológicos 9 "Juan de Dios Bátiz"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O1H000','Centro de Estudios Científicos y Tecnológicos 10 "Carlos Vallejo Márquez"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O1I000','Centro de Estudios Científicos y Tecnológicos 11 "Wilfrido Massieu"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O1N000','Centro de Estudios Científicos y Tecnológicos 12 "José María Morelos"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O1O000','Centro de Estudios Científicos y Tecnológicos 13 "Ricardo Flores Magón"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O1P000','Centro de Estudios Científicos y Tecnológicos 14 "Luis Enrique Erro"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O1L000','Centro de Estudios Científicos y Tecnológicos 15 "Diódoro Antúnez Echegaray"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O1Q000','Centro de Estudios Científicos y Tecnológicos 16 "Hidalgo"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O1R000','Centro de Estudios Científicos y Tecnológicos 17 "León, Guanajuato"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O1J000','Centro de Estudios Tecnológicos 1 "Walter Cross Buchanan"', 'MEDIO SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2D000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Zacatenco', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2B000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Culhuacán', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2A000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Azcapotzalco', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2C000','Escuela Superior de Ingeniería Mecánica y Eléctrica Unidad Ticomán', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2G000','Escuela Superior de Ingeniería y Arquitectura Unidad Zacatenco', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2E000','Escuela Superior de Ingeniería y Arquitectura Unidad Tecamachalco', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2F000','Escuela Superior de Ingeniería y Arquitectura Unidad Ticomán', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2H000','Escuela Superior de Ingeniería Textil', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2I000','Escuela Superior de Ingeniería Química e Industrias Extractivas', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2J000','Escuela Superior de Física y Matemáticas', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2K000','Escuela Superior de Computación', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2M000','Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2L000','Unidad Profesional Interdisciplinaria en Ingeniería y Tecnologías Avanzadas', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2N000','Unidad Profesional Interdisciplinaria de Biotecnología', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2Y000','Unidad Profesional Interdisciplinaria de Ingeniería Campus Guanajuato', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2Z000','Unidad Profesional Interdisciplinaria de Ingeniería Campus Zacatecas', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2P000','Escuela Nacional de Ciencias Biológicas', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2Q000','Escuela Superior de Medicina', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2O000','Escuela Nacional de Medicina y Homeopatía', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2R000','Escuela Superior de Enfermería y Obstetricia', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2T000','Centro Interdisciplinario de Ciencias de la Salud Unidad Santo Tomás', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2S000','Centro Interdisciplinario de Ciencias de la Salud Unidad Milpa Alta', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2U000','Escuela Superior de Comercio y Administración Unidad Santo Tomás', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2V000','Escuela Superior de Comercio y Administración Unidad Tepepan', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2W000','Escuela Superior de Economía', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('O2X000','Escuela Superior de Turismo', 'SUPERIOR', 1);
+INSERT INTO Place VALUES ('P0A000','Centro Interdisciplinario de Ciencias Marinas', 'POSGRADO', 1);
+INSERT INTO Place VALUES ('P0C000','Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional Unidad Durango', 'POSGRADO', 1);
+INSERT INTO Place VALUES ('P0F000','Centro Interdisciplinario de Investigación para el Desarrollo Integral Regional Unidad Oaxaca', 'POSGRADO', 1);
+INSERT INTO Place VALUES ('P0L000','Centro de Investigación en Computación', 'POSGRADO', 1);
+INSERT INTO Place VALUES ('P0N000','Centro de Investigaciones Económicas, Administrativas y Sociales', 'POSGRADO', 1);
+INSERT INTO Place VALUES ('P0H000','Centro de Biotecnología Genómica', 'POSGRADO', 1);
+INSERT INTO Place VALUES ('P0I000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Legaria', 'POSGRADO', 1);
+INSERT INTO Place VALUES ('P0K000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Querétaro', 'POSGRADO', 1);
+INSERT INTO Place VALUES ('P0J000','Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada Unidad Altamira', 'POSGRADO', 1);
+INSERT INTO Place VALUES ('P0M000','Centro de Investigación y Desarrollo de Tecnología Digital', 'POSGRADO', 1);
+INSERT INTO Place VALUES ('P0Q000','Centro de Investigación e Innovación Tecnológica', 'POSGRADO', 1);
+INSERT INTO Place VALUES ('P0P000','Centro de Innovación y Desarrollo Tecnológico en Computo', 'POSGRADO', 1);
+INSERT INTO Place VALUES ('P0T000','Centro de Nanociencias y Micro y Nanotecnologías', 'POSGRADO', 1);
+INSERT INTO Place VALUES ('L10000','Dirección de Cómputo y Comunicaciones', 'ADMINISTRACIÓN', 1);
+INSERT INTO Place VALUES ('R5D000','Centro de Educación Contínua Unidad Culiacán', 'CENTRO', 1);
+INSERT INTO Place VALUES ('R5M000','Centro de Educación Contínua Unidad Durango', 'CENTRO', 1);
+INSERT INTO Place VALUES ('R5E000','Centro de Educación Contínua Unidad Los Mochis', 'CENTRO', 1);
+INSERT INTO Place VALUES ('R5K000','Centro de Educación Contínua Unidad Tijuana', 'CENTRO', 1);
+INSERT INTO Place VALUES ('JA1000','Secretaría Particular de la Dirección General', 'AREA', 1);
+INSERT INTO Place VALUES ('JD0000','Coordinación de Asesores', 'AREA', 1);
+INSERT INTO Place VALUES ('J60000','Coordinación de Comunicación Social', 'AREA', 1);
+INSERT INTO Place VALUES ('JE0000','Defensoría de los Derechos Politécnicos', 'AREA', 1);
+INSERT INTO Place VALUES ('XXXXXX','Coordinación Politécnica para la Sustentabilidad', 'AREA', 1);
+INSERT INTO Place VALUES ('N00000','Secretaría General', 'AREA', 1);
+INSERT INTO Place VALUES ('O00000','Secretaría Académica', 'AREA', 1);
+INSERT INTO Place VALUES ('O10000','Dirección de Educación Media Superior', 'AREA', 1);
+INSERT INTO Place VALUES ('R40000','Dirección de Publicaciones', 'AREA', 1);
+INSERT INTO Place VALUES ('Q00000','Secretaría de Servicios Educativos', 'AREA', 1);
+INSERT INTO Place VALUES ('Q30000','Dirección de Bibliotecas', 'AREA', 1);
+INSERT INTO Place VALUES ('Q10000','Dirección de Administración Escolar', 'AREA', 1);
+INSERT INTO Place VALUES ('Q50000','Dirección de Desarrollo y Fomento Deportivo', 'AREA', 1);
+INSERT INTO Place VALUES ('Q40000','Dirección de Difusión y Fomento a la Cultura', 'AREA', 1);
+INSERT INTO Place VALUES ('S30000','Dirección de Evaluación', 'AREA', 1);
+INSERT INTO Place VALUES ('T40000','Dirección de Gestión del Capital Humano', 'AREA', 1);
+INSERT INTO Place VALUES ('T50000','Dirección de Recursos Financieros', 'AREA', 1);
+INSERT INTO Place VALUES ('T60000','Dirección de Recursos Materiales y Servicios', 'AREA', 1);
+INSERT INTO Place VALUES ('K00000','Oficina del Abogado General', 'AREA', 1);
+INSERT INTO Place VALUES ('K20000','Dirección de Normatividad, Consulta y Dictaminación ', 'AREA', 1);
+INSERT INTO Place VALUES ('K10000','Dirección de Asuntos Jurídicos', 'AREA', 1);
+INSERT INTO Place VALUES ('L00000','Coordinación General de Servicios Informáticos', 'AREA', 1);
+INSERT INTO Place VALUES ('O0A000','Coordinación General de Formación e Innovación Educativa', 'AREA', 1);
+INSERT INTO Place VALUES ('R0F000','Unidad Politécnica para el Desarrollo y la Competitividad Empresarial', 'AREA', 1);
+INSERT INTO Place VALUES ('T63000','Coordinación de Centros de Desarrollo Infantil', 'AREA', 1);
+INSERT INTO Place VALUES ('T63020','Centro de Desarrollo Infantil "Amalia Solórzano de Cárdenas"', 'CENTRO', 1);
+INSERT INTO Place VALUES ('T63040','Centro de Desarrollo Infantil "Clementina Batalla de Bassols"', 'CENTRO', 1);
+INSERT INTO Place VALUES ('T63010','Centro de Desarrollo Infantil "Laura Pérez de Bátiz"', 'CENTRO', 1);
+INSERT INTO Place VALUES ('T63050','Centro de Desarrollo Infantil "Margarita Salazar de Erro"', 'CENTRO', 1);
 
 /* ======================================================
 * =================    GUESTS     =======================
 * =======================================================
 */
-insert into guest values('HEMP610409','Patricia', 'Hernández', 'Monsalvo', null,'O1A000');
-insert into guest values('GARV801005','Viridiana Karina', 'García', 'Romero', null,'O1A000');
-insert into guest values('GUSV811105','María Vianey', 'Gudiño', 'Sánchez', null,'O1A000');
-insert into guest values('SADV700522','Víctor Manuel', 'Salas', 'Domínguez', null,'O1B000');
-insert into guest values('SAMJ740319','Josefina', 'Sánchez', 'Monroy', null,'O1B000');
-insert into guest values('EAGC770416','Carolina', 'Estrada', 'García', null,'O1B000');
-insert into guest values('CABM811007','Mariana Elizabeth', 'Chávez', 'Benítez', null,'O1C000');
-insert into guest values('JIMA610709','Alejandra', 'Jiménez', 'Méndez', null,'O1C000');
-insert into guest values('ROCL700110','José Luis Tonatihu', 'Rojas', 'Castro', null,'O1C000');
-insert into guest values('MASC731120', 'Carolina', 'Mares', 'Sandoval', null,'O1D000');
-insert into guest values('BOMJ600427', 'Jesús Roberto', 'Bolivar', 'Meza', null,'O1D000');
-insert into guest values('LOFT610501', 'María Teresa', 'López', 'Flores', null,'O1D000');
-insert into guest values('CACJ620311', 'María Josefina', 'Campos', 'Cano', null,'O1M000');
-insert into guest values('SIGG840712', 'Gustavo Rodolfo', 'Shields', 'García', null,'O1M000');
-insert into guest values('GUHE740114', 'Erika', 'Gutiérrez', 'Hernández', null,'O1M000');
-insert into guest values('GARJ640319', 'Juan José', 'García', 'Rivera', null,'O1K000');
-insert into guest values('SACC820315', 'Catalina', 'Sánchez', 'Castillo', null,'O1K000');
-insert into guest values('RUBM600910', 'María Margarita', 'Ruíz', 'Badillo', null,'O1K000');
-insert into guest values('PESL790811', 'María de Lourdes', 'Peregrino', 'Sánchez', null,'O1E000');
-insert into guest values('CICM700907', 'María Mireya', 'Cristino', 'Castillo', null,'O1E000');
-insert into guest values('NEEL730512', 'Laura Alicia', 'Neyra', 'Estrada', null,'O1E000');
-insert into guest values('OELE810505', 'Edgar Josué', 'Ojeda', 'Layseca', null,'O1F000');
-insert into guest values('BUAI920831', 'Ismael', 'Bruno', 'Arellano', null,'O1F000');
-insert into guest values('NAMJ870131', 'Joaquín Alejandro', 'Nares', 'Miller', null,'O1F000');
-insert into guest values('SUCA511123', 'Armando', 'Suárez', 'Caudillo', null,'O1G000');
-insert into guest values('MOMA530924', 'Alfonso', 'Morales', 'Martínez', null,'O1G000');
-insert into guest values('MORA640123', 'Arturo', 'Moreno', 'Reyes', null,'O1G000');
-insert into guest values('PAGC570307', 'Clotilde', 'Prado', 'García', null,'O1H000');
-insert into guest values('TOPE551216', 'María Eugenia', 'Tome', 'Pérez', null,'O1H000');
-insert into guest values('MAIU850513', 'Uriel', 'Martínez', 'Islas', null,'O1I000');
-insert into guest values('SAME770202', 'María Esther', 'Sánchez', 'Marín', null,'O1I000');
-insert into guest values('BEMG581122', 'Gerardo', 'Bernal', 'Méndez', null,'O1I000');
-insert into guest values('AISL760127', 'Lizeth', 'Avilés', 'Sánchez', null,'O1N000');
-insert into guest values('ROLP651211', 'Pedro', 'Rodríguez', 'Luevano', null,'O1N000');
-insert into guest values('GUDE820907', 'Edgar René', 'Guzmán', 'Delgado', null,'O1N000');
-insert into guest values('CAAG560830', 'Guadencio', 'Camacho', 'Alvarado', null,'O1O000');
-insert into guest values('OUFA850727', 'Andrea Patricia', 'Olguín', 'Ferreira', null,'O1O000');
-insert into guest values('RALT520821', 'María Teresa', 'Ramírez', 'Landeros', null,'O1O000');
-insert into guest values('AAMA580502', 'José Antonio', 'Andrade', 'Morales', null,'O1P000');
-insert into guest values('REIH830819', 'Héctor Yair', 'Reyes', 'Izquierdo', null,'O1P000');
-insert into guest values('AAAC670607', 'Celia', 'Ayala', 'Arellano', null,'O1P000');
-insert into guest values('AAMJ550319', 'José Juan', 'Aljama', 'Moral', null,'O1L000');
-insert into guest values('CAFJ811202', 'Janet', 'Cadena', 'Flores', null,'O1L000');
-insert into guest values('RORE650831', 'Evangelina', 'Rojas', 'Rodríguez', null,'O1L000');
-insert into guest values('SILL681102', 'Luis Enrique', 'Sigler', 'Licona', null,'O1R000');
-insert into guest values('BEHM730706', 'Ma. Guadalupe del Carmen', 'Belmonte', 'Hernández', null,'O1R000');
-insert into guest values('CUPS631212', 'Sonia Elizabeth', 'Cruz', 'Pérez', null,'O1J000');
-insert into guest values('ROAJ530902', 'Juan', 'Romero', 'Amaya', null,'O1J000');
-insert into guest values('RORR590111', 'Rocío', 'Rodas', 'Ruíz', null,'O1J000');
+INSERT INTO guest VALUES ('HEMP610409','Patricia', 'Hernández', 'Monsalvo', null,'O1A000');
+INSERT INTO guest VALUES ('GARV801005','Viridiana Karina', 'García', 'Romero', null,'O1A000');
+INSERT INTO guest VALUES ('GUSV811105','María Vianey', 'Gudiño', 'Sánchez', null,'O1A000');
+INSERT INTO guest VALUES ('SADV700522','Víctor Manuel', 'Salas', 'Domínguez', null,'O1B000');
+INSERT INTO guest VALUES ('SAMJ740319','Josefina', 'Sánchez', 'Monroy', null,'O1B000');
+INSERT INTO guest VALUES ('EAGC770416','Carolina', 'Estrada', 'García', null,'O1B000');
+INSERT INTO guest VALUES ('CABM811007','Mariana Elizabeth', 'Chávez', 'Benítez', null,'O1C000');
+INSERT INTO guest VALUES ('JIMA610709','Alejandra', 'Jiménez', 'Méndez', null,'O1C000');
+INSERT INTO guest VALUES ('ROCL700110','José Luis Tonatihu', 'Rojas', 'Castro', null,'O1C000');
+INSERT INTO guest VALUES ('MASC731120', 'Carolina', 'Mares', 'Sandoval', null,'O1D000');
+INSERT INTO guest VALUES ('BOMJ600427', 'Jesús Roberto', 'Bolivar', 'Meza', null,'O1D000');
+INSERT INTO guest VALUES ('LOFT610501', 'María Teresa', 'López', 'Flores', null,'O1D000');
+INSERT INTO guest VALUES ('CACJ620311', 'María Josefina', 'Campos', 'Cano', null,'O1M000');
+INSERT INTO guest VALUES ('SIGG840712', 'Gustavo Rodolfo', 'Shields', 'García', null,'O1M000');
+INSERT INTO guest VALUES ('GUHE740114', 'Erika', 'Gutiérrez', 'Hernández', null,'O1M000');
+INSERT INTO guest VALUES ('GARJ640319', 'Juan José', 'García', 'Rivera', null,'O1K000');
+INSERT INTO guest VALUES ('SACC820315', 'Catalina', 'Sánchez', 'Castillo', null,'O1K000');
+INSERT INTO guest VALUES ('RUBM600910', 'María Margarita', 'Ruíz', 'Badillo', null,'O1K000');
+INSERT INTO guest VALUES ('PESL790811', 'María de Lourdes', 'Peregrino', 'Sánchez', null,'O1E000');
+INSERT INTO guest VALUES ('CICM700907', 'María Mireya', 'Cristino', 'Castillo', null,'O1E000');
+INSERT INTO guest VALUES ('NEEL730512', 'Laura Alicia', 'Neyra', 'Estrada', null,'O1E000');
+INSERT INTO guest VALUES ('OELE810505', 'Edgar Josué', 'Ojeda', 'Layseca', null,'O1F000');
+INSERT INTO guest VALUES ('BUAI920831', 'Ismael', 'Bruno', 'Arellano', null,'O1F000');
+INSERT INTO guest VALUES ('NAMJ870131', 'Joaquín Alejandro', 'Nares', 'Miller', null,'O1F000');
+INSERT INTO guest VALUES ('SUCA511123', 'Armando', 'Suárez', 'Caudillo', null,'O1G000');
+INSERT INTO guest VALUES ('MOMA530924', 'Alfonso', 'Morales', 'Martínez', null,'O1G000');
+INSERT INTO guest VALUES ('MORA640123', 'Arturo', 'Moreno', 'Reyes', null,'O1G000');
+INSERT INTO guest VALUES ('PAGC570307', 'Clotilde', 'Prado', 'García', null,'O1H000');
+INSERT INTO guest VALUES ('TOPE551216', 'María Eugenia', 'Tome', 'Pérez', null,'O1H000');
+INSERT INTO guest VALUES ('MAIU850513', 'Uriel', 'Martínez', 'Islas', null,'O1I000');
+INSERT INTO guest VALUES ('SAME770202', 'María Esther', 'Sánchez', 'Marín', null,'O1I000');
+INSERT INTO guest VALUES ('BEMG581122', 'Gerardo', 'Bernal', 'Méndez', null,'O1I000');
+INSERT INTO guest VALUES ('AISL760127', 'Lizeth', 'Avilés', 'Sánchez', null,'O1N000');
+INSERT INTO guest VALUES ('ROLP651211', 'Pedro', 'Rodríguez', 'Luevano', null,'O1N000');
+INSERT INTO guest VALUES ('GUDE820907', 'Edgar René', 'Guzmán', 'Delgado', null,'O1N000');
+INSERT INTO guest VALUES ('CAAG560830', 'Guadencio', 'Camacho', 'Alvarado', null,'O1O000');
+INSERT INTO guest VALUES ('OUFA850727', 'Andrea Patricia', 'Olguín', 'Ferreira', null,'O1O000');
+INSERT INTO guest VALUES ('RALT520821', 'María Teresa', 'Ramírez', 'Landeros', null,'O1O000');
+INSERT INTO guest VALUES ('AAMA580502', 'José Antonio', 'Andrade', 'Morales', null,'O1P000');
+INSERT INTO guest VALUES ('REIH830819', 'Héctor Yair', 'Reyes', 'Izquierdo', null,'O1P000');
+INSERT INTO guest VALUES ('AAAC670607', 'Celia', 'Ayala', 'Arellano', null,'O1P000');
+INSERT INTO guest VALUES ('AAMJ550319', 'José Juan', 'Aljama', 'Moral', null,'O1L000');
+INSERT INTO guest VALUES ('CAFJ811202', 'Janet', 'Cadena', 'Flores', null,'O1L000');
+INSERT INTO guest VALUES ('RORE650831', 'Evangelina', 'Rojas', 'Rodríguez', null,'O1L000');
+INSERT INTO guest VALUES ('SILL681102', 'Luis Enrique', 'Sigler', 'Licona', null,'O1R000');
+INSERT INTO guest VALUES ('BEHM730706', 'Ma. Guadalupe del Carmen', 'Belmonte', 'Hernández', null,'O1R000');
+INSERT INTO guest VALUES ('CUPS631212', 'Sonia Elizabeth', 'Cruz', 'Pérez', null,'O1J000');
+INSERT INTO guest VALUES ('ROAJ530902', 'Juan', 'Romero', 'Amaya', null,'O1J000');
+INSERT INTO guest VALUES ('RORR590111', 'Rocío', 'Rodas', 'Ruíz', null,'O1J000');
 
-insert into guest (Name, FirstSurname, SecondSurname, rfc, email, PlaceID) values 
+INSERT INTO guest (Name, FirstSurname, SecondSurname, rfc, email, PlaceID) VALUES 
 ('Ma. Victoria', 'Rafael', 'Valdivia', 'RAVM650728', null, 'O2D000'),
 ('Ana Laura', 'Villalpando', 'Nava',	'VINA780922', null, 'O2D000'),
 ('Víctor Alejandro', 'Banderas', 'Mérida', 'BAMV840328', null, 'O2B000'),
@@ -301,7 +301,7 @@ insert into guest (Name, FirstSurname, SecondSurname, rfc, email, PlaceID) value
 ('Jazmín', 'Guerra', 'Alcántara', 'GUAJ850112', null, 'L10000'),
 ('Luis Paul', 'Gutiérrez', 'Hernández',	'GUHL810712', null, 'L10000'),
 ('María Magdalena', 'Martínez', 'Carrillo',	'MACM640411', null, 'L10000');
-insert into guest (Name, FirstSurname, SecondSurname, rfc, email, PlaceID) values 
+INSERT INTO guest (Name, FirstSurname, SecondSurname, rfc, email, PlaceID) VALUES 
 ('Sofía', 'Macías', ' ', 'MASO581005', null, 'R5D000'),
 ('Georgina Irasema', 'Estrada', 'Rivera',	'EARG821010', null, 'R5D000'),
 ('María del Rosario', 'Rivera', 'Samaniego',	'RISR610808', null, 'R5D000'),
@@ -383,16 +383,16 @@ insert into guest (Name, FirstSurname, SecondSurname, rfc, email, PlaceID) value
 * =================    GUEST'S PRIZE     ================
 * =======================================================
 */
-insert into guestprize values('TOOG450118', 2);
-insert into guestprize values('CADR791106', 3);
-insert into guestprize values('BASR381220', 3);
-insert into guestprize values('GOHL460918', 3);
-insert into guestprize values('JAVD540613', 3);
-insert into guestprize values('PETS750209', 4);
-insert into guestprize values('RABP720605', 5);
-insert into guestprize values('MEER810505', 5);
-insert into guestprize values('SISD970602', 6);
-insert into guestprize values
+INSERT INTO guestprize VALUES ('TOOG450118', 2);
+INSERT INTO guestprize VALUES ('CADR791106', 3);
+INSERT INTO guestprize VALUES ('BASR381220', 3);
+INSERT INTO guestprize VALUES ('GOHL460918', 3);
+INSERT INTO guestprize VALUES ('JAVD540613', 3);
+INSERT INTO guestprize VALUES ('PETS750209', 4);
+INSERT INTO guestprize VALUES ('RABP720605', 5);
+INSERT INTO guestprize VALUES ('MEER810505', 5);
+INSERT INTO guestprize VALUES ('SISD970602', 6);
+INSERT INTO guestprize VALUES
 ('AAAC670607', 1),('AAFD851118', 1),('AAIA810312', 1),('AALE860922', 1),
 ('AAMA580502', 1),('AAMJ550319', 1),('AARE791201', 1),('AAZA700603', 1),
 ('AIGE760708', 1),('AISL760127', 1),('AULC650915', 1),('AUTV660101', 1),
@@ -604,56 +604,56 @@ insert into guestprize values
 * =================    EVENT'S GUEST     ================
 * =======================================================
 */
-insert into guestevent (rfc, number, eventid) values('HEMP610409', 1, 1);
-insert into guestevent (rfc, number, eventid) values('GARV801005', 2, 1);
-insert into guestevent (rfc, number, eventid) values('GUSV811105', 3, 1);
-insert into guestevent (rfc, number, eventid) values('SADV700522', 4, 1);
-insert into guestevent (rfc, number, eventid) values('SAMJ740319', 5, 1);
-insert into guestevent (rfc, number, eventid) values('EAGC770416', 6, 1);
-insert into guestevent (rfc, number, eventid) values('CABM811007', 7, 1);
-insert into guestevent (rfc, number, eventid) values('JIMA610709', 8, 1);
-insert into guestevent (rfc, number, eventid) values('ROCL700110', 9, 1);
-insert into guestevent (rfc, number, eventid) values('MASC731120', 10, 1); 
-insert into guestevent (rfc, number, eventid) values('BOMJ600427', 11, 1); 
-insert into guestevent (rfc, number, eventid) values('LOFT610501', 12, 1); 
-insert into guestevent (rfc, number, eventid) values('CACJ620311', 13, 1); 
-insert into guestevent (rfc, number, eventid) values('SIGG840712', 14, 1); 
-insert into guestevent (rfc, number, eventid) values('GUHE740114', 15, 1); 
-insert into guestevent (rfc, number, eventid) values('GARJ640319', 16, 1); 
-insert into guestevent (rfc, number, eventid) values('SACC820315', 17, 1); 
-insert into guestevent (rfc, number, eventid) values('RUBM600910', 18, 1); 
-insert into guestevent (rfc, number, eventid) values('PESL790811', 19, 1); 
-insert into guestevent (rfc, number, eventid) values('CICM700907', 20, 1); 
-insert into guestevent (rfc, number, eventid) values('NEEL730512', 21, 1); 
-insert into guestevent (rfc, number, eventid) values('OELE810505', 22, 1); 
-insert into guestevent (rfc, number, eventid) values('BUAI920831', 23, 1); 
-insert into guestevent (rfc, number, eventid) values('NAMJ870131', 24, 1); 
-insert into guestevent (rfc, number, eventid) values('SUCA511123', 25, 1); 
-insert into guestevent (rfc, number, eventid) values('MOMA530924', 26, 1);
-insert into guestevent (rfc, number, eventid) values('MORA640123', 27, 1); 
-insert into guestevent (rfc, number, eventid) values('PAGC570307', 28, 1); 
-insert into guestevent (rfc, number, eventid) values('TOPE551216', 29, 1); 
-insert into guestevent (rfc, number, eventid) values('MAIU850513', 30, 1); 
-insert into guestevent (rfc, number, eventid) values('SAME770202', 31, 1); 
-insert into guestevent (rfc, number, eventid) values('BEMG581122', 32, 1); 
-insert into guestevent (rfc, number, eventid) values('AISL760127', 33, 1); 
-insert into guestevent (rfc, number, eventid) values('ROLP651211', 34, 1); 
-insert into guestevent (rfc, number, eventid) values('GUDE820907', 35, 1); 
-insert into guestevent (rfc, number, eventid) values('CAAG560830', 36, 1); 
-insert into guestevent (rfc, number, eventid) values('OUFA850727', 37, 1); 
-insert into guestevent (rfc, number, eventid) values('RALT520821', 38, 1); 
-insert into guestevent (rfc, number, eventid) values('AAMA580502', 39, 1); 
-insert into guestevent (rfc, number, eventid) values('REIH830819', 40, 1); 
-insert into guestevent (rfc, number, eventid) values('AAAC670607', 41, 1); 
-insert into guestevent (rfc, number, eventid) values('AAMJ550319', 42, 1); 
-insert into guestevent (rfc, number, eventid) values('CAFJ811202', 43, 1); 
-insert into guestevent (rfc, number, eventid) values('RORE650831', 44, 1); 
-insert into guestevent (rfc, number, eventid) values('SILL681102', 45, 1); 
-insert into guestevent (rfc, number, eventid) values('BEHM730706', 46, 1); 
-insert into guestevent (rfc, number, eventid) values('CUPS631212', 47, 1); 
-insert into guestevent (rfc, number, eventid) values('ROAJ530902', 48, 1); 
-insert into guestevent (rfc, number, eventid) values('RORR590111', 49, 1);
-insert into guestevent (number, rfc, eventid) values
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('HEMP610409', 1, 1);
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('GARV801005', 2, 1);
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('GUSV811105', 3, 1);
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('SADV700522', 4, 1);
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('SAMJ740319', 5, 1);
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('EAGC770416', 6, 1);
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('CABM811007', 7, 1);
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('JIMA610709', 8, 1);
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('ROCL700110', 9, 1);
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('MASC731120', 10, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('BOMJ600427', 11, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('LOFT610501', 12, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('CACJ620311', 13, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('SIGG840712', 14, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('GUHE740114', 15, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('GARJ640319', 16, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('SACC820315', 17, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('RUBM600910', 18, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('PESL790811', 19, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('CICM700907', 20, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('NEEL730512', 21, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('OELE810505', 22, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('BUAI920831', 23, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('NAMJ870131', 24, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('SUCA511123', 25, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('MOMA530924', 26, 1);
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('MORA640123', 27, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('PAGC570307', 28, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('TOPE551216', 29, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('MAIU850513', 30, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('SAME770202', 31, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('BEMG581122', 32, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('AISL760127', 33, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('ROLP651211', 34, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('GUDE820907', 35, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('CAAG560830', 36, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('OUFA850727', 37, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('RALT520821', 38, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('AAMA580502', 39, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('REIH830819', 40, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('AAAC670607', 41, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('AAMJ550319', 42, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('CAFJ811202', 43, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('RORE650831', 44, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('SILL681102', 45, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('BEHM730706', 46, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('CUPS631212', 47, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('ROAJ530902', 48, 1); 
+INSERT INTO guestevent (rfc, number, eventid) VALUES ('RORR590111', 49, 1);
+INSERT INTO guestevent (number, rfc, eventid) VALUES
 (50, 'RAVM650728', 1),
 (51, 'VINA780922', 1),
 (52, 'BAMV840328', 1),
@@ -843,6 +843,6 @@ UPDATE guestevent SET guestevent.assistance = 0, guestevent.confirmation = 0;
 * =======================================================
 */
 /*Password = 'root'*/
-insert into User values(2014081268, '$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y', 1, 1);
-insert into User values(1234567890, '$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y', 2, 1);
-
+INSERT INTO User (Username, Password, Type, InstitutionID) VALUES 
+    (2014081268, '$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y', 'Admin', 1),
+    (1234567890, '$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y', 'Standard', 1);
