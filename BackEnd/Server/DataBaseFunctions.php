@@ -31,6 +31,7 @@
      * @return bool return if the user have credencials to enter the system 
      */
     function checkLogin(string $username, string $password, mysqli $connection) {
+        $username = mysqli_real_escape_string($connection, $username);
         $userData = mysqli_query($connection, "CALL GetUserPassword($username)");
         
         //Error handling
@@ -38,26 +39,17 @@
             echo mysqli_error($connection);
             exit();
         }
-        if (mysqli_num_rows($userData) == 0) return False;
+        if (mysqli_num_rows($userData) == 0) return false;
 
         //Verifying the password is correct with the hash
         $userDataArray = mysqli_fetch_array($userData);
         $hash = $userDataArray['Password'];
+
         return password_verify($password, $hash);
     }
 
 
-
-
-
-    /*$res = CheckLogin(123456780, 'root', ConnectDB('localhost:3306'));
+    /*
     Generate password = password_hash($password, PASSWORD_DEFAULT);
-    if($res){
-        echo "ok";
-    }
-    else{
-        echo "error";
     }*/
-
-
 ?>

@@ -1,12 +1,11 @@
 <?php declare(strict_types=1);
-    session_start();    
+    if (!isset($_SESSION)) session_start();    
 
     if (!isset($_SESSION['logStatus'])) {
         include("login.php");
         exit();
     }
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -35,6 +34,12 @@
         <!-- Google Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     </head>
+
+    <?php
+        echo("<style>");
+            include("../../../FrontEnd/Distribution/materialize.min.css");
+        echo("</style>");
+    ?>
 
     <body>
         <div id="ReactApp" />
