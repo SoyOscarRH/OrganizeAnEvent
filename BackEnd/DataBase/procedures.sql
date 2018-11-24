@@ -5,13 +5,13 @@ USE oae;
  * ======================================================
  */
 
-DROP PROCEDURE IF EXISTS CheckLogIn;
+DROP PROCEDURE IF EXISTS GetUserPassword;
 
 DELIMITER //
-CREATE PROCEDURE CheckLogIn(IN ThisUsername INT)
+CREATE PROCEDURE GetUserPassword(IN ThisUsername INT)
 BEGIN
-    SELECT * FROM User
-        WHERE 
+    SELECT Password FROM User
+        WHERE
             User.Username = ThisUsername;
 END //
 
