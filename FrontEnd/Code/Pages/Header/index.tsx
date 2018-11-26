@@ -19,11 +19,8 @@ export default class Header extends React.Component<HeaderState> {
     }
 
     render () {
-
         //@ts-ignore
-        const userName = window.userName
-        //@ts-ignore
-        const userType = window.userType
+        const userName = window.userData.userName, userType = window.userData.userType
 
         return (
             <React.Fragment>

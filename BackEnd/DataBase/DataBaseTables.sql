@@ -60,13 +60,28 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`User` (
   `Username` INT NOT NULL,
   `Password` VARCHAR(256) NOT NULL,
-  `Type` ENUM('Admin', 'Standard') NOT NULL,
-  `InstitutionID` INT,
-  PRIMARY KEY (`Username`),
-  INDEX `user_institution_idx` (`InstitutionID` ASC),
-  CONSTRAINT `UserInstitution`
-    FOREIGN KEY (`InstitutionID`)
-    REFERENCES `OrganizeAnEvent`.`Institution` (`InstitutionID`)
+  `Type` ENUM('Admin', 'Standard') NOT NULL)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `OrganizeAnEvent`.`UserEvent`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`UserEvent` (
+  `Username` INT NOT NULL,
+  `EventID` VARCHAR(256) NOT NULL,
+  PRIMARY KEY (`Username`, `EventID`),
+  INDEX `userevent_username_idx` (`Username` ASC),
+  CONSTRAINT `UserEventUsername`
+    FOREIGN KEY (`Username`)
+    REFERENCES `OrganizeAnEvent`.`User` (`Username`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+  INDEX `userevent_eventid_idx` (`EventID` ASC),
+  CONSTRAINT `UserEventEventID`
+    FOREIGN KEY (`EventID`)
+    REFERENCES `OrganizeAnEvent`.`Event` (`EventID`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;

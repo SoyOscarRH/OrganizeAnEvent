@@ -33,6 +33,7 @@
 
         <!-- Google Material Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,600" rel="stylesheet">
 
         <!-- Google Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -47,8 +48,13 @@
     <body>
         <div id="ReactApp" />
         <script type="text/javascript">
-            window.userType = "<?php echo $userType ?>";
-            window.userName = "<?php echo $_SESSION['userName'] ?>";
+            const data = {
+                userType: "<?php echo $userType ?>",
+                userName: "<?php echo $_SESSION['userName'] ?>",
+            };
+
+            window.userData = data;
+            Object.freeze(window.userData);
 
             <?php include("../../../FrontEnd/Distribution/bundle.js") ?>
         </script>
