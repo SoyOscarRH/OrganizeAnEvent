@@ -1839,10 +1839,14 @@ SET G.Email = 'enriquebroly@gmail.com'
 WHERE G.RFC = GE.RFC AND GE.Number>=0 AND GE.Number<=100;
 
 UPDATE GuestEvent GE, Guest G 
+SET G.Email = 'soyoscarrh@gmail.com'
+WHERE G.RFC = GE.RFC AND GE.Number>=101 AND GE.Number<=200;
+
+UPDATE GuestEvent GE, Guest G 
+SET G.Email = 'abigail3nic.say@gmail.com'
+WHERE G.RFC = GE.RFC AND GE.Number>=201 AND GE.Number<=300;
+
+UPDATE GuestEvent GE, Guest G 
 SET G.Email = 'yngmeizhu@gmail.com'
 WHERE G.RFC = GE.RFC AND GE.Number>=301 AND GE.Number<=544;
 
-
-UPDATE GuestEvent GE, Guest G 
-SET G.Email = 'soyoscarrh@gmail.com'
-WHERE G.RFC = GE.RFC AND GE.Number>=101 AND GE.Number<=200;
