@@ -61,15 +61,9 @@ LA PRESEA “JUAN DE DIOS BÁTIZ” ES EL RECONOCIMIENTO QUE EL INSTITUTO POLIT�
 CON LA ANUENCIA DE NUESTRAS AUTORIDADES, PROCEDEREMOS A LA ENTREGA DE TAN DISTINGUIDO RECONOCIMIENTO, LA “PRESEA JUAN DE DIOS BÁTIZ”, QUE ESTE AÑO RECONOCE A:
 ', 275, 1);
 INSERT INTO Prize (Name, Block, Speech, Amount, EventID) VALUES ('PRESEA CARLOS VALLEJO MÁRQUEZ', 3, 'EL MOMENTO CUMBRE DE ESTA CEREMONIA HA LLEGADO, 
-<<<<<<< HEAD
  
 LA PRESEA “CARLOS VALLEJO MÁRQUEZ” ES EL RECONOCIMIENTO QUE EL INSTITUTO POLITÉCNICO NACIONAL, OTORGA AL PERSONAL DE APOYO Y ASISTENCIA A LA EDUCACIÓN QUE HAYA CUMPLIDO CINCUENTA AÑOS DE SERVICIO EFECTIVOS EN EL PROPIO INSTITUTO.
  
-=======
- 
-LA PRESEA “CARLOS VALLEJO MÁRQUEZ” ES EL RECONOCIMIENTO QUE EL INSTITUTO POLITÉCNICO NACIONAL, OTORGA AL PERSONAL DE APOYO Y ASISTENCIA A LA EDUCACIÓN QUE HAYA CUMPLIDO CINCUENTA AÑOS DE SERVICIO EFECTIVOS EN EL PROPIO INSTITUTO.
- 
->>>>>>> ee21843040992b24923e9960e28a2d49c89aca3f
 ESTE AÑO RECIBE ESTE GALARDON:', 39, 1);
 
 /* ======================================================
@@ -1720,10 +1714,7 @@ INSERT INTO GuestEvent (Number, RFC, EventID) VALUES
 (431,		'HEHS611127', 1),
 (432,		'HUAF470205', 1),
 (433,		'NAHG510514', 1);
-<<<<<<< HEAD
 
-=======
->>>>>>> ee21843040992b24923e9960e28a2d49c89aca3f
 INSERT INTO GuestEvent (Number, RFC, EventID) VALUES
 (434,		'GUGC640225', 1),
 (435,		'PEMV670606', 1),
@@ -1797,10 +1788,7 @@ INSERT INTO GuestEvent (Number, RFC, EventID) VALUES
 (503,		'OOSN660502', 1),
 (504,		'PEVM561221', 1),
 (505,		'REGG611025', 1);
-<<<<<<< HEAD
 
-=======
->>>>>>> ee21843040992b24923e9960e28a2d49c89aca3f
 INSERT INTO GuestEvent (Number, RFC, EventID) VALUES
 (506, 'GAHG471123', 1),
 (507, 'AABS460521', 1),
@@ -1848,37 +1836,11 @@ UPDATE GuestEvent SET GuestEvent.Assistance = 0, GuestEvent.Confirmation = 0;
 * ========    TEST EMAILS FOR GUESTS     ================
 * =======================================================
 */
-<<<<<<< HEAD
-=======
-/*Password = 'root'*/
-INSERT INTO User (Username, Password, Type, InstitutionID) VALUES 
-    (2014081268, '$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y', 'Admin', 1),
-    (1234567890, '$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y', 'Standard', 1);
-
-/* ======================================================
-* ========    TEST EMAILS FOR GUESTS     ================
-* =======================================================
-*/
->>>>>>> ee21843040992b24923e9960e28a2d49c89aca3f
 
 UPDATE GuestEvent GE, Guest G 
 SET G.Email = 'enriquebroly@gmail.com'
 WHERE G.RFC = GE.RFC AND GE.Number>=0 AND GE.Number<=100;
 
 UPDATE GuestEvent GE, Guest G 
-<<<<<<< HEAD
 SET G.Email = 'yngmeizhu@gmail.com'
 WHERE G.RFC = GE.RFC AND GE.Number>=301 AND GE.Number<=544;
-=======
-SET G.Email = 'soyoscarrh@gmail.com'
-WHERE G.RFC = GE.RFC AND GE.Number>=101 AND GE.Number<=200;
-
-UPDATE GuestEvent GE, Guest G 
-SET G.Email = 'abigail3nic.say@gmail.com'
-WHERE G.RFC = GE.RFC AND GE.Number>=201 AND GE.Number<=300;
-
-UPDATE GuestEvent GE, Guest G 
-SET G.Email = 'yngmeizhu@gmail.com'
-WHERE G.RFC = GE.RFC AND GE.Number>=301 AND GE.Number<=544;
-
->>>>>>> ee21843040992b24923e9960e28a2d49c89aca3f
