@@ -1,6 +1,6 @@
 /*EXPORT FROM MySQL:
 cd C:\Program Files\MySQL\MySQL Server 5.7\bin
-mysqldump -u root -p oae > C:\wamp64\www\OrganizeAnEvent\BackEnd\DataBase\CompleteData.sql*/
+mysqldump -u root -p OrganizeAnEvent > C:\wamp64\www\OrganizeAnEvent\BackEnd\DataBase\CompleteData.sql*/
 
 USE OrganizeAnEvent;
 
@@ -14,15 +14,15 @@ USE OrganizeAnEvent;
 * =======================================================
 */
 INSERT INTO Institution (InstitutionID, Name) VALUES 
-    (1, 'INSTITUTO POLITÉCNICO NACIONAL'),
-    (2, 'UNIVERSIDAD AUTÓNOMA DE MÉXICO');
+(1, 'INSTITUTO POLITÉCNICO NACIONAL'),
+(2, 'UNIVERSIDAD AUTÓNOMA DE MÉXICO');
 
 /* ======================================================
 * =================    EVENT     ========================
 * =======================================================
 */
 INSERT INTO Event (Name, Description, InstitutionID) VALUES 
-    ('DISTINCIONES AL MÉRITO POLITÉCNICO 2018', 'LAS DISTINCIONES AL MÉRITO POLITÉCNICO SON EL RECONOCIMIENTO QUE HACE LA COMUNIDAD POLITÉCNICA A UNA CONDUCTA, TRAYECTORIA, SERVICIO O ACCIÓN EJEMPLAR, SOBRESALIENTE, QUE HAYA TENIDO POR OBJETO EXHALTAR EL PRESTIGIO DEL INSTITUTO POLITÉCNICO NACIONAL, PARA APOYAR LA REALIZACIÓN DE SUS FINALIDADES: IMPULSAR EL DESARROLLO DE LA EDUCACIÓN TÉCNICA EN EL PAÍS O BENEFICIAR A LA HUMANIDAD.
+('DISTINCIONES AL MÉRITO POLITÉCNICO 2018', 'LAS DISTINCIONES AL MÉRITO POLITÉCNICO SON EL RECONOCIMIENTO QUE HACE LA COMUNIDAD POLITÉCNICA A UNA CONDUCTA, TRAYECTORIA, SERVICIO O ACCIÓN EJEMPLAR, SOBRESALIENTE, QUE HAYA TENIDO POR OBJETO EXHALTAR EL PRESTIGIO DEL INSTITUTO POLITÉCNICO NACIONAL, PARA APOYAR LA REALIZACIÓN DE SUS FINALIDADES: IMPULSAR EL DESARROLLO DE LA EDUCACIÓN TÉCNICA EN EL PAÍS O BENEFICIAR A LA HUMANIDAD.
 
 EN ESTA OCASIÓN EL CONSEJO GENERAL CONSULTIVO HA DECIDIDO OTORGAR', 1);
 
@@ -162,7 +162,6 @@ INSERT INTO Place VALUES ('T63020','Centro de Desarrollo Infantil "Amalia Solór
 INSERT INTO Place VALUES ('T63040','Centro de Desarrollo Infantil "Clementina Batalla de Bassols"', 'CENTRO', 1);
 INSERT INTO Place VALUES ('T63010','Centro de Desarrollo Infantil "Laura Pérez de Bátiz"', 'CENTRO', 1);
 INSERT INTO Place VALUES ('T63050','Centro de Desarrollo Infantil "Margarita Salazar de Erro"', 'CENTRO', 1);
-
 INSERT INTO Place VALUES ('P0G000','Centro de Desarrollo de Productos Bióticos', 'CENTRO', 1);
 INSERT INTO Place VALUES ('P0B000','Centro Interdisciplinario de Investigaciones y Estudios sobre Medio Ambiente y Desarrollo', 'CENTRO', 1);
 INSERT INTO Place VALUES ('YYYYYY','Centro Educación Continua Ing. Eugenio Méndez Docurro', 'CENTRO', 1);
@@ -726,12 +725,20 @@ INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES
 ('Salvador', 'Álvarez', 'Ballesteros'	,'AABS460521' ,'O2D000'),
 ('Samuel', 'Alcantara', 'Montes'	,'AAMS420723' ,'O2D000'),
 ('Francisco', 'Hernández', 'Rangel'	,'HERF391001' ,'O2D000');
+INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES 
+('Claudia', 'Garces', 'Peñaloza',	'GAPC680404' ,'O1A000'),
+('Blanca Estela', 'Cuevas', 'Bribiesca',	'CUBB650629' ,'O1A000'),
+('Cecilia Yolanda', 'Pérez', 'López',	'PELC600109' ,'O1A000'),
+('Luis Manuel', 'Martínez', 'Reyes',	'MARL600702' ,'O1A000'),
+('Emilio', 'Calixto', 'González',	'CAGE550405' ,'O1A000'),
+('Arturo', 'García', 'González',	'GAGA651215' ,'O1A000'),
+('Leobardo', 'Sánchez','Pimentel',	'SAPL540211' ,'O1A000');
 /* ======================================================
 * =================    GUEST'S COMMENTS     =============
 * =======================================================
 */
-INSERT INTO Comment (Text, RFC) VALUES('Primera fila incapacidad', 'SARM501017');
-INSERT INTO Comment (Text, RFC) VALUES('Dificultad para caminar, requiere acompañante', 'PECA340531');
+INSERT INTO Comment (Text, RFC, EventID) VALUES('Primera fila incapacidad', 'SARM501017', 1);
+INSERT INTO Comment (Text, RFC, EventID) VALUES('Dificultad para caminar, requiere acompañante', 'PECA340531', 1);
 
 /* ======================================================
 * =================    GUEST'S PRIZE     ================
@@ -1840,6 +1847,14 @@ UPDATE GuestEvent SET GuestEvent.Assistance = 0, GuestEvent.Confirmation = 0;
 UPDATE GuestEvent GE, Guest G 
 SET G.Email = 'enriquebroly@gmail.com'
 WHERE G.RFC = GE.RFC AND GE.Number>=0 AND GE.Number<=100;
+
+UPDATE GuestEvent GE, Guest G 
+SET G.Email = 'soyoscarrh@gmail.com'
+WHERE G.RFC = GE.RFC AND GE.Number>=101 AND GE.Number<=200;
+
+UPDATE GuestEvent GE, Guest G 
+SET G.Email = 'abigail3nic.say@gmail.com'
+WHERE G.RFC = GE.RFC AND GE.Number>=201 AND GE.Number<=300;
 
 UPDATE GuestEvent GE, Guest G 
 SET G.Email = 'yngmeizhu@gmail.com'
