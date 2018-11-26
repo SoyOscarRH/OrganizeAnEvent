@@ -1,6 +1,6 @@
 
-export async function sentData(url: string, data: object): Promise<object> {
-    const response = await fetch(url, {
+export function sentData(url: string, data: object): Promise<object> {
+    return fetch(url, {
         headers: {
             'content-type': 'application/json',
             'accept':       'application/json'
@@ -13,8 +13,7 @@ export async function sentData(url: string, data: object): Promise<object> {
         redirect:    'follow',
         referrer:    'no-referrer',
     })
-
-    return response.json()
+    .then(response => response.json() )
 }
 
 export function toTitleCase(data: string): string {

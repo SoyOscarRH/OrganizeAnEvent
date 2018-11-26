@@ -1,7 +1,8 @@
-USE oae;
+USE OrganizeAnEvent;
+
 
 /* ======================================================
- * =======================      LOG IN      =============
+ * =======================      GET PASSWORD    =========
  * ======================================================
  */
 
@@ -16,6 +17,24 @@ BEGIN
 END //
 
 DELIMITER ;
+
+/* ======================================================
+ * =================      GET USER TYPE     =============
+ * ======================================================
+ */
+
+DROP PROCEDURE IF EXISTS GetUserType;
+
+DELIMITER //
+CREATE PROCEDURE GetUserType (IN ThisUsername INT)
+BEGIN
+    SELECT Type FROM User
+        WHERE
+            User.Username = ThisUsername;
+END //
+
+DELIMITER ;
+
 
 /* ======================================================
  * ==========      GET GUEST FULL DATA      =============
@@ -85,11 +104,11 @@ DELIMITER ;
  DROP PROCEDURE IF EXISTS AddComments;
 
 DELIMITER //
-CREATE PROCEDURE AddComments(IN ThisRFC VARCHAR(10), IN NewComment VARCHAR(1000))
+CREATE PROCEDURE AddComments(IN ThisRFC VARCHAR(10), IN ThisEventID INT, IN NewComment VARCHAR(1000))
 BEGIN
-    INSERT INTO Comment (Text, RFC)
+    INSERT INTO Comment (Text, RFC, EventID)
         VALUES 
-            (NewComment, ThisRFC);
+            (NewComment, ThisRFC, EventID);
 END //
 
 DELIMITER ;

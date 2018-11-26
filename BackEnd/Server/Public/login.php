@@ -15,6 +15,7 @@
     }
 
     if (isset($_SESSION['logStatus'])) {
+        $_SESSION['userName'] = $_POST['userName'];
         include("index.php");
         exit();
     }

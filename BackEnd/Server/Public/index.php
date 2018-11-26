@@ -1,10 +1,17 @@
 <?php declare(strict_types=1);
+    
+    include_once("../DataBaseFunctions.php");
+    
     if (!isset($_SESSION)) session_start();    
 
     if (!isset($_SESSION['logStatus'])) {
         include("login.php");
         exit();
     }
+
+    $connection = getConnectionToDatabase('localhost:3306');
+    $userType = getUserType($_SESSION['userName'], $connection);
+    mysqli_close($connection);
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +47,9 @@
     <body>
         <div id="ReactApp" />
         <script type="text/javascript">
+            window.userType = "<?php echo $userType ?>";
+            window.userName = "<?php echo $_SESSION['userName'] ?>";
+
             <?php include("../../../FrontEnd/Distribution/bundle.js") ?>
         </script>
     </body>

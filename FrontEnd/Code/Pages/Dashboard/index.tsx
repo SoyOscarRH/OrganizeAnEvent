@@ -1,5 +1,5 @@
 import React from "react"
-
+import {sentData} from "../../General/GeneralFunctions"
 interface DashCardProps {
     name: JSX.Element, 
     link: string,
@@ -20,6 +20,9 @@ const DashCard: React.StatelessComponent<DashCardProps> = (props: DashCardProps)
 
 const Dashboard: React.StatelessComponent<{}> = () => {
     
+    sentData("http://localhost/getData.php",  {aaaa: "asas"})
+    .then (response => console.log(response))
+
     return (
         <div className="row container">
 

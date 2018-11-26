@@ -9,7 +9,7 @@
     function getConnectionToDatabase(string $serverName) {
         $user = "root";
         $password = "root";
-        $databaseName = "oae";
+        $databaseName = "OrganizeAnEvent";
         $connection = mysqli_connect($serverName, $user, $password, $databaseName);
         mysqli_query($connection, "SET NAMES 'utf8'");
 
@@ -31,14 +31,21 @@
      * @return bool return if the user have credencials to enter the system 
      */
     function checkLogin(string $username, string $password, mysqli $connection) {
-        $username = mysqli_real_escape_string($connection, $username);
-        $userData = mysqli_query($connection, "CALL GetUserPassword($username)");
-        
+        $username = intval($username);
+        if ($username == 0) return false;
+
+        $query = $connection->prepare('CALL GetUserPassword(?)');
+        $query->bind_param('s', $username);
+        $query->execute();
+
+        $userData = $query->get_result();
+
         //Error handling
         if(!$userData) {
             echo mysqli_error($connection);
             exit();
         }
+
         if (mysqli_num_rows($userData) == 0) return false;
 
         //Verifying the password is correct with the hash
@@ -46,6 +53,33 @@
         $hash = $userDataArray['Password'];
 
         return password_verify($password, $hash);
+    }
+
+    /**
+     * CheckLogin
+     *
+     * @param string $username
+     * @param mysqli $connection to a database
+     * 
+     * @return ENUM {'Admin', 'Standard', 'null'} the type of users
+     */
+    function getUserType(string $username, mysqli $connection) {
+        $query = $connection->prepare('CALL GetUserType(?)');
+        $query->bind_param('s', $username);
+        $query->execute();
+
+        //Error handling
+        if(!$query) {
+            echo mysqli_error($connection);
+            exit();
+        }
+
+        $userData = $query->get_result();
+        if (mysqli_num_rows($userData) == 0) return false;
+
+        //Verifying the password is correct with the hash
+        $userDataArray = mysqli_fetch_array($userData);
+        return $userDataArray['Type'];
     }
 
 

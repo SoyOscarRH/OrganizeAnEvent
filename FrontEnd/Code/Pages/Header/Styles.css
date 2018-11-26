@@ -3,6 +3,11 @@
     text-align: center;
 }
 
+.RealIcon {
+    user-select: none;
+    cursor: pointer;
+}
+
 /* For tablets: */
 @media only screen and (min-width: 600px) {
     .AppHeader {

@@ -8,20 +8,32 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema OAE
+-- Schema OrganizeAnEvent
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema OAE
+-- Schema OrganizeAnEvent
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `OAE` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `OrganizeAnEvent` DEFAULT CHARACTER SET utf8 ;
 SHOW WARNINGS;
-USE `OAE` ;
+USE `OrganizeAnEvent`;
 
 -- -----------------------------------------------------
--- Table `OAE`.`Event`
+-- Table `OrganizeAnEvent`.`Institution`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `OAE`.`Event` (
+CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`Institution` (
+  `InstitutionID` INT NOT NULL AUTO_INCREMENT,
+  `Name` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`InstitutionID`))
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+
+-- -----------------------------------------------------
+-- Table `OrganizeAnEvent`.`Event`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`Event` (
   `EventID` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(100) NOT NULL,
   `Localization` VARCHAR(600) NULL,
@@ -29,42 +41,32 @@ CREATE TABLE IF NOT EXISTS `OAE`.`Event` (
   `Longitude` DOUBLE NULL,
   `Time` DATETIME NULL,
   `Description` VARCHAR(1000) NULL,
-  PRIMARY KEY (`EventID`))
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `OAE`.`Institution`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `OAE`.`Institution` (
-  `InstitutionID` INT NOT NULL AUTO_INCREMENT,
-  `Name` VARCHAR(50) NOT NULL,
-  `EventID` INT NULL,
-  PRIMARY KEY (`InstitutionID`),
-  INDEX `institution_event_idx` (`EventID` ASC),
-  CONSTRAINT `InstitutionEvent`
-    FOREIGN KEY (`EventID`)
-    REFERENCES `OAE`.`Event` (`EventID`)
+  `InstitutionID` INT,
+  PRIMARY KEY (`EventID`),
+  INDEX `event_institution_idx` (`InstitutionID` ASC),
+  CONSTRAINT `EventInstitution`
+    FOREIGN KEY (`InstitutionID`)
+    REFERENCES `OrganizeAnEvent`.`Institution` (`InstitutionID`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
 
+
 -- -----------------------------------------------------
--- Table `OAE`.`User`
+-- Table `OrganizeAnEvent`.`User`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `OAE`.`User` (
+CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`User` (
   `Username` INT NOT NULL,
   `Password` VARCHAR(256) NOT NULL,
   `Type` ENUM('Admin', 'Standard') NOT NULL,
-  `InstitutionID` INT NOT NULL,
+  `InstitutionID` INT,
   PRIMARY KEY (`Username`),
   INDEX `user_institution_idx` (`InstitutionID` ASC),
   CONSTRAINT `UserInstitution`
     FOREIGN KEY (`InstitutionID`)
-    REFERENCES `OAE`.`Institution` (`InstitutionID`)
+    REFERENCES `OrganizeAnEvent`.`Institution` (`InstitutionID`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -72,9 +74,9 @@ ENGINE = InnoDB;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `OAE`.`Place`
+-- Table `OrganizeAnEvent`.`Place`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `OAE`.`Place` (
+CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`Place` (
   `PlaceID` VARCHAR(6) NOT NULL,
   `Name` VARCHAR(100) NOT NULL,
   `Level` VARCHAR(20) NOT NULL,
@@ -83,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `OAE`.`Place` (
   PRIMARY KEY (`PlaceID`),
   CONSTRAINT `InstitutionPlace`
     FOREIGN KEY (`InstitutionID`)
-    REFERENCES `OAE`.`Institution` (`InstitutionID`)
+    REFERENCES `OrganizeAnEvent`.`Institution` (`InstitutionID`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -91,9 +93,9 @@ ENGINE = InnoDB;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `OAE`.`Guest`
+-- Table `OrganizeAnEvent`.`Guest`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `OAE`.`Guest` (
+CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`Guest` (
   `RFC` VARCHAR(10) NOT NULL,
   `Name` VARCHAR(45) NOT NULL,
   `FirstSurname` VARCHAR(45) NOT NULL,
@@ -104,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `OAE`.`Guest` (
   INDEX `guest_place_idx` (`PlaceID` ASC),
   CONSTRAINT `GuestPlace`
     FOREIGN KEY (`PlaceID`)
-    REFERENCES `OAE`.`Place` (`PlaceID`)
+    REFERENCES `OrganizeAnEvent`.`Place` (`PlaceID`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -112,9 +114,9 @@ ENGINE = InnoDB;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `OAE`.`Prize`
+-- Table `OrganizeAnEvent`.`Prize`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `OAE`.`Prize` (
+CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`Prize` (
   `PrizeID` INT NOT NULL AUTO_INCREMENT,
   `Name` VARCHAR(100) NOT NULL,
   `Block` INT NOT NULL,
@@ -125,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `OAE`.`Prize` (
   INDEX `event_prize_idx` (`EventID` ASC),
   CONSTRAINT `EventPrize`
     FOREIGN KEY (`EventID`)
-    REFERENCES `OAE`.`Event` (`EventID`)
+    REFERENCES `OrganizeAnEvent`.`Event` (`EventID`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -133,21 +135,21 @@ ENGINE = InnoDB;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `OAE`.`GuestPrize`
+-- Table `OrganizeAnEvent`.`GuestPrize`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `OAE`.`GuestPrize` (
+CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`GuestPrize` (
   `RFC` VARCHAR(10) NOT NULL,
   `PrizeID` INT NOT NULL,
   PRIMARY KEY (`PrizeID`, `RFC`),
   INDEX `gp_prize_idx` (`PrizeID` ASC),
   CONSTRAINT `GPGuest`
     FOREIGN KEY (`RFC`)
-    REFERENCES `OAE`.`Guest` (`RFC`)
+    REFERENCES `OrganizeAnEvent`.`Guest` (`RFC`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `GPPrize`
     FOREIGN KEY (`PrizeID`)
-    REFERENCES `OAE`.`Prize` (`PrizeID`)
+    REFERENCES `OrganizeAnEvent`.`Prize` (`PrizeID`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -155,17 +157,51 @@ ENGINE = InnoDB;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `OAE`.`Comment`
+-- Table `OrganizeAnEvent`.`GuestEvent`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `OAE`.`Comment` (
+CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`GuestEvent` (
+  `RFC` VARCHAR(10) NOT NULL,
+  `EventID` INT NOT NULL,
+  `Number` INT NULL,
+  `Confirmation` TINYINT(1) NULL,
+  `Assistance` TINYINT(1) NULL,
+  `Seat` INT NULL,
+  `Representative` VARCHAR(100) NULL,
+  PRIMARY KEY (`RFC`, `EventID`),
+  INDEX `GEEvent_idx` (`EventID` ASC),
+  CONSTRAINT `GEEvent`
+    FOREIGN KEY (`EventID`)
+    REFERENCES `OrganizeAnEvent`.`Event` (`EventID`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `GEGuest`
+    FOREIGN KEY (`RFC`)
+    REFERENCES `OrganizeAnEvent`.`Guest` (`RFC`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `OrganizeAnEvent`.`Comment`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`Comment` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `Text` VARCHAR(1000) NULL,
   `RFC` VARCHAR(10) NOT NULL,
+  `EventID` INT NOT NULL,
   PRIMARY KEY (`ID`),
   INDEX `comment_guest_idx` (`RFC` ASC),
   CONSTRAINT `CommentGuest`
     FOREIGN KEY (`RFC`)
-    REFERENCES `OAE`.`Guest` (`RFC`)
+    REFERENCES `OrganizeAnEvent`.`Guest` (`RFC`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  INDEX `comment_event_idx` (`EventID` ASC),
+  CONSTRAINT `CommentEvent`
+    FOREIGN KEY (`EventID`)
+    REFERENCES `OrganizeAnEvent`.`Event` (`EventID`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
@@ -173,9 +209,9 @@ ENGINE = InnoDB;
 SHOW WARNINGS;
 
 -- -----------------------------------------------------
--- Table `OAE`.`News`
+-- Table `OrganizeAnEvent`.`News`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `OAE`.`News` (
+CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`News` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `Text` VARCHAR(1000) NULL,
   `EventID` INT NOT NULL,
@@ -183,39 +219,13 @@ CREATE TABLE IF NOT EXISTS `OAE`.`News` (
   INDEX `news_event_idx` (`EventID` ASC),
   CONSTRAINT `NewsEvent`
     FOREIGN KEY (`EventID`)
-    REFERENCES `OAE`.`Event` (`EventID`)
+    REFERENCES `OrganizeAnEvent`.`Event` (`EventID`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
 
--- -----------------------------------------------------
--- Table `OAE`.`GuestEvent`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `OAE`.`GuestEvent` (
-  `RFC` VARCHAR(10) NOT NULL,
-  `EventID` INT NOT NULL,
-  `Number` INT NULL,
-  `Confirmation` TINYINT NULL,
-  `Assistance` TINYINT NULL,
-  `Seat` INT NULL,
-  `Representative` VARCHAR(100) NULL,
-  PRIMARY KEY (`RFC`, `EventID`),
-  INDEX `GEEvent_idx` (`EventID` ASC),
-  CONSTRAINT `GEEvent`
-    FOREIGN KEY (`EventID`)
-    REFERENCES `OAE`.`Event` (`EventID`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  CONSTRAINT `GEGuest`
-    FOREIGN KEY (`RFC`)
-    REFERENCES `OAE`.`Guest` (`RFC`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

@@ -19,6 +19,12 @@ export default class Header extends React.Component<HeaderState> {
     }
 
     render () {
+
+        //@ts-ignore
+        const userName = window.userName
+        //@ts-ignore
+        const userType = window.userType
+
         return (
             <React.Fragment>
                 <div className="navbar-fixed">
@@ -34,11 +40,16 @@ export default class Header extends React.Component<HeaderState> {
                             </div>
 
                             <Link to='/' className="brand-logo right">
-                                <i className="material-icons white-text">home</i>
+                                <span className={Style.RealIcon}>
+                                    <i className="material-icons white-text">home</i>
+                                </span>
                             </Link>
 
+
                             <a data-target="SideMenu" className="sidenav-trigger show-on-large">
-                                <i className="material-icons white-text">menu</i>
+                                <span className={Style.RealIcon}>
+                                    <i className="material-icons white-text">menu</i>
+                                </span>
                             </a>
 
                         </div>
@@ -53,8 +64,10 @@ export default class Header extends React.Component<HeaderState> {
                                     Menú
                                 </h5>
 
-                                <a><span className="white-text name">A</span></a>
-                                <a><span className="white-text email">B</span></a>
+                                <a><span className="white-text name"><b>Usuario: </b>{userName}</span></a>
+                                <a><span className="white-text name"><b>Tipo:</b> {userType}</span></a>
+                                <br />
+
                             </div>
                         </div>
                     </li>
@@ -103,7 +116,7 @@ export default class Header extends React.Component<HeaderState> {
                     <li>
                         <a
                             className = "waves-effect"
-                            href = "/logout"
+                            href = "/logout.php"
                         >
                             <i className="material-icons">exit_to_app</i>
                             Cerrar Sesión
