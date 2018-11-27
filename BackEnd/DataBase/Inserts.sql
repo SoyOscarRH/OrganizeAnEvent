@@ -17,23 +17,41 @@ INSERT INTO Institution (InstitutionID, Name) VALUES
 (1, 'INSTITUTO POLITÉCNICO NACIONAL'),
 (2, 'UNIVERSIDAD AUTÓNOMA DE MÉXICO');
 
+SHOW WARNINGS;
+
+
 /* ======================================================
 * =================    EVENT     ========================
 * =======================================================
 */
-INSERT INTO Event (Name, Description, InstitutionID) VALUES 
-('DISTINCIONES AL MÉRITO POLITÉCNICO 2018', 'LAS DISTINCIONES AL MÉRITO POLITÉCNICO SON EL RECONOCIMIENTO QUE HACE LA COMUNIDAD POLITÉCNICA A UNA CONDUCTA, TRAYECTORIA, SERVICIO O ACCIÓN EJEMPLAR, SOBRESALIENTE, QUE HAYA TENIDO POR OBJETO EXHALTAR EL PRESTIGIO DEL INSTITUTO POLITÉCNICO NACIONAL, PARA APOYAR LA REALIZACIÓN DE SUS FINALIDADES: IMPULSAR EL DESARROLLO DE LA EDUCACIÓN TÉCNICA EN EL PAÍS O BENEFICIAR A LA HUMANIDAD.
+INSERT INTO Event (EventID, Name, Description, InstitutionID) VALUES 
+(1, 'DISTINCIONES AL MÉRITO POLITÉCNICO 2018', 'LAS DISTINCIONES AL MÉRITO POLITÉCNICO SON EL RECONOCIMIENTO QUE HACE LA COMUNIDAD POLITÉCNICA A UNA CONDUCTA, TRAYECTORIA, SERVICIO O ACCIÓN EJEMPLAR, SOBRESALIENTE, QUE HAYA TENIDO POR OBJETO EXHALTAR EL PRESTIGIO DEL INSTITUTO POLITÉCNICO NACIONAL, PARA APOYAR LA REALIZACIÓN DE SUS FINALIDADES: IMPULSAR EL DESARROLLO DE LA EDUCACIÓN TÉCNICA EN EL PAÍS O BENEFICIAR A LA HUMANIDAD.
 
 EN ESTA OCASIÓN EL CONSEJO GENERAL CONSULTIVO HA DECIDIDO OTORGAR', 1);
+
+SHOW WARNINGS;
 
 /* ======================================================
 * =================    USERS     ========================
 * =======================================================
 */
 /*Password = 'root'*/
-INSERT INTO User (Username, Password, Type, InstitutionID) VALUES 
-    (2014081268, '$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y', 'Admin', null),
-    (1234567890, '$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y', 'Standard', 1);
+INSERT INTO User (Username, Password, Type) VALUES 
+    (2014081268, '$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y', 'Admin'),
+    (1234567890, '$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y', 'Standard');
+
+SHOW WARNINGS;
+
+
+/* ======================================================
+* =================    USER EVENT    ====================
+* =======================================================
+*/
+/*Password = 'root'*/
+INSERT INTO UserEvent (Username, EventID) VALUES 
+    (1234567890, 1);
+
+SHOW WARNINGS;
 
 
 /* ======================================================
@@ -65,6 +83,8 @@ INSERT INTO Prize (Name, Block, Speech, Amount, EventID) VALUES ('PRESEA CARLOS 
 LA PRESEA “CARLOS VALLEJO MÁRQUEZ” ES EL RECONOCIMIENTO QUE EL INSTITUTO POLITÉCNICO NACIONAL, OTORGA AL PERSONAL DE APOYO Y ASISTENCIA A LA EDUCACIÓN QUE HAYA CUMPLIDO CINCUENTA AÑOS DE SERVICIO EFECTIVOS EN EL PROPIO INSTITUTO.
  
 ESTE AÑO RECIBE ESTE GALARDON:', 39, 1);
+
+SHOW WARNINGS;
 
 /* ======================================================
 * =================    PlACES, SCHOOL && AREA     =======
@@ -171,6 +191,9 @@ INSERT INTO Place VALUES ('Q20000','Dirección de Servicios Estudiantiles', 'ARE
 INSERT INTO Place VALUES ('O0C000','Unidad Politécnica para la Educación Virtual', 'AREA', 1);
 INSERT INTO Place VALUES ('S40000','Coordinación del Sistema Institucional de Información', 'AREA', 1);
 
+SHOW WARNINGS;
+
+
 /* ======================================================
 * =================    GUESTS     =======================
 * =======================================================
@@ -224,6 +247,8 @@ INSERT INTO Guest VALUES ('BEHM730706', 'Ma. Guadalupe del Carmen', 'Belmonte', 
 INSERT INTO Guest VALUES ('CUPS631212', 'Sonia Elizabeth', 'Cruz', 'Pérez', null,'O1J000');
 INSERT INTO Guest VALUES ('ROAJ530902', 'Juan', 'Romero', 'Amaya', null,'O1J000');
 INSERT INTO Guest VALUES ('RORR590111', 'Rocío', 'Rodas', 'Ruíz', null,'O1J000');
+
+SHOW WARNINGS;
 
 
 INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, Email, PlaceID) VALUES 
@@ -331,6 +356,10 @@ INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, Email, PlaceID) VALUE
 ('Jazmín', 'Guerra', 'Alcántara', 'GUAJ850112', null, 'L10000'),
 ('Luis Paul', 'Gutiérrez', 'Hernández',	'GUHL810712', null, 'L10000'),
 ('María Magdalena', 'Martínez', 'Carrillo',	'MACM640411', null, 'L10000');
+
+SHOW WARNINGS;
+
+
 INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, Email, PlaceID) VALUES 
 ('Sofía', 'Macías', ' ', 'MASO581005', null, 'R5D000'),
 ('Georgina Irasema', 'Estrada', 'Rivera',	'EARG821010', null, 'R5D000'),
@@ -509,6 +538,10 @@ INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES
 ('Homar Jorge', 'Bautista', 'Lugo',	'BALH681010' ,'O2F000'),
 ('José Luis', 'Rosas', 'López',	'ROLL520413' ,'O2F000'),
 ('Rodrigo', 'Mondragón', 'Guzmán',	'MOGR571111' ,'O2F000');
+
+SHOW WARNINGS;
+
+
 INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES 
 ('Claudia Adriana', 'Moreno', 'Arenas'	,'MOAC701121', 'O2G000'),
 ('Sergio Cesar', 'Arroyo', 'Trejo'	,'AOTS630428', 'O2G000'),
@@ -559,6 +592,10 @@ INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES
 ('Evaristo Gabino', 'Ramírez', 'Rojas'	,'RARE551026', 'O2P000'),
 ('Ángel', 'Rodríguez y', 'Leyva'	,'ROLA460505', 'O2P000'),
 ('Rosa Gabriela', 'Sotelo', 'Candelaria'	,'SOCR591028', 'O2P000');
+
+SHOW WARNINGS;
+
+
 INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES 
 ('María de Lourdes', 'Valdes', 'Alcantar'	,'VAAL680202', 'O2P000'),
 ('Jesús Raúl', 'Aguilar', 'Caballero'	,'AUCJ600223', 'O2P000'),
@@ -572,7 +609,7 @@ INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES
 ('Juan Carlos', 'Mares', 'Gutiérrez'	,'MAGJ611102', 'O2P000'),
 ('María del Rosario', 'Salinas', 'Tobón'	,'SATR610723', 'O2P000'),
 ('Jesús', 'Herrnández', 'Almaguer'	,'HEAJ480905', 'O2Q000'),
-('Alejandro', 'Cruz', 'Paniagua',	'CUPA641214 ','O2Q000' ),
+('Alejandro', 'Cruz', 'Paniagua',	'CUPA641214','O2Q000' ),
 ('Diana Rocío', 'Castañeda', 'García'	,'CAGD601102', 'O2Q000'),
 ('Miguel Alejandro', 'Buendía', 'Meneses'	,'BUMM681026', 'O2Q000'),
 ('Santiago', 'Rodríguez', 'Rojas'	,'RORS491127', 'O2Q000'),
@@ -608,6 +645,10 @@ INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES
 ('Santa Adriana', 'Hernandez', 'Hernandez'	,'HEHS611127', 'O2U000'),
 ('Felipe Placido', 'Hueramo', 'Acosta'	,'HUAF470205', 'O2U000'),
 ('Gerardo Bonifacio', 'Nava', 'Hernandez'	,'NAHG510514', 'O2U000');
+
+SHOW WARNINGS;
+
+
 INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES 
 ('Cesareo', 'Guillén', 'García'	,'GUGC640225' ,'O2V000'),
 ('Venustiano', 'Pérez', 'Medina'	,'PEMV670606' ,'O2V000'),
@@ -643,6 +684,10 @@ INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES
 ('Adolfo', 'Esquivel', 'Martínez'	,'EUMA630826' ,'P0M000'),
 ('Moisés', 'Sánchez', 'Adame'	,'SAAM630318' ,'P0M000'),
 ('María Luisa', 'González', 'Moreno'	,'GOML560209' ,'P0P000');
+
+SHOW WARNINGS;
+
+
 INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES 
 ('Emilio', 'Arroyo', 'Orrala'	,'AOOE651222' ,'P0P000'),
 ('Eduardo', 'Vega', 'Alvarado'	,'VEAE651027' ,'P0P000'),
@@ -651,6 +696,10 @@ INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES
 ('Juan Carlos', 'González', 'Robles'	,'GORJ580113' ,'P0P000'),
 ('Olga Goretty', 'Mandujano', 'Pérez'	,'MAPO581026' ,'P0T000'),
 ('Denise', 'Córdova', 'Just'	,'COJD560226' ,'YYYYYY');
+
+SHOW WARNINGS;
+
+
 INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES 
 ('Noemí', 'del Real', 'Rodríguez'	,'RERN651110' ,'J00000'),
 ('Alicia Marcela', 'Ramírez', 'Guzmán'	,'RAGA691007' ,'J00000'),
@@ -662,6 +711,10 @@ INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES
 ('Guillermo', 'Romero', 'Carsolio'	,'ROCG600508' ,'O10000'),
 ('Blanca Rosa', 'Servin', 'Gonzalez'	,'SEGB500831' ,'O20000'),
 ('Gloria', 'Olivos', 'Rosas'	,'OIRG550715' ,'Q30000');
+
+SHOW WARNINGS;
+
+
 INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES 
 ('María de Jesús', 'Calva', 'Calva'	,'CACJ600212' ,'Q40000'),
 ('Magdaleno Rafael', 'Juárez', 'Sánchez'	,'JUSM570722' ,'Q40000'),
@@ -674,6 +727,9 @@ INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES
 ('Norma Marisol', 'Ordoñez', 'Sánchez'	,'OOSN660502' ,'O0C000'),
 ('Martha', 'Pérez', 'Vargas'	,'PEVM561221' ,'S40000'),
 ('Guadalupe del Socorro', 'Reyes', 'García'	,'REGG611025' ,'T63000');
+
+SHOW WARNINGS;
+
 INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES 
 ('Rosa Isela', 'Quiterio', 'Martinez'	,'QUMR681113' ,'Q10000'),
 ('Verónica', 'Morales', 'Hernández'	,'MOHV680927' ,'Q20000'),
@@ -685,6 +741,9 @@ INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES
 ('Sergio Federico', 'Eckstein', 'Ugarte'	,'EEUS570818' ,'Q40000'),
 ('Eva', 'Moreno', 'Reyes'	,'MORE680104' ,'Q40000'),
 ('Rosaura', 'Amador', 'Sánchez'	,'AASR630322' ,'Q40000');
+
+SHOW WARNINGS;
+
 INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES 
 ('José Luis', 'Mejía', 'Soler'	,'MESL420327' ,'O2J000'),
 ('Juan Ignacio', 'Reyes', 'García'	,'REGJ420909' ,'O2M000'),
@@ -725,6 +784,9 @@ INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES
 ('Salvador', 'Álvarez', 'Ballesteros'	,'AABS460521' ,'O2D000'),
 ('Samuel', 'Alcantara', 'Montes'	,'AAMS420723' ,'O2D000'),
 ('Francisco', 'Hernández', 'Rangel'	,'HERF391001' ,'O2D000');
+
+SHOW WARNINGS;
+
 INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES 
 ('Claudia', 'Garces', 'Peñaloza',	'GAPC680404' ,'O1A000'),
 ('Blanca Estela', 'Cuevas', 'Bribiesca',	'CUBB650629' ,'O1A000'),
@@ -739,6 +801,8 @@ INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES
 */
 INSERT INTO Comment (Text, RFC, EventID) VALUES('Primera fila incapacidad', 'SARM501017', 1);
 INSERT INTO Comment (Text, RFC, EventID) VALUES('Dificultad para caminar, requiere acompañante', 'PECA340531', 1);
+
+SHOW WARNINGS;
 
 /* ======================================================
 * =================    GUEST'S PRIZE     ================
@@ -960,6 +1024,9 @@ INSERT INTO GuestPrize VALUES
 ('VINA780922', 1),
 ('XILS910302', 1),
 ('ZACR760228', 1);
+
+SHOW WARNINGS;
+
 INSERT INTO GuestPrize VALUES
 ('GAPC680404', 7),
 ('CUBB650629', 7),
@@ -968,6 +1035,9 @@ INSERT INTO GuestPrize VALUES
 ('CAGE550405', 7),
 ('GAGA651215', 7),
 ('SAPL540211', 7);
+
+SHOW WARNINGS;
+
 INSERT INTO GuestPrize VALUES
 ('MAFE621217', 7),
 ('HEGP610330', 7),
@@ -1068,6 +1138,9 @@ INSERT INTO GuestPrize VALUES
 ('BALH681010', 7),
 ('ROLL520413', 7),
 ('MOGR571111', 7);
+
+SHOW WARNINGS;
+
 INSERT INTO GuestPrize VALUES
 ('MOAC701121', 7),
 ('AOTS630428', 7),
@@ -1166,6 +1239,9 @@ INSERT INTO GuestPrize VALUES
 ('HEHS611127', 7),
 ('HUAF470205', 7),
 ('NAHG510514', 7);
+
+SHOW WARNINGS;
+
 INSERT INTO GuestPrize VALUES
 ('GUGC640225', 7),
 ('PEMV670606', 7),
@@ -1239,6 +1315,9 @@ INSERT INTO GuestPrize VALUES
 ('OOSN660502', 7),
 ('PEVM561221', 7),
 ('REGG611025', 7);
+
+SHOW WARNINGS;
+
 INSERT INTO GuestPrize VALUES
 ('GAHG471123', 8),
 ('AABS460521', 8),
@@ -1279,6 +1358,8 @@ INSERT INTO GuestPrize VALUES
 ('MAFJ450121', 8),
 ('TORM471203', 8),
 ('MARS461224', 8);
+
+SHOW WARNINGS;
 
 /* ======================================================
 * =================    EVENT'S GUEST     ================
@@ -1515,6 +1596,9 @@ INSERT INTO GuestEvent (Number, RFC, EventID) VALUES
 (228,'RABP720605', 1),
 (229,'MEER810505', 1),
 (230,'SISD970602', 1);
+
+SHOW WARNINGS;
+
 INSERT INTO GuestEvent (RFC, Number, EventID) VALUES 
 ('GAPC680404', 231, 1),
 ('CUBB650629', 232, 1),
@@ -1523,6 +1607,9 @@ INSERT INTO GuestEvent (RFC, Number, EventID) VALUES
 ('CAGE550405', 235, 1),
 ('GAGA651215', 236, 1),
 ('SAPL540211', 237, 1);
+
+SHOW WARNINGS;
+
 INSERT INTO GuestEvent (Number, RFC, EventID) VALUES 
 (238		,'MAFE621217', 1),
 (239		,'HEGP610330', 1),
@@ -1623,6 +1710,9 @@ INSERT INTO GuestEvent (Number, RFC, EventID) VALUES
 (334		,'BALH681010', 1),
 (335		,'ROLL520413', 1),
 (336		,'MOGR571111', 1);
+
+SHOW WARNINGS;
+
 INSERT INTO GuestEvent (Number, RFC, EventID) VALUES 
 (337,		'MOAC701121', 1),
 (338,		'AOTS630428', 1),
@@ -1722,6 +1812,8 @@ INSERT INTO GuestEvent (Number, RFC, EventID) VALUES
 (432,		'HUAF470205', 1),
 (433,		'NAHG510514', 1);
 
+SHOW WARNINGS;
+
 INSERT INTO GuestEvent (Number, RFC, EventID) VALUES
 (434,		'GUGC640225', 1),
 (435,		'PEMV670606', 1),
@@ -1796,6 +1888,8 @@ INSERT INTO GuestEvent (Number, RFC, EventID) VALUES
 (504,		'PEVM561221', 1),
 (505,		'REGG611025', 1);
 
+SHOW WARNINGS;
+
 INSERT INTO GuestEvent (Number, RFC, EventID) VALUES
 (506, 'GAHG471123', 1),
 (507, 'AABS460521', 1),
@@ -1837,6 +1931,8 @@ INSERT INTO GuestEvent (Number, RFC, EventID) VALUES
 (543, 'TORM471203', 1),
 (544, 'MARS461224', 1);
 
+SHOW WARNINGS;
+
 UPDATE GuestEvent SET GuestEvent.Assistance = 0, GuestEvent.Confirmation = 0;
 
 /* ======================================================
@@ -1846,16 +1942,19 @@ UPDATE GuestEvent SET GuestEvent.Assistance = 0, GuestEvent.Confirmation = 0;
 
 UPDATE GuestEvent GE, Guest G 
 SET G.Email = 'enriquebroly@gmail.com'
-WHERE G.RFC = GE.RFC AND GE.Number>=0 AND GE.Number<=100;
+WHERE G.RFC = GE.RFC AND GE.Number >= 0 AND GE.Number <= 100;
 
 UPDATE GuestEvent GE, Guest G 
 SET G.Email = 'soyoscarrh@gmail.com'
-WHERE G.RFC = GE.RFC AND GE.Number>=101 AND GE.Number<=200;
+WHERE G.RFC = GE.RFC AND GE.Number >= 101 AND GE.Number <= 200;
 
 UPDATE GuestEvent GE, Guest G 
 SET G.Email = 'abigail3nic.say@gmail.com'
-WHERE G.RFC = GE.RFC AND GE.Number>=201 AND GE.Number<=300;
+WHERE G.RFC = GE.RFC AND GE.Number >= 201 AND GE.Number <= 300;
 
 UPDATE GuestEvent GE, Guest G 
 SET G.Email = 'yngmeizhu@gmail.com'
-WHERE G.RFC = GE.RFC AND GE.Number>=301 AND GE.Number<=544;
+WHERE G.RFC = GE.RFC AND GE.Number >= 301 AND GE.Number <= 544;
+
+
+SHOW WARNINGS;

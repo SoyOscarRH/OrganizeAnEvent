@@ -36,7 +36,16 @@
 | Username      | int                       | Username or ID of each user on the system PK
 | Password      | varchar(256)              | The access passsword of each user
 | Type          |ENUM('Admin', 'Standard')  | The type of the user (admin or standard)
-| InstitutionID | int                       | Institution where the user is from FK (is null if administrator)
++---------------+---------------------------+
+
++---------------+---------------------------+
+|  TABLE: USEREVENT                         | 
++---------------+---------------------------+
++---------------+---------------------------+
+| Field         | Type                      |
++---------------+---------------------------+
+| Username      | int                       | Username or ID of each user on the system PK
+| EventID       | int                       | Identificador of each event PK
 +---------------+---------------------------+
 
 +----------------+--------------+

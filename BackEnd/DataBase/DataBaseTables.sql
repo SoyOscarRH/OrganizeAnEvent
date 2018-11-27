@@ -60,7 +60,8 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`User` (
   `Username` INT NOT NULL,
   `Password` VARCHAR(256) NOT NULL,
-  `Type` ENUM('Admin', 'Standard') NOT NULL)
+  `Type` ENUM('Admin', 'Standard') NOT NULL,
+  PRIMARY KEY(`Username`))
 ENGINE = InnoDB;
 
 SHOW WARNINGS;
@@ -70,14 +71,14 @@ SHOW WARNINGS;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`UserEvent` (
   `Username` INT NOT NULL,
-  `EventID` VARCHAR(256) NOT NULL,
+  `EventID` INT NOT NULL,
   PRIMARY KEY (`Username`, `EventID`),
   INDEX `userevent_username_idx` (`Username` ASC),
-  CONSTRAINT `UserEventUsername`
+  CONSTRAINT `UserEventUser`
     FOREIGN KEY (`Username`)
     REFERENCES `OrganizeAnEvent`.`User` (`Username`)
     ON DELETE CASCADE
-    ON UPDATE CASCADE
+    ON UPDATE CASCADE,
   INDEX `userevent_eventid_idx` (`EventID` ASC),
   CONSTRAINT `UserEventEventID`
     FOREIGN KEY (`EventID`)
