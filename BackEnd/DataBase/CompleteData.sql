@@ -271,7 +271,7 @@ CREATE TABLE `prize` (
 
 LOCK TABLES `prize` WRITE;
 /*!40000 ALTER TABLE `prize` DISABLE KEYS */;
-INSERT INTO `prize` VALUES (1,'DIPLOMA A LA \"EFICIENCIA Y EFICACIA\"',1,'EL DIPLOMA A LA \"EFICIENCIA Y EFICACIA\" SE OTORGA AL PERSONAL DE APOYO Y ASISTENCIA A LA EDUCACIÓN QUE, POR RECONOCIDOS Y MERITORIOS SERVICIOS AL INSTITUTO, SE HA DISTINGUIDO EN EL DESEMPEÑO DE SUS LABORES.\n \nPARA NUESTRA COMUNIDAD ES DE GRAN SATISFACCIÓN RECONOCER PÚBLICAMENTE LA LABOR CONSTANTE Y CONSCIENTE QUE LOS COMPAÑEROS DESEMPEÑAN EN SU VIDA LABORAL.\n \nCON LA ANUENCIA DE NUESTRAS AUTORIDADES, EN ESTE MOMENTO DAREMOS INICIO A LA ENTREGA DE DICHOS DIPLOMAS, PARA LO CUAL INVITAMOS A NUESTRO PRESIDIUM A PONERSE DE PIE PARA PROCEDER A LA ENTREGA CORRESPONDIENTE.',221,1),(2,'DIPLOMA DE MAESTRO EMÉRITO',1,'Que se otorga a los profesores e investigadores que habiéndose retirado o jubilado, se hubieran distinguido por su relevante labor docente o de investigación en el Instituto y que hayan prestado sus servicios en éste cuando menos durante veinticinco años.\n\nCON LA ANUENCIA DE NUESTRAS AUTORIDADES EN ESTE MOMENTO RECIBE TAL DISTINCIÓN...\n',1,1),(3,'DIPLOMA DE MAESTRO DECANO',1,'Para elegir al candidato de esta distinción, se deberá considerar además de la antigüedad del maestro, su trayectoria y aportaciones realizadas al Instituto, se otorgará al profesor que haya sido electo decano por el Consejo Técnico Consultivo Escolar. Reciben esta distinción:',4,1),(4,'DIPLOMA A LA INVESTIGACIÓN',1,'Este diploma se otorga a aquellos profesores que se hayan destacado en el campo de la investigación científica y tecnológica, o bien por la realización de una obra científica que por su contenido haya obtenido arbitraje nacional o internacional.\nReciben esta distinción:',1,1),(5,'DIPLOMA A LA CULTURA',1,'El diploma a la cultura es para aquellos miembros de la comunidad politécnica, que hayan apoyado o destaquen en eventos culturales de relevancia nacional o internacional, recibe esta distinción:\nReciben esta distinción:',2,1),(6,'DIPLOMA AL DEPORTE',1,'Se otorga a aquellos integrantes de la comunidad politécnica que hayan sobresalido en eventos deportivos nacionales o internacionales auspiciados por el Instituto Politécnico Nacional, o en representación del mismo o del País, recibe este galardón:',1,1),(7,'PRESEA JUAN DE DIOS BÁTIZ',2,'JUAN DE DIOS BÁTIZ, DISTINGUIDO MEXICANO, NACIDO EN EL ESTADO DE SINALOA, DESARROLLÓ ACTIVIDADES DE CARÁCTER MILITAR, POLÍTICO Y EDUCATIVO, DENTRO DE LAS QUE SE DESTACA, LA DE HABER SIDO EL PRINCIPAL PROMOTOR Y UNO DE LOS FUNDADORES DEL INSTITUTO POLITÉCNICO NACIONAL.\n\nLA PRESEA \"JUAN DE DIOS BÁTIZ\" ES EL RECONOCIMIENTO QUE EL INSTITUTO POLITÉCNICO NACIONAL, OTORGA AL PERSONAL ACADÉMICO Y DE APOYO Y ASISTENCIA A LA EDUCACIÓN,  QUE HAYA CUMPLIDO TREINTA AÑOS DE SERVICIO EFECTIVOS EN EL PROPIO INSTITUTO.\nCON LA ANUENCIA DE NUESTRAS AUTORIDADES, PROCEDEREMOS A LA ENTREGA DE TAN DISTINGUIDO RECONOCIMIENTO, LA \"PRESEA JUAN DE DIOS BÁTIZ\", QUE ESTE AÑO RECONOCE A:\n',275,1),(8,'PRESEA CARLOS VALLEJO MÁRQUEZ',3,'EL MOMENTO CUMBRE DE ESTA CEREMONIA HA LLEGADO, \n \nLA PRESEA \"CARLOS VALLEJO MÁRQUEZ\" ES EL RECONOCIMIENTO QUE EL INSTITUTO POLITÉCNICO NACIONAL, OTORGA AL PERSONAL DE APOYO Y ASISTENCIA A LA EDUCACIÓN QUE HAYA CUMPLIDO CINCUENTA AÑOS DE SERVICIO EFECTIVOS EN EL PROPIO INSTITUTO.\n \nESTE AÑO RECIBE ESTE GALARDON:',39,1);
+INSERT INTO `prize` VALUES (1,'DIPLOMA A LA \"EFICIENCIA Y EFICACIA\"',1,'EL DIPLOMA A LA “EFICIENCIA Y EFICACIA” SE OTORGA AL PERSONAL DE APOYO Y ASISTENCIA A LA EDUCACIÓN QUE, POR RECONOCIDOS Y MERITORIOS SERVICIOS AL INSTITUTO, SE HA DISTINGUIDO EN EL DESEMPEÑO DE SUS LABORES.\n \nPARA NUESTRA COMUNIDAD ES DE GRAN SATISFACCIÓN RECONOCER PÚBLICAMENTE LA LABOR CONSTANTE Y CONSCIENTE QUE LOS COMPAÑEROS DESEMPEÑAN EN SU VIDA LABORAL.\n \nCON LA ANUENCIA DE NUESTRAS AUTORIDADES, EN ESTE MOMENTO DAREMOS INICIO A LA ENTREGA DE DICHOS DIPLOMAS, PARA LO CUAL INVITAMOS A NUESTRO PRESIDIUM A PONERSE DE PIE PARA PROCEDER A LA ENTREGA CORRESPONDIENTE.',221,1),(2,'DIPLOMA DE MAESTRO EMÉRITO',1,'Que se otorga a los profesores e investigadores que habiéndose retirado o jubilado, se hubieran distinguido por su relevante labor docente o de investigación en el Instituto y que hayan prestado sus servicios en éste cuando menos durante veinticinco años.\n\nCON LA ANUENCIA DE NUESTRAS AUTORIDADES EN ESTE MOMENTO RECIBE TAL DISTINCIÓN...\n',1,1),(3,'DIPLOMA DE MAESTRO DECANO',1,'Para elegir al candidato de esta distinción, se deberá considerar además de la antigüedad del maestro, su trayectoria y aportaciones realizadas al Instituto, se otorgará al profesor que haya sido electo decano por el Consejo Técnico Consultivo Escolar. Reciben esta distinción:',4,1),(4,'DIPLOMA A LA INVESTIGACIÓN',1,'Este diploma se otorga a aquellos profesores que se hayan destacado en el campo de la investigación científica y tecnológica, o bien por la realización de una obra científica que por su contenido haya obtenido arbitraje nacional o internacional.\nReciben esta distinción:',1,1),(5,'DIPLOMA A LA CULTURA',1,'El diploma a la cultura es para aquellos miembros de la comunidad politécnica, que hayan apoyado o destaquen en eventos culturales de relevancia nacional o internacional, recibe esta distinción:\nReciben esta distinción:',2,1),(6,'DIPLOMA AL DEPORTE',1,'Se otorga a aquellos integrantes de la comunidad politécnica que hayan sobresalido en eventos deportivos nacionales o internacionales auspiciados por el Instituto Politécnico Nacional, o en representación del mismo o del País, recibe este galardón:',1,1),(7,'PRESEA JUAN DE DIOS BÁTIZ',2,'JUAN DE DIOS BÁTIZ, DISTINGUIDO MEXICANO, NACIDO EN EL ESTADO DE SINALOA, DESARROLLÓ ACTIVIDADES DE CARÁCTER MILITAR, POLÍTICO Y EDUCATIVO, DENTRO DE LAS QUE SE DESTACA, LA DE HABER SIDO EL PRINCIPAL PROMOTOR Y UNO DE LOS FUNDADORES DEL INSTITUTO POLITÉCNICO NACIONAL.\n\nLA PRESEA “JUAN DE DIOS BÁTIZ” ES EL RECONOCIMIENTO QUE EL INSTITUTO POLITÉCNICO NACIONAL, OTORGA AL PERSONAL ACADÉMICO Y DE APOYO Y ASISTENCIA A LA EDUCACIÓN,  QUE HAYA CUMPLIDO TREINTA AÑOS DE SERVICIO EFECTIVOS EN EL PROPIO INSTITUTO.\nCON LA ANUENCIA DE NUESTRAS AUTORIDADES, PROCEDEREMOS A LA ENTREGA DE TAN DISTINGUIDO RECONOCIMIENTO, LA “PRESEA JUAN DE DIOS BÁTIZ”, QUE ESTE AÑO RECONOCE A:\n',275,1),(8,'PRESEA CARLOS VALLEJO MÁRQUEZ',3,'EL MOMENTO CUMBRE DE ESTA CEREMONIA HA LLEGADO, \n \nLA PRESEA “CARLOS VALLEJO MÁRQUEZ” ES EL RECONOCIMIENTO QUE EL INSTITUTO POLITÉCNICO NACIONAL, OTORGA AL PERSONAL DE APOYO Y ASISTENCIA A LA EDUCACIÓN QUE HAYA CUMPLIDO CINCUENTA AÑOS DE SERVICIO EFECTIVOS EN EL PROPIO INSTITUTO.\n \nESTE AÑO RECIBE ESTE GALARDON:',39,1);
 /*!40000 ALTER TABLE `prize` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -286,10 +286,7 @@ CREATE TABLE `user` (
   `Username` int(11) NOT NULL,
   `Password` varchar(256) NOT NULL,
   `Type` enum('Admin','Standard') NOT NULL,
-  `InstitutionID` int(11) DEFAULT NULL,
-  PRIMARY KEY (`Username`),
-  KEY `user_institution_idx` (`InstitutionID`),
-  CONSTRAINT `UserInstitution` FOREIGN KEY (`InstitutionID`) REFERENCES `institution` (`InstitutionID`) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (`Username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -299,8 +296,36 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1234567890,'$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y','Standard',1),(2014081268,'$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y','Admin',NULL);
+INSERT INTO `user` VALUES (1234567890,'$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y','Standard'),(2014081268,'$2y$10$qbkKR8HshR8sTTNgHJs60uIQnU8YUYxPLcZ2KVWsFLTSk2tiFkV8y','Admin');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `userevent`
+--
+
+DROP TABLE IF EXISTS `userevent`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `userevent` (
+  `Username` int(11) NOT NULL,
+  `EventID` int(11) NOT NULL,
+  PRIMARY KEY (`Username`,`EventID`),
+  KEY `userevent_username_idx` (`Username`),
+  KEY `userevent_eventid_idx` (`EventID`),
+  CONSTRAINT `UserEventEventID` FOREIGN KEY (`EventID`) REFERENCES `event` (`EventID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `UserEventUser` FOREIGN KEY (`Username`) REFERENCES `user` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `userevent`
+--
+
+LOCK TABLES `userevent` WRITE;
+/*!40000 ALTER TABLE `userevent` DISABLE KEYS */;
+INSERT INTO `userevent` VALUES (1234567890,1);
+/*!40000 ALTER TABLE `userevent` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -312,4 +337,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-26 17:25:08
+-- Dump completed on 2018-11-26 23:57:00
