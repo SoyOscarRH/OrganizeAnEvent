@@ -20,6 +20,7 @@
 	// 										PRINCIPAL INFORMATION
 	// ==============================================================================================
 	setlocale (LC_TIME, "spanish");								// Can say things in spanish
+	define('FPDF_FONTPATH','Fpdf/font');
 	require 'Fpdf/fpdf.php';									// I need it
 	$pdf = new FPDF();											// Create a new PDF 
 	$pdf -> AddPage('L', 'Letter', 0);							// New page with some characteristics
@@ -29,29 +30,29 @@
 	// 								    		HEADER IMAGE
 	// ==============================================================================================
 	
-	$pdf -> Image('ImagesPdf/Header.PNG', 0, 0, 300, 75, 'PNG');					// Put an image
+	$pdf -> Image('ImagesPdf/Award/Award.jpg', 0, 0, 285, 220, 'JPG');					// Put an image
 
 	// ==============================================================================================
 	// 								    		GUEST NAME
 	// ==============================================================================================
-	
-	$pdf -> ln(65);																	// Some lines
+	$pdf -> ln(70);																	// Some lines
 	$pdf -> Cell(1);																// Spaces
-	$pdf -> SetFont('Arial', 'B', 30);												// Font style
 //	$pdf->Cell(50,10,utf8_decode($Escuela[0])." - ".utf8_decode($Escuela[1]),0);
 //	$pdf -> Cell(250, 25, utf8_decode($NameGuest), 100, 100, 'C');					// Guest name
 
+
+	$pdf -> SetFont('Helvetica', '', 30);							
 	$pdf -> Cell(250, 25, utf8_decode('JOSE ANTONIO ORTÍZ RAMIREZ'), 100, 100, 'C');// Guest name
 
 	// ==============================================================================================
 	// 								   		GUEST INFORMATION
 	// ==============================================================================================
 
-	$pdf -> SetFont('Arial', 'B', 12);												// Font style
+	$pdf -> SetFont('Helvetica', '', 12);												// Font style
 	$pdf -> ln(10);
 	$pdf -> Cell(1);
-	$pdf -> Cell(250, 10, 'Galardonado al merito politecnico', 100, 100, 'C');
-	$pdf -> Cell(250, 10, 'Por su esfuerzo realizado en sus labores academicas', 100, 100, 'C');
+	$pdf -> Cell(250, 10, 'Galardonado al '. utf8_decode('Mérito Politécnico'), 100, 100, 'C');
+	$pdf -> Cell(250, 10, 'Por su esfuerzo realizado en sus labores '. utf8_decode('Académicas'), 100, 100, 'C');
 
 	// ==============================================================================================
 	// 								   		EVENT INFORMATION
@@ -64,18 +65,18 @@
 	// 								   	  DIRECTOR INFORMATION
 	// ==============================================================================================
 	
-	$pdf -> SetFont('Arial', 'B', 12);												// Font style
-	$pdf -> ln(18);																	// Some lines
+	$pdf -> SetFont('Arial', 'B', 10);												// Font style
+	$pdf -> ln(25);																	// Some lines
 	$pdf -> Cell(1);																// Spaces
-	$pdf -> Cell(250, 10, '_____________________________________', 100, 100, 'C');
-	$pdf -> Cell(250, 10, 'Dr. Mario Alberto Rodriguez Casas', 100, 100, 'C');		
+	//$pdf -> Cell(250, 10, '__________________________________           __________________________________         __________________________________', 100, 100, 'C');
+	$pdf -> Cell(255, 10, 'Dr. Emmanuel Alejandro Merchan Cruz     Dr. Mario Alberto Rodriguez Casas     M. en C. Hector Leoncio Martinez ', 100, 100, 'C');		
 	$pdf -> Cell(250, 10, 'Director General', 100, 100, 'C');
 
 	// ==============================================================================================
 	// 								   		 FOOTER IMAGE
 	// ==============================================================================================
 	
-	$pdf -> Image('ImagesPdf/Footer.PNG', 0, 190, 300, 25, 'PNG');					// Put an image
+	//$pdf -> Image('ImagesPdf/Footer.PNG', 0, 190, 300, 25, 'PNG');					// Put an image
 
 	$pdf->Output();
 
