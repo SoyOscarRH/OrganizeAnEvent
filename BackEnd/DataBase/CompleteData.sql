@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 5.7.21, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: OrganizeAnEvent
 -- ------------------------------------------------------
--- Server version	5.7.21-log
+-- Server version	8.0.12
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+ SET NAMES utf8mb4 ;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,7 +21,7 @@
 
 DROP TABLE IF EXISTS `comment`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `comment` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Text` varchar(1000) DEFAULT NULL,
@@ -30,8 +30,8 @@ CREATE TABLE `comment` (
   PRIMARY KEY (`ID`),
   KEY `comment_guest_idx` (`RFC`),
   KEY `comment_event_idx` (`EventID`),
-  CONSTRAINT `CommentEvent` FOREIGN KEY (`EventID`) REFERENCES `event` (`EventID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `CommentGuest` FOREIGN KEY (`RFC`) REFERENCES `guest` (`RFC`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `CommentEvent` FOREIGN KEY (`EventID`) REFERENCES `event` (`eventid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `CommentGuest` FOREIGN KEY (`RFC`) REFERENCES `guest` (`rfc`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -51,7 +51,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `event`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `event` (
   `EventID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(100) NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE `event` (
   `InstitutionID` int(11) DEFAULT NULL,
   PRIMARY KEY (`EventID`),
   KEY `event_institution_idx` (`InstitutionID`),
-  CONSTRAINT `EventInstitution` FOREIGN KEY (`InstitutionID`) REFERENCES `institution` (`InstitutionID`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `EventInstitution` FOREIGN KEY (`InstitutionID`) REFERENCES `institution` (`institutionid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -83,7 +83,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `guest`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `guest` (
   `RFC` varchar(10) NOT NULL,
   `Name` varchar(45) NOT NULL,
@@ -93,7 +93,7 @@ CREATE TABLE `guest` (
   `PlaceID` varchar(6) NOT NULL,
   PRIMARY KEY (`RFC`),
   KEY `guest_place_idx` (`PlaceID`),
-  CONSTRAINT `GuestPlace` FOREIGN KEY (`PlaceID`) REFERENCES `place` (`PlaceID`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `GuestPlace` FOREIGN KEY (`PlaceID`) REFERENCES `place` (`placeid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -113,7 +113,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `guestevent`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `guestevent` (
   `RFC` varchar(10) NOT NULL,
   `EventID` int(11) NOT NULL,
@@ -124,8 +124,8 @@ CREATE TABLE `guestevent` (
   `Representative` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`RFC`,`EventID`),
   KEY `GEEvent_idx` (`EventID`),
-  CONSTRAINT `GEEvent` FOREIGN KEY (`EventID`) REFERENCES `event` (`EventID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `GEGuest` FOREIGN KEY (`RFC`) REFERENCES `guest` (`RFC`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `GEEvent` FOREIGN KEY (`EventID`) REFERENCES `event` (`eventid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `GEGuest` FOREIGN KEY (`RFC`) REFERENCES `guest` (`rfc`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -145,15 +145,15 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `guestprize`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `guestprize` (
   `RFC` varchar(10) NOT NULL,
   `PrizeID` int(11) NOT NULL,
   PRIMARY KEY (`PrizeID`,`RFC`),
   KEY `gp_prize_idx` (`PrizeID`),
   KEY `GPGuest` (`RFC`),
-  CONSTRAINT `GPGuest` FOREIGN KEY (`RFC`) REFERENCES `guest` (`RFC`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `GPPrize` FOREIGN KEY (`PrizeID`) REFERENCES `prize` (`PrizeID`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `GPGuest` FOREIGN KEY (`RFC`) REFERENCES `guest` (`rfc`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `GPPrize` FOREIGN KEY (`PrizeID`) REFERENCES `prize` (`prizeid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -173,7 +173,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `institution`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `institution` (
   `InstitutionID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(50) NOT NULL,
@@ -197,14 +197,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `news`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `news` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `Text` varchar(1000) DEFAULT NULL,
   `EventID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `news_event_idx` (`EventID`),
-  CONSTRAINT `NewsEvent` FOREIGN KEY (`EventID`) REFERENCES `event` (`EventID`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `NewsEvent` FOREIGN KEY (`EventID`) REFERENCES `event` (`eventid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -223,7 +223,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `place`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `place` (
   `PlaceID` varchar(6) NOT NULL,
   `Name` varchar(100) NOT NULL,
@@ -231,7 +231,7 @@ CREATE TABLE `place` (
   `InstitutionID` int(11) NOT NULL,
   PRIMARY KEY (`PlaceID`),
   KEY `institution_place_idx` (`InstitutionID`),
-  CONSTRAINT `InstitutionPlace` FOREIGN KEY (`InstitutionID`) REFERENCES `institution` (`InstitutionID`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `InstitutionPlace` FOREIGN KEY (`InstitutionID`) REFERENCES `institution` (`institutionid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -251,7 +251,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `prize`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `prize` (
   `PrizeID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(100) NOT NULL,
@@ -261,7 +261,7 @@ CREATE TABLE `prize` (
   `EventID` int(11) NOT NULL,
   PRIMARY KEY (`PrizeID`),
   KEY `event_prize_idx` (`EventID`),
-  CONSTRAINT `EventPrize` FOREIGN KEY (`EventID`) REFERENCES `event` (`EventID`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `EventPrize` FOREIGN KEY (`EventID`) REFERENCES `event` (`eventid`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -281,7 +281,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `user` (
   `Username` int(11) NOT NULL,
   `Password` varchar(256) NOT NULL,
@@ -306,15 +306,15 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `userevent`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
+ SET character_set_client = utf8mb4 ;
 CREATE TABLE `userevent` (
   `Username` int(11) NOT NULL,
   `EventID` int(11) NOT NULL,
   PRIMARY KEY (`Username`,`EventID`),
   KEY `userevent_username_idx` (`Username`),
   KEY `userevent_eventid_idx` (`EventID`),
-  CONSTRAINT `UserEventEventID` FOREIGN KEY (`EventID`) REFERENCES `event` (`EventID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `UserEventUser` FOREIGN KEY (`Username`) REFERENCES `user` (`Username`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `UserEventEventID` FOREIGN KEY (`EventID`) REFERENCES `event` (`eventid`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `UserEventUser` FOREIGN KEY (`Username`) REFERENCES `user` (`username`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -337,4 +337,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-26 23:57:00
+-- Dump completed on 2018-11-27 23:05:49
