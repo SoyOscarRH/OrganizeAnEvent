@@ -1,6 +1,6 @@
 /*EXPORT FROM MySQL:
 cd C:\Program Files\MySQL\MySQL Server 5.7\bin
-mysqldump -u root -p OrganizeAnEvent > C:\wamp64\www\OrganizeAnEvent\BackEnd\DataBase\CompleteData.sql*/
+mysqldump --routines=true -u root -p OrganizeAnEvent > C:\wamp64\www\OrganizeAnEvent\BackEnd\DataBase\CompleteData.sql*/
 
 USE OrganizeAnEvent;
 
