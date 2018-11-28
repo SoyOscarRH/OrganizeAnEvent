@@ -2,16 +2,83 @@ import React from "react"
 import {Link} from "react-router-dom"
 import M from "materialize-css"
 
-import * as Style from "./Styles.css"
+import * as Styles from "./Styles.css"
 
-interface HeaderState {
-    title: string,
+
+const UserDataShower: React.StatelessComponent<{data1: string, data2: string}> = (props) => {
+    return (
+        <div style={{fontSize: "1.1rem"}}>
+            <span 
+                className = "white-text"
+                style     = {{fontFamily: "Raleway", fontWeight: 600}}>
+                {props.data1}:
+            </span>
+            &nbsp;
+            <span 
+                className = "white-text"
+                style     = {{fontFamily: "Lato", fontWeight: 300}}>
+                {props.data2} 
+            </span>
+        </div>
+    )
 }
-export default class Header extends React.Component<HeaderState> {
 
-    constructor(props) {
-        super(props)
-    }
+const NormalHeaeder: React.StatelessComponent<{title: string}> = props => (
+    <div className="navbar-fixed">
+        <nav>
+            <div className="nav-wrapper">
+                    <div className="brand-logo white-text">
+                        <div className={Styles.AppHeader}>
+                            <span 
+                                className = "hide-on-small-only" 
+                                style     = {{fontFamily: "Raleway", fontWeight: 600}}
+                            >
+                                Organize an Event: &nbsp;
+                            </span>
+
+                            <span style = {{fontFamily: "Raleway", fontWeight: 300}}>
+                                {props.title}
+                            </span>
+                        </div>
+                </div>
+
+                <Link to='/' className="brand-logo right">
+                    <span className={Styles.RealIcon}>
+                        <i className="material-icons white-text">home</i>
+                    </span>
+                </Link>
+
+
+                <a data-target="SideMenu" className="sidenav-trigger show-on-large">
+                    <span className={Styles.RealIcon}>
+                        <i className="material-icons white-text">menu</i>
+                    </span>
+                </a>
+
+            </div>
+        </nav>
+    </div>
+)
+
+const closeSidePanel = () => M.Sidenav.getInstance(document.getElementById("SideMenu")!).close()
+
+const MenuLink: React.StatelessComponent<{path: string, icon, name: string}> = props => (
+    <li>
+        <Link className="waves-effect" to={props.path} onClick={closeSidePanel}>
+            <i className="material-icons" style={{marginRight: "15px"}}>
+                {props.icon}
+            </i>
+            {props.name}
+        </Link>
+    </li>
+)
+
+
+
+
+export default class Header extends React.Component<{title: string}> {
+
+    constructor(props) { super(props) }
 
     componentDidMount() {
         const elements = document.querySelectorAll('.sidenav')
@@ -19,66 +86,41 @@ export default class Header extends React.Component<HeaderState> {
     }
 
     render () {
-        //@ts-ignore
-        const userName = window.userData.userName, userType = window.userData.userType
+        const userName: string = window['userData'].userName
+        const userType: string = window['userData'].userType
 
         return (
             <React.Fragment>
-                <div className="navbar-fixed">
-                    <nav>
-                        <div className="nav-wrapper">
-                                <div className="brand-logo white-text">
-                                    <div className={Style.AppHeader}>
-                                        <span className="hide-on-small-only">
-                                            Organize an Event: &nbsp;
-                                        </span>
-                                        {this.props.title}
-                                    </div>
-                            </div>
-
-                            <Link to='/' className="brand-logo right">
-                                <span className={Style.RealIcon}>
-                                    <i className="material-icons white-text">home</i>
-                                </span>
-                            </Link>
-
-
-                            <a data-target="SideMenu" className="sidenav-trigger show-on-large">
-                                <span className={Style.RealIcon}>
-                                    <i className="material-icons white-text">menu</i>
-                                </span>
-                            </a>
-
-                        </div>
-                    </nav>
-                </div>
+                
+                <NormalHeaeder title = {this.props.title} />
 
                 <ul id="SideMenu" className="sidenav">
+                    
                     <li>
-                        <div className="user-view" style={{backgroundColor: "#660033"}}>
+                        <div className={"user-view " + Styles.RealUserView}>
                             <div className="container">
-                                <h5 className="white-text" style={{fontWeight: 300}}>
-                                    Menú
-                                </h5>
-
-                                <a><span className="white-text name"><b>Usuario: </b>{userName}</span></a>
-                                <a><span className="white-text name"><b>Tipo:</b> {userType}</span></a>
+                                <h5 className="white-text"> Menú </h5>
+                                <UserDataShower data1 = "Usuario" data2 = {userName} />
+                                <UserDataShower data1 = "Tipo" data2 = {userType} />
                                 <br />
-
                             </div>
                         </div>
                     </li>
+
                     <li><a className="subheader">Enlances</a></li>
-                    <li>
-                        <Link
-                            className = "waves-effect"
-                            to        = '/'
-                            onClick   = {() => M.Sidenav.getInstance(document.getElementById("SideMenu")!).close()}>
-                            <i className="material-icons">home</i>
-                            Página de Inicio
-                        </Link>
-                    </li>
+                        <MenuLink
+                            path = "/"
+                            icon = "home"
+                            name = "Inicio" 
+                        />
+                        <MenuLink
+                            path = "/CheckIn"
+                            icon = "format_list_bulleted"
+                            name = "Pasar lista" 
+                        />
+
                     <li><a className="subheader">Analíticas</a></li>
+                    
                     <li>
                         <Link
                             className = "waves-effect"
@@ -119,6 +161,7 @@ export default class Header extends React.Component<HeaderState> {
                             Cerrar Sesión
                         </a>
                     </li>
+
                 </ul>
             </React.Fragment>
         );

@@ -33,7 +33,7 @@
 
         <!-- Google Material Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:400,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet">
 
         <!-- Google Material Icons -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />

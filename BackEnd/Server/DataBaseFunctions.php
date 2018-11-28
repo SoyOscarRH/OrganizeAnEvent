@@ -61,7 +61,7 @@
      * @param string $username
      * @param mysqli $connection to a database
      * 
-     * @return ENUM {'Admin', 'Standard', 'null'} the type of users
+     * @return ENUMString {'Admin', 'Standard', 'null'} the type of users
      */
     function getUserType(string $username, mysqli $connection) {
         $query = $connection->prepare('CALL GetUserType(?)');

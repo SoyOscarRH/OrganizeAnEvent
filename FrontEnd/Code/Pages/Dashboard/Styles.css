@@ -1,0 +1,12 @@
+.DashCardMargin {
+    padding-left: 1.5rem; 
+    padding-right: 0.5rem;
+}
+
+.DashCard {
+    background-color: #f2f1f1;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-Family: "Raleway";
+    font-Weight: 400;
+}
