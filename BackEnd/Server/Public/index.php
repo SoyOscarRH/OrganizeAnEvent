@@ -9,8 +9,15 @@
         exit();
     }
 
+    // Get user type
     $connection = getConnectionToDatabase('localhost:3306');
-    $userType = getUserType($_SESSION['userName'], $connection);
+    $query = $connection->prepare("CALL GetUserType(?)");
+    $query->bind_param('s', $username);
+    $query->execute();
+
+    $dataArray = mysqli_fetch_array($query->get_result());
+    $userType = $dataArray['Type'];
+
     mysqli_close($connection);
 ?>
 

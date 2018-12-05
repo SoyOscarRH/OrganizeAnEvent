@@ -1,13 +1,13 @@
 import React from 'react'
 import {sentData} from "../../General/GeneralFunctions"
-
+import EventSelector, {EventData} from "../../General/EventSelector"
 
 interface CheckInState {
-    EventData: JSX.Element,
+    EventData: EventData[] | null,
+    currentEvent: number,
 }
 
 interface CheckInProps {
-
 }
 
 export default class CheckIn extends React.Component<CheckInProps, CheckInState> {
@@ -16,7 +16,8 @@ export default class CheckIn extends React.Component<CheckInProps, CheckInState>
         super(props)
 
         this.state = {
-            EventData: <span />
+            EventData: null,
+            currentEvent: 0,
         }
     }
 
@@ -36,9 +37,36 @@ export default class CheckIn extends React.Component<CheckInProps, CheckInState>
         return (
             <div className="center">
                 <h4>Pasar Lista</h4>
+                <br />
+                <br />
 
-                {this.state.EventData}
-
+                <div className="container">
+                    {
+                        this.state.EventData == null? 
+                        <React.Fragment>
+                            <h5>Cargando Eventos</h5>
+                            <div className="progress" style={{width: "50%", display: "inline-block"}}>
+                                <div className="indeterminate"></div>
+                            </div>
+                        </React.Fragment>
+                        : 
+                        <EventSelector 
+                            EventData         = {this.state.EventData!} 
+                            currentEventIndex = {this.state.currentEvent}
+                        />
+                    }
+                </div>
+                <br />
+                <br />
+                <br />
+                
+                <div className="row" style={{marginRight: "0.5rem", marginLeft: "0.5rem"}}>
+                        <a className="col s12 m10 offset-m1 l6 offset-l3 waves-effect waves-light btn">
+                            <i className="material-icons left">cloud</i>
+                            Pasar lista usando QR
+                        </a>
+                </div>
+                
                 <form className="row">
                     <div className="col s12 m10 offset-m1 l6 offset-l3">
                         <div className="card" style={{backgroundColor: "#f2f1f1"}}>

@@ -40,6 +40,43 @@ DELIMITER ;
 
 
 
+/* ======================================================
+ * =================      GET USER TYPE     =============
+ * ======================================================
+ */
+
+DROP PROCEDURE IF EXISTS GetEventDataFromUser;
+
+DELIMITER //
+CREATE PROCEDURE GetEventDataFromUser (IN ThisUsername INT)
+BEGIN
+    SELECT
+        Event.EventID as EventID, 
+        Event.Name as EventName, 
+        Event.Localization as Localization, 
+        Event.Latitude as Latitude, 
+        Event.Longitude as Longitude, 
+        Event.Time as Time, 
+        Event.Description as Description,
+        Institution.Name as InstitutionName
+      FROM User, UserEvent, Event, Institution
+        WHERE
+            (User.Username = ThisUsername)                      AND
+            (User.Username = UserEvent.Username)                AND
+            (UserEvent.EventID = Event.EventID)                 AND
+            (Event.InstitutionID = Institution.InstitutionID);
+END //
+
+DELIMITER ;
+
+
+
+
+
+
+
+
+
 
 
 /* ======================================================
