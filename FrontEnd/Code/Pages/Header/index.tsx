@@ -74,15 +74,31 @@ const MenuLink: React.StatelessComponent<{path: string, icon, name: string}> = p
 )
 
 
-
+const Icon: React.StatelessComponent<{}> = () => {
+    //@ts-ignore
+    const isAdmin = window.userData.userType == "Admin"
+    const iconName = (isAdmin)? "verified_user" : "tag_faces" 
+    return (
+        <i 
+            style={{fontSize: "2.5rem"}}
+            data-position = "right"
+            data-tooltip  = {(isAdmin)? "Super usuario" : "Usuario normal"}
+            className     = "tooltipped material-icons white-text">
+            {iconName}
+        </i>
+    )
+}
 
 export default class Header extends React.Component<{title: string}> {
 
     constructor(props) { super(props) }
 
     componentDidMount() {
-        const elements = document.querySelectorAll('.sidenav')
-        M.Sidenav.init(elements, {draggable: true, edge: "left"})
+        const sideElements = document.querySelectorAll('.sidenav')
+        const toolTipsElements = document.querySelectorAll('.tooltipped')
+
+        M.Sidenav.init(sideElements, {draggable: true, edge: "left"})
+        M.Tooltip.init(toolTipsElements, {})
     }
 
     render () {
@@ -100,6 +116,8 @@ export default class Header extends React.Component<{title: string}> {
                         <div className={"user-view " + Styles.RealUserView}>
                             <div className="container">
                                 <h5 className="white-text"> Menú </h5>
+
+                                <Icon />
                                 <UserDataShower data1 = "Usuario" data2 = {userName} />
                                 <UserDataShower data1 = "Tipo" data2 = {userType} />
                                 <br />

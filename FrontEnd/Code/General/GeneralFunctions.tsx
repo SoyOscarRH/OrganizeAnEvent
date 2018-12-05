@@ -1,7 +1,7 @@
 import React from 'react'
 import {Route} from 'react-router-dom'
 
-export function sentData(url: string, data: object): Promise<object> {
+export function sentData(url: string, data: object): Promise<Response> {
     return fetch(url, {
         headers: {
             'content-type': 'application/json',
@@ -15,7 +15,6 @@ export function sentData(url: string, data: object): Promise<object> {
         redirect:    'follow',
         referrer:    'no-referrer',
     })
-    .then(response => response.json() )
 }
 
 export function toTitleCase(data: string): string {

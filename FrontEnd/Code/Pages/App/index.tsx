@@ -1,7 +1,6 @@
 // ======================================================================
 // ============          WEB APP IN REACT           =====================
 // ======================================================================
-
 import React from "react"
 import ReactDOM from "react-dom"
 import {HashRouter, Route, Switch} from "react-router-dom";
@@ -48,6 +47,7 @@ class App extends React.Component<any, AppState> {
 
     componentDidMount() {
         sentData("http://localhost/getData.php",  {aaaa: "asas"})
+            .then( response => response.json() )
             .then (response => console.log(response))
     }
 
