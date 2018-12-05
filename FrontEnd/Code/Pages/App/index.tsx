@@ -6,8 +6,6 @@ import ReactDOM from "react-dom"
 import {HashRouter, Route, Switch} from "react-router-dom";
 import { createHashHistory } from "history";
 
-import {sentData} from "../../General/GeneralFunctions"
-
 import Header from "../Header"
 import Dashboard from "../Dashboard"
 import CheckIn from "../CheckIn"
@@ -45,16 +43,9 @@ class App extends React.Component<any, AppState> {
         else return "?"
     }
 
-    componentDidMount() {
-        sentData("http://localhost/getData.php",  {aaaa: "asas"})
-            .then( response => response.json() )
-            .then (response => console.log(response))
-    }
-
     componentWillUnmount() {
         this.state.unlisten()
     }
-
     
     render() {
 

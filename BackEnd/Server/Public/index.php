@@ -65,5 +65,16 @@
 
             <?php include("../../../FrontEnd/Distribution/bundle.js") ?>
         </script>
+
+        <style>
+            .unSelectable {
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+        </style>
     </body>
+
+
 </html>

@@ -24,13 +24,11 @@ export default class CheckIn extends React.Component<CheckInProps, CheckInState>
     componentDidMount() {
         sentData("http://localhost/getData.php?GetEventData=", {})
             .then (response => response.json())
-            .then (response => console.log(response))
+            .then ( (response: EventData[]) => this.setState({EventData: response}) )
     }
 
-    handleDataInput(data: string) {
-        sentData("http://localhost/getData.php?GetUserData=", {data})
-            .then (response => response.json())
-            .then (response => console.log(response))
+    handleDataInput(text: string) {
+        console.log(text)
     }
 
     render () {
@@ -59,14 +57,18 @@ export default class CheckIn extends React.Component<CheckInProps, CheckInState>
                 <br />
                 <br />
                 <br />
-                
-                <div className="row" style={{marginRight: "0.5rem", marginLeft: "0.5rem"}}>
-                        <a className="col s12 m10 offset-m1 l6 offset-l3 waves-effect waves-light btn">
-                            <i className="material-icons left">cloud</i>
-                            Pasar lista usando QR
-                        </a>
+
+                <div className="row">
+                    <div className="col s12 m10 offset-m1 l6 offset-l3">
+                    <div className="card-panel indigo hoverable white-text valign-wrapper">
+                        <i className="medium unSelectable material-icons left">camera_alt</i>
+                        <span style={{fontSize: "1.45rem"}}>
+                            PASAR LISTA USANDO QR
+                        </span>
+                    </div>
+                    </div>
                 </div>
-                
+
                 <form className="row">
                     <div className="col s12 m10 offset-m1 l6 offset-l3">
                         <div className="card" style={{backgroundColor: "#f2f1f1"}}>
@@ -96,14 +98,14 @@ export default class CheckIn extends React.Component<CheckInProps, CheckInState>
                                     className = "btn-floating btn-large green lighten-1 waves-effect"
                                     onClick   =  {(e) => {
                                         //@ts-ignore
-                                        const text = document.getElementById('dataInput').value
-                                        if (text == '') return;
-                                        else this.handleDataInput(text);
+                                        const text = document.getElementById('dataInput').value as string
+                                        if (text == '') return
+                                        else this.handleDataInput(text)
 
-                                        e.preventDefault();
+                                        e.preventDefault()
                                     }}
                                 >
-                                    <i className="material-icons">arrow_forward</i>
+                                    <i className="unSelectable material-icons">arrow_forward</i>
                                 </button>
                             
                             </div>

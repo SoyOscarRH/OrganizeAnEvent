@@ -19,8 +19,19 @@ interface EventSelectorProps {
 
 const EventSelector: React.StatelessComponent<EventSelectorProps> = (props) => {
     return (
-        <div>
-            Estas pasando lista actualmente de {props.EventData[props.currentEventIndex]}
+        <div style={{fontSize: "1.3rem"}}>
+            Estas pasando lista actualmente de: 
+            <br />
+            <b style={{fontFamily: "Raleway", fontSize: "1.4rem"}}>
+                {props.EventData[props.currentEventIndex].EventName}
+            </b>
+            <br />
+            <i 
+                onClick   = {() => {}}
+                className = "unSelectable small material-icons">
+                edit
+            </i>
+            <br />
         </div>
     ) 
 }
