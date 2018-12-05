@@ -31,6 +31,13 @@ EN ESTA OCASIÓN EL CONSEJO GENERAL CONSULTIVO HA DECIDIDO OTORGAR', 1);
 
 SHOW WARNINGS;
 
+INSERT INTO Event (EventID, Name, Description, InstitutionID) VALUES 
+(2, 'Premio Fundación UNAM-CFE de Energía 2017', 'Con el propósito de promover y reconocer la investigación científica y el desarrollo
+tecnológico en las materias del sector energía, la Fundación Universidad Nacional
+Autónoma de México A.C., “FUNAM”, y la Comisión Federal de Electricidad, “CFE”,', 2);
+
+SHOW WARNINGS;
+
 /* ======================================================
 * =================    USERS     ========================
 * =======================================================
@@ -47,9 +54,8 @@ SHOW WARNINGS;
 * =================    USER EVENT    ====================
 * =======================================================
 */
-/*Password = 'root'*/
 INSERT INTO UserEvent (Username, EventID) VALUES 
-    (1234567890, 1);
+    (1234567890, 1), (2014081268, 1);
 
 SHOW WARNINGS;
 

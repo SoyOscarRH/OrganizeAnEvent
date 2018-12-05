@@ -183,6 +183,7 @@ CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`GuestEvent` (
   `Assistance` TINYINT(1) NULL,
   `Seat` INT NULL,
   `Representative` VARCHAR(100) NULL,
+  `Username` INT,
   PRIMARY KEY (`RFC`, `EventID`),
   INDEX `GEEvent_idx` (`EventID` ASC),
   CONSTRAINT `GEEvent`
@@ -193,6 +194,11 @@ CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`GuestEvent` (
   CONSTRAINT `GEGuest`
     FOREIGN KEY (`RFC`)
     REFERENCES `OrganizeAnEvent`.`Guest` (`RFC`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+    CONSTRAINT `GEUser`
+    FOREIGN KEY (`Username`)
+    REFERENCES `OrganizeAnEvent`.`User` (`Username`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;

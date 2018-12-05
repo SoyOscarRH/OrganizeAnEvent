@@ -1,5 +1,5 @@
 ************************* DATA DICTIONARY *************************
-****************************** DB: OAE ****************************
+******************** DB: OrganizeAnEvent **************************
 
 +---------------+-------------+
 |  TABLE: INSTITUTION         | 
@@ -19,7 +19,7 @@
 +-----------------+---------------+
 | EventID         | int           | Identificador of each event PK
 | Name            | varchar(100)  | Name of the event
-| Lozalization    | varchar(600)  |	Place (description) where the event takes place
+| Localization    | varchar(600)  |	Place (description) where the event takes place
 | Latitude     	  | double        | Latitude of the localization
 | Longitude   	  | double        | Longitude of the localization
 | Time    		  | datetime      | Time when the event begins
@@ -35,7 +35,7 @@
 +---------------+---------------------------+
 | Username      | int                       | Username or ID of each user on the system PK
 | Password      | varchar(256)              | The access passsword of each user
-| Type          |ENUM('Admin', 'Standard')  | The type of the user (admin or standard)
+| Type          | ENUM('Admin', 'Standard') | The type of the user (admin or standard)
 +---------------+---------------------------+
 
 +---------------+---------------------------+
@@ -111,6 +111,7 @@
 | Assistance     | tinyint(1)   | Assistance of each guest at the event. 1 equals yes, 0 equals no
 | Seat           | int          | Number of seat of each guest at some event
 | Representative | varchar(100) | Some other person who arrive at the event representing the guest
+| Username		 | int 			| User who takes assistance of a guest in an event
 +----------------+--------------+
 
 +---------+---------------+
