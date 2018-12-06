@@ -34,12 +34,6 @@ END //
 
 DELIMITER ;
 
-
-
-
-
-
-
 /* ======================================================
  * =================      GET USER TYPE     =============
  * ======================================================
@@ -74,32 +68,28 @@ DELIMITER ;
  * ======================================================
  */
 
- DROP PROCEDURE IF EXISTS GetGuestFullData;
+DROP PROCEDURE IF EXISTS GetGuestFullData;
 
 DELIMITER //
 CREATE PROCEDURE GetGuestFullData (IN ThisData VARCHAR(10), IN ThisEventID INT, IN ThisUsername INT)
 BEGIN
     SELECT Guest.RFC, Guest.Name, Guest.FirstSurname, Guest.SecondSurname, Guest.Email, Place.Name
+    From Guest, GuestEvent, Place
+    WHERE 
+        GuestEvent.EventID = ThisEventID AND
+        GuestEvent.Username = ThisUsername AND
+        GuestEvent.RFC = Guest.RFC  AND
+        Guest.PlaceID = Place.PlaceID AND
+        (Guest.RFC LIKE '%ThisData%' OR
+        Guest.Name LIKE '%ThisData%' OR 
+        Guest.FirstSurname LIKE '%ThisData%' OR 
+        Guest.SecondSurname LIKE '%ThisData%' OR 
+        Guest.Email LIKE '%ThisData%');
 END //
 
 DELIMITER ;
 
-
-
-
-
-
-
-
-
-
-
-/* ======================================================
- * ==========      GET GUEST FULL DATA      =============
- * ======================================================
- */
-
- DROP PROCEDURE IF EXISTS GetGuestFullData;
+/*DROP PROCEDURE IF EXISTS GetGuestFullData;
 
 DELIMITER //
 CREATE PROCEDURE GetGuestFullData (IN ThisRFC VARCHAR(10), IN ThisInstitutionID INT, IN ThisEventID INT)
@@ -133,7 +123,6 @@ BEGIN
 END //
 
 DELIMITER ;
-
 
 /* ======================================================
  * ==========      SET ASSISTANCE      ==================
