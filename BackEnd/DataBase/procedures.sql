@@ -305,7 +305,7 @@ DROP PROCEDURE IF EXISTS GetNumberOfGuests;
 DELIMITER //
 CREATE PROCEDURE GetNumberOfGuests(IN ThisEventID INT)
 BEGIN
-    SELECT COUNT(GuestEvent.*)
+    SELECT COUNT(*)
     FROM GuestEvent
     WHERE GuestEvent.EventID = ThisEventID;
 END //
