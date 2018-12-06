@@ -41,7 +41,7 @@
     $pdf -> SetFont('Arial', 'B', 15);                                              // Font style
 
     $Introduction = 'El Instituto '. utf8_decode('Politécnico'). ' Nacional se honra en invitarle a la';
-    $IntroductionP1 = 'Ceremonia de reconocimiento al '. utf8_decode('Politécnico').'.';
+    $IntroductionP1 = 'Ceremonia de reconocimiento al '. utf8_decode('Mérito Politécnico').'.';
 
     $pdf -> Cell(190, 10, $Introduction, 100, 100, 'C');                             // Add text
     $pdf -> ln(1);                                                                   // Some lines

@@ -182,21 +182,45 @@ END //
 DELIMITER ;
 
 /* ======================================================
- * ==============      GET PRIZE INFO     ===============
+ * ==============      GET SPEECH INFO     ===============
  * ======================================================
  */
 
- DROP PROCEDURE IF EXISTS GetPrizeInfo;
+ DROP PROCEDURE IF EXISTS GetSpeechInfo;
 
 DELIMITER //
-CREATE PROCEDURE GetPrizeInfo(IN ThisRFC VARCHAR(10))
+CREATE PROCEDURE GetSpeechInfo(IN ThisEventID INT, IN ThisPrizeID INT)
 BEGIN
-    SELECT p.Name AS Prize, p.Speech AS Description, e.Name AS Event, e.Localization, e.Latitude, 
-    e.Longitude, e.Time FROM GuestPrize gp, Guest g, Event e 
-        WHERE 
-            gp.PrizeID = p.PrizeID    AND 
-            p.EventID = e.EventID     AND
-            gp.RFC = (ThisRFC);
+    SELECT Event.Name as Event, Event.Description, Prize.Name as Prize, Prize.Speech 
+    FROM Event, Prize
+    WHERE 
+        Event.EventID = Prize.EventID AND
+        Event.EventID = ThisEventID AND
+        Prize.PrizeID = ThisPrizeID;
+END //
+
+DELIMITER ;
+
+/* ======================================================
+ * ==============      GET EVENT'S GUESTS     ===========
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS GetEventGuests;
+
+DELIMITER //
+CREATE PROCEDURE GetEventGuests(IN ThisEventID INT, IN ThisPrizeID INT)
+BEGIN
+    SELECT Guest.RFC, Guest.Name, Guest.FirstSurname, Guest.SecondSurname, Place.Name AS Place, 
+        GuestEvent.Assistance, GuestEvent.Representative, GuestEvent.Comment
+    FROM Guest, Place, GuestEvent, GuestPrize
+    WHERE 
+        Place.PlaceID = Guest.PlaceID AND
+        Guest.RFC = GuestEvent.RFC AND
+        GuestEvent.RFC = GuestPrize.RFC AND
+        GuestEvent.EventID = ThisEventID AND
+        GuestPrize.PrizeID = ThisPrizeID
+    ORDER BY 3;
 END //
 
 DELIMITER ;
@@ -247,37 +271,6 @@ END //
 DELIMITER ;
 
 /* ======================================================
- * ===============      ADD GUEST     ===================
- * ======================================================
- */
-
- DROP PROCEDURE IF EXISTS AddGuest;
-
-DELIMITER //
-CREATE PROCEDURE AddGuest(IN ThisRFC VARCHAR(10), IN ThisName VARCHAR(45), IN ThisFirsSurname VARCHAR(45),
-IN ThisSecondSurname VARCHAR(45), IN ThisEmail VARCHAR(45), IN ThisPlaceID INT)
-BEGIN
-    INSERT INTO Guest VALUES (ThisRFC, ThisName, ThisFirsSurname, ThisSecondSurname, ThisEmail, ThisPlaceID);
-END //
-
-DELIMITER ;
-
-/* ======================================================
- * ===============      REMOVE GUEST     ================
- * ======================================================
- */
-
- DROP PROCEDURE IF EXISTS RemoveGuest;
-
-DELIMITER //
-CREATE PROCEDURE RemoveGuest(IN ThisRFC VARCHAR(10))
-BEGIN
-    DELETE FROM Guest WHERE RFC = (ThisRFC);
-END //
-
-DELIMITER ;
-
-/* ======================================================
  * ===============      EDIT GUEST     ===================
  * ======================================================
  */
@@ -317,23 +310,6 @@ DELIMITER ;
  * ======================================================
  */
 
-DROP PROCEDURE IF EXISTS GetCurrentGuestsRFC;
-
-DELIMITER //
-CREATE PROCEDURE GetCurrentGuestsRFC(IN ThisEventID INT)
-BEGIN
-    SELECT RFC
-    FROM GuestEvent
-        WHERE GuestEvent.EventID = ThisEventID AND GuestEvent.Assistance = 1;
-END //
-
-DELIMITER ;
-
-/* ======================================================
- * ===============      GET GUESTS RFC    ==============
- * ======================================================
- */
-
 DROP PROCEDURE IF EXISTS GetGuestsRFC;
 
 DELIMITER //
@@ -341,7 +317,7 @@ CREATE PROCEDURE GetGuestsRFC(IN ThisEventID INT)
 BEGIN
     SELECT RFC
     FROM GuestEvent
-        WHERE GuestEvent.EventID = ThisEventID;
+    WHERE GuestEvent.EventID = ThisEventID;
 END //
 
 DELIMITER ;
