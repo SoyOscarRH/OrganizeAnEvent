@@ -74,17 +74,20 @@ DELIMITER //
 CREATE PROCEDURE GetGuestFullData (IN ThisData VARCHAR(10), IN ThisEventID INT, IN ThisUsername INT)
 BEGIN
     SELECT Guest.RFC, Guest.Name, Guest.FirstSurname, Guest.SecondSurname, Guest.Email, Place.Name
-    From Guest, GuestEvent, Place
+    From Guest, GuestEvent, Place, User, UserEvent
     WHERE 
-        GuestEvent.EventID = ThisEventID AND
-        GuestEvent.Username = ThisUsername AND
-        GuestEvent.RFC = Guest.RFC  AND
-        Guest.PlaceID = Place.PlaceID AND
-        (Guest.RFC LIKE '%ThisData%' OR
-        Guest.Name LIKE '%ThisData%' OR 
-        Guest.FirstSurname LIKE '%ThisData%' OR 
-        Guest.SecondSurname LIKE '%ThisData%' OR 
-        Guest.Email LIKE '%ThisData%');
+        GuestEvent.EventID  = ThisEventID    AND
+        User.Username       = ThisUsername   AND
+        UserEvent.EventID   = ThisEventID    AND
+        GuestEvent.RFC      = Guest.RFC      AND
+        Guest.PlaceID       = Place.PlaceID  AND
+        (
+            Guest.RFC           LIKE CONCAT('%', ThisData, '%') OR
+            Guest.Name          LIKE CONCAT('%', ThisData, '%') OR
+            Guest.FirstSurname  LIKE CONCAT('%', ThisData, '%') OR
+            Guest.SecondSurname LIKE CONCAT('%', ThisData, '%') OR
+            Guest.Email         LIKE CONCAT('%', ThisData, '%')
+        );
 END //
 
 DELIMITER ;

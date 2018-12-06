@@ -4,18 +4,24 @@ import EventSelector, {EventData} from "../../General/EventSelector"
 import QrReader from "react-qr-reader";
 
 
+interface PersonData {
+    GuestRFC: number, 
+    GuestName: string, 
+    GuestFirstSurname: string,
+    GuestSecondSurname: string, 
+    GuestEmail: string, 
+    PlaceName: string
+}
 
 interface CheckInState {
     EventData: EventData[] | null,
     currentEvent: number,
     isShowingQR: boolean
-    personData?: {
-        name: string,
-        guestID: number,
-    }
+    personData?: Array<PersonData>
 }
 
 interface CheckInProps {
+
 }
 
 export default class CheckIn extends React.Component<CheckInProps, CheckInState> {
@@ -42,7 +48,16 @@ export default class CheckIn extends React.Component<CheckInProps, CheckInState>
 
         sentData("http://localhost/getData.php?GetGuestLike=", {data: text})
             .then (response => response.json())
-            .then ( (response) => console.log(response) )
+            .then ( (personData: Array<PersonData>) => {
+                if (personData.length === 1)
+                    M.toast({
+                        html: `Se paso lista para ${personData[0].GuestName} ${personData[0].GuestFirstSurname} ${personData[0].GuestSecondSurname}`,
+                        displayLength: 3000,
+                    })
+                else if (personData.length === 0)
+                    M.toast({html: "Error: No hay personas con esta información",  displayLength: 3000})
+                else this.setState({personData: personData})
+            })
     }
 
     renderQR () {
@@ -164,18 +179,29 @@ export default class CheckIn extends React.Component<CheckInProps, CheckInState>
                 }
 
                 {
-                    (this.state.personData != null)? (
+                    (this.state.personData != null)? this.state.personData.map( personData => (
                         <div className="row">
                             <div className="col s12 m10 offset-m1 l6 offset-l3">
-                                <div className = "card-panel indigo hoverable white-text valign-wrapper">
+                                <div className = "card-panel hoverable white-text valign-wrapper">
+                                    <ul className="browser-default">
+                                        <li>
+                                            <b>ID:</b> {personData.GuestRFC}
+                                        </li>
+                                        <li>
+                                            <b>Nombre:</b> 
+                                            {personData.GuestSecondSurname}
+                                            {personData.GuestFirstSurname}
+                                            {personData.GuestName}
+                                        </li>
+                                    </ul>
 
-                                    <b>ID:</b> {this.state.personData.guestID}
-                                    <b>Persona:</b> {this.state.personData.name}
-
+                                    <a className="waves-effect waves-light btn">
+                                        Pasar lista
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                    ) 
+                    )) 
                     : <span />
                 }
 
