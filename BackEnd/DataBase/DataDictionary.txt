@@ -98,33 +98,22 @@
 | PrizeID        | int          | Identificator of each prize PK/FK
 +----------------+--------------+
 
-+----------------+--------------+
-|  TABLE: GUESTEVENT            | 
-+----------------+--------------+
-+----------------+--------------+
-| Field          | Type         |
-+----------------+--------------+
-| RFC            | varchar(10)  | RFC of each guest PK/FK
-| EventID        | int          | Identificator of each event PK/FK
-| Number         | int          | Number of each guest at some event
-| Confirmation   | tinyint(1)   | Confirmation of each guest before the event. 1 equals yes, 0 equals no (TINYINT is BOOLEAN)
-| Assistance     | tinyint(1)   | Assistance of each guest at the event. 1 equals yes, 0 equals no
-| Seat           | int          | Number of seat of each guest at some event
-| Representative | varchar(100) | Some other person who arrive at the event representing the guest
-| Username		 | int 			| User who takes assistance of a guest in an event
-+----------------+--------------+
-
-+---------+---------------+
-|  TABLE: COMMENT         | 
-+---------+---------------+
-+---------+---------------+
-| Field   | Type          | 
-+---------+---------------+
-| ID      | int           | Identificator of each comment related to a guest PK
-| Text    | varchar(1000) | Comment content
-| EventID | int           | Event where the comment are from FK
-| RFC     | varchar(10)   | Guest RFC FK
-+---------+---------------+
++----------------+---------------+
+|  TABLE: GUESTEVENT             | 
++----------------+---------------+
++----------------+---------------+
+| Field          | Type          |
++----------------+---------------+
+| RFC            | varchar(10)   | RFC of each guest PK/FK
+| EventID        | int           | Identificator of each event PK/FK
+| Number         | int           | Number of each guest at some event
+| Confirmation   | tinyint(1)    | Confirmation of each guest before the event. 1 equals yes, 0 equals no (TINYINT is BOOLEAN)
+| Assistance     | tinyint(1)    | Assistance of each guest at the event. 1 equals yes, 0 equals no
+| Seat           | int           | Number of seat of each guest at some event
+| Representative | varchar(100)  | Some other person who arrive at the event representing the guest
+| Username		 | int 			 | User who takes assistance of a guest in an event
+| Comment		 | varchar(2000) | Comments related to the guest at the eventS
++----------------+---------------+
 
 +---------+---------------+
 |  TABLE: NEWS            | 
