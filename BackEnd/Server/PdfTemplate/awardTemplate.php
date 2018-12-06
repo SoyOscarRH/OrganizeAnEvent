@@ -1,10 +1,26 @@
 <?php
+	include_once("../DataBaseFunctions.php");
+    include_once("../GeneralFunctions.php");
+
+    /*if (!isset($_SESSION)) session_start();
+
+    // // ONLY ALLOW VALID USERS AND IN POST
+    if ($_SESSION['logStatus'] != true || $_SERVER['REQUEST_METHOD'] != 'POST') {
+        echo '{"Error": "No login status"}';
+        exit();
+    }
+	*/
+    $toSend = array();
+    $connection = getConnectionToDatabase('localhost:3306');
+    $frontEndData = getFrontEndData();
+	
 	// ==============================================================================================
 	// 									   PRINCIPAL VARIABLES
 	// ==============================================================================================
+	$rfc = 2014171285;	
 	/*
-	$rfc = $_GET['rfc'];
-	$idEvent = $_GET['idEvent'];
+		$rfc = $_GET['rfc'];
+		$idEvent = $_GET['idEvent'];
 	*/
 
 	// ==============================================================================================
@@ -77,7 +93,7 @@
 	// ==============================================================================================
 	
 	//$pdf -> Image('ImagesPdf/Footer.PNG', 0, 190, 300, 25, 'PNG');					// Put an image
-
-	$pdf->Output();
+	$fileName = 'awardPDF/'.$rfc.'.pdf';
+	$pdf->Output($fileName, 'F');
 
 ?>
