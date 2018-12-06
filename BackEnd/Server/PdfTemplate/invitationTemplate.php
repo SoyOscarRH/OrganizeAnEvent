@@ -113,12 +113,15 @@
     //                                             QR AND BARCODE
     // ==============================================================================================
 
-    barcode('invitationsPDF/BAR'.$rfc.'.png', $rfc, 80, 'horizontal', 'code128', true);
-    $pdf -> Image('invitationsPDF/BAR'.$rfc.'.png', 20, 230, 80, 40, 'PNG');
+    barcode('invitationsPDF/BAR'.$rfc.'.png', $rfc, 100, 'horizontal', 'code128', true);
+    $pdf -> Image('invitationsPDF/BAR'.$rfc.'.png', 20, 230, 80, 25, 'PNG');
 
     QRcode::png($rfc, 'invitationsPDF/QR'.$rfc.'.png'); 
     $pdf -> Image('invitationsPDF/QR'.$rfc.'.png', 130, 210, 70, 70, 'PNG');
     
     $pdf->Output();
 
+    //Delete images to save space
+    unlink('invitationsPDF/BAR'.$rfc.'.png');
+    unlink('invitationsPDF/QR'.$rfc.'.png');
 ?>
