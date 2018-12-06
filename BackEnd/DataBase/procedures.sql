@@ -317,6 +317,23 @@ DELIMITER ;
  * ======================================================
  */
 
+DROP PROCEDURE IF EXISTS GetCurrentGuestsRFC;
+
+DELIMITER //
+CREATE PROCEDURE GetCurrentGuestsRFC(IN ThisEventID INT)
+BEGIN
+    SELECT RFC
+    FROM GuestEvent
+        WHERE GuestEvent.EventID = ThisEventID AND GuestEvent.Assistance = 1;
+END //
+
+DELIMITER ;
+
+/* ======================================================
+ * ===============      GET GUESTS RFC    ==============
+ * ======================================================
+ */
+
 DROP PROCEDURE IF EXISTS GetGuestsRFC;
 
 DELIMITER //
@@ -324,7 +341,7 @@ CREATE PROCEDURE GetGuestsRFC(IN ThisEventID INT)
 BEGIN
     SELECT RFC
     FROM GuestEvent
-    WHERE GuestEvent.EventID = ThisEventID;
+        WHERE GuestEvent.EventID = ThisEventID;
 END //
 
 DELIMITER ;

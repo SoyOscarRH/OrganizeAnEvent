@@ -1,18 +1,9 @@
 <?php
 	include_once("../DataBaseFunctions.php");
     include_once("../GeneralFunctions.php");
+    include_once("Fpdf/fpdf.php");
 
-    /*if (!isset($_SESSION)) session_start();
-
-    // // ONLY ALLOW VALID USERS AND IN POST
-    if ($_SESSION['logStatus'] != true || $_SERVER['REQUEST_METHOD'] != 'POST') {
-        echo '{"Error": "No login status"}';
-        exit();
-    }
-	*/
-    $toSend = array();
-    $frontEndData = getFrontEndData();
-    
+	
 	function awardTemplate($rfc)
 	{
 
@@ -34,8 +25,6 @@
 		// 										PRINCIPAL INFORMATION
 		// ==============================================================================================
 		setlocale (LC_TIME, "spanish");								// Can say things in spanish
-		define('FPDF_FONTPATH','Fpdf/font');
-		require 'Fpdf/fpdf.php';									// I need it
 		$pdf = new FPDF();											// Create a new PDF 
 		$pdf -> AddPage('L', 'Letter', 0);							// New page with some characteristics
 		$pdf -> SetFont('Arial', 'B', 25);							// Font style
@@ -44,7 +33,8 @@
 		// 								    		HEADER IMAGE
 		// ==============================================================================================
 		
-		$pdf -> Image('ImagesPdf/Award/Award.jpg', 0, 0, 285, 220, 'JPG');					// Put an image
+		$filePath = $_SERVER['DOCUMENT_ROOT'] . "/../PdfTemplate/ImagesPdf/Award/" . 'Award.jpg';
+		$pdf -> Image($filePath, 0, 0, 285, 220, 'JPG');					// Put an image
 
 		// ==============================================================================================
 		// 								    		GUEST NAME
@@ -54,7 +44,7 @@
 	//	$pdf->Cell(50,10,utf8_decode($Escuela[0])." - ".utf8_decode($Escuela[1]),0);
 	
 
-		$pdf -> SetFont('Helvetica', '', 30);							
+		//$pdf -> SetFont('Helvetica', '', 30);							
 		//$pdf -> Cell(250, 25, utf8_decode('JOSE ANTONIO ORTÍZ RAMIREZ'), 100, 100, 'C');// Guest name
 		$pdf -> Cell(250, 30, utf8_decode($NameGuest), 100, 100, 'C');					// Guest name
 
@@ -90,8 +80,8 @@
 		// 								   		 FOOTER IMAGE
 		// ==============================================================================================
 		
-		//$pdf -> Image('ImagesPdf/Footer.PNG', 0, 190, 300, 25, 'PNG');					// Put an image
-		$fileName = 'awardPDF/'.$rfc.'.pdf';
+		//$pdf -> Image('ImagesPdf/Footer.PNG', 0, 190, 300, 25, 'PNG');				// Put an image
+		$fileName = $_SERVER['DOCUMENT_ROOT']."/../PdfTemplate/awardPDF/".$rfc.'.pdf';
 		$pdf->Output($fileName, 'F');
 	
 	}

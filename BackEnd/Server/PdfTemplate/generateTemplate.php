@@ -3,21 +3,8 @@
     include_once("../GeneralFunctions.php");
     include_once("awardTemplate.php");
 
-    // ==============================================================================================
-	// 									   	 RECEIVE INFORMATION
-	// ==============================================================================================
-	$idEvent = 1;
-
-    /*if (!isset($_SESSION)) session_start();
-
-    // // ONLY ALLOW VALID USERS AND IN POST
-    if ($_SESSION['logStatus'] != true || $_SERVER['REQUEST_METHOD'] != 'POST') {
-        echo '{"Error": "No login status"}';
-        exit();
-    }
-	*/
-
-    $toSend = array();
+	$toSend = array();
+    $connection = getConnectionToDatabase('localhost:3306');
     $frontEndData = getFrontEndData();
 	
 	// ==============================================================================================
@@ -25,36 +12,23 @@
 	// ==============================================================================================
     $connection = getConnectionToDatabase('localhost:3306');
 
-    // Get number of guests
-    $query = $connection->prepare("CALL  GetNumberOfGuests(?)");
-    $query->bind_param('s', $idEvent);
-    $query->execute();
+	if ($frontEndData['all'] == 1) $query = $connection->prepare("CALL GetCurrentGuestsRFC(?)");
+        else $query = $connection->prepare("CALL GetGuestsRFC(?)");
 
-    $dataArray = mysqli_fetch_array($query->get_result(), MYSQLI_NUM);
-	$numGuest = $dataArray[0];
-	$query->close();
+        $var = 1;
+        $query->bind_param('i', $var);
+        $query->execute();
 
-	echo $numGuest;
+        $toSend = mysqli_fetch_all($query->get_result(), MYSQLI_ASSOC);
+        $query->close();
 
-	// Get rfc array
-	$query = $connection->prepare("CALL  GetGuestsRFC(?)");
-    $query->bind_param('s', $idEvent);
-	$query->execute();
-	$dataArray = mysqli_fetch_array($query->get_result(), MYSQLI_NUM);
-	$rfc = $dataArray[0];
-	$query->close();
 
-¨	echo $rfc;
+    for($i = 0; $i < 10; $i++) {
+		awardTemplate($toSend[$i]['RFC']);
+	} 
+	
+	echo json_encode($toSend);
 
-	mysqli_close($connection);
-	/*
-
-    for($i = 0; $i < $numGuest; $i++)
-    {
-		//awardTemplate($rfc[$i]);
-		//echo $rfc[$i];
-    } 
-   */
   /*  $rfc = 2014171285;
 	// Creamos un instancia de la clase ZipArchive
 	 $zip = new ZipArchive();

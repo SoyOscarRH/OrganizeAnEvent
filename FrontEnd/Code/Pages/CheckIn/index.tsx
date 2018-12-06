@@ -3,7 +3,6 @@ import {sentData} from "../../General/GeneralFunctions"
 import EventSelector, {EventData} from "../../General/EventSelector"
 import QrReader from "react-qr-reader";
 
-
 interface PersonData {
     RFC: number, 
     Name: string, 
@@ -59,6 +58,17 @@ export default class CheckIn extends React.Component<CheckInProps, CheckInState>
                 
                 this.setState({personData: (personData.length > 0)? personData : []})
             })
+    }
+
+
+    SetAssistance(seat: number, representant: string | null) {
+        //const toSend = {seat, representant}
+        //sentData("http://localhost/getData.php?SetAssistance=", toSend)
+
+        sentData("http://localhost/getData.php?SetAssistance=", {all: 0})
+        .then (response => response.text())
+        .then (response => console.log(response))
+
     }
 
     render () {
@@ -213,24 +223,64 @@ export default class CheckIn extends React.Component<CheckInProps, CheckInState>
         if (this.state.currentScreen == 'Confirm') 
             currentScreen = (
                 <div>
-                    <h5>¿Seguro de pasar lista a {this.state.personData![0].Name} {this.state.personData![0].FirstSurname}?</h5>
-
+                    <h5>¿Seguro de pasar lista a {this.state.personData![0].Name} {this.state.personData![0].FirstSurname} {this.state.personData![0].SecondSurname}?</h5>
+    
                     <p>
-                        Alguna duda:
+                        Asiento:
                     </p>
-                    <div className="row">
-                        <div className="input-field col s12 m10 offset-m1 l6 offset-l3">
-                            <textarea id="textarea1" className="materialize-textarea"></textarea>
-                            <label htmlFor="textarea1">Dudas:</label>
+                    <div className="row white-text">
+                        <div className="input-field col s12 m8 offset-m2">
+                            <input 
+                                id        ="seatInput" 
+                                type      = "number"
+                                className = "validate"
+                                required  = {true}
+                                style     = {{fontSize: "1.5rem"}}/>
+                            <label htmlFor="dataInput">Asiento</label>
                         </div>
                     </div>
 
-                    <a 
+                    <p>
+                        Representante (vacío si no hay)
+                    </p>
+                    <div className="row white-text">
+                        <div className="input-field col s12 m8 offset-m2">
+                            <input 
+                                id        ="representantInput" 
+                                type      = "text"
+                                className = "validate"
+                                required  = {true}
+                                style     = {{fontSize: "1.5rem"}}/>
+                            <label htmlFor="dataInput">Nombre del Representante</label>
+                        </div>
+                    </div>
+
+                    <a
+                        className="btn-large green"
+                        onClick={
+                            () => {
+                                //@ts-ignore
+                                const seat = document.getElementById('seatInput').value, representant = document.getElementById('representant').value
+
+                                this.setState(() => {
+                                    this.SetAssistance(seat, representant)
+                                    M.toast({html: "Se paso lista exitosamente"})
+                                    return {currentScreen: "GetData"}
+                                })
+                            }
+                        }>
+                        Pasar lista
+                    </a>
+
+                    <br />
+                    <br />
+
+                    <a
                         className="btn-large red"
                         onClick={() => this.setState({currentScreen: "GetData"})}>
                         Regresar
                     </a>
-                    
+
                 </div>    
             )   
 
