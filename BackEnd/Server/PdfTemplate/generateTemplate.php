@@ -1,6 +1,12 @@
 <?php
 	include_once("../DataBaseFunctions.php");
     include_once("../GeneralFunctions.php");
+    include_once("awardTemplate.php");
+
+    // ==============================================================================================
+	// 									   	 RECEIVE INFORMATION
+	// ==============================================================================================
+	$idEvent = 1;
 
     /*if (!isset($_SESSION)) session_start();
 
@@ -10,19 +16,39 @@
         exit();
     }
 	*/
+
     $toSend = array();
-    $connection = getConnectionToDatabase('localhost:3306');
     $frontEndData = getFrontEndData();
+	
+	// ==============================================================================================
+	// 									   	 CREATE PDF
+	// ==============================================================================================
+    $connection = getConnectionToDatabase('localhost:3306');
 
-    // Guest Array
-    // $guest = 
+    // Get number of guests
+    $query = $connection->prepare("CALL  GetNumberOfGuests(?)");
+    $query->bind_param('s', $idEvent);
+    $query->execute();
 
-    /*for($i = 0; $i < n; $i++)
+    $dataArray = mysqli_fetch_array($query->get_result());
+    $numGuest = $dataArray[0];
+
+    // Get rfc array
+    $query = $connection->prepare("CALL  GetGuestsRFC(?)");
+    $query->bind_param('s', $idEvent);
+    $query->execute();
+
+    $dataArray = mysqli_fetch_array($query->get_result());
+    $rfc = $dataArray[0];
+
+	mysqli_close($connection);
+ 	
+    for($i = 0; $i < $numGuest; $i++)
     {
-    	// Send RFC to create an Award Template
-    } */
+		awardTemplate($rfc[0][$i]);
+    } 
    
-     $rfc = 2014171285;
+  /*  $rfc = 2014171285;
 	// Creamos un instancia de la clase ZipArchive
 	 $zip = new ZipArchive();
 	// Creamos y abrimos un archivo zip temporal
@@ -43,6 +69,6 @@
 	 readfile('miarchivo.zip');
 	 // Por último eliminamos el archivo temporal creado
 	 unlink('miarchivo.zip');//Destruye el archivo temporal
-?>
+*/
 
 ?>
