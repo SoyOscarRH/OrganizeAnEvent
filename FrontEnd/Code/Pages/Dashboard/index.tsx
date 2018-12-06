@@ -11,6 +11,7 @@ interface DashCardProps {
     history: History,
     location: any, 
     match: any, 
+    icon?: string,
 }
 
 const DashCardPure: React.StatelessComponent<DashCardProps> = (props: DashCardProps) => {
@@ -23,7 +24,9 @@ const DashCardPure: React.StatelessComponent<DashCardProps> = (props: DashCardPr
                     style     = {{backgroundColor: "#f2f1f1"}}
                     onClick   = {() => props.history.push(props.link)}
                 >
-                    <i className="material-icons" style={{fontSize: "3rem"}}>format_list_bulleted</i>
+                    <i className="material-icons" style={{fontSize: "3rem"}}>
+                        {props.icon != undefined? props.icon : "format_list_bulleted"}
+                    </i>
                     &nbsp;
                     <span>{props.name}</span>
                 </div>
@@ -40,8 +43,8 @@ const Dashboard: React.StatelessComponent<{}> = () => {
         
         <div className="row container">
 
-            <DashCard name={<span><b>Pasar</b> lista</span>} link="/CheckIn" />
-            <DashCard name={<span><b>Ver</b> lista actual</span>} link="sas" />
+            <DashCard name={<span><b>Pasar</b> lista</span>} link="/CheckIn" icon="assignment_turned_in" />
+            <DashCard name={<span><b>Ver</b> lista actual</span>} link="sas"  />
 
             <AdminZone>
                 <DashCard name={<span><b>Añadir</b> Usuario</span>} link="sas" />

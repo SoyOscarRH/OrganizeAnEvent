@@ -61,10 +61,25 @@ BEGIN
         Institution.Name as InstitutionName
       FROM User, UserEvent, Event, Institution
         WHERE
-            (User.Username = ThisUsername)                      AND
-            (User.Username = UserEvent.Username)                AND
-            (UserEvent.EventID = Event.EventID)                 AND
+            (User.Username       = ThisUsername)                AND
+            (User.Username       = UserEvent.Username)          AND
+            (UserEvent.EventID   = Event.EventID)               AND
             (Event.InstitutionID = Institution.InstitutionID);
+END //
+
+DELIMITER ;
+
+/* ======================================================
+ * ==========      GET GUEST FULL DATA      =============
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS GetGuestFullData;
+
+DELIMITER //
+CREATE PROCEDURE GetGuestFullData (IN ThisData VARCHAR(10), IN ThisEventID INT, IN ThisUsername INT)
+BEGIN
+    SELECT Guest.RFC, Guest.Name, Guest.FirstSurname, Guest.SecondSurname, Guest.Email, Place.Name
 END //
 
 DELIMITER ;

@@ -44,6 +44,7 @@
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-hotkeys": "^1.1.4",
+    "react-qr-reader": "^2.1.1",
     "react-router-dom": "^4.3.1"
   }
 }

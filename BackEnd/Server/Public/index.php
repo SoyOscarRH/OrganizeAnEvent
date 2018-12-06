@@ -67,11 +67,17 @@
         </script>
 
         <style>
-            .unSelectable {
+            i {
                 -webkit-user-select: none;
                 -moz-user-select: none;
                 -ms-user-select: none;
                 user-select: none;
+            }
+
+            section div {
+                box-sizing: unset !important;
+                border: 0 !important;
+                box-shadow: none !important;
             }
         </style>
     </body>
