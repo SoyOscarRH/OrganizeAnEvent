@@ -295,6 +295,23 @@ END //
 
 DELIMITER ;
 
+/* ======================================================
+ * ===============      GET NUMBER OF GUESTS    =========
+ * ======================================================
+ */
+
+DROP PROCEDURE IF EXISTS GetNumberOfGuests;
+
+DELIMITER //
+CREATE PROCEDURE GetNumberOfGuests(IN ThisEventID INT)
+BEGIN
+    SELECT COUNT(GuestEvent.*)
+    FROM GuestEvent
+    WHERE GuestEvent.EventID = ThisEventID;
+END //
+
+DELIMITER ;
+
 
 
 
