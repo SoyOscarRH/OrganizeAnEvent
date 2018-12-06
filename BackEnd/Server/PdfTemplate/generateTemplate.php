@@ -34,12 +34,12 @@
     $numGuest = $dataArray[0];
 
     // Get rfc array
-    $query = $connection->prepare("CALL  GetGuestsRFC(?)");
-    $query->bind_param('s', $idEvent);
+    $query = $connection->prepare("CALL  GetGuestsRFC(1)");
+    //$query->bind_param('s', $idEvent);
     $query->execute();
 
     $dataArray = mysqli_fetch_array($query->get_result());
-    $rfc = $dataArray[0];
+    $rfc = $rfcArray[0];
 
 	mysqli_close($connection);
  	
