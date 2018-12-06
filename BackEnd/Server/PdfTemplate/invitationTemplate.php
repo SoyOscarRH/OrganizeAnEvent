@@ -18,6 +18,12 @@
     */
 
     // ==============================================================================================
+    //                                      QR AND BARCODE LIBRARIES
+    // ==============================================================================================
+    require 'phpqrcode/qrlib.php'; 
+    include 'barcode.php';
+
+    // ==============================================================================================
     //                                      PRINCIPAL INFORMATION
     // ==============================================================================================
     setlocale (LC_TIME, "spanish");                             // Can say things in spanish
@@ -25,6 +31,8 @@
     $pdf = new FPDF();                                          // Create a new PDF 
     $pdf -> AddPage('P', 'Letter', 0);                          // New page with some characteristics
     $pdf -> SetFont('Arial', 'B', 25);                          // Font style
+
+    
     
     // ==============================================================================================
     //                                          HEADER IMAGE
@@ -91,6 +99,7 @@
     
     $Guest = 'RFC: 2014171285';
 //  $Guest = 'RFC: '.$rfc.'';
+    $rfc = 'GUMG560331'; //REMOVE THIS LINE WHEN RFC IS READY !!!!!
     $Place = 'Unidad '.utf8_decode('Académica ').': ESCOM - ESCUELA SUPERIOR DE COMPUTO';
 //  $Place = 'Unidad '.utf8_decode('Académica ').': '.$School.;
     $pdf -> ln(25);                                                                 // Some lines
@@ -99,9 +108,16 @@
     $pdf -> Cell(190, 10, $Guest, 100, 100, 'L');                                    // Add text
     $pdf -> Cell(190, 10, $Place, 100, 100, 'L');                                    // Add text
 
+
     // ==============================================================================================
-    //                                             QR CODE
+    //                                             QR AND BARCODE
     // ==============================================================================================
+
+    barcode('invitationsPDF/BAR'.$rfc.'.png', $rfc, 80, 'horizontal', 'code128', true);
+    $pdf -> Image('invitationsPDF/BAR'.$rfc.'.png', 20, 230, 80, 40, 'PNG');
+
+    QRcode::png($rfc, 'invitationsPDF/QR'.$rfc.'.png'); 
+    $pdf -> Image('invitationsPDF/QR'.$rfc.'.png', 130, 210, 70, 70, 'PNG');
     
     $pdf->Output();
 
