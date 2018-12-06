@@ -23,22 +23,63 @@
         $query->bind_param('s', $_SESSION['userName']);
         $query->execute();
 
-        $dataArray = mysqli_fetch_all($query->get_result(), MYSQLI_ASSOC);
+        $toSend = mysqli_fetch_all($query->get_result(), MYSQLI_ASSOC);
+        $query->close();
 
-        echo json_encode($dataArray);
+        echo json_encode($toSend);
+        exit();
+    }
+
+
+    // --------------------------------------------------
+    // ------------- GET GUEST DATA  --------------------
+    // --------------------------------------------------
+    if (isset($_GET['GetGuestLike'])) {
+        $query = $connection->prepare("CALL GetGuestFullData(?, ?, ?)");
+        $query->bind_param('sii', $frontEndData['data'], $frontEndData['EventID'], $_SESSION['userName']);
+        $query->execute();
+
+        $toSend = mysqli_fetch_all($query->get_result(), MYSQLI_ASSOC);
+        $query->close();
+
+        echo json_encode($toSend);
+        exit();
+    }
+
+    // --------------------------------------------------
+    // ------------- GET GUEST DATA  --------------------
+    // --------------------------------------------------
+    if (isset($_GET['PassGuestAssistance'])) {
+
+        $query = $connection->prepare("CALL GetGuestFullData(?, ?, ?)");
+
+        $query->bind_param('sii', $frontEndData['data'], $frontEndData['EventID'], $_SESSION['userName']);
+        $query->execute();
+
+        $toSend = mysqli_fetch_all($query->get_result(), MYSQLI_ASSOC);
+        $query->close();
+
         exit();
     }
 
 
 
-    if (isset($_GET['GetUserData'])) {
-        $frontEndData = getFrontEndData();
-        $frontEndData['datssa'] = $_SESSION['userName'];
 
 
-        echo json_encode($frontEndData);
-        exit();
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     $toSend['cool'] = 1212;
     $toSend['userName'] = $_SESSION['userName'];

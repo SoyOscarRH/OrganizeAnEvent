@@ -16,6 +16,7 @@ interface EventSelectorProps {
     EventData: EventData[],
     currentEventIndex: number,
     onChangeIndex: (index: number) => void
+    editable: boolean
 }
 
 interface EventSelectorState { 
@@ -60,7 +61,10 @@ class EventSelector extends React.Component<EventSelectorProps, EventSelectorSta
 
                                     <div className="center">
                                         <a 
-                                            onClick   = {() => this.props.onChangeIndex(index)}
+                                            onClick   = {() => {
+                                                this.props.onChangeIndex(index)
+                                                this.setState({isSelectingEvent: false})
+                                            }}
                                             className = {`white-text green btn-flat ${index === this.props.currentEventIndex? "disabled" : ""} `}>
                                             Cambiar
                                         </a>
@@ -92,7 +96,7 @@ class EventSelector extends React.Component<EventSelectorProps, EventSelectorSta
                 </b>
                 <br />
                 <i 
-                    onClick   = {() => this.setState({isSelectingEvent: true})}
+                    onClick   = {() => this.props.editable && this.setState({isSelectingEvent: true})}
                     style     = {{cursor: "pointer"}}
                     className = "small material-icons">
                     edit

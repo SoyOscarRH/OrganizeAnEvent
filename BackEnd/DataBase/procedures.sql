@@ -34,6 +34,12 @@ END //
 
 DELIMITER ;
 
+
+
+
+
+
+
 /* ======================================================
  * =================      GET USER TYPE     =============
  * ======================================================
@@ -71,9 +77,9 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS GetGuestFullData;
 
 DELIMITER //
-CREATE PROCEDURE GetGuestFullData (IN ThisData VARCHAR(10), IN ThisEventID INT, IN ThisUsername INT)
+CREATE PROCEDURE GetGuestFullData (IN ThisData VARCHAR(100), IN ThisEventID INT, IN ThisUsername INT)
 BEGIN
-    SELECT Guest.RFC, Guest.Name, Guest.FirstSurname, Guest.SecondSurname, Guest.Email, Place.Name
+    SELECT DISTINCT Guest.RFC, Guest.Name, Guest.FirstSurname, Guest.SecondSurname, Guest.Email, Place.Name as PlaceName
     From Guest, GuestEvent, Place, User, UserEvent
     WHERE 
         GuestEvent.EventID  = ThisEventID    AND
@@ -86,11 +92,42 @@ BEGIN
             Guest.Name          LIKE CONCAT('%', ThisData, '%') OR
             Guest.FirstSurname  LIKE CONCAT('%', ThisData, '%') OR
             Guest.SecondSurname LIKE CONCAT('%', ThisData, '%') OR
-            Guest.Email         LIKE CONCAT('%', ThisData, '%')
+            Guest.Email         LIKE CONCAT('%', ThisData, '%') OR
+            ThisData            LIKE CONCAT('%', Guest.FirstSurname, " ", Guest.SecondSurname, '%')                  OR
+            ThisData            LIKE CONCAT('%', Guest.FirstSurname, " ", Guest.SecondSurname, "", Guest.Name, '%')  OR
+            ThisData            LIKE CONCAT('%', Guest.Name, " ", Guest.FirstSurname, "", Guest.SecondSurname, '%')  OR
+            ThisData            LIKE CONCAT('%', Guest.Name, " ", Guest.FirstSurname, '%') 
         );
 END //
 
 DELIMITER ;
+
+/* ======================================================
+ * ==========      SET ASSISTANCE      ==================
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS SetAssistance;
+
+DELIMITER //
+CREATE PROCEDURE SetAssistance(IN ThisRFC VARCHAR(10), IN ThisEventID INT, IN NewSeat INT, IN AnotherGuy VARCHAR(100))
+BEGIN
+    UPDATE GuestEvent
+        SET
+            GuestEvent.Assistance = 1, GuestEvent.Seat = NewSeat, GuestEvent.Representative = (AnotherGuy)
+        WHERE
+            GuestEvent.RFC = (ThisRFC) AND GuestEvent.EventID = ThisEventID;
+END //
+
+DELIMITER ;
+
+
+
+
+
+
+
+
 
 /*DROP PROCEDURE IF EXISTS GetGuestFullData;
 
@@ -123,25 +160,6 @@ BEGIN
     SELECT CONCAT(Name, ' ', FirstSurname, ' ', SecondSurname) as FullName FROM Guest 
         WHERE 
             Guest.RFC = (ThisRFC);
-END //
-
-DELIMITER ;
-
-/* ======================================================
- * ==========      SET ASSISTANCE      ==================
- * ======================================================
- */
-
- DROP PROCEDURE IF EXISTS SetAssistance;
-
-DELIMITER //
-CREATE PROCEDURE SetAssistance(IN ThisRFC VARCHAR(10), IN ThisEventID INT, IN NewSeat INT, IN AnotherGuy VARCHAR(100))
-BEGIN
-    UPDATE GuestEvent
-        SET
-            GuestEvent.Assistance = 1, GuestEvent.Seat = NewSeat, GuestEvent.Representative = (AnotherGuy)
-        WHERE
-            GuestEvent.RFC = (ThisRFC) AND GuestEvent.EventID = ThisEventID;
 END //
 
 DELIMITER ;
