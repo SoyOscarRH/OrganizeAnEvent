@@ -147,4 +147,5 @@
     //Delete images to save space
     unlink('./invitationsPDF/BAR'.$rfc.'.png');
     unlink('./invitationsPDF/QR'.$rfc.'.png');
+    unlink('./invitationsPDF/'.$rfc.'.pdf');
 ?>
