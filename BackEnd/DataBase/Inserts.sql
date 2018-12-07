@@ -1976,3 +1976,4 @@ INSERT INTO News(Text, EventID) VALUES('Debido a la altas temperaturas, la cerem
 INSERT INTO News(Text, EventID) VALUES('La ceremonia de Distinciones al Mérito Politécnico se cambiara de lugar, debido a los incidentes con los porros el pasado día de viernes.', 1);
 INSERT INTO News(Text, EventID) VALUES('La búsqueda de distinciones continua. Inscribete como ayudante para la Distinciones al Mérito Politécnico. Tel: 56-78-99-00', 1);
 INSERT INTO News(Text, EventID) VALUES('Update: La ceremonia de Distinciones al Mérito Politécnico 2019 informará pronto a sus galardonados.', 1);
+UPDATE GuestEvent SET Seat = 0;
