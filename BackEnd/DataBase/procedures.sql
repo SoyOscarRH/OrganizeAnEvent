@@ -492,4 +492,36 @@ END //
 
 DELIMITER ;
 
+/* ======================================================
+ * ==============      GET PLACES NAMES  ================
+ * ======================================================
+ */
 
+ DROP PROCEDURE IF EXISTS GetAllPlaces;
+
+DELIMITER //
+CREATE PROCEDURE GetAllPlaces()
+BEGIN
+    SELECT Place.PlaceID, Place.Name FROM Place;
+END //
+
+DELIMITER ;
+
+/* ======================================================
+ * ==============      GET NUMBER BY PLACE  =============
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS GetNumberByPlace;
+
+DELIMITER //
+CREATE PROCEDURE GetNumberByPlace(IN ThisPlaceID VARCHAR(6))
+BEGIN
+    SELECT COUNT(*) FROM GuestEvent, Guest 
+    WHERE GuestEvent.RFC = Guest.RFC AND
+    Guest.PlaceID = ThisPlaceID AND
+    GuestEvent.Assistance = 1
+    ORDER BY 1;
+END //
+
+DELIMITER ;
