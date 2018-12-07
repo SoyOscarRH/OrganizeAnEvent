@@ -69,9 +69,10 @@
         $query->bind_param('siisi', $frontEndData['RFC'], $frontEndData['EventID'], $frontEndData['seat'], $frontEndData['representant'], $_SESSION['userName']);
 
         $query->execute();
+        $seat = mysqli_fetch_array($query->get_result());
         $query->close();
 
-        $toSend['Message'] = "Pase de lista con exito. <br>Número de asiento: ".$frontEndData['seat'];
+        $toSend['Message'] = "Pase de lista con exito. <br>Número de asiento: ".$seat[0];
         echo json_encode($toSend);
         exit();
     }

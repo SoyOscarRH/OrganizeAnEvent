@@ -62,7 +62,7 @@
 		$dir = 'Evento_'.$idEvent;
 		$zip->addEmptyDir($dir);
 		// Add a file inside the directory that we have created
-		for ($i=0; $i < 500; $i++) { 
+		for ($i=0; $i < 9; $i++) { 
 			$zip->addFile($directory."/".$toSend[$i]['RFC'].".pdf", $dir."/".$toSend[$i]['RFC'].".pdf");
 		}
 		//$zip->addFile($directory."/COJD560226.pdf", $dir."/COJD560226.pdf");

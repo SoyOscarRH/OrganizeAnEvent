@@ -115,8 +115,8 @@
     //                                         GUEST INFORMATION
     // ==============================================================================================
     
-    $Guest = 'RFC: 2014171285';
-//  $Guest = 'RFC: '.$rfc.'';
+    //$Guest = 'RFC: 2014171285';
+    $Guest = 'RFC: '.$rfc.'';
     //$rfc = 'GUMG560331'; //REMOVE THIS LINE WHEN RFC IS READY !!!!!
     $Place = 'Unidad '.utf8_decode('Académica ').': ESCOM - ESCUELA SUPERIOR DE COMPUTO';
 //  $Place = 'Unidad '.utf8_decode('Académica ').': '.$School.;
@@ -142,9 +142,10 @@
     //$email = 'yngmeizhu@gmail.com';
     echo './invitationsPDF/'.$rfc.'.pdf';
     
-    sendEmail($email, './invitationsPDF/'.$rfc.'.pdf', $rfc);
+    sendEmail($email, './invitationsPDF/'.$rfc.'.pdf', $rfc.'.pdf');
 
     //Delete images to save space
     unlink('./invitationsPDF/BAR'.$rfc.'.png');
     unlink('./invitationsPDF/QR'.$rfc.'.png');
+    unlink('./invitationsPDF/'.$rfc.'.pdf');
 ?>
