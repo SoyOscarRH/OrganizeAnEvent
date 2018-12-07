@@ -3,7 +3,6 @@
     include_once("../GeneralFunctions.php");
     require('mysql_table.php');
     setlocale (LC_TIME, "spanish");
-
 	
 	// ==============================================================================================
 	// 										PRINCIPAL INFORMATION
@@ -20,10 +19,6 @@
 		    parent::Header();
 		}
 	}
-
-	// Connect to database
-	//$link = mysqli_connect('localhost','login','password','db');
-
 	$pdf = new PDF();
 	$pdf->AddPage();
 	$link = getConnectionToDatabase('localhost:3306');

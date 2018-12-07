@@ -4,52 +4,94 @@
     include_once("awardTemplate.php");
 
 	$toSend = array();
-    $connection = getConnectionToDatabase('localhost:3306');
     $frontEndData = getFrontEndData();
-	
+
+    // Receive information by front
+    $idEvent = 1;
+
+    // ==============================================================================================
+	// 									   GET INFORMATION
 	// ==============================================================================================
-	// 									   	 CREATE PDF
-	// ==============================================================================================
+   	
+   	// Database conection
     $connection = getConnectionToDatabase('localhost:3306');
 
+    // Get RFC array
 	if ($frontEndData['all'] == 1) $query = $connection->prepare("CALL GetCurrentGuestsRFC(?)");
         else $query = $connection->prepare("CALL GetGuestsRFC(?)");
-
-        $var = 1;
-        $query->bind_param('i', $var);
+        $query->bind_param('i', $idEvent);
         $query->execute();
 
         $toSend = mysqli_fetch_all($query->get_result(), MYSQLI_ASSOC);
         $query->close();
-
-
-    for($i = 0; $i < 10; $i++) {
-		awardTemplate($toSend[$i]['RFC']);
-	} 
+		
+		mysqli_close($connection);
+   
+	// ==============================================================================================
+	// 							CREATE DIRECTORY TO SAVE AWARDS
+	// ==============================================================================================
 	
-	echo json_encode($toSend);
+	$directory = "awardEVENT_".$idEvent;
+	
+	// mkdir(directoryName, chmod)
+	if(mkdir($directory, 0700)) {
+		
+		// ====================================================================
+		// 						CREATE PDFs FOR EVENT 
+		// ====================================================================
+	    
+	    for($i = 0; $i < 500; $i++) {
+			awardTemplate($toSend[$i]['RFC'], $directory);
+		} 
 
-  /*  $rfc = 2014171285;
-	// Creamos un instancia de la clase ZipArchive
-	 $zip = new ZipArchive();
-	// Creamos y abrimos un archivo zip temporal
-	 $zip->open("miarchivo.zip",ZipArchive::CREATE);
-	 // Añadimos un directorio
-	 $dir = 'ReconocimientosEVENTO';
-	 $zip->addEmptyDir($dir);
-	 // Añadimos un archivo en la raid del zip.
-	 //$zip->addFile($rfc."pdf", $rfc."pdf");
-	 //Añadimos un archivo dentro del directorio que hemos creado
-	 $zip->addFile("awardPDF/'.$rfc.'.pdf", $dir."/prueba.pdf");
-	 // Una vez añadido los archivos deseados cerramos el zip.
-	 $zip->close();
-	 // Creamos las cabezeras que forzaran la descarga del archivo como archivo zip.
-	 header("Content-type: application/octet-stream");
-	 header("Content-disposition: attachment; filename=miarchivo.zip");
-	 // leemos el archivo creado
-	 readfile('miarchivo.zip');
-	 // Por último eliminamos el archivo temporal creado
-	 unlink('miarchivo.zip');//Destruye el archivo temporal
-*/
+		// ====================================================================
+		// 						CREATE ZIP TO DOWNLOAD 
+		// ====================================================================
+	    
+	    // Created an instance of the ZipArchive class
+		$zip = new ZipArchive();
 
+		// Zip Name
+		$zipName = 'Reconocimientos.zip';
+
+		// Create and open a temporary zip file
+		$zip->open($zipName, ZipArchive::CREATE);
+		 
+		// Add a directory inside zip
+		$dir = 'Evento_'.$idEvent;
+		$zip->addEmptyDir($dir);
+
+		// Add a file inside the directory that we have created
+		for ($i=0; $i < 500; $i++) { 
+			$zip->addFile($directory."/".$toSend[$i]['RFC'].".pdf", $dir."/".$toSend[$i]['RFC'].".pdf");
+		}
+		 // Close the zip
+		 $zip->close();
+		 
+		// Create the headers that will force the download of the file as a zip file
+		header("Content-type: application/octet-stream");
+		header("Content-disposition: attachment; filename=".$zipName);
+		// Read the created file
+		readfile($zipName);
+		// Delete the temporary file created
+		unlink($zipName); //Destroy the temporary file
+
+		// ====================================================================		
+		// 					DELETE DIRECTORY IN SERVER
+		// ====================================================================		
+		
+		foreach(glob($directory . "/*") as $archivos_carpeta){             
+	        if (is_dir($archivos_carpeta)){
+	          rmDir_rf($archivos_carpeta);
+	        } 
+	        else {
+	        unlink($archivos_carpeta);
+	        }
+	    }
+	    rmdir($directory);
+	}	
+	else
+	{
+		// Aquí debemos mostrar un mensaje que diga si pudo o no xd
+	}
 ?>

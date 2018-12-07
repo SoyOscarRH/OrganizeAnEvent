@@ -348,6 +348,23 @@ END //
 
 DELIMITER ;
 
+/* ======================================================
+ * =================      GET EVENT NEWS    =============
+ * ======================================================
+ */
+
+DROP PROCEDURE IF EXISTS GetEventNews;
+
+DELIMITER //
+CREATE PROCEDURE GetEventNews(IN ThisEventID INT)
+BEGIN
+    SELECT ID, Text AS News
+    FROM News
+        WHERE EventID = ThisEventID;
+END //
+
+DELIMITER ;
+
 
 
 
