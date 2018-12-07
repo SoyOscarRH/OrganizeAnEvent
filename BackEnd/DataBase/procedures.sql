@@ -486,7 +486,7 @@ DROP PROCEDURE IF EXISTS GetAllGuests;
 DELIMITER //
 CREATE PROCEDURE GetAllGuests(IN ThisEventID INT)
 BEGIN
-    SELECT Guest.RFC, CONCAT(Guest.Name, ' ', Guest.FirstSurname, ' ', Guest.SecondSurname) AS FullName
+    SELECT Guest.RFC, CONCAT(Guest.Name, ' ', Guest.FirstSurname, ' ', Guest.SecondSurname) AS FullName, Guest.Email as Email
     FROM Guest;
 END //
 
