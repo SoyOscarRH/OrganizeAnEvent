@@ -365,6 +365,25 @@ END //
 
 DELIMITER ;
 
+/* ======================================================
+ * ==============      GET PRIZES     ===================
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS GetPrizes;
+
+DELIMITER //
+CREATE PROCEDURE GetSpeechInfo(IN ThisEventID INT)
+BEGIN
+    SELECT Prize.PrizeID
+    FROM Event, Prize
+    WHERE 
+        Event.EventID = Prize.EventID AND
+        Event.EventID = ThisEventID;
+END //
+
+DELIMITER ;
+
 
 
 
