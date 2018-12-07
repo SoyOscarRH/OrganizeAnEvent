@@ -74,10 +74,10 @@ DELIMITER ;
  * ======================================================
  */
 
-DROP PROCEDURE IF EXISTS GetGuestFullData;
+DROP PROCEDURE IF EXISTS GuessGuestFullData;
 
 DELIMITER //
-CREATE PROCEDURE GetGuestFullData (IN ThisData VARCHAR(100), IN ThisEventID INT, IN ThisUsername INT)
+CREATE PROCEDURE GuessGuestFullData (IN ThisData VARCHAR(100), IN ThisEventID INT, IN ThisUsername INT)
 BEGIN
     SELECT DISTINCT Guest.RFC, Guest.Name, Guest.FirstSurname, Guest.SecondSurname, Guest.Email, Place.Name as PlaceName
     From Guest, GuestEvent, Place, User, UserEvent
@@ -432,6 +432,27 @@ DROP PROCEDURE IF EXISTS GetCurrentGuestFullData;
 
 DELIMITER //
 CREATE PROCEDURE GetCurrentGuestFullData (IN ThisEventID INT)
+BEGIN
+    SELECT DISTINCT Guest.RFC, Guest.Name, Guest.FirstSurname, Guest.SecondSurname, Guest.Email, Place.Name as PlaceName
+    From Guest, GuestEvent, Place, User, UserEvent
+    WHERE 
+        GuestEvent.EventID  = ThisEventID    AND
+        GuestEvent.RFC      = Guest.RFC      AND
+        Guest.PlaceID       = Place.PlaceID  AND
+        GuestEvent.Assistance = 1;
+END //
+
+DELIMITER ;
+
+/* ======================================================
+ * =======      GET CURRENT GUEST FULL DATA      ========
+ * ======================================================
+ */
+
+DROP PROCEDURE IF EXISTS GetGuestFullData;
+
+DELIMITER //
+CREATE PROCEDURE GetGuestFullData (IN ThisEventID INT)
 BEGIN
     SELECT DISTINCT Guest.RFC, Guest.Name, Guest.FirstSurname, Guest.SecondSurname, Guest.Email, Place.Name as PlaceName
     From Guest, GuestEvent, Place, User, UserEvent
