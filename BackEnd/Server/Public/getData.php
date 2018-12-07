@@ -35,7 +35,7 @@
     // ------------- GET GUEST DATA  --------------------
     // --------------------------------------------------
     if (isset($_GET['GetGuestLike'])) {
-        $query = $connection->prepare("CALL GetGuestFullData(?, ?, ?)");
+        $query = $connection->prepare("CALL GuessGuestFullData(?, ?, ?)");
         $query->bind_param('sii', $frontEndData['data'], $frontEndData['EventID'], $_SESSION['userName']);
         $query->execute();
 
