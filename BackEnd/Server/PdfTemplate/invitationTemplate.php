@@ -1,5 +1,14 @@
 <?php
     // ==============================================================================================
+    //                                     PRINCIPAL VARIABLES
+    // ==============================================================================================
+    /*
+    $rfc = $_GET['rfc'];
+    $idEvent = $_GET['idEvent'];
+    $email = $_GET['email'];
+    */
+
+    // ==============================================================================================
     //                                       GET INFORMATION
     // ==============================================================================================
     /*
@@ -14,6 +23,7 @@
     // ==============================================================================================
     include_once('phpqrcode/qrlib.php'); 
     include_once('barcode.php');
+    include_once("../SendEmail.php");
 
     // ==============================================================================================
     //                                      PRINCIPAL INFORMATION
@@ -112,9 +122,11 @@
     $pdf -> Image($_SERVER['DOCUMENT_ROOT'] . '/../PdfTemplate/invitationsPDF/QR'.$rfc.'.png', 130, 210, 70, 70, 'PNG');
     
     $fileName = $_SERVER['DOCUMENT_ROOT']."/../PdfTemplate/invitationsPDF/".$rfc.'.pdf';
-	$pdf->Output($fileName, 'F');
+    $pdf->Output($fileName, 'F');
+    
+    //sendEmail($email, $_SERVER['DOCUMENT_ROOT']."/../PdfTemplate/invitationsPDF/".$rfc.'.pdf', $rfc);
 
     //Delete images to save space
-    unlink('invitationsPDF/BAR'.$rfc.'.png');
-    unlink('invitationsPDF/QR'.$rfc.'.png');
+    unlink($_SERVER['DOCUMENT_ROOT'] . '/../PdfTemplate/invitationsPDF/BAR'.$rfc.'.png');
+    unlink($_SERVER['DOCUMENT_ROOT'] . '/../PdfTemplate/invitationsPDF/QR'.$rfc.'.png');
 ?>
