@@ -454,12 +454,13 @@ DROP PROCEDURE IF EXISTS GetGuestFullData;
 DELIMITER //
 CREATE PROCEDURE GetGuestFullData (IN ThisEventID INT)
 BEGIN
-    SELECT DISTINCT Guest.RFC, CONCAT(Guest.Name, ' ', Guest.FirstSurname, ' ', Guest.SecondSurname) AS FullName, Guest.Email, Place.Name as PlaceName, GuestEvent.Seat, GuestEvent.Assistance, GuestEvent.Username, GuestEvent.Comment
+    SELECT DISTINCT Guest.RFC, CONCAT(Guest.Name, ' ', Guest.FirstSurname, ' ', Guest.SecondSurname) AS FullName, Guest.Email, Place.Name as PlaceName, GuestEvent.Seat, GuestEvent.Assistance, GuestEvent.Username, GuestEvent.Comment,  GuestEvent.Time
     From Guest, GuestEvent, Place, User, UserEvent
     WHERE 
         GuestEvent.EventID  = ThisEventID    AND
         GuestEvent.RFC      = Guest.RFC      AND
-        Guest.PlaceID       = Place.PlaceID;
+        Guest.PlaceID       = Place.PlaceID
+    ORDER BY Guest.RFC;
 END //
 
 DELIMITER ;

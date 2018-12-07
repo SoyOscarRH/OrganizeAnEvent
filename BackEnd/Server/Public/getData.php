@@ -73,7 +73,7 @@
 
         $query->close();
 
-        $toSend['correct'] = $seat[0];
+        $toSend['correct'] = $seat;
 
         $toSend['Message'] = "Pase de lista con exito. <br>Número de asiento: ".$seat[0];
         echo json_encode($toSend);
