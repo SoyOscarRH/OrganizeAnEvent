@@ -1,0 +1,33 @@
+.AppHeader {
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.RealIcon {
+    user-select: none;
+    cursor: pointer;
+}
+
+.RealUserView {
+    background-color: #660033;
+    line-height: 20px;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+/* For tablets: */
+@media only screen and (min-width: 650px) {
+    .AppHeader {
+        text-align: left;
+        margin-left: 4rem;
+    }
+}
+
+/* For desktop: */
+@media only screen and (min-width: 768px) {
+    .AppHeader {
+        font-size: 1.7rem;
+        text-align: left;
+        margin-left: 4rem;
+    }
+}

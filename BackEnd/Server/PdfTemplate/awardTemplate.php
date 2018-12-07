@@ -3,8 +3,7 @@
     include_once("../GeneralFunctions.php");
     include_once("Fpdf/fpdf.php");
 
-	
-	function awardTemplate($rfc)
+	function awardTemplate($rfc, $directory)
 	{
 
 		// ==============================================================================================
@@ -27,12 +26,13 @@
 		setlocale (LC_TIME, "spanish");								// Can say things in spanish
 		$pdf = new FPDF();											// Create a new PDF 
 		$pdf -> AddPage('L', 'Letter', 0);							// New page with some characteristics
-		$pdf -> SetFont('Arial', 'B', 25);							// Font style
+		$pdf -> SetFont('Arial', 'B', 30);							// Font style
 		
 		// ==============================================================================================
 		// 								    		HEADER IMAGE
 		// ==============================================================================================
 		
+		//$awardPNG = "ImagesPdf/Award/Award.jpg";
 		$awardPNG = $_SERVER['DOCUMENT_ROOT'] . "/../PdfTemplate/ImagesPdf/Award/" . 'Award.jpg';
 		$pdf -> Image($awardPNG, 0, 0, 285, 220, 'JPG');					// Put an image
 
@@ -82,9 +82,9 @@
 		
 		
 		//$pdf -> Image('ImagesPdf/Footer.PNG', 0, 190, 300, 25, 'PNG');				// Put an image
-		$fileName = $_SERVER['DOCUMENT_ROOT']."/../PdfTemplate/awardPDF/".$rfc.'.pdf';
+		//$fileName = $directory."/".$rfc.'.pdf';
+		$fileName = $_SERVER['DOCUMENT_ROOT']."/../PdfTemplate/".$directory."/".$rfc.'.pdf';
 		$pdf->Output($fileName, 'F');
-	
 	}
 	
 ?>
