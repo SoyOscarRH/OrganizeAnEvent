@@ -27,6 +27,11 @@ export default class Awards extends React.Component<AwardsProps, AwardsState> {
             .then ( (response: EventData[]) => this.setState({EventData: response}) )
     }
 
+    onAskAwards() {
+        M.toast({html: "Generandolos en una nueva pestañana, NO CERRAR"})
+        window.open('https://www.codexworld.com', '_blank');
+    }
+
     render () {
         const EventSelectorView = 
             this.state.EventData == null? 
@@ -47,8 +52,20 @@ export default class Awards extends React.Component<AwardsProps, AwardsState> {
 
         return (
             <div className="center">
-                <div className="container">
+            
+                <div className="container"  style={{fontSize: "1.9rem"}}>
                     {EventSelectorView}
+
+                    <br />
+                
+                    <div className="row">
+                        <a onClick={() => this.onAskAwards()} className="btn-large col s12 hide-on-small-only"> General TODOS los reconocimientos</a>
+                        <a onClick={() => this.onAskAwards()} className="btn-large col s12 hide-on-med-and-up"> TODOS</a>
+                    </div>
+                    <div className="row">
+                        <a onClick={() => this.onAskAwards()} className="btn-large col s12 hide-on-small-only">General los reconocimientos de los presentes</a>
+                        <a onClick={() => this.onAskAwards()} className="btn-large col s12 hide-on-med-and-up">Solo presentes</a>
+                    </div>
                 </div>
             </div>
         )
