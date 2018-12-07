@@ -62,9 +62,8 @@ export default class Awards extends React.Component<AwardsProps, AwardsState> {
                     {EventSelectorView}
 
                     <br />
-                
                     <div className="row">
-                        <a onClick={() => this.onAskAllAwards()} className="btn-large col s12 hide-on-small-only"> Generar PDF</a>
+                        <a onClick={() => this.onAskAllAwards()} className="btn-large col s12"> Generar PDF</a>
                     </div>
                 </div>
             </div>
