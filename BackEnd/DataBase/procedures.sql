@@ -372,6 +372,24 @@ END //
 DELIMITER ;
 
 /* ======================================================
+ * ===========      GET NUMBER OF CURRENT GUESTS    =========
+ * ======================================================
+ */
+
+DROP PROCEDURE IF EXISTS GetNumberOfCurrentGuests;
+
+DELIMITER //
+CREATE PROCEDURE GetNumberOfCurrentGuests(IN ThisEventID INT)
+BEGIN
+    SELECT COUNT(*)
+    FROM GuestEvent
+    WHERE GuestEvent.EventID = ThisEventID AND
+    GuestEvent.Assistance = 1;
+END //
+
+DELIMITER ;
+
+/* ======================================================
  * ===============      GET GUESTS RFC    ==============
  * ======================================================
  */
