@@ -44,7 +44,7 @@ const Dashboard: React.StatelessComponent<{}> = () => {
         <div className="row container">
 
             <DashCard name={<span><b>Pasar</b> lista</span>} link="/CheckIn" icon="assignment_turned_in" />
-            <DashCard name={<span><b>Ver</b> lista actual</span>} link="sas" icon="airline_seat_recline_normal" />
+            <DashCard name={<span><b>Generar</b> documento de speech</span>} link="sas" icon="airline_seat_recline_normal" />
             <DashCard name={<span><b>Obtener</b> Reconocimientos</span>} link="/Awards" icon="stars" />
             <DashCard name={<span><b>Gestionar</b> Invitados</span>} link="sas" icon="edit"/>
 

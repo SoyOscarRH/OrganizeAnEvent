@@ -71,7 +71,7 @@
         $query->execute();
         $query->close();
 
-        $toSend['Message'] = "Pase de lista con exito";
+        $toSend['Message'] = "Pase de lista con exito. <br>Número de asiento: ".$frontEndData['seat'];
         echo json_encode($toSend);
         exit();
     }

@@ -29,6 +29,11 @@ export default class Awards extends React.Component<AwardsProps, AwardsState> {
 
     onAskAwards() {
         M.toast({html: "Generandolos en una nueva pestañana, NO CERRAR"})
+        window.open('/generateTemplate.php?&EventID=1&All=0', '_blank');
+    }
+
+    onAskAllAwards() {
+        M.toast({html: "Generandolos en una nueva pestañana, NO CERRAR"})
         window.open('/generateTemplate.php?&EventID=1&All=1', '_blank');
     }
 
@@ -59,11 +64,11 @@ export default class Awards extends React.Component<AwardsProps, AwardsState> {
                     <br />
                 
                     <div className="row">
-                        <a onClick={() => this.onAskAwards()} className="btn-large col s12 hide-on-small-only"> General TODOS los reconocimientos</a>
-                        <a onClick={() => this.onAskAwards()} className="btn-large col s12 hide-on-med-and-up"> TODOS</a>
+                        <a onClick={() => this.onAskAllAwards()} className="btn-large col s12 hide-on-small-only"> Generar TODOS los reconocimientos</a>
+                        <a onClick={() => this.onAskAllAwards()} className="btn-large col s12 hide-on-med-and-up"> TODOS</a>
                     </div>
                     <div className="row">
-                        <a onClick={() => this.onAskAwards()} className="btn-large col s12 hide-on-small-only">General los reconocimientos de los presentes</a>
+                        <a onClick={() => this.onAskAwards()} className="btn-large col s12 hide-on-small-only">Generar los reconocimientos de los presentes</a>
                         <a onClick={() => this.onAskAwards()} className="btn-large col s12 hide-on-med-and-up">Solo presentes</a>
                     </div>
                 </div>
