@@ -20,14 +20,14 @@
     // ==============================================================================================
     //                                      QR AND BARCODE LIBRARIES
     // ==============================================================================================
-    require 'phpqrcode/qrlib.php'; 
-    include 'barcode.php';
+    include_once('phpqrcode/qrlib.php'); 
+    include_once('barcode.php');
 
     // ==============================================================================================
     //                                      PRINCIPAL INFORMATION
     // ==============================================================================================
     setlocale (LC_TIME, "spanish");                             // Can say things in spanish
-    require 'Fpdf/fpdf.php';                                    // I need it
+    include_once('Fpdf/fpdf.php');                                    // I need it
     $pdf = new FPDF();                                          // Create a new PDF 
     $pdf -> AddPage('P', 'Letter', 0);                          // New page with some characteristics
     $pdf -> SetFont('Arial', 'B', 25);                          // Font style
@@ -38,7 +38,7 @@
     //                                          HEADER IMAGE
     // ==============================================================================================
     
-    $pdf -> Image('ImagesPdf/Invitation/Header.PNG', 0, 0, 216, 50, 'PNG');         // Put an image
+    $pdf -> Image($_SERVER['DOCUMENT_ROOT'] . '/../PdfTemplate/ImagesPdf/Invitation/Header.PNG', 0, 0, 216, 50, 'PNG');         // Put an image
 
     // ==============================================================================================
     //                                        INTRODUCCTION
@@ -91,7 +91,7 @@
     //                                         SEPARATION IMAGE
     // ==============================================================================================
     
-    $pdf -> Image('ImagesPdf/Invitation/Footer.PNG', 0, 175, 300, 10, 'PNG');        // Put an image
+    $pdf -> Image($_SERVER['DOCUMENT_ROOT'] . '/../PdfTemplate/ImagesPdf/Invitation/Footer.PNG', 0, 175, 300, 10, 'PNG');        // Put an image
     
     // ==============================================================================================
     //                                         GUEST INFORMATION
@@ -113,11 +113,11 @@
     //                                             QR AND BARCODE
     // ==============================================================================================
 
-    barcode('invitationsPDF/BAR'.$rfc.'.png', $rfc, 100, 'horizontal', 'code128', true);
-    $pdf -> Image('invitationsPDF/BAR'.$rfc.'.png', 20, 230, 80, 25, 'PNG');
+    barcode($_SERVER['DOCUMENT_ROOT'] . '/../PdfTemplate/invitationsPDF/BAR'.$rfc.'.png', $rfc, 100, 'horizontal', 'code128', true);
+    $pdf -> Image($_SERVER['DOCUMENT_ROOT'] . '/../PdfTemplate/invitationsPDF/BAR'.$rfc.'.png', 20, 230, 80, 25, 'PNG');
 
     QRcode::png($rfc, 'invitationsPDF/QR'.$rfc.'.png'); 
-    $pdf -> Image('invitationsPDF/QR'.$rfc.'.png', 130, 210, 70, 70, 'PNG');
+    $pdf -> Image($_SERVER['DOCUMENT_ROOT'] . '/../PdfTemplate/invitationsPDF/QR'.$rfc.'.png', 130, 210, 70, 70, 'PNG');
     
     $fileName = $_SERVER['DOCUMENT_ROOT']."/../PdfTemplate/invitationsPDF/".$rfc.'.pdf';
 	$pdf->Output($fileName, 'F');
