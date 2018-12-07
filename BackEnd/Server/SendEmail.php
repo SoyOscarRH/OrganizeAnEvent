@@ -35,7 +35,6 @@
             $mail->From = "OrganizeAnEvent@gmail.com";      // Sender
             $mail->FromName = "Organize An Event";          // Sender name
             $mail->addAddress($email);                      // Receiver
-            echo $email;
 
             //Attachments
             $mail->addAttachment($path, $fileName);    // Optional name
@@ -60,10 +59,10 @@
             $mail->Body = $Text;
 
             $mail->send();
-            echo 'Message has been sent';
+            echo "Mensaje enviando a : $email";
         } 
         catch (Exception $e) {
-            echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+            echo 'No se pudo enviar mensaje: ', $mail->ErrorInfo;
         }
     }
     //sendEmail('enriquebroly@gmail.com', '.\Template\ImagesPdf\Invitation\HEADER.PNG', 'Invitacion IPN');

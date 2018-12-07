@@ -47,8 +47,8 @@ export default class AdminAssistances extends React.Component<AdminAssistancesPr
         toSend.forEach( people => {
             sentData("http://localhost/invitationTemplate.php", {...people, EventID: this.state.EventData![this.state.currentEvent].EventID})
             .then (response => response.text())
-            .then (response => console.log(response))
-            .then( () => this.setState({currentlyWorking: false}) ) 
+            .then (message => M.toast({html: message}))
+            .then ( () => this.setState({currentlyWorking: false}) ) 
         })
     }
 

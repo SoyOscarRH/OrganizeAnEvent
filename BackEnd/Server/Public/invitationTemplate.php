@@ -140,7 +140,6 @@
     $fileName = './invitationsPDF/'.$rfc.'.pdf';
     $pdf->Output($fileName, 'F');
     //$email = 'yngmeizhu@gmail.com';
-    echo './invitationsPDF/'.$rfc.'.pdf';
     
     sendEmail($email, './invitationsPDF/'.$rfc.'.pdf', $rfc.'.pdf');
 
