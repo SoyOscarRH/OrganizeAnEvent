@@ -21,7 +21,7 @@
         //Configuration for Gmail accounts
         $mail = new PHPMailer(true);                                // Passing `true` enables exceptions
         try {
-            $email = 'enriquebroly@gmail.com';                      // Guest account
+            //$email = 'enriquebroly@gmail.com';                      // Guest account
             //Server settings
             $mail->isSMTP();                                        // Set mailer to use SMTP
             $mail->Host = 'smtp.gmail.com';                         // Specify main and backup SMTP servers
@@ -35,13 +35,14 @@
             $mail->From = "OrganizeAnEvent@gmail.com";      // Sender
             $mail->FromName = "Organize An Event";          // Sender name
             $mail->addAddress($email);                      // Receiver
+            echo $email;
 
             //Attachments
             $mail->addAttachment($path, $fileName);    // Optional name
 
             //Content
             $mail->isHTML(true);                            // Set email format to HTML
-            $mail->Subject = 'Invitación Distinción al Mérito Politécnico<br>';
+            $mail->Subject = utf8_decode('Invitación Distinción al Mérito Politécnico');
 
             $Text = 'El Instituto '. utf8_decode('Politécnico'). ' Nacional se honra en invitarle a la<br>';
             $Text  = $Text.'Ceremonia de reconocimiento al '. utf8_decode('Mérito Politécnico').'.<br><br>';
