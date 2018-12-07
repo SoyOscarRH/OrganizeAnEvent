@@ -47,6 +47,21 @@
     }
 
     // --------------------------------------------------
+    // ------------- GET GUEST LIST  --------------------
+    // --------------------------------------------------
+    if (isset($_GET['GetGuestList'])) {
+        $query = $connection->prepare("CALL GetAllGuests(?)");
+        $query->bind_param('i', $frontEndData['EventID']);
+        $query->execute();
+
+        $toSend = mysqli_fetch_all($query->get_result(), MYSQLI_ASSOC);
+        $query->close();
+
+        echo json_encode($toSend);
+        exit();
+    }
+
+    // --------------------------------------------------
     // ------------- GET GUEST DATA  --------------------
     // --------------------------------------------------
     if (isset($_GET['SetAssistance'])) {
