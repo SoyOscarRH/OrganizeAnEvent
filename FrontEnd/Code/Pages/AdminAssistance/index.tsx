@@ -100,45 +100,29 @@ export default class AdminAssistances extends React.Component<AdminAssistancesPr
         :
         (
             <form className="left-align container">
-
-                <a className="btn" onClick={ () => {
-                    this.setState(preState => {
-                        const nextValue = this.state.PeopleAssistanceData[0].checked
-                        preState.PeopleAssistanceData.forEach(people => people.checked = !nextValue)
-                        return {PeopleAssistanceData: preState.PeopleAssistanceData}
-                    })
-                }}>
-                    Todos
-                </a>
-
-                {
-                    this.state.PeopleAssistanceData.slice(this.state.startIndex, this.state.startIndex + 50).map( (people, index) => (
-                        <p key={people.RFC}>
-                            <label>
-                                <input 
-                                    type="checkbox" 
-                                    checked={people.checked} 
-                                    onChange={ () => this.setState(
-                                        (preState) => {
-                                            const realIndex = index + this.state.startIndex
-                                            preState.PeopleAssistanceData[realIndex].checked = !preState.PeopleAssistanceData[realIndex].checked 
-                                            console.log(preState.PeopleAssistanceData[realIndex])
-
-                                            return {PeopleAssistanceData: preState.PeopleAssistanceData}
-                                        }
-                                    )}
-                                />
-                                <span>
-                                    {index + this.state.startIndex} <b>{people.RFC}</b>
-                                    <br />
-                                    {people.FullName}
-                                    <br />
-                                    {people.Email}
-                                </span>
-                            </label>
-                        </p>
-                    ))
-                }
+                <table className="responsive">
+                    <thead>
+                        <tr>
+                            <th>RFC</th>
+                            <th>Nombre Completo</th>
+                            <th>Fecha de Asistencia</th>
+                            <th>Asiento</th>
+                            <th>Lista por:</th>
+                        </tr>
+                    </thead>
+            
+                    <tbody>
+                        {
+                            this.state.PeopleAssistanceData.slice(this.state.startIndex, this.state.startIndex + 50).map( (people, index) => (
+                                <tr>
+                                    <td>{people.RFC}</td>
+                                    <td>{people.FullName}</td>
+                                </tr>
+                                    
+                            ))
+                        }
+                    </tbody>
+                </table>
 
                 <a 
                     className="btn"
@@ -170,7 +154,7 @@ export default class AdminAssistances extends React.Component<AdminAssistancesPr
         return (
             <div className="center">
             
-                <div className="container" style={{fontSize: "2.2rem"}}>
+                <div className="container">
                     {EventSelectorView}
 
                     <br />

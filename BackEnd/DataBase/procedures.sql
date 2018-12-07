@@ -459,8 +459,7 @@ BEGIN
     WHERE 
         GuestEvent.EventID  = ThisEventID    AND
         GuestEvent.RFC      = Guest.RFC      AND
-        Guest.PlaceID       = Place.PlaceID  AND
-        GuestEvent.Assistance = 1;
+        Guest.PlaceID       = Place.PlaceID;
 END //
 
 DELIMITER ;
