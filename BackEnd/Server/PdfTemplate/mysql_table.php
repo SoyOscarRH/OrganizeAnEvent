@@ -33,7 +33,7 @@ class PDF_MySQL_Table extends FPDF {
         if($fill)
             $this->SetFillColor($this->RowColors[$ci][0], $this->RowColors[$ci][1], $this->RowColors[$ci][2]);
         foreach($this->aCols as $col)
-            $this->Cell($col['w'], 5, $data[$col['f']], 1, 0, $col['a'], $fill);
+            $this->Cell($col['w'], 5, utf8_decode($data[$col['f']]), 1, 0, $col['a'], $fill);
         $this->Ln();
         $this->ColorIndex = 1 - $ci;
     }
