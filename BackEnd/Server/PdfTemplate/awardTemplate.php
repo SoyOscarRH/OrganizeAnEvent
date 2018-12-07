@@ -32,8 +32,8 @@
 		// 								    		HEADER IMAGE
 		// ==============================================================================================
 		
-		//$awardPNG = "ImagesPdf/Award/Award.jpg";
-		$awardPNG = $_SERVER['DOCUMENT_ROOT'] . "/../PdfTemplate/ImagesPdf/Award/" . 'Award.jpg';
+		$awardPNG = "ImagesPdf/Award/Award.jpg";
+		//$awardPNG = $_SERVER['DOCUMENT_ROOT'] . "/../PdfTemplate/ImagesPdf/Award/" . 'Award.jpg';
 		$pdf -> Image($awardPNG, 0, 0, 285, 220, 'JPG');					// Put an image
 
 		// ==============================================================================================
@@ -41,11 +41,7 @@
 		// ==============================================================================================
 		$pdf -> ln(70);																	// Some lines
 		$pdf -> Cell(1);																// Spaces
-	//	$pdf->Cell(50,10,utf8_decode($Escuela[0])." - ".utf8_decode($Escuela[1]),0);
 	
-
-		//$pdf -> SetFont('Helvetica', '', 30);							
-		//$pdf -> Cell(250, 25, utf8_decode('JOSE ANTONIO ORTÍZ RAMIREZ'), 100, 100, 'C');// Guest name
 		$pdf -> Cell(250, 30, utf8_decode($NameGuest), 100, 100, 'C');					// Guest name
 
 		// ==============================================================================================
@@ -82,8 +78,8 @@
 		
 		
 		//$pdf -> Image('ImagesPdf/Footer.PNG', 0, 190, 300, 25, 'PNG');				// Put an image
-		//$fileName = $directory."/".$rfc.'.pdf';
-		$fileName = $_SERVER['DOCUMENT_ROOT']."/../PdfTemplate/".$directory."/".$rfc.'.pdf';
+		$fileName = $directory."/".$rfc.'.pdf';
+		//$fileName = $_SERVER['DOCUMENT_ROOT']."/../PdfTemplate/".$directory."/".$rfc.'.pdf';
 		$pdf->Output($fileName, 'F');
 	}
 	

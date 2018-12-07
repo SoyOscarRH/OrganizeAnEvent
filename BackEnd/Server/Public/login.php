@@ -19,9 +19,8 @@
         include("index.php");
         exit();
     }
-?>
 
-<!DOCTYPE html>
+echo "<!DOCTYPE html>
 <html style="font-family: 'Lato', sans-serif;">
     <head>
         <!-- Please UFT IS LOVE -->
@@ -122,4 +121,5 @@
     </body>
 
 
-</html>
+</html>";
+?>

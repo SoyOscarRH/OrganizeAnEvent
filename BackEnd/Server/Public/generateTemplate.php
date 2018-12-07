@@ -1,12 +1,12 @@
 <?php
 	include_once("../DataBaseFunctions.php");
     include_once("../GeneralFunctions.php");
-    include_once("awardTemplate.php");
+    include_once("../awardTemplate.php");
 
 	$toSend = array();
     $frontEndData = getFrontEndData();
-
     // Receive information by front
+    //$_GET["nombre"]
     $idEvent = 1;
 
     // ==============================================================================================
@@ -40,7 +40,7 @@
 		// 						CREATE PDFs FOR EVENT 
 		// ====================================================================
 	    
-	    for($i = 0; $i < 500; $i++) {
+	    for($i = 0; $i < 5; $i++) {
 			awardTemplate($toSend[$i]['RFC'], $directory);
 		} 
 
@@ -60,9 +60,8 @@
 		// Add a directory inside zip
 		$dir = 'Evento_'.$idEvent;
 		$zip->addEmptyDir($dir);
-
 		// Add a file inside the directory that we have created
-		for ($i=0; $i < 500; $i++) { 
+		for ($i=0; $i < 5; $i++) { 
 			$zip->addFile($directory."/".$toSend[$i]['RFC'].".pdf", $dir."/".$toSend[$i]['RFC'].".pdf");
 		}
 		 // Close the zip
@@ -94,4 +93,5 @@
 	{
 		// Aquí debemos mostrar un mensaje que diga si pudo o no xd
 	}
+
 ?>
