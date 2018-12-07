@@ -51,19 +51,12 @@
     // --------------------------------------------------
     if (isset($_GET['SetAssistance'])) {
         $query = $connection->prepare("CALL SetAssistance(?, ?, ?, ?, ?)");
-        $query->bind_param(
-            'iiisi',
-            $frontEndData['RFC'],
-            $frontEndData['EventID'],
-            $frontEndData['seat'],
-            $frontEndData['representant'],
-            $_SESSION['userName']
-        );
+        $query->bind_param('siisi', $frontEndData['RFC'], $frontEndData['EventID'], $frontEndData['seat'], $frontEndData['representant'], $_SESSION['userName']);
+
         $query->execute();
         $query->close();
 
-        $toSend["Result"] = "Todo ok";
-
+        $toSend['Message'] = "Pase de lista con exito";
         echo json_encode($toSend);
         exit();
     }

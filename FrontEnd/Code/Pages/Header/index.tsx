@@ -136,6 +136,11 @@ export default class Header extends React.Component<{title: string}> {
                             icon = "format_list_bulleted"
                             name = "Pasar lista" 
                         />
+                        <MenuLink
+                            path = "/Feed"
+                            icon = "fiber_new"
+                            name = "Feed de noticias" 
+                        />
 
                     <li><a className="subheader">Analíticas</a></li>
                     
@@ -145,19 +150,19 @@ export default class Header extends React.Component<{title: string}> {
                             to        = '/Analytics'
                             onClick   = {() => M.Sidenav.getInstance(document.getElementById("SideMenu")!).close()}>
                             <i className="material-icons">assessment</i>
-                            Resúmen de Ventas
+                            Reporte General
                         </Link>
                     </li>
                     <li><div className="divider" /></li>
 
-                    <li><a className="subheader">Productos</a></li>
+                    <li><a className="subheader">Documentos</a></li>
                     <li>
                         <Link
                             className = "waves-effect"
                             to        = '/SalesPage'
                             onClick   = {() => M.Sidenav.getInstance(document.getElementById("SideMenu")!).close()}>
-                            <i className="material-icons">attach_money</i>
-                            Página de Ventas
+                            <i className="material-icons">email</i>
+                            Enviar invitaciones
                         </Link>
                     </li>
                     <li>
@@ -165,8 +170,8 @@ export default class Header extends React.Component<{title: string}> {
                             className = "waves-effect"
                             to        = '/EditProduct'
                             onClick   = {() => M.Sidenav.getInstance(document.getElementById("SideMenu")!).close()}>
-                            <i className="material-icons">edit</i>
-                            Editar Productos
+                            <i className="material-icons">stars</i>
+                            Obtener reconocimientos
                         </Link>
                     </li>
                     <li><a className="subheader">Sesión</a></li>
