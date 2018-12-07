@@ -7,6 +7,7 @@ interface AdminAssistancesState {
     currentEvent: number,
     PeopleAssistanceData: Array<PeopleAssistanceData>
     startIndex: number,
+    currentlyWorking: boolean
 }
 
 interface AdminAssistancesProps {
@@ -28,13 +29,15 @@ export default class AdminAssistances extends React.Component<AdminAssistancesPr
             EventData: null,
             currentEvent: 0,
             PeopleAssistanceData: [],
-            startIndex: 0
+            startIndex: 0,
+            currentlyWorking: false,
         }
 
     }
 
     sendEmail() {
 
+        this.setState({currentlyWorking: true})
         const toSend = this.state.PeopleAssistanceData.filter(people => people.checked)
         if (toSend.length == 0) {
             M.toast({html: "Error: No se seleccionaron invitados"})
@@ -45,6 +48,7 @@ export default class AdminAssistances extends React.Component<AdminAssistancesPr
             sentData("http://localhost/invitationTemplate.php", {...people, EventID: this.state.EventData![this.state.currentEvent].EventID})
             .then (response => response.text())
             .then (response => console.log(response))
+            .then( () => this.setState({currentlyWorking: false}) ) 
         })
     }
 
@@ -176,8 +180,9 @@ export default class AdminAssistances extends React.Component<AdminAssistancesPr
 
                 </div>
 
+
                 <div className="fixed-action-btn">
-                    <a className="btn-floating btn-large red">
+                    <a className={`btn-floating btn-large red ${this.state.currentlyWorking? "disabled" : ""}`}>
                         <i className="large material-icons" onClick={() => this.sendEmail()}>send</i>
                     </a>
                 </div>
