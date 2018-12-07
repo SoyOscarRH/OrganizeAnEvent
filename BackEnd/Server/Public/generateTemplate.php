@@ -1,13 +1,19 @@
 <?php
 	include_once("../DataBaseFunctions.php");
     include_once("../GeneralFunctions.php");
-    include_once("../awardTemplate.php");
+	include_once("../pdfTemplate/awardTemplate.php");
+	
+	session_start();
 
 	$toSend = array();
-    $frontEndData = getFrontEndData();
-    // Receive information by front
-    //$_GET["nombre"]
-    $idEvent = 1;
+
+	if ($_SESSION['logStatus'] != true) exit();
+
+	$EventID = $_GET["EventID"];
+	$All = $_GET["All"];
+	
+	$EventID = 1;
+	$All = 1;
 
     // ==============================================================================================
 	// 									   GET INFORMATION
@@ -17,9 +23,9 @@
     $connection = getConnectionToDatabase('localhost:3306');
 
     // Get RFC array
-	if ($frontEndData['all'] == 1) $query = $connection->prepare("CALL GetCurrentGuestsRFC(?)");
+	if ($All == 1) $query = $connection->prepare("CALL GetCurrentGuestsRFC(?)");
         else $query = $connection->prepare("CALL GetGuestsRFC(?)");
-        $query->bind_param('i', $idEvent);
+		$query->bind_param('i', $EventID);
         $query->execute();
 
         $toSend = mysqli_fetch_all($query->get_result(), MYSQLI_ASSOC);
@@ -31,10 +37,9 @@
 	// 							CREATE DIRECTORY TO SAVE AWARDS
 	// ==============================================================================================
 	
-	$directory = "awardEVENT_".$idEvent;
+	$directory = "awardEVENT_".$EventID;
 	
-	// mkdir(directoryName, chmod)
-	if(mkdir($directory, 0700)) {
+	if(mkdir($directory, 777)) {
 		
 		// ====================================================================
 		// 						CREATE PDFs FOR EVENT 
@@ -58,8 +63,9 @@
 		$zip->open($zipName, ZipArchive::CREATE);
 		 
 		// Add a directory inside zip
-		$dir = 'Evento_'.$idEvent;
+		$dir = 'Evento_'.$EventID;
 		$zip->addEmptyDir($dir);
+
 		// Add a file inside the directory that we have created
 		for ($i=0; $i < 5; $i++) { 
 			$zip->addFile($directory."/".$toSend[$i]['RFC'].".pdf", $dir."/".$toSend[$i]['RFC'].".pdf");
@@ -79,7 +85,7 @@
 		// 					DELETE DIRECTORY IN SERVER
 		// ====================================================================		
 		
-		foreach(glob($directory . "/*") as $archivos_carpeta){             
+		foreach(glob($directory . "/*") as $archivos_carpeta) {             
 	        if (is_dir($archivos_carpeta)){
 	          rmDir_rf($archivos_carpeta);
 	        } 

@@ -5,6 +5,7 @@ import {sentData} from "../../General/GeneralFunctions"
 interface AwardsState {
     EventData: EventData[] | null,
     currentEvent: number,
+    NewsData: Array<any>
 }
 
 interface AwardsProps {
@@ -18,18 +19,15 @@ export default class Awards extends React.Component<AwardsProps, AwardsState> {
         this.state = {
             EventData: null,
             currentEvent: 0,
+            NewsData: []
         }
+
     }
 
     componentDidMount() {
-        sentData("http://localhost/getData.php?GetEventData=", {})
+        sentData("http://localhost/getData.php?GetNews=", {EventID: this.state.EventData![this.state.currentEvent].EventID})
             .then (response => response.json())
             .then ( (response: EventData[]) => this.setState({EventData: response}) )
-    }
-
-    onAskAwards() {
-        M.toast({html: "Generandolos en una nueva pestañana, NO CERRAR"})
-        window.open('/generateTemplate.php?&EventID=1&All=1', '_blank');
     }
 
     render () {
@@ -57,15 +55,10 @@ export default class Awards extends React.Component<AwardsProps, AwardsState> {
                     {EventSelectorView}
 
                     <br />
-                
-                    <div className="row">
-                        <a onClick={() => this.onAskAwards()} className="btn-large col s12 hide-on-small-only"> General TODOS los reconocimientos</a>
-                        <a onClick={() => this.onAskAwards()} className="btn-large col s12 hide-on-med-and-up"> TODOS</a>
-                    </div>
-                    <div className="row">
-                        <a onClick={() => this.onAskAwards()} className="btn-large col s12 hide-on-small-only">General los reconocimientos de los presentes</a>
-                        <a onClick={() => this.onAskAwards()} className="btn-large col s12 hide-on-med-and-up">Solo presentes</a>
-                    </div>
+
+
+
+
                 </div>
             </div>
         )
