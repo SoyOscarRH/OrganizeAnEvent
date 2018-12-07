@@ -119,7 +119,8 @@
     QRcode::png($rfc, 'invitationsPDF/QR'.$rfc.'.png'); 
     $pdf -> Image('invitationsPDF/QR'.$rfc.'.png', 130, 210, 70, 70, 'PNG');
     
-    $pdf->Output();
+    $fileName = $_SERVER['DOCUMENT_ROOT']."/../PdfTemplate/invitationsPDF/".$rfc.'.pdf';
+	$pdf->Output($fileName, 'F');
 
     //Delete images to save space
     unlink('invitationsPDF/BAR'.$rfc.'.png');

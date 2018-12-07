@@ -33,8 +33,8 @@
 		// 								    		HEADER IMAGE
 		// ==============================================================================================
 		
-		$filePath = $_SERVER['DOCUMENT_ROOT'] . "/../PdfTemplate/ImagesPdf/Award/" . 'Award.jpg';
-		$pdf -> Image($filePath, 0, 0, 285, 220, 'JPG');					// Put an image
+		$awardPNG = $_SERVER['DOCUMENT_ROOT'] . "/../PdfTemplate/ImagesPdf/Award/" . 'Award.jpg';
+		$pdf -> Image($awardPNG, 0, 0, 285, 220, 'JPG');					// Put an image
 
 		// ==============================================================================================
 		// 								    		GUEST NAME
@@ -79,6 +79,7 @@
 		// ==============================================================================================
 		// 								   		 FOOTER IMAGE
 		// ==============================================================================================
+		
 		
 		//$pdf -> Image('ImagesPdf/Footer.PNG', 0, 190, 300, 25, 'PNG');				// Put an image
 		$fileName = $_SERVER['DOCUMENT_ROOT']."/../PdfTemplate/awardPDF/".$rfc.'.pdf';
