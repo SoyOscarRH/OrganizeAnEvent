@@ -260,7 +260,7 @@ BEGIN
         GuestEvent.RFC = GuestPrize.RFC AND
         GuestEvent.EventID = ThisEventID AND
         GuestPrize.PrizeID = ThisPrizeID AND
-        GuestPrize.Assistance = 1;
+        GuestPrize.Assistance = 1
     ORDER BY 3;
 END //
 
@@ -285,7 +285,7 @@ BEGIN
         GuestEvent.RFC = GuestPrize.RFC AND
         GuestEvent.EventID = ThisEventID AND
         GuestPrize.PrizeID = ThisPrizeID AND
-        GuestPrize.Assistance = 0;
+        GuestPrize.Assistance = 0
     ORDER BY 3;
 END //
 
