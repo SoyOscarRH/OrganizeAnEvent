@@ -32,8 +32,8 @@
 		// 								    		HEADER IMAGE
 		// ==============================================================================================
 		
-		//$awardPNG = "ImagesPdf/Award/Award.jpg";
-		$awardPNG = $_SERVER['DOCUMENT_ROOT'] . "/../PdfTemplate/ImagesPdf/Award/" . 'Award.jpg';
+		$awardPNG = "ImagesPdf/Award/Award.jpg";
+		//$awardPNG = $_SERVER['DOCUMENT_ROOT'] . "/../PdfTemplate/ImagesPdf/Award/" . 'Award.jpg';
 		$pdf -> Image($awardPNG, 0, 0, 285, 220, 'JPG');					// Put an image
 
 		// ==============================================================================================
@@ -78,8 +78,8 @@
 		
 		
 		//$pdf -> Image('ImagesPdf/Footer.PNG', 0, 190, 300, 25, 'PNG');				// Put an image
-		//$fileName = $directory."/".$rfc.'.pdf';
-		$fileName = $_SERVER['DOCUMENT_ROOT']."/../PdfTemplate/".$directory."/".$rfc.'.pdf';
+		$fileName = $directory."/".$rfc.'.pdf';
+		//$fileName = $_SERVER['DOCUMENT_ROOT']."/../PdfTemplate/".$directory."/".$rfc.'.pdf';
 		//$pdf->Output($fileName, 'F');
 	}
 	

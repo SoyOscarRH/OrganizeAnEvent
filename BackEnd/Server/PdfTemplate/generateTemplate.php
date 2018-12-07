@@ -1,77 +1,88 @@
 <?php
 	include_once("../DataBaseFunctions.php");
     include_once("../GeneralFunctions.php");
-    include_once("Fpdf/fpdf.php");
-	function awardTemplate($rfc, $directory)
-	{
-		// ==============================================================================================
-		// 									   	 GET INFORMATION
-		// ==============================================================================================
-		// Get user type
-	    $connection = getConnectionToDatabase('localhost:3306');
-	    $query = $connection->prepare("CALL  GetGuestFullName(?)");
-	    $query->bind_param('s', $rfc);
-	    $query->execute();
-	    $dataArray = mysqli_fetch_array($query->get_result());
-		$NameGuest = $dataArray[0];
-		$query->close();
+    include_once("awardTemplate.php");
+	$toSend = array();
+    $frontEndData = getFrontEndData();
+    // Receive information by front
+    //$_GET["nombre"]
+    $idEvent = 1;
+    // ==============================================================================================
+	// 									   GET INFORMATION
+	// ==============================================================================================
+   	
+   	// Database conection
+    $connection = getConnectionToDatabase('localhost:3306');
+    // Get RFC array
+	if ($frontEndData['all'] == 1) $query = $connection->prepare("CALL GetCurrentGuestsRFC(?)");
+        else $query = $connection->prepare("CALL GetGuestsRFC(?)");
+        $query->bind_param('i', $idEvent);
+        $query->execute();
+        $toSend = mysqli_fetch_all($query->get_result(), MYSQLI_ASSOC);
+        $query->close();
+		
 		mysqli_close($connection);
-		// ==============================================================================================
-		// 										PRINCIPAL INFORMATION
-		// ==============================================================================================
-		setlocale (LC_TIME, "spanish");								// Can say things in spanish
-		$pdf = new FPDF();											// Create a new PDF 
-		$pdf -> AddPage('L', 'Letter', 0);							// New page with some characteristics
-		$pdf -> SetFont('Arial', 'B', 30);							// Font style
-		
-		// ==============================================================================================
-		// 								    		HEADER IMAGE
-		// ==============================================================================================
-		
-		$awardPNG = "ImagesPdf/Award/Award.jpg";
-		//$awardPNG = $_SERVER['DOCUMENT_ROOT'] . "/../PdfTemplate/ImagesPdf/Award/" . 'Award.jpg';
-		$pdf -> Image($awardPNG, 0, 0, 285, 220, 'JPG');					// Put an image
-		// ==============================================================================================
-		// 								    		GUEST NAME
-		// ==============================================================================================
-		$pdf -> ln(70);																	// Some lines
-		$pdf -> Cell(1);																// Spaces
+   
+	// ==============================================================================================
+	// 							CREATE DIRECTORY TO SAVE AWARDS
+	// ==============================================================================================
 	
-		$pdf -> Cell(250, 30, utf8_decode($NameGuest), 100, 100, 'C');					// Guest name
-		// ==============================================================================================
-		// 								   		GUEST INFORMATION
-		// ==============================================================================================
-		$pdf -> SetFont('Helvetica', '', 12);												// Font style
-		$pdf -> ln(10);
-		$pdf -> Cell(1);
-		$pdf -> Cell(250, 10, 'Galardonado al '. utf8_decode('Mérito Politécnico'), 100, 100, 'C');
-		$pdf -> Cell(250, 10, 'Por su esfuerzo realizado en sus labores '. utf8_decode('Académicas'), 100, 100, 'C');
-		// ==============================================================================================
-		// 								   		EVENT INFORMATION
-		// ==============================================================================================
+	$directory = "awardEVENT_".$idEvent;
+	
+	// mkdir(directoryName, chmod)
+	if(mkdir($directory, 0700)) {
 		
-		//$pdf -> Cell(250, 10, $Month. ','.$Year, 100, 100, 'C');						// Date
-		$pdf -> Cell(250, 10, 'Noviembre, 2018', 100, 100, 'C');						// Date
+		// ====================================================================
+		// 						CREATE PDFs FOR EVENT 
+		// ====================================================================
+	    
+	    for($i = 0; $i < 5; $i++) {
+			awardTemplate($toSend[$i]['RFC'], $directory);
+		} 
+		// ====================================================================
+		// 						CREATE ZIP TO DOWNLOAD 
+		// ====================================================================
+	    
+	    // Created an instance of the ZipArchive class
+		$zip = new ZipArchive();
+		// Zip Name
+		$zipName = 'Reconocimientos.zip';
+		// Create and open a temporary zip file
+		$zip->open($zipName, ZipArchive::CREATE);
+		 
+		// Add a directory inside zip
+		$dir = 'Evento_'.$idEvent;
+		$zip->addEmptyDir($dir);
+		// Add a file inside the directory that we have created
+		for ($i=0; $i < 5; $i++) { 
+			$zip->addFile($directory."/".$toSend[$i]['RFC'].".pdf", $dir."/".$toSend[$i]['RFC'].".pdf");
+		}
+		 // Close the zip
+		 $zip->close();
+		 
+		// Create the headers that will force the download of the file as a zip file
+		header("Content-type: application/octet-stream");
+		header("Content-disposition: attachment; filename=".$zipName);
+		// Read the created file
+		readfile($zipName);
+		// Delete the temporary file created
+		unlink($zipName); //Destroy the temporary file
+		// ====================================================================		
+		// 					DELETE DIRECTORY IN SERVER
+		// ====================================================================		
 		
-		// ==============================================================================================
-		// 								   	  DIRECTOR INFORMATION
-		// ==============================================================================================
-		
-		$pdf -> SetFont('Arial', 'B', 10);												// Font style
-		$pdf -> ln(25);																	// Some lines
-		$pdf -> Cell(1);																// Spaces
-		//$pdf -> Cell(250, 10, '__________________________________           __________________________________         __________________________________', 100, 100, 'C');
-		$pdf -> Cell(255, 10, 'Dr. Emmanuel Alejandro Merchan Cruz     Dr. Mario Alberto Rodriguez Casas     M. en C. Hector Leoncio Martinez ', 100, 100, 'C');		
-		$pdf -> Cell(250, 10, 'Director General', 100, 100, 'C');
-		// ==============================================================================================
-		// 								   		 FOOTER IMAGE
-		// ==============================================================================================
-		
-		
-		//$pdf -> Image('ImagesPdf/Footer.PNG', 0, 190, 300, 25, 'PNG');				// Put an image
-		$fileName = $directory."/".$rfc.'.pdf';
-		//$fileName = $_SERVER['DOCUMENT_ROOT']."/../PdfTemplate/".$directory."/".$rfc.'.pdf';
-		$pdf->Output($fileName, 'F');
+		foreach(glob($directory . "/*") as $archivos_carpeta){             
+	        if (is_dir($archivos_carpeta)){
+	          rmDir_rf($archivos_carpeta);
+	        } 
+	        else {
+	        unlink($archivos_carpeta);
+	        }
+	    }
+	    rmdir($directory);
+	}	
+	else
+	{
+		// Aquí debemos mostrar un mensaje que diga si pudo o no xd
 	}
-	
 ?>
