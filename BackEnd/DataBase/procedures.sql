@@ -112,8 +112,6 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE SetAssistance(IN ThisRFC VARCHAR(10), IN ThisEventID INT, IN NewSeat INT, IN AnotherGuy VARCHAR(100), IN ThisUser INT)
 BEGIN
-    UPDATE GuestEvent SET  Seat = NewSeat
-    WHERE RFC = ThisRFC AND EventID = ThisEventID;
     SELECT MAX(Seat) INTO @MaxSeat FROM GuestEvent WHERE EventID = ThisEventID;
     SET @ActualSeat = 0;
 
@@ -495,11 +493,10 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE GetPrizes(IN ThisEventID INT)
 BEGIN
-    SELECT Prize.PrizeID
-    FROM Event, Prize
+    SELECT PrizeID
+    FROM Prize
     WHERE 
-        Event.EventID = Prize.EventID AND
-        Event.EventID = ThisEventID;
+        EventID = ThisEventID;
 END //
 
 DELIMITER ;
