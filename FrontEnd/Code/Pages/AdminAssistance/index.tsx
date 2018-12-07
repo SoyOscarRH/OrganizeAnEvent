@@ -17,7 +17,10 @@ interface PeopleAssistanceData {
     RFC: string,
     FullName: string,
     checked: boolean,
-    Email: string
+    Email: string,
+    Seat: number,
+    Username: number,
+    Time: any,
 }
 
 export default class AdminAssistances extends React.Component<AdminAssistancesProps, AdminAssistancesState> {
@@ -114,11 +117,13 @@ export default class AdminAssistances extends React.Component<AdminAssistancesPr
                     <tbody>
                         {
                             this.state.PeopleAssistanceData.slice(this.state.startIndex, this.state.startIndex + 50).map( (people, index) => (
-                                <tr>
+                                <tr key={index}>
                                     <td>{people.RFC}</td>
                                     <td>{people.FullName}</td>
+                                    <td>{people.Time}</td>
+                                    <td>{people.Seat != 0? people.Seat : "x"}</td>
+                                    <td>{people.Username}</td>
                                 </tr>
-                                    
                             ))
                         }
                     </tbody>

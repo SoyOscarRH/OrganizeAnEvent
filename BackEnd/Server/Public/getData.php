@@ -50,7 +50,7 @@
     // ------------- GET GUEST LIST  --------------------
     // --------------------------------------------------
     if (isset($_GET['GetGuestList'])) {
-        $query = $connection->prepare("CALL GetAllGuests(?)");
+        $query = $connection->prepare("CALL GetGuestFullData(?)");
         $query->bind_param('i', $frontEndData['EventID']);
         $query->execute();
 

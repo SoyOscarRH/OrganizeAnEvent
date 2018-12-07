@@ -112,13 +112,16 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE SetAssistance(IN ThisRFC VARCHAR(10), IN ThisEventID INT, IN NewSeat INT, IN AnotherGuy VARCHAR(100), IN ThisUser INT)
 BEGIN
+    UPDATE GuestEvent SET  Seat = NewSeat
+    WHERE RFC = ThisRFC AND EventID = ThisEventID;
     SELECT MAX(Seat) INTO @MaxSeat FROM GuestEvent WHERE EventID = ThisEventID;
     SET @ActualSeat = 0;
 
+    
     IF NOT EXISTS(SELECT Seat FROM GuestEvent WHERE Seat = NewSeat AND ThisEventID = EventID) AND NewSeat > 0 THEN
         UPDATE GuestEvent
         SET
-            GuestEvent.Assistance = 1, GuestEvent.Seat = NewSeat, 
+            GuestEvent.Assistance = 1, GuestEvent.Seat = 5, 
             GuestEvent.Representative = (AnotherGuy), GuestEvent.Username = ThisUser, GuestEvent.Time = NOW()
         WHERE
             GuestEvent.RFC = (ThisRFC) AND 
@@ -454,12 +457,13 @@ DROP PROCEDURE IF EXISTS GetGuestFullData;
 DELIMITER //
 CREATE PROCEDURE GetGuestFullData (IN ThisEventID INT)
 BEGIN
-    SELECT DISTINCT Guest.RFC, Guest.Name, Guest.FirstSurname, Guest.SecondSurname, Guest.Email, Place.Name as PlaceName
+    SELECT DISTINCT Guest.RFC, CONCAT(Guest.Name, ' ', Guest.FirstSurname, ' ', Guest.SecondSurname) AS FullName, Guest.Email, Place.Name as PlaceName, GuestEvent.Seat, GuestEvent.Assistance, GuestEvent.Username, GuestEvent.Comment,  GuestEvent.Time
     From Guest, GuestEvent, Place, User, UserEvent
     WHERE 
         GuestEvent.EventID  = ThisEventID    AND
         GuestEvent.RFC      = Guest.RFC      AND
-        Guest.PlaceID       = Place.PlaceID;
+        Guest.PlaceID       = Place.PlaceID
+    ORDER BY Guest.RFC;
 END //
 
 DELIMITER ;
@@ -535,6 +539,25 @@ DELIMITER ;
 
 DELIMITER //
 CREATE PROCEDURE GetNumberByPlace(IN ThisPlaceID VARCHAR(6))
+BEGIN
+    SELECT COUNT(*) FROM GuestEvent, Guest 
+    WHERE GuestEvent.RFC = Guest.RFC AND
+    Guest.PlaceID = ThisPlaceID AND
+    GuestEvent.Assistance = 1
+    ORDER BY 1;
+END //
+
+DELIMITER ;
+
+/* ======================================================
+ * ==============      GET PRIZE TOTAL   =============
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS GetPrizeTotal;
+
+DELIMITER //
+CREATE PROCEDURE GetPrizeTotal(IN ThisEventID IN)
 BEGIN
     SELECT COUNT(*) FROM GuestEvent, Guest 
     WHERE GuestEvent.RFC = Guest.RFC AND
