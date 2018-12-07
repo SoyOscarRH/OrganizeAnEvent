@@ -6,11 +6,8 @@
 
 	//if ($_SESSION['logStatus'] != true) exit();
 
-	//$EventID = $_GET["EventID"];
-	//$All = $_GET["All"];
-	
-	$EventID = 1;
-	$All = 1;
+	$EventID = $_GET["EventID"];
+	$All = $_GET["All"];
 
     $frontEndData = getFrontEndData();
     // Receive information by front
@@ -30,7 +27,7 @@
         $query->close();
 		//echo json_encode($toSend);
 
-		mysqli_close($connection);
+
    
 	// ==============================================================================================
 	// 							CREATE DIRECTORY TO SAVE AWARDS
@@ -46,8 +43,7 @@
 		// ====================================================================
 		// 						CREATE PDFs FOR EVENT 
 		// ====================================================================
-	     
-	    for($i = 0; $i < 5; $i++) {
+	    for($i = 0; $i < 9; $i++) {
 	    	//echo "".$toSend[$i]['RFC'];
 			awardTemplate($toSend[$i]['RFC'], $directory);
 		} 

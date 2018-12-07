@@ -1934,7 +1934,7 @@ INSERT INTO GuestEvent (Number, RFC, EventID) VALUES
 SHOW WARNINGS;
 
 UPDATE GuestEvent SET GuestEvent.Assistance = 0, GuestEvent.Confirmation = 0;
-SHOW WARNINGS;
+UPDATE GuestEvent SET GuestEvent.Assistance = 1, GuestEvent.Confirmation = 1 WHERE Number < 10;
 
 /* ======================================================
 * =================    GUEST'S COMMENTS     =============

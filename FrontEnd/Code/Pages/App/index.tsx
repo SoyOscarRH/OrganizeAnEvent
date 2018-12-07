@@ -10,6 +10,7 @@ import Header from "../Header"
 import Dashboard from "../Dashboard"
 import CheckIn from "../CheckIn"
 import Awards from "../Awards"
+import SendInvitations from "../SendInvitations"
 
 interface AppState {
     unlisten: () => void,
@@ -56,9 +57,9 @@ class App extends React.Component<any, AppState> {
                 <Header title={this.state.currentTitle} />
 
                 <br />
-
                 <Switch>
                     <Route path="/CheckIn" render={() => <CheckIn />} />
+                    <Route path="/SendInvitations" render={() => <SendInvitations />} />
                     <Route path="/Awards" render={() => <Awards />} />
                     <Route exact path="/" render={() => <Dashboard />} />
                     <Route path="/hi" render={() => <span>hola be</span>} />
