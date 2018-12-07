@@ -17,6 +17,7 @@ interface EventSelectorProps {
     currentEventIndex: number,
     onChangeIndex: (index: number) => void
     editable: boolean
+    text: string
 }
 
 interface EventSelectorState { 
@@ -89,7 +90,7 @@ class EventSelector extends React.Component<EventSelectorProps, EventSelectorSta
     renderCurrentEvent () {
         return (
             <div style={{fontSize: "1.3rem"}}>
-                Estas pasando lista actualmente de: 
+                {this.props.text}
                 <br />
                 <b style={{fontFamily: "Raleway", fontSize: "1.4rem"}}>
                     {this.props.EventData[this.props.currentEventIndex].EventName}

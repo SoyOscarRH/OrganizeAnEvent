@@ -51,6 +51,27 @@
     // --------------------------------------------------
     if (isset($_GET['SetAssistance'])) {
 
+        $toSend['message'] = "Todo ok";
+        echo json_encode($toSend);
+        exit();
+
+        $query = $connection->prepare("CALL SetAssistance(?, ?)");
+        $query->bind_param('sii', $frontEndData['data'], $frontEndData['EventID'], $_SESSION['userName']);
+        $query->execute();
+
+        $toSend = mysqli_fetch_all($query->get_result(), MYSQLI_ASSOC);
+        $query->close();
+
+        echo json_encode($toSend);
+        exit();
+    }
+
+
+    // --------------------------------------------------
+    // ------------- GET GUEST DATA  --------------------
+    // --------------------------------------------------
+    if (isset($_GET['GetAwards'])) {
+
         if ($frontEndData['all'] == 1) $query = $connection->prepare("CALL GetCurrentGuestsRFC(?)");
         else $query = $connection->prepare("CALL GetGuestsRFC(?)");
 
@@ -61,57 +82,37 @@
         $toSend = mysqli_fetch_all($query->get_result(), MYSQLI_ASSOC);
         $query->close();
 
+        for ($i = 0; $i < 10; $i++) {
+            awardTemplate($toSend[$i]['RFC']);
+        } 
 
-    for($i = 0; $i < 10; $i++) {
-		awardTemplate($toSend[$i]['RFC']);
-    } 
-
-
-
-
-  /*  $rfc = 2014171285;
-	// Creamos un instancia de la clase ZipArchive
-	 $zip = new ZipArchive();
-	// Creamos y abrimos un archivo zip temporal
-	 $zip->open("miarchivo.zip",ZipArchive::CREATE);
-	 // Añadimos un directorio
-	 $dir = 'ReconocimientosEVENTO';
-	 $zip->addEmptyDir($dir);
-	 // Añadimos un archivo en la raid del zip.
-	 //$zip->addFile($rfc."pdf", $rfc."pdf");
-	 //Añadimos un archivo dentro del directorio que hemos creado
-	 $zip->addFile("awardPDF/'.$rfc.'.pdf", $dir."/prueba.pdf");
-	 // Una vez añadido los archivos deseados cerramos el zip.
-	 $zip->close();
-	 // Creamos las cabezeras que forzaran la descarga del archivo como archivo zip.
-	 header("Content-type: application/octet-stream");
-	 header("Content-disposition: attachment; filename=miarchivo.zip");
-	 // leemos el archivo creado
-	 readfile('miarchivo.zip');
-	 // Por último eliminamos el archivo temporal creado
-	 unlink('miarchivo.zip');//Destruye el archivo temporal
-*/
-
+        /*  $rfc = 2014171285;
+            // Creamos un instancia de la clase ZipArchive
+            $zip = new ZipArchive();
+            // Creamos y abrimos un archivo zip temporal
+            $zip->open("miarchivo.zip",ZipArchive::CREATE);
+            // Añadimos un directorio
+            $dir = 'ReconocimientosEVENTO';
+            $zip->addEmptyDir($dir);
+            // Añadimos un archivo en la raid del zip.
+            //$zip->addFile($rfc."pdf", $rfc."pdf");
+            //Añadimos un archivo dentro del directorio que hemos creado
+            $zip->addFile("awardPDF/'.$rfc.'.pdf", $dir."/prueba.pdf");
+            // Una vez añadido los archivos deseados cerramos el zip.
+            $zip->close();
+            // Creamos las cabezeras que forzaran la descarga del archivo como archivo zip.
+            header("Content-type: application/octet-stream");
+            header("Content-disposition: attachment; filename=miarchivo.zip");
+            // leemos el archivo creado
+            readfile('miarchivo.zip');
+            // Por último eliminamos el archivo temporal creado
+            unlink('miarchivo.zip');//Destruye el archivo temporal
+        */
 
         echo json_encode($toSend);
 
         exit();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -45,6 +45,7 @@ const Dashboard: React.StatelessComponent<{}> = () => {
 
             <DashCard name={<span><b>Pasar</b> lista</span>} link="/CheckIn" icon="assignment_turned_in" />
             <DashCard name={<span><b>Ver</b> lista actual</span>} link="sas"  />
+            <DashCard name={<span><b>Obtener</b> Reconocimientos</span>} link="/Awards"  />
 
             <AdminZone>
                 <DashCard name={<span><b>Añadir</b> Usuario</span>} link="sas" />

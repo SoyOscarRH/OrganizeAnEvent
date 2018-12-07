@@ -9,6 +9,7 @@ import { createHashHistory } from "history";
 import Header from "../Header"
 import Dashboard from "../Dashboard"
 import CheckIn from "../CheckIn"
+import Awards from "../Awards"
 
 interface AppState {
     unlisten: () => void,
@@ -40,7 +41,7 @@ class App extends React.Component<any, AppState> {
     getCurrentName(pathname: string) {
         if (pathname == "/") return "Panel"
         if (pathname == "/CheckIn") return "CheckIn"
-        else return "?"
+        else return pathname.substring(1)
     }
 
     componentWillUnmount() {
@@ -58,6 +59,7 @@ class App extends React.Component<any, AppState> {
 
                 <Switch>
                     <Route path="/CheckIn" render={() => <CheckIn />} />
+                    <Route path="/Awards" render={() => <Awards />} />
                     <Route exact path="/" render={() => <Dashboard />} />
                     <Route path="/hi" render={() => <span>hola be</span>} />
                 </Switch>

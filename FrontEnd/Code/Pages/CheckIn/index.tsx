@@ -42,32 +42,30 @@ export default class CheckIn extends React.Component<CheckInProps, CheckInState>
     }
 
     handleDataInput(text: string | null) {
+        console.log(text)
         if (!text) return
         const toSend = {data: text, EventID: this.state.EventData![this.state.currentEvent].EventID}
 
         sentData("http://localhost/getData.php?GetGuestLike=", toSend)
-        .then (response => response.json())
+            .then (response => response.json())
             .then ( (personData: Array<PersonData>) => {
                 if (personData.length === 1)
-                   this.setState({currentScreen: "Confirm"})
+                   this.setState({currentScreen: "Confirm", personData: personData})
                 else if (personData.length === 0) {
                     M.toast({html: "Error: No hay personas con esta información",  displayLength: 3000})
                     this.setState({personData: []})
                     return
                 }
-                
-                this.setState({personData: (personData.length > 0)? personData : []})
+                else this.setState({personData: personData})
             })
     }
 
 
     SetAssistance(seat: number, representant: string | null) {
-        //const toSend = {seat, representant}
-        //sentData("http://localhost/getData.php?SetAssistance=", toSend)
-
-        sentData("http://localhost/getData.php?SetAssistance=", {all: 0})
-        .then (response => response.text())
-        .then (response => console.log(response))
+        const toSend = {seat, representant}
+        sentData("http://localhost/getData.php?SetAssistance=", toSend)
+        .then (response => response.json())
+        .then (response => M.toast({html: response['message']}))
 
     }
 
@@ -85,6 +83,7 @@ export default class CheckIn extends React.Component<CheckInProps, CheckInState>
                 onChangeIndex     = {(index) => this.setState({currentEvent: index, personData: []})} 
                 EventData         = {this.state.EventData!} 
                 currentEventIndex = {this.state.currentEvent}
+                text              = {"Estas pasando lista actualmente de: "}
                 editable          = {this.state.currentScreen != "Confirm"}
             />
 
@@ -175,7 +174,10 @@ export default class CheckIn extends React.Component<CheckInProps, CheckInState>
                 </div>
             )
 
-        if ((this.state.currentScreen == 'GetData' || this.state.currentScreen == 'QR') && this.state.personData && this.state.personData.length > 1) 
+        if (
+            (this.state.currentScreen == 'GetData' || this.state.currentScreen == 'QR') 
+            && this.state.personData && this.state.personData.length > 1
+        ) 
             currentScreen = (
                 <React.Fragment>
                     {currentScreen}
@@ -222,66 +224,55 @@ export default class CheckIn extends React.Component<CheckInProps, CheckInState>
 
         if (this.state.currentScreen == 'Confirm') 
             currentScreen = (
-                <div>
-                    <h5>¿Seguro de pasar lista a {this.state.personData![0].Name} {this.state.personData![0].FirstSurname} {this.state.personData![0].SecondSurname}?</h5>
+                <form onSubmit={(e) => {
+                    //@ts-ignore
+                    const seat = umber(e.currentTarget.elements[0].value), representant = e.currentTarget.elements[1].value
+                    this.setState(() => {
+                        this.SetAssistance(seat, representant)
+                        return {currentScreen: "GetData"}
+                    })
+
+                    e.preventDefault();
+                }}>
+                    <h5>
+                        ¿Seguro de pasar lista a &nbsp;
+                        {this.state.personData![0].Name} {this.state.personData![0].FirstSurname} {this.state.personData![0].SecondSurname}?
+                    </h5>
     
-                    <p>
-                        Asiento:
-                    </p>
-                    <div className="row white-text">
-                        <div className="input-field col s12 m8 offset-m2">
+                    <div className="row white-text container">
+                        <div className="input-field col s12 m6">
                             <input 
                                 id        ="seatInput" 
+                                name      ="seatInput" 
                                 type      = "number"
                                 className = "validate"
-                                required  = {true}
                                 style     = {{fontSize: "1.5rem"}}/>
-                            <label htmlFor="dataInput">Asiento</label>
+                            <label htmlFor="dataInput">Asiento Especial (si requiere)</label>
                         </div>
-                    </div>
-
-                    <p>
-                        Representante (vacío si no hay)
-                    </p>
-                    <div className="row white-text">
-                        <div className="input-field col s12 m8 offset-m2">
+                        <div className="input-field col s12 m6">
                             <input 
                                 id        ="representantInput" 
+                                name      ="seatInput" 
                                 type      = "text"
                                 className = "validate"
-                                required  = {true}
                                 style     = {{fontSize: "1.5rem"}}/>
-                            <label htmlFor="dataInput">Nombre del Representante</label>
+                            <label htmlFor="dataInput">Representante (si existe)</label>
                         </div>
                     </div>
 
-                    <a
-                        className="btn-large green"
-                        onClick={
-                            () => {
-                                //@ts-ignore
-                                const seat = document.getElementById('seatInput').value, representant = document.getElementById('representant').value
+                    <div className="row container">
+                        <button className="col s5 btn-large green" type="submit"> Pasar lista </button>
+                        <span className="col s1" />
+                        <button
+                            className = "col s5 btn-large red"
+                            onClick   = {() => this.setState({currentScreen: "GetData"})}>
+                            Regresar
+                        </button>
+                    </div>
 
-                                this.setState(() => {
-                                    this.SetAssistance(seat, representant)
-                                    M.toast({html: "Se paso lista exitosamente"})
-                                    return {currentScreen: "GetData"}
-                                })
-                            }
-                        }>
-                        Pasar lista
-                    </a>
+                    
 
-                    <br />
-                    <br />
-
-                    <a
-                        className="btn-large red"
-                        onClick={() => this.setState({currentScreen: "GetData"})}>
-                        Regresar
-                    </a>
-
-                </div>    
+                </form>    
             )   
 
         
