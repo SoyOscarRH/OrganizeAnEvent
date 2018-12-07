@@ -62,7 +62,6 @@ export default class CheckIn extends React.Component<CheckInProps, CheckInState>
 
 
     SetAssistance(seat: number, representant: string | null) {
-
         const toSend = {seat: seat > 0? seat : -1, representant: representant? representant : "", RFC: this.state.personData![0].RFC, EventID: this.state.EventData![this.state.currentEvent]}
         sentData("http://localhost/getData.php?SetAssistance=", toSend)
         .then (response => response.text() )
