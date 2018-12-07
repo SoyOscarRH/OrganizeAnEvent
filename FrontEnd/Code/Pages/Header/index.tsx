@@ -168,7 +168,7 @@ export default class Header extends React.Component<{title: string}> {
                     <li>
                         <Link
                             className = "waves-effect"
-                            to        = '/EditProduct'
+                            to        = '/Awards'
                             onClick   = {() => M.Sidenav.getInstance(document.getElementById("SideMenu")!).close()}>
                             <i className="material-icons">stars</i>
                             Obtener reconocimientos
