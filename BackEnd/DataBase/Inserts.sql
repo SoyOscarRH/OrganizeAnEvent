@@ -1933,8 +1933,12 @@ INSERT INTO GuestEvent (Number, RFC, EventID) VALUES
 
 SHOW WARNINGS;
 
-UPDATE GuestEvent SET GuestEvent.Assistance = 0, GuestEvent.Confirmation = 0;
+UPDATE GuestEvent SET GuestEvent.Assistance = 0, GuestEvent.Confirmation = 0 WHERE Number <=100;
+UPDATE GuestEvent SET GuestEvent.Assistance = 1, GuestEvent.Confirmation = 1 WHERE Number > 100 AND Number <= 200;
 SHOW WARNINGS;
+UPDATE GuestEvent SET GuestEvent.Assistance = 0, GuestEvent.Confirmation = 0 WHERE Number > 200 AND Number <= 300;
+SHOW WARNINGS;
+UPDATE GuestEvent SET GuestEvent.Assistance = 1, GuestEvent.Confirmation = 1 WHERE Number > 300;
 
 /* ======================================================
 * =================    GUEST'S COMMENTS     =============
