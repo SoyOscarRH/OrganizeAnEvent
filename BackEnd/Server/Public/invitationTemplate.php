@@ -2,11 +2,27 @@
     // ==============================================================================================
     //                                     PRINCIPAL VARIABLES
     // ==============================================================================================
-    /*
-    $rfc = $_GET['rfc'];
-    $idEvent = $_GET['idEvent'];
-    $email = $_GET['email'];
-    */
+    
+
+    include_once("../DataBaseFunctions.php");
+    include_once("../GeneralFunctions.php");
+    include_once("awardTemplate.php");
+    if (!isset($_SESSION)) session_start();
+
+    // ONLY ALLOW VALID USERS AND IN POST
+    if ($_SESSION['logStatus'] != true || $_SERVER['REQUEST_METHOD'] != 'POST') {
+        echo '{"Error": "No login status"}';
+        exit();
+    }
+
+    $toSend = array();
+    $connection = getConnectionToDatabase('localhost:3306');
+    $frontEndData = getFrontEndData();
+
+
+    $rfc = $frontEndData['RFC'];
+    $idEvent = $frontEndData['EventID'];
+    $email = $frontEndData['Email'];
 
     // ==============================================================================================
     //                                       GET INFORMATION

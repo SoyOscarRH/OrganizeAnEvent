@@ -27,14 +27,9 @@ export default class Awards extends React.Component<AwardsProps, AwardsState> {
             .then ( (response: EventData[]) => this.setState({EventData: response}) )
     }
 
-    onAskAwards() {
+    open() {
         M.toast({html: "Generandolos en una nueva pestañana, NO CERRAR"})
-        window.open('/speechUpdate.php', '_blank');
-    }
-
-    onAskAllAwards() {
-        M.toast({html: "Generandolos en una nueva pestañana, NO CERRAR"})
-        window.open('/speechUpdate.php', '_blank');
+        window.open('/speechTemplate.php', '_blank');
     }
 
     render () {
@@ -63,7 +58,7 @@ export default class Awards extends React.Component<AwardsProps, AwardsState> {
 
                     <br />
                     <div className="row">
-                        <a onClick={() => this.onAskAllAwards()} className="btn-large col s12"> Generar PDF</a>
+                        <a onClick={() => this.open()} className="btn-large col s12"> Generar PDF</a>
                     </div>
                 </div>
             </div>

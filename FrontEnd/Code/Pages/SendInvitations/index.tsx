@@ -16,6 +16,7 @@ interface PeopleInvitationData {
     RFC: string,
     FullName: string,
     checked: boolean,
+    Email: string
 }
 
 export default class SendInvitations extends React.Component<SendInvitationsProps, SendInvitationsState> {
@@ -32,11 +33,29 @@ export default class SendInvitations extends React.Component<SendInvitationsProp
 
     }
 
+    sendEmail() {
+
+        const toSend = this.state.PeopleInvitationData.filter(people => people.checked)
+        if (toSend.length == 0) {
+            M.toast({html: "Error: No se seleccionaron invitados"})
+            return
+        }
+
+        toSend.forEach( people => {
+            sentData("http://localhost/invitationTemplate.php", {...people, EventID: this.state.EventData![this.state.currentEvent].EventID})
+            .then (response => response.text())
+            .then (response => console.log(response))
+        })
+    }
 
     componentDidMount() {
         sentData("http://localhost/getData.php?GetEventData=", {})
             .then (response => response.json())
             .then ( (response: EventData[]) => this.setState({EventData: response}) )
+
+
+        const elems = document.querySelectorAll('.fixed-action-btn')
+        M.FloatingActionButton.init(elems, {})
 
     }
 
@@ -106,7 +125,11 @@ export default class SendInvitations extends React.Component<SendInvitationsProp
                                     )}
                                 />
                                 <span>
-                                    {index + this.state.startIndex} - <b>{people.RFC}:</b> {people.FullName}
+                                    {index + this.state.startIndex} <b>{people.RFC}</b>
+                                    <br />
+                                    {people.FullName}
+                                    <br />
+                                    {people.Email}
                                 </span>
                             </label>
                         </p>
@@ -143,7 +166,7 @@ export default class SendInvitations extends React.Component<SendInvitationsProp
         return (
             <div className="center">
             
-                <div className="container" style={{fontSize: "1.9rem"}}>
+                <div className="container" style={{fontSize: "2.2rem"}}>
                     {EventSelectorView}
 
                     <br />
@@ -152,6 +175,13 @@ export default class SendInvitations extends React.Component<SendInvitationsProp
                     {toShow}
 
                 </div>
+
+                <div className="fixed-action-btn">
+                    <a className="btn-floating btn-large red">
+                        <i className="large material-icons" onClick={() => this.sendEmail()}>send</i>
+                    </a>
+                </div>
+
             </div>
         )
     }
