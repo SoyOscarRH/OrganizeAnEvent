@@ -491,11 +491,10 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE GetPrizes(IN ThisEventID INT)
 BEGIN
-    SELECT Prize.PrizeID
-    FROM Event, Prize
+    SELECT PrizeID
+    FROM Prize
     WHERE 
-        Event.EventID = Prize.EventID AND
-        Event.EventID = ThisEventID;
+        EventID = ThisEventID;
 END //
 
 DELIMITER ;
