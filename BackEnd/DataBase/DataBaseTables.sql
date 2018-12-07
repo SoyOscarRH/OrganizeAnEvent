@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`Guest` (
   `FirstSurname` VARCHAR(45) NOT NULL,
   `SecondSurname` VARCHAR(45) NOT NULL,
   `Email` VARCHAR(45) NULL,
-  `PlaceID` VARCHAR(6) NOT NULL,
+  `PlaceID` VARCHAR(6) NOT NULL, 
   PRIMARY KEY (`RFC`),
   INDEX `guest_place_idx` (`PlaceID` ASC),
   CONSTRAINT `GuestPlace`
@@ -184,6 +184,7 @@ CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`GuestEvent` (
   `Seat` INT NULL,
   `Representative` VARCHAR(100) NULL,
   `Username` INT,
+  `Comment` VARCHAR(2000) NULL,
   PRIMARY KEY (`RFC`, `EventID`),
   INDEX `GEEvent_idx` (`EventID` ASC),
   CONSTRAINT `GEEvent`
@@ -199,31 +200,6 @@ CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`GuestEvent` (
     CONSTRAINT `GEUser`
     FOREIGN KEY (`Username`)
     REFERENCES `OrganizeAnEvent`.`User` (`Username`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB;
-
-SHOW WARNINGS;
-
--- -----------------------------------------------------
--- Table `OrganizeAnEvent`.`Comment`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`Comment` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `Text` VARCHAR(1000) NULL,
-  `RFC` VARCHAR(10) NOT NULL,
-  `EventID` INT NOT NULL,
-  PRIMARY KEY (`ID`),
-  INDEX `comment_guest_idx` (`RFC` ASC),
-  CONSTRAINT `CommentGuest`
-    FOREIGN KEY (`RFC`)
-    REFERENCES `OrganizeAnEvent`.`Guest` (`RFC`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
-  INDEX `comment_event_idx` (`EventID` ASC),
-  CONSTRAINT `CommentEvent`
-    FOREIGN KEY (`EventID`)
-    REFERENCES `OrganizeAnEvent`.`Event` (`EventID`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;

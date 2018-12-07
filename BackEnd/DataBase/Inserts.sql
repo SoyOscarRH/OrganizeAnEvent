@@ -803,14 +803,6 @@ INSERT INTO Guest (Name, FirstSurname, SecondSurname, RFC, PlaceID) VALUES
 ('Emilio', 'Calixto', 'González',	'CAGE550405' ,'O1A000'),
 ('Arturo', 'García', 'González',	'GAGA651215' ,'O1A000'),
 ('Leobardo', 'Sánchez','Pimentel',	'SAPL540211' ,'O1A000');
-/* ======================================================
-* =================    GUEST'S COMMENTS     =============
-* =======================================================
-*/
-INSERT INTO Comment (Text, RFC, EventID) VALUES('Primera fila incapacidad', 'SARM501017', 1);
-INSERT INTO Comment (Text, RFC, EventID) VALUES('Dificultad para caminar, requiere acompañante', 'PECA340531', 1);
-
-SHOW WARNINGS;
 
 /* ======================================================
 * =================    GUEST'S PRIZE     ================
@@ -1942,6 +1934,15 @@ INSERT INTO GuestEvent (Number, RFC, EventID) VALUES
 SHOW WARNINGS;
 
 UPDATE GuestEvent SET GuestEvent.Assistance = 0, GuestEvent.Confirmation = 0;
+SHOW WARNINGS;
+
+/* ======================================================
+* =================    GUEST'S COMMENTS     =============
+* =======================================================
+*/
+UPDATE GuestEvent SET Comment = 'Primera fila incapacidad' WHERE RFC = 'SARM501017' AND EventID = 1;
+UPDATE GuestEvent SET Comment = 'Dificultad para caminar, requiere acompañante' WHERE RFC = 'PECA340531' AND EventID = 1;
+SHOW WARNINGS;
 
 /* ======================================================
 * ========    TEST EMAILS FOR GUESTS     ================
