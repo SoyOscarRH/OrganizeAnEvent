@@ -12,6 +12,7 @@ import CheckIn from "../CheckIn"
 import Awards from "../Awards"
 import SendInvitations from "../SendInvitations"
 import Speech from "../Speech"
+import AdminAssistance from "../AdminAssistance"
 
 interface AppState {
     unlisten: () => void,
@@ -61,6 +62,7 @@ class App extends React.Component<any, AppState> {
                 <Switch>
                     <Route path="/CheckIn" render={() => <CheckIn />} />
                     <Route path="/SendInvitations" render={() => <SendInvitations />} />
+                    <Route path="/AdminAssistance" render={() => <AdminAssistance />} />
                     <Route path="/Speech" render={() => <Speech />} />
                     <Route path="/Awards" render={() => <Awards />} />
                     <Route exact path="/" render={() => <Dashboard />} />
