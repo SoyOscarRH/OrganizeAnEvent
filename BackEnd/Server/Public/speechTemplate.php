@@ -1,9 +1,11 @@
 <?php 
 	include_once("../DataBaseFunctions.php");
     include_once("../GeneralFunctions.php");
-    require('mysql_table.php');
+    include_once("./mysql_table.php");
 
     setlocale (LC_TIME, "spanish");
+
+    //$idEvent = $_GET["EventID"];
 
     $idEvent = 1;
 	// ===============================================================
@@ -104,9 +106,7 @@
 		            'color1'=>array(255, 245, 255),
 		            'color2'=>array(200, 255, 210),
 		            'padding'=>2);
-		//$pdf->Table($link, 'select RFC from Guest ', $prop);
 		$pdf->Table($link, 'CALL GetNoEventGuests('.$idEvent.','.$idPrize.')', $prop);
-		//echo 'CALL GetNoEventGuests('.$idEvent.','.$idPrize.')';
 	} 
 
 	$pdf->Output();
