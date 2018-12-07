@@ -142,7 +142,7 @@
     //$email = 'yngmeizhu@gmail.com';
     echo './invitationsPDF/'.$rfc.'.pdf';
     
-    sendEmail($email, './invitationsPDF/'.$rfc.'.pdf', $rfc);
+    sendEmail($email, './invitationsPDF/'.$rfc.'.pdf', $rfc.'.pdf');
 
     //Delete images to save space
     unlink('./invitationsPDF/BAR'.$rfc.'.png');
