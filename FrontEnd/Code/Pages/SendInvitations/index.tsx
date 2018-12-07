@@ -110,16 +110,16 @@ export default class SendInvitations extends React.Component<SendInvitationsProp
                 }}>
                     Todos
                 </a>
-
+                &nbsp;
                 <a className="btn" onClick={ () => {
                     this.setState(preState => {
-                        const nextValue = this.state.PeopleInvitationData[0].checked
-                        preState.PeopleInvitationData.forEach(people => people.checked = !nextValue)
+                        preState.PeopleInvitationData.forEach(people => people.checked = false)
                         return {PeopleInvitationData: preState.PeopleInvitationData}
                     })
                 }}>
-                    Todos
+                    Limpiar
                 </a>
+                &nbsp;
 
                 {
                     this.state.PeopleInvitationData.slice(this.state.startIndex, this.state.startIndex + 50).map( (people, index) => (

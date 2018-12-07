@@ -18,7 +18,7 @@ interface PeopleAssistanceData {
     FullName: string,
     checked: boolean,
     Email: string,
-    Seat: string,
+    Seat: number,
     Username: number,
     Time: any,
 }
@@ -121,10 +121,9 @@ export default class AdminAssistances extends React.Component<AdminAssistancesPr
                                     <td>{people.RFC}</td>
                                     <td>{people.FullName}</td>
                                     <td>{people.Time}</td>
-                                    <td>{people.Seat? people.Seat : "x"}</td>
+                                    <td>{people.Seat != 0? people.Seat : "x"}</td>
                                     <td>{people.Username}</td>
                                 </tr>
-                                    
                             ))
                         }
                     </tbody>
