@@ -30,11 +30,6 @@ export default class Awards extends React.Component<AwardsProps, AwardsState> {
             .then ( (response: EventData[]) => this.setState({EventData: response}) )
     }
 
-    onAskAwards() {
-        M.toast({html: "Generandolos en una nueva pestañana, NO CERRAR"})
-        window.open('https://www.codexworld.com', '_blank');
-    }
-
     render () {
         const EventSelectorView = 
             this.state.EventData == null? 
