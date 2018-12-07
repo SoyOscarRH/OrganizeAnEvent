@@ -115,8 +115,8 @@
     //                                         GUEST INFORMATION
     // ==============================================================================================
     
-    $Guest = 'RFC: 2014171285';
-//  $Guest = 'RFC: '.$rfc.'';
+    //$Guest = 'RFC: 2014171285';
+    $Guest = 'RFC: '.$rfc.'';
     //$rfc = 'GUMG560331'; //REMOVE THIS LINE WHEN RFC IS READY !!!!!
     $Place = 'Unidad '.utf8_decode('Académica ').': ESCOM - ESCUELA SUPERIOR DE COMPUTO';
 //  $Place = 'Unidad '.utf8_decode('Académica ').': '.$School.;
