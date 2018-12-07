@@ -41,8 +41,22 @@
 
             //Content
             $mail->isHTML(true);                            // Set email format to HTML
-            $mail->Subject = 'Order 66';
-            $mail->Body = 'Execute order 66.';
+            $mail->Subject = 'Invitación Distinción al Mérito Politécnico\n';
+
+            $Text = 'El Instituto '. utf8_decode('Politécnico'). ' Nacional se honra en invitarle a la\n';
+            $Text  = $Text.'Ceremonia de reconocimiento al '. utf8_decode('Mérito Politécnico').'.\n\n';
+
+            $Text  = $Text .'Ceremonia que se realizara el '. utf8_decode('día').' 30 de Marzo a las 10:15 horas\n' ;
+            $Text  = $Text .'en el Auditorio B "Manuel Moreno Torres" del\n';
+            $Text  = $Text .'Centro Cultural Jaime Torres Bodet\n';
+            $Text  = $Text .'el cual se encuentra ubicado en:\n\n';
+
+            $Text  = $Text .'Av. Wilfrido Massieu s/n esq. Av. Instituto '. utf8_decode('Politécnico'). 'Nacional\n';
+            $Text  = $Text .'en la Unidad Profesional Adolfo '. utf8_decode('López'). ' Mateos\n';
+            $Text  = $Text .'Zacatenco, Ciudad de '. utf8_decode('México'). ', C.P 07738\n';
+            $Text  = $Text .''.utf8_decode('Teléfono ').' 572960000\n';
+
+            $mail->Body = $Text;
 
             $mail->send();
             echo 'Message has been sent';
