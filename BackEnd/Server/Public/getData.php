@@ -1,7 +1,7 @@
 <?php
     include_once("../DataBaseFunctions.php");
     include_once("../GeneralFunctions.php");
-    include_once("../PdfTemplate/awardTemplate.php");
+    include_once("awardTemplate.php");
     if (!isset($_SESSION)) session_start();
 
 
