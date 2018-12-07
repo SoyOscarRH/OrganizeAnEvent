@@ -252,7 +252,7 @@ DELIMITER //
 CREATE PROCEDURE GetYesEventGuests(IN ThisEventID INT, IN ThisPrizeID INT)
 BEGIN
     SELECT Guest.RFC, Guest.Name, Guest.FirstSurname, Guest.SecondSurname, Place.Name AS Place, 
-        GuestEvent.Assistance, GuestEvent.Representative, GuestEvent.Comment
+        GuestEvent.Assistance, GuestEvent.Representative, GuestEvent.Comment, GuestEvent. Seat
     FROM Guest, Place, GuestEvent, GuestPrize
     WHERE 
         Place.PlaceID = Guest.PlaceID AND
@@ -277,7 +277,7 @@ DELIMITER //
 CREATE PROCEDURE GetNoEventGuests(IN ThisEventID INT, IN ThisPrizeID INT)
 BEGIN
     SELECT Guest.RFC, Guest.Name, Guest.FirstSurname, Guest.SecondSurname, Place.Name AS Place, 
-        GuestEvent.Assistance, GuestEvent.Representative, GuestEvent.Comment
+        GuestEvent.Assistance, GuestEvent.Representative, GuestEvent.Comment, GuestEvent. Seat
     FROM Guest, Place, GuestEvent, GuestPrize
     WHERE 
         Place.PlaceID = Guest.PlaceID AND
