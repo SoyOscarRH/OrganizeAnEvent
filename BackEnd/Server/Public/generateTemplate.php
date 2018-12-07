@@ -9,11 +9,13 @@
 
 	if ($_SESSION['logStatus'] != true) exit();
 
-	$EventID = $_GET["EventID"];
-	$All = $_GET["All"];
+	//$EventID = $_GET["EventID"];
+	//$All = $_GET["All"];
 	
 	$EventID = 1;
 	$All = 1;
+	echo $EventID;
+	echo $All;
 
     // ==============================================================================================
 	// 									   GET INFORMATION
@@ -27,10 +29,10 @@
         else $query = $connection->prepare("CALL GetGuestsRFC(?)");
 		$query->bind_param('i', $EventID);
         $query->execute();
-
         $toSend = mysqli_fetch_all($query->get_result(), MYSQLI_ASSOC);
         $query->close();
-		
+		echo json_encode($toSend);
+
 		mysqli_close($connection);
    
 	// ==============================================================================================
@@ -40,19 +42,21 @@
 	$directory = $_SERVER['DOCUMENT_ROOT'] . '/../PdfTemplate/awardEVENT_'.$EventID;
 	
 	if(mkdir($directory, 777)) {
-		
+		//awardTemplate("COJD560226", $directory);
+
 		// ====================================================================
 		// 						CREATE PDFs FOR EVENT 
 		// ====================================================================
-	    
+	     
 	    for($i = 0; $i < 5; $i++) {
+	    	//echo "".$toSend[$i]['RFC'];
 			awardTemplate($toSend[$i]['RFC'], $directory);
 		} 
 
 		// ====================================================================
 		// 						CREATE ZIP TO DOWNLOAD 
 		// ====================================================================
-	    
+	   
 	    // Created an instance of the ZipArchive class
 		$zip = new ZipArchive();
 
@@ -70,6 +74,8 @@
 		for ($i=0; $i < 5; $i++) { 
 			$zip->addFile($directory."/".$toSend[$i]['RFC'].".pdf", $dir."/".$toSend[$i]['RFC'].".pdf");
 		}
+		//$zip->addFile($directory."/COJD560226.pdf", $dir."/COJD560226.pdf");
+		
 		 // Close the zip
 		 $zip->close();
 		 
