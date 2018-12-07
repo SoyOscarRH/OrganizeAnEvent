@@ -58,9 +58,11 @@
 		// ===============================================================
 		$pdf -> ln(10);
 		$pdf -> Cell(1);
-		$pdf -> SetFont('Helvetica', '', 12);												// Font style
-		$pdf -> Cell(200, 10, 'PREMIO:'.utf8_decode($infPrize[0]['Prize']), 100, 100, 'C');
-/*
+		$pdf -> SetFont('Helvetica', '', 12);	
+		$pdf -> Cell(0, 6, 'PREMIO:'.utf8_decode($infPrize[0]['Prize']), 0, 1, 'C');							
+		$pdf -> Cell(0, 15, utf8_decode($infPrize[0]['Speech']), 0, 1, 'C');										
+
+
 		// Table: specify 4 columns
 		$pdf->AddCol('RFC', 60, 'NOMBRE');
 		$pdf->AddCol('RFC', 30, 'RFC');
@@ -71,9 +73,9 @@
 		            'color2'=>array(255, 255, 210),
 		            'padding'=>2);
 		
-		//$pdf->Table($connection, 'select RFC from Guest ', $prop);
-		$pdf->Table($connection, 'CALL  GetSpeechInfo('.$idEvent.','.$idPrize.')', $prop);
-*/
+		$pdf->Table($connection, 'select RFC from Guest ', $prop);
+		//$pdf->Table($connection, 'CALL  GetSpeechInfo('.$idEvent.','.$idPrize.')', $prop);
+
 	} 
 
 
