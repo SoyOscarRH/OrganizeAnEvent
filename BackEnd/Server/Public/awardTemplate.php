@@ -1,7 +1,7 @@
 <?php
 	include_once("../DataBaseFunctions.php");
     include_once("../GeneralFunctions.php");
-    include_once("Fpdf/fpdf.php");
+    include_once("../PdfTemplate/Fpdf/fpdf.php");
 	function awardTemplate($rfc, $directory)
 	{
 		// ==============================================================================================
@@ -28,7 +28,7 @@
 		// 								    		HEADER IMAGE
 		// ==============================================================================================
 		
-		$awardPNG = "ImagesPdf/Award/Award.jpg";
+		$awardPNG = "../PdfTemplate/ImagesPdf/Award/Award.jpg";
 		//$awardPNG = $_SERVER['DOCUMENT_ROOT'] . "/../PdfTemplate/ImagesPdf/Award/" . 'Award.jpg';
 		$pdf -> Image($awardPNG, 0, 0, 285, 220, 'JPG');					// Put an image
 		// ==============================================================================================

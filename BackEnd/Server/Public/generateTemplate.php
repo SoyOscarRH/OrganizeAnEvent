@@ -1,18 +1,16 @@
 <?php
 	include_once("../DataBaseFunctions.php");
     include_once("../GeneralFunctions.php");
-    include_once("awardTemplate.php");
+    include_once("./awardTemplate.php");
 	$toSend = array();
 
-	if ($_SESSION['logStatus'] != true) exit();
+	//if ($_SESSION['logStatus'] != true) exit();
 
 	//$EventID = $_GET["EventID"];
 	//$All = $_GET["All"];
 	
 	$EventID = 1;
 	$All = 1;
-	echo $EventID;
-	echo $All;
 
     $frontEndData = getFrontEndData();
     // Receive information by front
@@ -30,7 +28,7 @@
         $query->execute();
         $toSend = mysqli_fetch_all($query->get_result(), MYSQLI_ASSOC);
         $query->close();
-		echo json_encode($toSend);
+		//echo json_encode($toSend);
 
 		mysqli_close($connection);
    
@@ -38,9 +36,9 @@
 	// 							CREATE DIRECTORY TO SAVE AWARDS
 	// ==============================================================================================
 	
-	$directory = "awardEVENT_".$idEvent;
+	$directory = "./awardEVENT_".$idEvent;
 	
-	if(mkdir($directory, 777)) {
+	//if(mkdir($directory, 777)) {
 		//awardTemplate("COJD560226", $directory);
 	// mkdir(directoryName, chmod)
 	if(mkdir($directory, 0700)) {
