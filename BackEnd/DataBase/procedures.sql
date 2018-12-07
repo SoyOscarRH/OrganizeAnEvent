@@ -251,7 +251,7 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE GetYesEventGuests(IN ThisEventID INT, IN ThisPrizeID INT)
 BEGIN
-    SELECT Guest.RFC, CONCAT(Name, ' ', FirstSurname, ' ', SecondSurname) AS FullName, Place.Name AS Place, 
+    SELECT Guest.RFC, CONCAT(Guest.Name, ' ', Guest.FirstSurname, ' ', Guest.SecondSurname) AS FullName, Place.Name AS Place, 
         GuestEvent.Assistance, GuestEvent.Representative, GuestEvent.Comment, GuestEvent. Seat
     FROM Guest, Place, GuestEvent, GuestPrize
     WHERE 
@@ -276,7 +276,7 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE GetNoEventGuests(IN ThisEventID INT, IN ThisPrizeID INT)
 BEGIN
-    SELECT Guest.RFC, CONCAT(Name, ' ', FirstSurname, ' ', SecondSurname) AS FullName, Place.Name AS Place, 
+    SELECT Guest.RFC, CONCAT(Guest.Name, ' ', Guest.FirstSurname, ' ', Guest.SecondSurname) AS FullName, Place.Name AS Place, 
         GuestEvent.Assistance, GuestEvent.Representative, GuestEvent.Comment, GuestEvent. Seat
     FROM Guest, Place, GuestEvent, GuestPrize
     WHERE 
