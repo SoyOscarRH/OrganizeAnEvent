@@ -30,24 +30,31 @@
     $query->bind_param('s', $idEvent);
     $query->execute();
 
-    $dataArray = mysqli_fetch_array($query->get_result());
-    $numGuest = $dataArray[0];
+    $dataArray = mysqli_fetch_array($query->get_result(), MYSQLI_NUM);
+	$numGuest = $dataArray[0];
+	$query->close();
 
-    // Get rfc array
-    $query = $connection->prepare("CALL  GetGuestsRFC(1)");
-    //$query->bind_param('s', $idEvent);
-    $query->execute();
+	echo $numGuest;
 
-    $dataArray = mysqli_fetch_array($query->get_result());
-    $rfc = $rfcArray[0];
+	// Get rfc array
+	$query = $connection->prepare("CALL  GetGuestsRFC(?)");
+    $query->bind_param('s', $idEvent);
+	$query->execute();
+	$dataArray = mysqli_fetch_array($query->get_result(), MYSQLI_NUM);
+	$rfc = $dataArray[0];
+	$query->close();
+
+¨	echo $rfc;
 
 	mysqli_close($connection);
- 	
+	/*
+
     for($i = 0; $i < $numGuest; $i++)
     {
-		awardTemplate($rfc[0][$i]);
+		//awardTemplate($rfc[$i]);
+		//echo $rfc[$i];
     } 
-   
+   */
   /*  $rfc = 2014171285;
 	// Creamos un instancia de la clase ZipArchive
 	 $zip = new ZipArchive();

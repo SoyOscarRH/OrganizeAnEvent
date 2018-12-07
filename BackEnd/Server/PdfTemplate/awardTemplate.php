@@ -26,7 +26,8 @@
 	    $query->execute();
 
 	    $dataArray = mysqli_fetch_array($query->get_result());
-	    $NameGuest = $dataArray[0];
+		$NameGuest = $dataArray[0];
+		$query->close();
 		mysqli_close($connection);
 
 		// ==============================================================================================
