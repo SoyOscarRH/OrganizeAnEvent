@@ -7,7 +7,7 @@ interface AdminAssistancesState {
     currentEvent: number,
     PeopleAssistanceData: Array<PeopleAssistanceData>
     startIndex: number,
-    currentlyWorking: boolean
+    currentlyWorking: boolean,
 }
 
 interface AdminAssistancesProps {
@@ -21,6 +21,7 @@ interface PeopleAssistanceData {
     Seat: number,
     Username: number,
     Time: any,
+    Representative: string,
 }
 
 export default class AdminAssistances extends React.Component<AdminAssistancesProps, AdminAssistancesState> {
@@ -111,6 +112,7 @@ export default class AdminAssistances extends React.Component<AdminAssistancesPr
                             <th>Fecha de Asistencia</th>
                             <th>Asiento</th>
                             <th>Lista por:</th>
+                            <th>Representante</th>
                         </tr>
                     </thead>
             
@@ -123,6 +125,7 @@ export default class AdminAssistances extends React.Component<AdminAssistancesPr
                                     <td>{people.Time}</td>
                                     <td>{people.Seat != 0? people.Seat : "x"}</td>
                                     <td>{people.Username}</td>
+                                    <td>{people.Representative}</td>
                                 </tr>
                             ))
                         }

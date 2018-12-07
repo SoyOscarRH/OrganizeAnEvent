@@ -147,7 +147,7 @@ export default class Header extends React.Component<{title: string}> {
                     <li>
                         <Link
                             className = "waves-effect"
-                            to        = '/Analytics'
+                            to        = '/Report'
                             onClick   = {() => M.Sidenav.getInstance(document.getElementById("SideMenu")!).close()}>
                             <i className="material-icons">assessment</i>
                             Reporte General
