@@ -50,17 +50,19 @@
     // ------------- GET GUEST DATA  --------------------
     // --------------------------------------------------
     if (isset($_GET['SetAssistance'])) {
-
-        $toSend['message'] = "Todo ok";
-        echo json_encode($toSend);
-        exit();
-
-        $query = $connection->prepare("CALL SetAssistance(?, ?)");
-        $query->bind_param('sii', $frontEndData['data'], $frontEndData['EventID'], $_SESSION['userName']);
+        $query = $connection->prepare("CALL SetAssistance(?, ?, ?, ?, ?)");
+        $query->bind_param(
+            'iiisi',
+            $frontEndData['RFC'],
+            $frontEndData['EventID'],
+            $frontEndData['seat'],
+            $frontEndData['representant'],
+            $_SESSION['userName']
+        );
         $query->execute();
-
-        $toSend = mysqli_fetch_all($query->get_result(), MYSQLI_ASSOC);
         $query->close();
+
+        $toSend["Result"] = "Todo ok";
 
         echo json_encode($toSend);
         exit();

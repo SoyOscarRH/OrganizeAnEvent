@@ -62,10 +62,14 @@ export default class CheckIn extends React.Component<CheckInProps, CheckInState>
 
 
     SetAssistance(seat: number, representant: string | null) {
-        const toSend = {seat, representant}
+        
+
+        const toSend = {seat, representant, RFC: this.state.personData![0], EventID: this.state.EventData![this.state.currentEvent]}
         sentData("http://localhost/getData.php?SetAssistance=", toSend)
-        .then (response => response.json())
-        .then (response => M.toast({html: response['message']}))
+        .then (response => response.text() )
+        .then (response => console.log(response))
+        //.then (response => response.json())
+        //.then (response => M.toast({html: response['message']}))
 
     }
 
@@ -226,12 +230,11 @@ export default class CheckIn extends React.Component<CheckInProps, CheckInState>
             currentScreen = (
                 <form onSubmit={(e) => {
                     //@ts-ignore
-                    const seat = umber(e.currentTarget.elements[0].value), representant = e.currentTarget.elements[1].value
+                    const seat = Number(e.currentTarget.elements[0].value), representant = e.currentTarget.elements[1].value
                     this.setState(() => {
                         this.SetAssistance(seat, representant)
                         return {currentScreen: "GetData"}
                     })
-
                     e.preventDefault();
                 }}>
                     <h5>
