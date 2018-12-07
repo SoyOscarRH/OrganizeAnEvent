@@ -4,9 +4,9 @@
     require('mysql_table.php');
     setlocale (LC_TIME, "spanish");
 	
-	// ==============================================================================================
-	// 										PRINCIPAL INFORMATION
-	// ==============================================================================================
+	// ===============================================================
+	// 								PDF 
+	// ===============================================================
 
 	class PDF extends PDF_MySQL_Table {
 		function Header() {
@@ -19,14 +19,18 @@
 		    parent::Header();
 		}
 	}
-	$pdf = new PDF();
-	$pdf->AddPage();
-	$link = getConnectionToDatabase('localhost:3306');
+
+	$pdf = new PDF();									// Create PDF
+	$pdf->AddPage();									// Add new page
+	$link = getConnectionToDatabase('localhost:3306');	// Database conection
 	// First table: output all columns
 	//$pdf->Table($link,'select Username, Username, Type from user');
 	//$pdf->AddPage();
-	// Second table: specify 3 columns
+	
 
+
+
+	// Second table: specify 3 columns
 	$pdf->AddCol('RFC', 15, 'No.');
 	$pdf->AddCol('RFC', 60, 'NOMBRE');
 	$pdf->AddCol('RFC', 30, 'RFC');
@@ -37,9 +41,9 @@
 	            'color2'=>array(255, 255, 210),
 	            'padding'=>2);
 	
-	$pdf->Table($link, 'select RFC from Guest ', $prop);
+	//$pdf->Table($link, 'select RFC from Guest ', $prop);
 	
-	//$pdf->Table($link, 'CALL  GetGuestFullName("ZUCM690919")', $prop);
+	$pdf->Table($link, 'CALL  GetSpeechInfo('.$idEvent.','.$idPrize.')', $prop);
 	$pdf->Output();
 
 ?>
