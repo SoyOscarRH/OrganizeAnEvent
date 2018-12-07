@@ -23,7 +23,7 @@
     // ==============================================================================================
     include_once('phpqrcode/qrlib.php'); 
     include_once('barcode.php');
-    include_once("./SendEmail.php");
+    include_once("../SendEmail.php");
 
     // ==============================================================================================
     //                                      PRINCIPAL INFORMATION
