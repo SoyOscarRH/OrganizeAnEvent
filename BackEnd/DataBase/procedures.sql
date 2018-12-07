@@ -112,25 +112,32 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE SetAssistance(IN ThisRFC VARCHAR(10), IN ThisEventID INT, IN NewSeat INT, IN AnotherGuy VARCHAR(100), IN ThisUser INT)
 BEGIN
-        SELECT MAX(Seat) INTO @MaxSeat FROM GuestEvent WHERE EventID = ThisEventID;
+    SELECT MAX(Seat) INTO @MaxSeat FROM GuestEvent WHERE EventID = ThisEventID;
+    SET @ActualSeat = 0;
 
-        IF NOT EXISTS(SELECT Seat FROM GuestEvent WHERE Seat = NewSeat AND ThisEventID = EventID) AND NewSeat > 0 THEN
-            UPDATE GuestEvent
-            SET
-                GuestEvent.Assistance = 1, GuestEvent.Seat = NewSeat, 
-                GuestEvent.Representative = (AnotherGuy), GuestEvent.Username = ThisUser, GuestEvent.Time = NOW()
-            WHERE
-                GuestEvent.RFC = (ThisRFC) AND 
-                GuestEvent.EventID = ThisEventID;
-        ELSE 
-            UPDATE GuestEvent
-            SET
-                GuestEvent.Assistance = 1, GuestEvent.Seat = @MaxSeat+1, 
-                GuestEvent.Representative = (AnotherGuy), GuestEvent.Username = ThisUser, GuestEvent.Time = NOW()
-            WHERE
-                GuestEvent.RFC = (ThisRFC) AND 
-                GuestEvent.EventID = ThisEventID;
-        END IF;
+    IF NOT EXISTS(SELECT Seat FROM GuestEvent WHERE Seat = NewSeat AND ThisEventID = EventID) AND NewSeat > 0 THEN
+        UPDATE GuestEvent
+        SET
+            GuestEvent.Assistance = 1, GuestEvent.Seat = NewSeat, 
+            GuestEvent.Representative = (AnotherGuy), GuestEvent.Username = ThisUser, GuestEvent.Time = NOW()
+        WHERE
+            GuestEvent.RFC = (ThisRFC) AND 
+            GuestEvent.EventID = ThisEventID;
+            
+        SET @ActualSeat = NewSeat;
+    ELSE 
+        UPDATE GuestEvent
+        SET
+            GuestEvent.Assistance = 1, GuestEvent.Seat = @MaxSeat+1, 
+            GuestEvent.Representative = (AnotherGuy), GuestEvent.Username = ThisUser, GuestEvent.Time = NOW()
+        WHERE
+            GuestEvent.RFC = (ThisRFC) AND 
+            GuestEvent.EventID = ThisEventID;
+        SET @ActualSeat = @MaxSeat;
+    END IF;
+
+    SELECT @ActualSeat;
+
 END //
 
 DELIMITER ;
@@ -356,28 +363,15 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS GetCurrentGuestFullData;
 
 DELIMITER //
-CREATE PROCEDURE GetCurrentGuestFullData (IN ThisData VARCHAR(100), IN ThisEventID INT, IN ThisUsername INT)
+CREATE PROCEDURE GetCurrentGuestFullData (IN ThisEventID INT)
 BEGIN
     SELECT DISTINCT Guest.RFC, Guest.Name, Guest.FirstSurname, Guest.SecondSurname, Guest.Email, Place.Name as PlaceName
     From Guest, GuestEvent, Place, User, UserEvent
     WHERE 
         GuestEvent.EventID  = ThisEventID    AND
-        User.Username       = ThisUsername   AND
-        UserEvent.EventID   = ThisEventID    AND
         GuestEvent.RFC      = Guest.RFC      AND
         Guest.PlaceID       = Place.PlaceID  AND
-        (
-            Guest.RFC           LIKE CONCAT('%', ThisData, '%') OR
-            Guest.Name          LIKE CONCAT('%', ThisData, '%') OR
-            Guest.FirstSurname  LIKE CONCAT('%', ThisData, '%') OR
-            Guest.SecondSurname LIKE CONCAT('%', ThisData, '%') OR
-            Guest.Email         LIKE CONCAT('%', ThisData, '%') OR
-            ThisData            LIKE CONCAT('%', Guest.FirstSurname, " ", Guest.SecondSurname, '%')                  OR
-            ThisData            LIKE CONCAT('%', Guest.FirstSurname, " ", Guest.SecondSurname, "", Guest.Name, '%')  OR
-            ThisData            LIKE CONCAT('%', Guest.Name, " ", Guest.FirstSurname, "", Guest.SecondSurname, '%')  OR
-            ThisData            LIKE CONCAT('%', Guest.Name, " ", Guest.FirstSurname, '%') 
-        ) 
-        AND GuestEvent.Assistance = 1;
+        GuestEvent.Assistance = 1;
 END //
 
 DELIMITER ;
