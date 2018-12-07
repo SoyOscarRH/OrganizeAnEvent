@@ -37,7 +37,7 @@
 	// 							CREATE DIRECTORY TO SAVE AWARDS
 	// ==============================================================================================
 	
-	$directory = "awardEVENT_".$EventID;
+	$directory = $_SERVER['DOCUMENT_ROOT'] . '/../PdfTemplate/awardEVENT_'.$EventID;
 	
 	if(mkdir($directory, 777)) {
 		
