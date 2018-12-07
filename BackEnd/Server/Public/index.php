@@ -12,14 +12,17 @@
     // Get user type
     $connection = getConnectionToDatabase('localhost:3306');
     $query = $connection->prepare("CALL GetUserType(?)");
-    $query->bind_param('s', $username);
+    $query->bind_param('s', $_SESSION['userName']);
     $query->execute();
 
     $dataArray = mysqli_fetch_array($query->get_result());
     $userType = $dataArray['Type'];
+    
 
     mysqli_close($connection);
 ?>
+
+
 
 <!DOCTYPE html>
 <html style="font-family: 'Lato', sans-serif;">

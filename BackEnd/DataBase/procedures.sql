@@ -242,6 +242,56 @@ END //
 DELIMITER ;
 
 /* ======================================================
+ * =========      GET YES EVENT'S GUESTS     ===========
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS GetYesEventGuests;
+
+DELIMITER //
+CREATE PROCEDURE GetYesEventGuests(IN ThisEventID INT, IN ThisPrizeID INT)
+BEGIN
+    SELECT Guest.RFC, Guest.Name, Guest.FirstSurname, Guest.SecondSurname, Place.Name AS Place, 
+        GuestEvent.Assistance, GuestEvent.Representative, GuestEvent.Comment
+    FROM Guest, Place, GuestEvent, GuestPrize
+    WHERE 
+        Place.PlaceID = Guest.PlaceID AND
+        Guest.RFC = GuestEvent.RFC AND
+        GuestEvent.RFC = GuestPrize.RFC AND
+        GuestEvent.EventID = ThisEventID AND
+        GuestPrize.PrizeID = ThisPrizeID AND
+        GuestEvent.Assistance = 1
+    ORDER BY 3;
+END //
+
+DELIMITER ;
+
+/* ======================================================
+ * ===========      GET NO EVENT'S GUESTS     ===========
+ * ======================================================
+ */
+
+ DROP PROCEDURE IF EXISTS GetNoEventGuests;
+
+DELIMITER //
+CREATE PROCEDURE GetNoEventGuests(IN ThisEventID INT, IN ThisPrizeID INT)
+BEGIN
+    SELECT Guest.RFC, Guest.Name, Guest.FirstSurname, Guest.SecondSurname, Place.Name AS Place, 
+        GuestEvent.Assistance, GuestEvent.Representative, GuestEvent.Comment
+    FROM Guest, Place, GuestEvent, GuestPrize
+    WHERE 
+        Place.PlaceID = Guest.PlaceID AND
+        Guest.RFC = GuestEvent.RFC AND
+        GuestEvent.RFC = GuestPrize.RFC AND
+        GuestEvent.EventID = ThisEventID AND
+        GuestPrize.PrizeID = ThisPrizeID AND
+        GuestEvent.Assistance = 0
+    ORDER BY 3;
+END //
+
+DELIMITER ;
+
+/* ======================================================
  * ==============      GET ALL EVENTS     ===============
  * ======================================================
  */
