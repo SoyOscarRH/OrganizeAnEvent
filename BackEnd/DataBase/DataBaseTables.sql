@@ -185,6 +185,7 @@ CREATE TABLE IF NOT EXISTS `OrganizeAnEvent`.`GuestEvent` (
   `Representative` VARCHAR(100) NULL,
   `Username` INT,
   `Comment` VARCHAR(2000) NULL,
+  `Time` DATETIME NULL,
   PRIMARY KEY (`RFC`, `EventID`),
   INDEX `GEEvent_idx` (`EventID` ASC),
   CONSTRAINT `GEEvent`

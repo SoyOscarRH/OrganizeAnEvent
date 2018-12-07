@@ -110,24 +110,33 @@ DELIMITER ;
  DROP PROCEDURE IF EXISTS SetAssistance;
 
 DELIMITER //
-CREATE PROCEDURE SetAssistance(IN ThisRFC VARCHAR(10), IN ThisEventID INT, IN NewSeat INT, IN AnotherGuy VARCHAR(100))
+CREATE PROCEDURE SetAssistance(IN ThisRFC VARCHAR(10), IN ThisEventID INT, IN NewSeat INT, IN AnotherGuy VARCHAR(100), IN ThisUser INT)
 BEGIN
-    UPDATE GuestEvent
-        SET
-            GuestEvent.Assistance = 1, GuestEvent.Seat = NewSeat, GuestEvent.Representative = (AnotherGuy)
-        WHERE
-            GuestEvent.RFC = (ThisRFC) AND GuestEvent.EventID = ThisEventID;
+        SELECT MAX(Seat) INTO @MaxSeat FROM GuestEvent WHERE EventID = ThisEventID;
+
+        IF NOT EXISTS(SELECT Seat FROM GuestEvent WHERE Seat = NewSeat AND ThisEventID = EventID) AND NewSeat > 0 THEN
+            UPDATE GuestEvent
+            SET
+                GuestEvent.Assistance = 1, GuestEvent.Seat = NewSeat, 
+                GuestEvent.Representative = (AnotherGuy), GuestEvent.Username = ThisUser, GuestEvent.Time = NOW()
+            WHERE
+                GuestEvent.RFC = (ThisRFC) AND 
+                GuestEvent.EventID = ThisEventID;
+        ELSE 
+            UPDATE GuestEvent
+            SET
+                GuestEvent.Assistance = 1, GuestEvent.Seat = @MaxSeat+1, 
+                GuestEvent.Representative = (AnotherGuy), GuestEvent.Username = ThisUser, GuestEvent.Time = NOW()
+            WHERE
+                GuestEvent.RFC = (ThisRFC) AND 
+                GuestEvent.EventID = ThisEventID;
+        END IF;
 END //
 
 DELIMITER ;
 
-
-
-
-
-
-
-
+/*CALL SetAssistance('ZUCM690919', 1, 1, null, null);
+SELECT rfc, Seat, Time FROM GuestEvent WHERE Seat IS NOT NULL;*/
 
 /*DROP PROCEDURE IF EXISTS GetGuestFullData;
 
