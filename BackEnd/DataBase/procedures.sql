@@ -555,7 +555,7 @@ DELIMITER ;
  DROP PROCEDURE IF EXISTS GetPrizeTotal;
 
 DELIMITER //
-CREATE PROCEDURE GetPrizeTotal(IN ThisEventID IN)
+CREATE PROCEDURE GetPrizeTotal(IN ThisEventID INT)
 BEGIN
     SELECT COUNT(*) FROM GuestEvent, Guest 
     WHERE GuestEvent.RFC = Guest.RFC AND
