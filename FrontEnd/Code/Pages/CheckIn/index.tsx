@@ -65,7 +65,7 @@ export default class CheckIn extends React.Component<CheckInProps, CheckInState>
         const toSend = {seat: seat > 0? seat : -1, representant: representant? representant : "", RFC: this.state.personData![0].RFC, EventID: this.state.EventData![this.state.currentEvent]}
         sentData("http://localhost/getData.php?SetAssistance=", toSend)
         .then (response => response.json())
-        .then (response => M.toast({html: response['Message']}))
+        .then (response => {M.toast({html: response['Message']}); console.log(response)} )
     }
 
     render () {
