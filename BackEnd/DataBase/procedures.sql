@@ -121,7 +121,7 @@ BEGIN
     IF NOT EXISTS(SELECT Seat FROM GuestEvent WHERE Seat = NewSeat AND ThisEventID = EventID) AND NewSeat > 0 THEN
         UPDATE GuestEvent
         SET
-            GuestEvent.Assistance = 1, GuestEvent.Seat = NewSeat, 
+            GuestEvent.Assistance = 1, GuestEvent.Seat = 5, 
             GuestEvent.Representative = (AnotherGuy), GuestEvent.Username = ThisUser, GuestEvent.Time = NOW()
         WHERE
             GuestEvent.RFC = (ThisRFC) AND 
