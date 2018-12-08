@@ -13,6 +13,7 @@ import Awards from "../Awards"
 import SendInvitations from "../SendInvitations"
 import Speech from "../Speech"
 import AdminAssistance from "../AdminAssistance"
+import Report from "../Report"
 
 interface AppState {
     unlisten: () => void,
@@ -64,6 +65,7 @@ class App extends React.Component<any, AppState> {
                     <Route path="/SendInvitations" render={() => <SendInvitations />} />
                     <Route path="/AdminAssistance" render={() => <AdminAssistance />} />
                     <Route path="/Speech" render={() => <Speech />} />
+                    <Route path="/Report" render={() => <Report />} />
                     <Route path="/Awards" render={() => <Awards />} />
                     <Route exact path="/" render={() => <Dashboard />} />
                     <Route path="/hi" render={() => <span>hola be</span>} />

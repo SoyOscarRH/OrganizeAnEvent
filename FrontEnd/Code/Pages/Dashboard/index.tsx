@@ -51,7 +51,7 @@ const Dashboard: React.StatelessComponent<{}> = () => {
             <AdminZone>
                 <DashCard name={<span><b>Enviar</b> Invitaciones</span>} link="/SendInvitations" icon="email"/>
                 <DashCard name={<span><b>Feed de</b> Noticias</span>} link="sas" icon="fiber_new"/>
-                <DashCard name={<span><b>Reporte</b> General</span>} link="sas" icon="insert_chart"/>
+                <DashCard name={<span><b>Reporte</b> General</span>} link="/Report" icon="insert_chart"/>
             </AdminZone>
         </div>
     )
