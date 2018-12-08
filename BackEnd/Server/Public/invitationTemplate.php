@@ -27,12 +27,15 @@
     // ==============================================================================================
     //                                       GET INFORMATION
     // ==============================================================================================
-    /*
-        $Day = procedure($idEvent);
-        $Month = procedure($idEvent);
-        $Time = procedure($idEvent);
-        $School = procedure($rfc);
-    */
+    // Get user type
+        $connection = getConnectionToDatabase('localhost:3306');
+        $query = $connection->prepare("CALL  GetGuestFullName(?)");
+        $query->bind_param('s', $rfc);
+        $query->execute();
+        $dataArray = mysqli_fetch_array($query->get_result());
+        $NameGuest = $dataArray[0];
+        $query->close();
+        mysqli_close($connection);
 
     // ==============================================================================================
     //                                      QR AND BARCODE LIBRARIES
@@ -118,12 +121,13 @@
     //$Guest = 'RFC: 2014171285';
     $Guest = 'RFC: '.$rfc.'';
     //$rfc = 'GUMG560331'; //REMOVE THIS LINE WHEN RFC IS READY !!!!!
-    $Place = 'Unidad '.utf8_decode('Académica ').': ESCOM - ESCUELA SUPERIOR DE COMPUTO';
-//  $Place = 'Unidad '.utf8_decode('Académica ').': '.$School.;
-    $pdf -> ln(25);                                                                 // Some lines
+    //$Place = 'Unidad '.utf8_decode('Académica ').': ESCOM - ESCUELA SUPERIOR DE COMPUTO';
+    $Place = 'Unidad '.utf8_decode('Académica ').': '.$School.;
+    $pdf -> ln(20);                                                                 // Some lines
     $pdf -> SetFont('Arial', 'B', 11);                                               // Font style
     $pdf -> Cell(2);                                                                // Spaces
     $pdf -> Cell(190, 10, $Guest, 100, 100, 'L');                                    // Add text
+    $pdf -> Cell(190, 10, $NameGuest, 100, 100, 'L');                                    // Add text
     $pdf -> Cell(190, 10, $Place, 100, 100, 'L');                                    // Add text
 
 
