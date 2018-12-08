@@ -50,7 +50,7 @@
     // ------------- GET GUEST LIST  --------------------
     // --------------------------------------------------
     if (isset($_GET['GetGuestList'])) {
-        $query = $connection->prepare("CALL GetAllGuests(?)");
+        $query = $connection->prepare("CALL GetGuestFullData(?)");
         $query->bind_param('i', $frontEndData['EventID']);
         $query->execute();
 
@@ -73,7 +73,7 @@
 
         $query->close();
 
-        $toSend['correct'] = $seat[0];
+        $toSend['correct'] = $seat;
 
         $toSend['Message'] = "Pase de lista con exito. <br>Número de asiento: ".$seat[0];
         echo json_encode($toSend);

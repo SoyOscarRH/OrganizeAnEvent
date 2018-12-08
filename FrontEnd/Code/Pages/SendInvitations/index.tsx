@@ -47,7 +47,7 @@ export default class SendInvitations extends React.Component<SendInvitationsProp
         toSend.forEach( people => {
             sentData("http://localhost/invitationTemplate.php", {...people, EventID: this.state.EventData![this.state.currentEvent].EventID})
             .then (response => response.text())
-            .then (response => console.log(response))
+            .then (message => {M.toast({html: message}); console.log(message) })
             .then( () => this.setState({currentlyWorking: false}))
         })
     }
@@ -110,6 +110,16 @@ export default class SendInvitations extends React.Component<SendInvitationsProp
                 }}>
                     Todos
                 </a>
+                &nbsp;
+                <a className="btn" onClick={ () => {
+                    this.setState(preState => {
+                        preState.PeopleInvitationData.forEach(people => people.checked = false)
+                        return {PeopleInvitationData: preState.PeopleInvitationData}
+                    })
+                }}>
+                    Limpiar
+                </a>
+                &nbsp;
 
                 {
                     this.state.PeopleInvitationData.slice(this.state.startIndex, this.state.startIndex + 50).map( (people, index) => (

@@ -122,13 +122,13 @@
     $Guest = 'RFC: '.$rfc.'';
     //$rfc = 'GUMG560331'; //REMOVE THIS LINE WHEN RFC IS READY !!!!!
     //$Place = 'Unidad '.utf8_decode('Académica ').': ESCOM - ESCUELA SUPERIOR DE COMPUTO';
-    $Place = 'Unidad '.utf8_decode('Académica ').': '.$School.;
+    //$Place = 'Unidad '.utf8_decode('Académica ').': '.$School;
     $pdf -> ln(20);                                                                 // Some lines
     $pdf -> SetFont('Arial', 'B', 11);                                               // Font style
     $pdf -> Cell(2);                                                                // Spaces
     $pdf -> Cell(190, 10, $Guest, 100, 100, 'L');                                    // Add text
     $pdf -> Cell(190, 10, $NameGuest, 100, 100, 'L');                                    // Add text
-    $pdf -> Cell(190, 10, $Place, 100, 100, 'L');                                    // Add text
+    //$pdf -> Cell(190, 10, $Place, 100, 100, 'L');                                    // Add text
 
 
     // ==============================================================================================
